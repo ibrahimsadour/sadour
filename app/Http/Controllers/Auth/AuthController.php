@@ -11,7 +11,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-   
+
+ 
 
 
     public function show()
@@ -23,20 +24,47 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
+
+
+   
      
     public function postLogin(Request $request)
     {
         request()->validate([
-        'email' => 'required',
+        'identify' => 'required',
         'password' => 'required',
         ]);
  
-        $credentials = $request->only('email', 'password');
+
+      // return 'mobile';
+      $value = request() ->input('identify'); //hier pak de inhoud van de input
+
+      //controller als de gebruiker email of mobilenummer heeft geschreven:
+
+      $field = filter_var($value,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile'; // ? perces zoals if statment
+
+      /*  
+      if(filter_var($value,FILTER_VALIDATE_EMAIL){
+
+          $field = 'email';
+      }else{
+          $field = 'mobile';
+      }
+      */
+
+
+      request() -> merge([$field => $value ]);
+
+      
+      
+        $credentials = $request->only($field, 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             return redirect()->intended('/auth/dashboard');
         }
+
         return Redirect::to("/auth/login")->withSuccess('Oppes! You have entered invalid credentials');
+
     }
  
     public function postRegister(Request $request)
@@ -44,6 +72,7 @@ class AuthController extends Controller
         request()->validate([
         'name' => 'required',
         'email' => 'required|email|unique:users',
+        'mobile' => 'required|min:6',
         'password' => 'required|min:6',
         ]);
          
@@ -68,6 +97,7 @@ class AuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
+        'mobile' => $data['mobile'],
         'password' => Hash::make($data['password'])
       ]);
     }
@@ -78,30 +108,6 @@ class AuthController extends Controller
         return Redirect('/auth/login');
     }
 
-    // public function findeailOrMobile()
-    // {
-    //   // return 'mobile';
-    //   $value = request() ->input('identify'); //hier pak de inhoud van de input
-
-    //   //controller als de gebruiker email of mobilenummer heeft geschreven:
-
-    //   $field = filter_var($value,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile'; // ? perces zoals if statment
-
-    //   /*  
-    //   if(filter_var($value,FILTER_VALIDATE_EMAIL){
-
-    //       $field = 'email';
-    //   }else{
-    //       $field = 'mobile';
-    //   }
-    //   */
-
-
-    //   request() -> merge([$field => $value ]);
-
-    //   return $field;
-    //   return view('auth.dashboard');
-
-    // }
+    
 }
 ?>

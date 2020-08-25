@@ -70,3 +70,6 @@ Route::group( [
     Route::get('/logout', [AuthController::class, 'logout'])->name('.logout');
 
 });
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
