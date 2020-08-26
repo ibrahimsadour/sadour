@@ -4,7 +4,7 @@
     <div class="nicescroll-bar">
         <div class="drawer-profile-wrap">
             <div class="candidate-img-drawer mt-25 mb-20"></div>
-            <span class="candidate-name block mb-10 text-center">Ibrahim sadour</span>
+            <span class="candidate-name block mb-10 text-center">@foreach($website_strings as $strings){{$strings ->name}}@endforeach</span>
             <ul class="social-icons  mb-30">
                 <li>
                     <a class="facebook-link" href="https://www.facebook.com/sadour95">
@@ -84,7 +84,7 @@
             </ul>
         </div>
         <div class="drawer-footer mt-50 mb-30 text-center">
-            <p class="font-12 mt-10">Ibrahim sadour &copy; 2020.</p>
+            <p class="font-12 mt-10"> &copy;  {{ now()->year }}.</p>
         </div>
     </div>
 </div>       

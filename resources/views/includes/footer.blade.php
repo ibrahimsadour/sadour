@@ -1,7 +1,7 @@
 <!--Footer Sec-->
 <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
 							<h4>Bedankt voor het bezoeken.</h4>
-							<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design Ibrahim sadour</p>
+							<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design {{$strings ->name}}</p>
 								<ul class="social-icons mt-10">
 									<li>
 										<a class="facebook-link" href="#">

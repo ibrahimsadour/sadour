@@ -51,8 +51,8 @@
                     </div>
                     <div class="col-md-7 col-xs-12">
                         <div class="info-wrap">
-                            <h1>Ibrahim sadour</h1>
-                            <h5 class="mt-20 font-grey">Back End & Front End Developer</h5>
+                            <h1>@foreach($website_strings as $strings){{$strings ->name}}@endforeach</h1>
+                            <h5 class="mt-20 font-grey">{{$strings ->function}}</h5>
                             <div class="mt-30">
                                 <a id="download_cv" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  bg-green font-white mr-10" href= "{{route('Download_Cv')}}">download cv <i class="zmdi zmdi-download "></i></a>
                                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white " href="#contact_sec" data-scroll>contact <i class="zmdi zmdi-whatsapp "></i></a>
@@ -66,19 +66,19 @@
                             <li>
                                 <div class="profile-title">adres</div>
                                 <div class="profile-desc">
-                                    <p>Jan Bestevaerstraat 6 , 1541KP Koog aan de zaan</p>
+                                    <p> {{$strings ->Address}}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="profile-title">email</div>
                                 <div class="profile-desc">
-                                    i.m.s.1995@hotmail.com
+                                {{$strings ->Email}}
                                 </div>
                             </li>
                             <li>
                                 <div class="profile-title">phone</div>
                                 <div class="profile-desc">
-                                +31 685 125 82 2
+                                {{$strings ->Phone}}
                                 </div>
                             </li>
                             <li>

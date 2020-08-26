@@ -7,6 +7,8 @@ Use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Support\Facades\DB;
+
 
 
 class AuthController extends Controller
@@ -90,6 +92,8 @@ class AuthController extends Controller
         return view('auth.dashboard');
       }
        return Redirect::to("/auth/login")->withSuccess('Opps! You do not have access');
+
+
     }
  
     public function create(array $data)

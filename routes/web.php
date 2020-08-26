@@ -1,7 +1,8 @@
 <?php
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,29 @@ Route::get('/', function () {
 });
 
 
+
 Route::get('/sadour', function () {
 
-    return view('sadour');
+    // $role = Role::create(['name' => 'user']);
+    // $permission = Permission::create(['name' => 'see post']);
+
+
+    // give perimission  to roles
+    // $role = Role:: findById(3);
+    // $permission = permission::findById(3);
+    // $role->givePermissionTo($permission);
+
+    // give the user perimission
+    // auth()-> user()->givePermissionTo('edit post');
+
+    // give the user roles
+    // auth()-> user()->assignRole('user');
+    
+
+        return view('sadour');
+
 });
+
 
 // deze Route is gemaakt door Ibrahim om (CV van ibrahim sadour door de butten te downloaden)
 Route::get('/download', function () {
@@ -70,6 +90,19 @@ Route::group( [
     Route::get('/logout', [AuthController::class, 'logout'])->name('.logout');
 
 });
-// Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('', 'ShowStringController\ShowStringController@show_string');
+Route::get('sadour', 'ShowStringController\ShowStringController@show_string');
+
+
+Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names([
+    'create' => 'auth.dashboard.admin.create',
+    'edit' => 'auth.dashboard.admin.edit'
+    ]);
+
+// Route::patch('/auth/dashboard/admin/edit?', 'Admin\AdminAddUsersController@update')->name('update');
+
+
+
+

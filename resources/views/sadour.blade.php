@@ -1,7 +1,6 @@
 <!-- resources/views/layouts/master.blade.php -->
 @extends('layouts.master')
-<!-- master -->
-
+<!-- master -->    
 <!-- in deze sectie wordt alle content van de website toegoevogd.. -->
 @section('content')
 

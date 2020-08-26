@@ -1,0 +1,104 @@
+<?php
+namespace App\Http\Controllers\Admin;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use Validator,Redirect,Response,Session;
+Use App\admin;
+
+
+class AdminAddUsersController extends Controller
+{
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+
+        $website_strings = admin::all()->toArray();
+
+        return view('pages.admin.index', compact('website_strings'));
+
+   
+    }   
+    
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('pages.admin.AddUsers');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name'    =>  'required',
+            'description'     =>  'required',
+            'keywords'     =>  'required'
+            
+        ]);
+        $add_user = new admin([
+            'name'    =>  $request->get('name'),
+            'description'     =>  $request->get('description'),
+            'keywords'     =>  $request->get('keywords'),
+            'date'     =>  $request->get('date'),
+            'Address'     =>  $request->get('Address'),
+            'Email'     =>  $request->get('Email'),
+            'Phone'     =>  $request->get('Phone'),
+            'function'     =>  $request->get('function')
+        ]);
+        $add_user->save();
+        return redirect()->route('auth.dashboard.admin.create')->with('success', 'Data Added');
+    }
+   
+    public function edit($id)
+    {
+
+    
+    $website_strings = admin::find($id);
+    return view('pages.admin.edit', compact('website_strings', 'id'));
+    
+
+    }
+    public function update(Request $request, $id)
+    {
+
+        // dd($request);
+        $this->validate($request, [
+            'name'    =>  'required',
+            'description'     =>  'required',
+            'keywords'     =>  'required',
+            'date'     =>  'required',
+            'Address'     =>  'required',
+            'Email'     =>  'required',
+            'Phone'     =>  'required',
+            'function'     =>  'required'
+        ]);
+
+        $student = admin::find($id);
+        $student->name = $request->get('name');
+        $student->description = $request->get('description');
+        $student->keywords = $request->get('keywords');
+        $student->date = $request->get('date');
+        $student->Address = $request->get('Address');
+        $student->Email = $request->get('Email');
+        $student->Phone = $request->get('Phone');
+        $student->function = $request->get('function');
+        $student->save();
+        return redirect()->route('auth.dashboard.admin.edit',['admin' => $student->id])->with('success', 'Data Updated');
+    }
+   
+
+
+}
