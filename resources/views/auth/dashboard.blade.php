@@ -1,57 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.AdminDashboard')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+@section('Dashboard')
+<nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
+    <a class="navbar-brand mr-lg-5" href="../../index.html">
+        <img class="navbar-brand-dark" src="{{asset('img/admin/logo_site.png')}}" alt="Volt logo" /> <img class="navbar-brand-light" src="{{asset('img/admin/logo_site.png')}}" alt="Volt logo" />
+    </a>
+    <div class="d-flex align-items-center">
+        <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
 
-                        {{ __('You are logged in!') }}
-                        <br>
-                        Welcome : {{ Auth::user()->name }}
-                                    
-                        <div class="links">
-                            @role('user|writer')
-                            <a href="#">write post</a><br>
-                            @endrole
+        <div class="container-fluid bg-soft">
+            <div class="row">
+                <div class="col-12">
+                    <!--Setting-->
+                    <!-- resources/views/sections/setting.blade.php -->
+                    @include('pages.admin.Admin_LeftSidebar')
+                    <!--/Setting-->
 
-                            @role('writer')
-                            <a href="#">edit post</a><br>
-                            <a href="#">see all post</a><br>
-                            <a href="{{url('auth/dashboard/admin/create')}}">Add user</a><br>
-                            <a href="{{url('auth/dashboard/admin')}}">All users</a><br>
+                    <main class="content">
 
-                            @endrole
+                        <!--Setting-->
+                        <!-- resources/views/sections/setting.blade.php -->
+                        @include('pages.admin.Admin_header')
+                        <!--/Setting-->
 
-                            @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('auth/login')}}" style="color: rgb(0 152 212);font-size: 18px;font-weight: 700;">Login</a>
-                            </li>
-                            @if (url('auth/register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{url('auth/register')}}" style="color: rgb(0 152 212);font-size: 18px;font-weight: 700;"> Register </a>
-                                </li>
-                            @endif
-                        @else
-
-                        <a href="{{url('auth/logout')}}" > Logout</a>
-                        
-                        @endguest
-                        </div>
-
-                    </div>
-
+                        <!--Setting-->
+                        <!-- resources/views/sections/setting.blade.php -->
+                        @include('pages.admin.Admin_footer')
+                        <!--/Setting-->
+                    </main>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection

@@ -1,4 +1,5 @@
 <!--Skills Sec-->
+
 <section id="skills_sec" class="skills-sec sec-pad-top-sm">
                     <div class="row">
                     <h2 class="mb-30" style="text-align: center;">Vaardigheden</h2>

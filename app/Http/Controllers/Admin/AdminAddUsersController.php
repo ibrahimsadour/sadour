@@ -20,7 +20,7 @@ class AdminAddUsersController extends Controller
 
         $website_strings = admin::all()->toArray();
 
-        return view('pages.admin.index', compact('website_strings'));
+        return view('pages.admin.Website_String.Users.AllUsers', compact('website_strings'));
 
    
     }   
@@ -37,7 +37,7 @@ class AdminAddUsersController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.AddUsers');
+        return view('pages.admin.Website_String.Users.Add');
     }
 
     public function store(Request $request)
@@ -56,7 +56,8 @@ class AdminAddUsersController extends Controller
             'Address'     =>  $request->get('Address'),
             'Email'     =>  $request->get('Email'),
             'Phone'     =>  $request->get('Phone'),
-            'function'     =>  $request->get('function')
+            'function'     =>  $request->get('function'),
+            'view'     =>  $request->get('view')
         ]);
         $add_user->save();
         return redirect()->route('auth.dashboard.admin.create')->with('success', 'Data Added');
@@ -67,7 +68,7 @@ class AdminAddUsersController extends Controller
 
     
     $website_strings = admin::find($id);
-    return view('pages.admin.edit', compact('website_strings', 'id'));
+    return view('pages.admin.Website_String.Users.Edit', compact('website_strings', 'id'));
     
 
     }

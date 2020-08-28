@@ -14,33 +14,33 @@ use Spatie\Permission\Models\Permission;
 |
 */
 
-Route::get('/', function () {
-    return view('sadour');
-});
+// Route::get('/', function () {
+//     return view('sadour');
+// });
 
 
 
-Route::get('/sadour', function () {
+// Route::get('/sadour', function () {
 
-    // $role = Role::create(['name' => 'user']);
-    // $permission = Permission::create(['name' => 'see post']);
+//     // $role = Role::create(['name' => 'user']);
+//     // $permission = Permission::create(['name' => 'see post']);
 
 
-    // give perimission  to roles
-    // $role = Role:: findById(3);
-    // $permission = permission::findById(3);
-    // $role->givePermissionTo($permission);
+//     // give perimission  to roles
+//     // $role = Role:: findById(3);
+//     // $permission = permission::findById(3);
+//     // $role->givePermissionTo($permission);
 
-    // give the user perimission
-    // auth()-> user()->givePermissionTo('edit post');
+//     // give the user perimission
+//     // auth()-> user()->givePermissionTo('edit post');
 
-    // give the user roles
-    // auth()-> user()->assignRole('user');
+//     // give the user roles
+//     // auth()-> user()->assignRole('user');
     
 
-        return view('sadour');
+//         return view('sadour');
 
-});
+// });
 
 
 // deze Route is gemaakt door Ibrahim om (CV van ibrahim sadour door de butten te downloaden)
@@ -92,17 +92,36 @@ Route::group( [
 });
 
 
+// deze route om de informatie van  gebruiker op de site te laatzien
 Route::get('', 'ShowStringController\ShowStringController@show_string');
 Route::get('sadour', 'ShowStringController\ShowStringController@show_string');
 
 
+
+// deze Route is gemaakt door Ibrahim sadour
+// de informatie van de site gebruiker aan te passen
+// zoals ( name , description, keywords,date,Address,Email,Phone)
 Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names([
     'create' => 'auth.dashboard.admin.create',
     'edit' => 'auth.dashboard.admin.edit'
-    ]);
 
-// Route::patch('/auth/dashboard/admin/edit?', 'Admin\AdminAddUsersController@update')->name('update');
+]);
 
+// deze Route is gemaakt door Ibrahim sadour
+// de ervaring informatie van de site gebruiker aan te passen
+// zoals ( company_name , place, period,description)
+Route::resource('/auth/dashboard/ervaring','Ervaring\ErvaringUsersController')->names([
+    'create' => 'auth.dashboard.ervaing.create',
+    'edit' => 'auth.dashboard.ervaring.edit'
 
+]);
 
+// deze Route is gemaakt door Ibrahim sadour
+// de Opleding informatie van de site gebruiker aan te passen
+// zoals ( company_name , place, period,description)
+Route::resource('/auth/dashboard/opleiding','Opleiding\OpleidingUsersController')->names([
+    'create' => 'auth.dashboard.opleiding.create',
+    'edit' => 'auth.dashboard.opleiding.edit'
+
+]);
 

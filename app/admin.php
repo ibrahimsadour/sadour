@@ -25,7 +25,7 @@ class admin extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description','keywords','date','Address','Email','Phone','function'
+        'name', 'description','keywords','date','Address','Email','Phone','function','view'
     ];
 
 }
