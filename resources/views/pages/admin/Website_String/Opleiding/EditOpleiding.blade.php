@@ -28,7 +28,7 @@ label {
                     <div class="col-12">
                         <!--Setting-->
                         <!-- resources/views/sections/setting.blade.php -->
-                        @include('pages.admin.Admin_LeftSidebar')
+                        @include('pages.admin.Website_String.includes.Admin_LeftSidebar')
                         <!--/Setting-->
 
                         <main class="content">
@@ -38,7 +38,7 @@ label {
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
-                                @include('pages.admin.Admin_header')
+                                @include('pages.admin.Website_String.includes.Admin_header')
                                 <!--/Setting-->
 
                                    <div class="row">
@@ -87,7 +87,7 @@ label {
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
-                                @include('pages.admin.Admin_footer')
+                                @include('pages.admin.Website_String.includes.Admin_footer')
                                 <!--/Setting-->
                         </main>
                     </div>

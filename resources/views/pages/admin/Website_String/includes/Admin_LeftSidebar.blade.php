@@ -44,19 +44,25 @@
           </div>
         </li>
         <li class="nav-item ">
-          <a href="../../pages/transactions.html" class="nav-link">
-              <span class="sidebar-icon"><span class="fas fa-hand-holding-usd"></span></span>
-              <span>Transactions</span>
+          <a href="{{url('/auth/dashboard/contact')}}" class="nav-link">
+              <span class="sidebar-icon"><span class="fa fa-envelope"></span></span>
+              <span>Contact</span>
           </a>
         </li>
         
         <li class="nav-item ">
-          <a href="../../pages/settings.html" class="nav-link">
+          <a href="{{url('/auth/dashboard/setting')}}" class="nav-link">
               <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
               <span>Settings</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ">
+          <a href="{{url('/auth/dashboard/profile')}}" class="nav-link">
+              <span class="sidebar-icon"><span class="far fa-user-circle"></span></span>
+              <span>My Profile</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-app">
             <span>
               <span class="sidebar-icon"><span class="fas fa-table"></span></span> 
@@ -69,8 +75,8 @@
                   <li class="nav-item "><a class="nav-link" href="../../pages/tables/bootstrap-tables.html"><span>Bootstrap Tables</span></a></li>
               </ul>
           </div>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-pages">
             <span>
               <span class="sidebar-icon"><span class="far fa-file-alt"></span></span> 
@@ -89,8 +95,8 @@
                   <li class="nav-item"><a class="nav-link" href="../../pages/examples/500.html"><span>500 Server Error</span></a></li>
               </ul>
           </div>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-components">
             <span>
               <span class="sidebar-icon"><span class="fas fa-box-open"></span></span> 
@@ -107,17 +113,17 @@
                   <li class="nav-item "><a class="nav-link" href="../../pages/components/typography.html"><span>Typography</span></a></li>
               </ul>
           </div>
-        </li>
+        </li> -->
         <li role="separator" class="dropdown-divider mt-4 mb-3 border-black"></li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="../../index.html" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon">
               <img src="{{asset('img/admin/logo_site.png')}}" height="20" width="20" alt="Volt Logo">
             </span>
             <span class="mt-1">Volt Overview</span>
           </a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/quick-start/" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon"><span class="fas fa-book"></span></span>
             <span>Quick Start</span>
@@ -128,9 +134,9 @@
             <span class="sidebar-icon"><span class="fas fa-rocket"></span></span>
             <span>Upgrade to Pro</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a href="https://themesberg.com" target="_blank" class="nav-link d-flex align-items-center">
+          <a href="{{url('sadour')}}" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon">
               <img src="{{asset('img/admin/logo_site.png')}}" height="20" width="20" alt="Themesberg Logo">
             </span>

@@ -75,7 +75,7 @@ class AdminAddUsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        // dd($request);
+       
         $this->validate($request, [
             'name'    =>  'required',
             'description'     =>  'required',

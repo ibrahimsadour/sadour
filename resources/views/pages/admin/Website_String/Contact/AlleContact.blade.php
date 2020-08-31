@@ -52,13 +52,12 @@
                                         <p class="mb-0">Your web Ervaring dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
-                                    @role('admin')
+                                        @role('admin')
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
                                         </div>
-                                    @endrole
-
+                                        @endrole
                                     </div>
                                 </div>
                                 <div class="table-settings mb-4">
@@ -69,20 +68,19 @@
                                                 <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
                                             </div>
                                         </div>
-                                        @role('admin')
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
+                                            @role('admin')
                                             <div class="btn-group">
-                                            <form method="get" action="{{url('auth/dashboard/ervaring/create')}}">
-                                                <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" >
+                                            <form method="get" action="">
+                                                <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" disabled >
                                                         <span class="icon icon-sm icon-gray">
                                                             <span class="fas fa-user-plus"></span>
                                                         </span>
                                                 </button>
                                             </form>
                                             </div>
+                                            @endrole
                                         </div>
-                                        @endrole
-
                                     </div>
                                 </div>
 
@@ -96,16 +94,15 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>company_name</th>						
-                                            <th>place</th>
-                                            <th>period</th>
-                                            <th>description</th>
+                                            <th>Name</th>						
+                                            <th>Email</th>
+                                            <th>Message</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- Item -->
-                                        @foreach($website_ervaring as $row)
+                                        @foreach($contact_strings as $row)
                                             <tr>
                                                 <td>
                                                     <a href="#" class="font-weight-bold">
@@ -113,11 +110,10 @@
                                                     </a>
                                                 </td>
                                                 <td class="red_more">
-                                                    <span class="font-weight-normal">{{$row['company_name']}}</span>
+                                                    <span class="font-weight-normal">{{$row['name']}}</span>
                                                 </td>
-                                                <td><span class="font-weight-normal">{{$row['place']}}</span></td>                        
-                                                <td><span class="font-weight-normal">{{$row['period']}}</span></td>
-                                                <td class="red_more"><span class="font-weight-bold">{{$row['description']}}</span></td>
+                                                <td><span class="font-weight-normal">{{$row['email']}}</span></td>                        
+                                                <td><span class="font-weight-normal">{{$row['message']}}</span></td>
 
                                                 <td>
                                                     <div class="btn-group">
@@ -130,9 +126,14 @@
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                             @role('admin')
-                                                            <a class="dropdown-item" href="{{action('Ervaring\ErvaringUsersController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
-                                                            <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                            <a class="dropdown-item" href="{{action('Contact\ContactController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                            <form method="post" class="delete_form" action="{{action('Contact\ContactController@destroy', $row['id'])}}">
+                                                                {{csrf_field()}}
+                                                                <input type="hidden" name="_method" value="DELETE" />
+                                                                <button type="submit" class="btn btn-success">Afronden</button>
+                                                            </form>
                                                             @endrole
+                                                            <!-- <a class="dropdown-item text-danger" href="{{action('Contact\ContactController@destroy', $row['id'])}}"><span class="fas fa-trash-alt mr-2"></span>Remove</a> -->
                                                         </div>
                                                     </div>
                                                 </td>

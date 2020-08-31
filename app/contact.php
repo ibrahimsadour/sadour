@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 
-class admin extends Model
+class contact extends Model
 {
    
 
@@ -17,7 +17,7 @@ class admin extends Model
      *
      * @var string
      */
-    protected $table = 'admin_informatie';
+    protected $table = 'contact';
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +25,7 @@ class admin extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description','keywords','date','Address','Email','Phone','function','view'
+        'name', 'email','message'
     ];
 
 }

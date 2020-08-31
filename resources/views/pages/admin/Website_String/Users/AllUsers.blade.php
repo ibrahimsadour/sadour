@@ -27,16 +27,15 @@ overflow: hidden;
                     <div class="col-12">
                         <!--Setting-->
                         <!-- resources/views/sections/setting.blade.php -->
-                        @include('pages.admin.Admin_LeftSidebar')
+                        @include('pages.admin.Website_String.includes.Admin_LeftSidebar')
                         <!--/Setting-->
 
                         <main class="content">
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
-                                @include('pages.admin.Admin_header')
+                                @include('pages.admin.Website_String.includes.Admin_header')
                                 <!--/Setting-->
-
                                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
                                     <div class="d-block mb-4 mb-md-0">
                                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -50,10 +49,12 @@ overflow: hidden;
                                         <p class="mb-0">Your web Users dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
+                                    @role('admin')
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
                                         </div>
+                                    @endrole
                                     </div>
                                 </div>
                                 <div class="table-settings mb-4">
@@ -170,11 +171,12 @@ overflow: hidden;
                                     <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
                                 </div>
                             </div>
+                            
 
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
-                                @include('pages.admin.Admin_footer')
+                                @include('pages.admin.Website_String.includes.Admin_footer')
                                 <!--/Setting-->
                         </main>
                     </div>

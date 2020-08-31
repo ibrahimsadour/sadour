@@ -43,6 +43,7 @@ use Spatie\Permission\Models\Permission;
 // });
 
 
+// =================================================================================
 // deze Route is gemaakt door Ibrahim om (CV van ibrahim sadour door de butten te downloaden)
 Route::get('/download', function () {
 
@@ -52,8 +53,11 @@ Route::get('/download', function () {
     );
     return Response::download($file,"Cv Ibrahim Sadour.docx", $headers);
 })->name('Download_Cv');
+// =================================================================================
 
 
+
+// =================================================================================
 // deze Route is gemaakt door Ibrahim sadour  voor (login system)
 Route::group( [
     'as' => '.auth', //Het is 'als'-gedeelte van de tweede parameter definieert de naam van de route.
@@ -90,14 +94,24 @@ Route::group( [
     Route::get('/logout', [AuthController::class, 'logout'])->name('.logout');
 
 });
+// =================================================================================
 
 
+
+
+// =================================================================================
 // deze route om de informatie van  gebruiker op de site te laatzien
 Route::get('', 'ShowStringController\ShowStringController@show_string');
 Route::get('sadour', 'ShowStringController\ShowStringController@show_string');
+// ------------
+Route::post('', 'ShowStringController\ShowStringController@store')->name('sadour.create');
+Route::post('sadour', 'Contact\ContactController@create')->name('contact.create');
+
+// Route::post('/create', 'ShowStringController\ShowStringController@create');
+// =================================================================================
 
 
-
+// =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // de informatie van de site gebruiker aan te passen
 // zoals ( name , description, keywords,date,Address,Email,Phone)
@@ -106,7 +120,10 @@ Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names(
     'edit' => 'auth.dashboard.admin.edit'
 
 ]);
+// =================================================================================
 
+
+// =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // de ervaring informatie van de site gebruiker aan te passen
 // zoals ( company_name , place, period,description)
@@ -115,13 +132,67 @@ Route::resource('/auth/dashboard/ervaring','Ervaring\ErvaringUsersController')->
     'edit' => 'auth.dashboard.ervaring.edit'
 
 ]);
+// =================================================================================
 
+
+// =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // de Opleding informatie van de site gebruiker aan te passen
-// zoals ( company_name , place, period,description)
+// zoals ( education_name , place, period )
 Route::resource('/auth/dashboard/opleiding','Opleiding\OpleidingUsersController')->names([
     'create' => 'auth.dashboard.opleiding.create',
     'edit' => 'auth.dashboard.opleiding.edit'
 
 ]);
+// =================================================================================
+
+
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// de Contact berichten van de site te laat zien
+Route::get('/auth/dashboard/contact', 'Contact\ContactController@index');
+Route::post('/auth/dashboard/contact', 'Contact\ContactController@edit')->name('auth.dashboard.contact.edit');
+Route::delete('/auth/dashboard/contact', 'Contact\ContactController@destroy')->name('auth.dashboard.contact');
+
+// Route::resource('/auth/dashboard/contact','Contact\ContactController')->names([
+
+//     'edit' => 'auth.dashboard.contact.edit',
+//     'index'=>'auth.dashboard.contact'
+    
+// ]);
+// =================================================================================
+
+
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// hier kan jij images voor de gebruiker uploden en editen en verwijderen 
+Route::resource('image', 'images\ImagesController')->names([
+    'create' => 'image.create',
+    'edit' => 'image.edit'
+]);
+// Route::get('image', 'images\ImagesController@index');
+Route::post('image', 'images\ImagesController@store')->name('image.store');
+// Route::post('image', 'images\ImagesController@edit')->name('image.edit');
+
+// Route::post('/images/create', 'images\ImagesController@imageUploadPost')->name('image.upload.post');
+
+// =================================================================================
+
+
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// hier kan jij informatie van de gebruiker aanpassen.
+Route::get('/auth/dashboard/profile', function () {
+    return view('pages.admin.Website_string.profile.Show_user_profile');
+});
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// hier kan jij een nieuw gebruiker of schrijver voor de site toevogen
+Route::get('/auth/dashboard/setting', function () {
+    return view('pages.admin.Website_string.setting.Show_user');
+});
 

@@ -9,29 +9,29 @@
             <div  class="mdl-card mdl-shadow--2dp" data-ng-controller="ContactController">
                 <h4 class="mb-10 font-unsetcase">Hey <span  data-ng-bind="formData.inputName||'Daar'">Daar</span>, blij om van je te horen.</h4>
                 @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-                </ul>
-                </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                        </ul>
+                        </div>
+                        @endif
+                        @if(\Session::has('success'))
+                        <div class="alert alert-success">
+                        <p>{{ \Session::get('success') }}</p>
+                    </div>
                 @endif
-                @if(\Session::has('success'))
-                <div class="alert alert-success">
-                <p>{{ \Session::get('success') }}</p>
-                </div>
-                @endif
-                <form method="POST" action="{{url('ibrahim_sadour.contact')}}">
+                <form method="POST" action="{{route('contact.create')}}">
                 {{csrf_field()}}
 
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-group">
-                            <input autocomplete="off" data-ng-model="formData.inputName" class="mdl-textfield__input" type="text" id="inputName" name="title" required>
+                            <input autocomplete="off" data-ng-model="formData.inputName" class="mdl-textfield__input" type="text" id="inputName" name="name" required>
                             <label class="mdl-textfield__label" for="inputName">naam*</label>
                         </div>	
 
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-group">
-                            <input autocomplete="off" data-ng-model="formData.inputEmail" class="mdl-textfield__input" type="email" id="inputEmail" name="name" required>
+                            <input autocomplete="off" data-ng-model="formData.inputEmail" class="mdl-textfield__input" type="email" id="inputEmail" name="email" required>
                             <label class="mdl-textfield__label" for="inputEmail">email*</label>
                         </div>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-group">
