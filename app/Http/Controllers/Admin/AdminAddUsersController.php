@@ -67,8 +67,8 @@ class AdminAddUsersController extends Controller
     {
 
     
-    $website_strings = admin::find($id);
-    return view('pages.admin.Website_String.Users.Edit', compact('website_strings', 'id'));
+        $website_strings = admin::find($id);
+        return view('pages.admin.Website_String.Users.Edit', compact('website_strings', 'id'));
     
 
     }

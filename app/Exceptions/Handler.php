@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use Exceptions;
 class Handler extends ExceptionHandler
 {
     /**
@@ -50,6 +50,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+        if($exception  instanceof FileUnacceptableForCollection){
+
+            return redirect()->back()->with('error','Only JPEG file type is accepted');
+        }
+        return parent::render($request,  $exception);
+
     }
 }

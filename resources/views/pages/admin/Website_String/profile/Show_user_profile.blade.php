@@ -1,5 +1,30 @@
 @extends('layouts.AdminDashboard')
 
+<style>
+<style>
+    label {
+        font-weight: 600;
+        margin-bottom: .5rem;
+        display: inline-block;
+    }
+    .form-control {
+        margin-bottom: .5rem;
+    }
+
+    .alert-success{
+        color: black!important;
+
+    }
+    .alert-danger{
+        color: black!important;
+
+    }
+    
+    .alert {
+    padding: 0rem 1rem!important;
+    }
+</style>
+</style>
 @section('Dashboard')
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
     <a class="navbar-brand mr-lg-5" href="../index.html">
@@ -37,126 +62,188 @@
 
                         </div>
                         <div class="row">
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                                </ul>
+                                </div>
+                                @endif
+                                @if(\Session::has('success'))
+                                <div class="alert alert-success">
+                                <p>{{ \Session::get('success') }}</p>
+                            </div>
+                        @endif
                             <div class="col-12 col-xl-8">
                                 <div class="card card-body bg-white border-light shadow-sm mb-4">
                                     <h2 class="h5 mb-4">General information</h2>
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <div>
-                                                    <label for="first_name">First Name</label>
-                                                    <input class="form-control" id="first_name" type="text" placeholder="Enter your first name" required>
+                                    <?php
+                                    $id=auth()->user()->id;
+                                    ?>
+
+                                    @foreach($user_profile as $row)
+                                    
+                                        @if($id == $row['user_id'])
+                                        <form  method="post" action="{{route('auth.dashboard.profile.sendData')}}">
+                                            {{csrf_field()}}
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div>
+                                                        <label for="first_name">First Name</label>
+                                                        <input name="first_name" value="{{$row['first_name']}}"  class="form-control" id="first_name" type="text" placeholder="Enter your first name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div>
+                                                        <label for="last_name">Last Name</label>
+                                                        <input  name="last_name" value="{{$row['last_name']}}" class="form-control" id="last_name" type="text" placeholder="Also your last name" required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 mb-3">
-                                                <div>
-                                                    <label for="last_name">Last Name</label>
-                                                    <input class="form-control" id="last_name" type="text" placeholder="Also your last name" required>
+                                            <div class="row align-items-center">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="birthday">Birthday</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                                                        <input  name="birthday" value="{{$row['birthday']}}"  data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>                                               
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="gender">Gender</label>
+                                                    <select  name="gender"  value="{{$row['gender']}}" class="form-select mb-0" id="gender" aria-label="Gender select example">
+                                                        <option selected>Gender</option>
+                                                        <option value="1">Female</option>
+                                                        <option value="2">Male</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row align-items-center">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="birthday">Birthday</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                                                    <input data-datepicker="" class="form-control" id="birthday" type="text" placeholder="dd/mm/yyyy" required>                                               
-                                                 </div>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="gender">Gender</label>
-                                                <select class="form-select mb-0" id="gender" aria-label="Gender select example">
-                                                    <option selected>Gender</option>
-                                                    <option value="1">Female</option>
-                                                    <option value="2">Male</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <div class="form-group">
-                                                    <label for="email">Email</label>
-                                                    <input class="form-control" id="email" type="email" placeholder="name@company.com" required>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input name="email"  value="{{$row['email']}}" value="{{$row['email']}}" class="form-control" id="email" type="email" placeholder="name@company.com" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone</label>
+                                                        <input  name="phone" value="{{$row['phone']}}"  class="form-control" id="phone" type="number" placeholder="+12-345 678 910" required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 mb-3">
-                                                <div class="form-group">
-                                                    <label for="phone">Phone</label>
-                                                    <input class="form-control" id="phone" type="number" placeholder="+12-345 678 910" required>
+                                            <h2 class="h5 my-4">Adress</h2>
+                                            <div class="row">
+                                                <div class="col-sm-9 mb-3">
+                                                    <div class="form-group">
+                                                        <label for="address">Address</label>
+                                                        <input  name="address"  value="{{$row['address']}}"  class="form-control" id="address" type="text" placeholder="Enter your home address" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 mb-3">
+                                                    <div class="form-group">
+                                                        <label for="number">Number</label>
+                                                        <input name="number" value="{{$row['number']}}"  class="form-control" id="number" type="number" placeholder="No." required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <h2 class="h5 my-4">Adress</h2>
-                                        <div class="row">
-                                            <div class="col-sm-9 mb-3">
-                                                <div class="form-group">
-                                                    <label for="address">Address</label>
-                                                    <input class="form-control" id="address" type="text" placeholder="Enter your home address" required>
+                                            <div class="row">
+                                                <div class="col-sm-4 mb-3">
+                                                    <div class="form-group">
+                                                        <label for="city">City</label>
+                                                        <input name="city" value="{{$row['city']}}"  class="form-control" id="city" type="text" placeholder="City" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="zip">ZIP</label>
+                                                        <input name="zip" value="{{$row['zip']}}"  class="form-control" id="zip" type="tel" placeholder="ZIP" required>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3 mb-3">
-                                                <div class="form-group">
-                                                    <label for="number">Number</label>
-                                                    <input class="form-control" id="number" type="number" placeholder="No." required>
-                                                </div>
+                                            <div class="mt-3">
+                                                <input type="submit" class="btn btn-primary" value="Save all">
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4 mb-3">
-                                                <div class="form-group">
-                                                    <label for="city">City</label>
-                                                    <input class="form-control" id="city" type="text" placeholder="City" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label for="zip">ZIP</label>
-                                                    <input class="form-control" id="zip" type="tel" placeholder="ZIP" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="mt-3">
-                                            <button type="submit" class="btn btn-primary">Save All</button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                        @endif
+
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-12 col-xl-4">
                                 <div class="row">
                                     <div class="col-12 mb-4">
                                         <div class="card border-light text-center p-0">
-                                            <div class="profile-cover rounded-top" data-background="../assets/img/profile-cover.jpg"></div>
+                                            <div class="profile-cover rounded-top" data-background="{{asset('assets/img/profile-cover.jpg') }}"></div>
                                             <div class="card-body pb-5">
-                                                <img src="../assets/img/team/profile-picture-1.jpg" class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
-                                                <h4 class="h3">Neil Sims</h4>
-                                                <h5 class="font-weight-normal">Senior Software Engineer</h5>
-                                                <p class="text-gray mb-4">New York, USA</p>
-                                                <a class="btn btn-sm btn-primary mr-2" href="#"><span class="fas fa-user-plus mr-1"></span> Connect</a>
-                                                <a class="btn btn-sm btn-secondary" href="#">Send Message</a>
+                                                <img src="{{auth()->user()->avatarUrl }}" class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                                                <h4 class="h3">{{ Auth::user()->name }}</h4>
+                                                <h6 class="font-weight-normal">BACK END & FRONT END DEVELOPER</h6>
+                                                <p class="text-gray mb-4">{{$row['city']}}, NL</p>
+                                                <a class="btn btn-sm btn-primary mr-2" href="callto:{{$row['phone']}}"><span class="fas fa-Phone mr-1"></span> Connect</a>
+                                                <a class="btn btn-sm btn-secondary" href="mailto:{{$row['email']}}"><span class="fas fa-envelope mr-1"></span> Send Message</a>
                                             </div>
                                          </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="card card-body bg-white border-light shadow-sm mb-4">
                                             <h2 class="h5 mb-4">Select profile photo</h2>
-                                            <div class="d-xl-flex align-items-center">
-                                                <div>
-                                                    <!-- Avatar -->
-                                                    <div class="user-avatar xl-avatar mb-3">
-                                                        <img class="rounded" src="../assets/img/team/profile-picture-3.jpg" alt="change avatar">
+                                            <div class="d-xl-flex align-items-center" style="display:block!important;">
+
+                                                <div class="card h-100" style="display: -webkit-box;">
+                                                    @foreach($avatars as $avatar)
+                                                    <div class="card-body" style="height: 50%; width: 50%;">
+                                                        <img src="{{$avatar->getUrl('card')}}" class="card-img-top" alt="avatar ">
+                                                        <div class="float-left">
+                                                            
+                                                            <a href="#" onclick="event.preventDefault();document.getElementById('selectForm{{$avatar->id}}').submit()" ><i class="text-sucess fa fa-check fa-1x"></i></a>
+                                                            <form action="{{route('profile.update',auth()->id())}}" style="display:none;" id="selectForm{{$avatar->id}}" method="POST">
+                                                                @csrf
+                                                                @method('put')
+                                                                <input type="hidden" type="submit" name="selectedAvatar" value="{{$avatar->id}}">
+
+                                                            </form>
+                                                            
+                                                            <a href="#" ><i class="text-danger fa fa-minus-circle fa-1x"></i></a>
+
+                                                        </div>
+                                                        <div class="float-right">
+                                                        <a href="#" ><i class="text-info fa fa-eye fa-1x"></i></a>
+                                                        <a href="#" ><i class="text-warning fa fa-cloud-download-alt fa-1x"></i></a>
+
+                                                        </div>
                                                     </div>
+                                                    @endforeach
                                                 </div>
+
+                                            </div>
+
+                                                <!-- <div class="col mb-4">
+                                                   
+                                                </div> -->
+
                                                 <div class="file-field">
                                                     <div class="d-flex justify-content-xl-center ml-xl-3">
-                                                       <div class="d-flex">
-                                                          <span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span> <input type="file">
-                                                          <div class="d-md-block text-left">
-                                                             <div class="font-weight-normal text-dark mb-1">Choose Image</div>
-                                                             <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
-                                                          </div>
-                                                       </div>
+                                                    @if(session()->has('error'))
+                                                        <div class="alert alert-danger">{{session()->get('error')}}</div>
+                                                    
+                                                    @endif
+                                                    <form action="{{url('auth/dashboard/profile')}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
+                                                       <div class="d-flex" style="position: relative;right: 50px;top: 10px;">
+                                                                <span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
+                                                                <input type="file"  name="avatar" >
+                                                                    <div class="d-md-block text-left">
+                                                                        <div class="font-weight-normal text-dark mb-1">Choose Image</div>
+                                                                        <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
+                                                                    </div>
+                                                        </div>
+                                                        <input type="submit"  value="Upload" class="btn btn-primary" style=" position: relative;right: 60px;top: 25px;" >
+
+                                                       </form>
                                                     </div>
-                                                 </div>                                        
+                                                </div>                                        
                                             </div>
                                         </div>
                                     </div>
