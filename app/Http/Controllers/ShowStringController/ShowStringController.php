@@ -22,7 +22,9 @@ class ShowStringController extends Controller
 
     $ervaring_strings = DB::select('select * from ervaring ');
 
-    return view('sadour',['website_strings'=>$website_strings,'ervaring_strings'=>$ervaring_strings]);
+    $website_watikdoe = DB::select('select * from wat_ik_doe ');
+
+    return view('sadour',['website_strings'=>$website_strings,'ervaring_strings'=>$ervaring_strings,'website_watikdoe'=>$website_watikdoe]);
 
 
   }

@@ -8,7 +8,34 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+
+
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
+
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+    top: 8px;
+    position: relative;
+}
+}
+
+
 </style>
+
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
         <a class="navbar-brand mr-lg-5" href="../../index.html">
@@ -45,11 +72,11 @@
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                                             <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Website String</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Ervaring</li>
+                                            <li class="breadcrumb-item active" aria-current="page">wat ik doe</li>
                                             </ol>
                                         </nav>
-                                        <h2 class="h4">All Ervaring</h2>
-                                        <p class="mb-0">Your web Ervaring dashboard template.</p>
+                                        <h2 class="h4">All Wat ik doe</h2>
+                                        <p class="mb-0">Your web wat ik doe dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
@@ -72,7 +99,7 @@
                                         @role('Admin')
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                                             <div class="btn-group">
-                                            <form method="get" action="{{url('auth/dashboard/ervaring/create')}}">
+                                            <form method="get" action="{{url('auth/dashboard/watikdoe/create')}}">
                                                 <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" >
                                                         <span class="icon icon-sm icon-gray">
                                                             <span class="fas fa-user-plus"></span>
@@ -89,23 +116,21 @@
                                 <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                                 @if($message = Session::get('success'))
                                 <div class="alert alert-success">
-                                <p>{{$message}}</p>
+                                <p class="aanapssen">{{$message}}</p>
                                 </div>
                                 @endif
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>company_name</th>						
-                                            <th>place</th>
-                                            <th>period</th>
+                                            <th>Titel</th>						
                                             <th>description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- Item -->
-                                        @foreach($website_ervaring as $row)
+                                        @foreach($website_watikdoe as $row)
                                             <tr>
                                                 <td>
                                                     <a href="#" class="font-weight-bold">
@@ -113,11 +138,9 @@
                                                     </a>
                                                 </td>
                                                 <td class="red_more">
-                                                    <span class="font-weight-normal">{{$row['company_name']}}</span>
+                                                    <span class="font-weight-normal">{{$row['titel']}}</span>
                                                 </td>
-                                                <td><span class="font-weight-normal">{{$row['place']}}</span></td>                        
-                                                <td><span class="font-weight-normal">{{$row['period']}}</span></td>
-                                                <td class="red_more"><span class="font-weight-bold">{{$row['description']}}</span></td>
+                                                <td><span class="font-weight-normal">{{$row['description']}}</span></td>                        
 
                                                 <td>
                                                     <div class="btn-group">
@@ -130,8 +153,12 @@
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                             @role('Admin')
-                                                            <a class="dropdown-item" href="{{action('Ervaring\ErvaringUsersController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
-                                                            <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                            <a class="dropdown-item" href="{{action('WatIkDoe\WatIkDoeController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                            <form method="post" class="delete_form" action="{{action('WatIkDoe\WatIkDoeController@destroy', $row['id'])}}">
+                                                            {{csrf_field()}}
+                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                            <button type="submit"  style="  border: none;background: none; color:red;"><span class="fas fa-trash-alt mr-2"></span>Remove</button>
+                                                            </form>
                                                             @endrole
                                                         </div>
                                                     </div>

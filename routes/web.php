@@ -179,9 +179,57 @@ Route::post('/auth/dashboard/profile', 'Profile\AvatarController@sendData')->nam
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // hier kan jij een nieuw gebruiker of schrijver voor de site toevogen
-Route::get('/auth/dashboard/setting', function () {
-    return view('pages.admin.Website_string.setting.Show_user');
-});
+
+Route::resource('/auth/dashboard/setting', 'Setting\SettingUsersController')->names([
+    'create' => 'auth.dashboard.setting.create',
+    'edit' => 'auth.dashboard.setting.edit'
+    ]);
+Route::get('/auth/dashboard/setting', 'Setting\SettingUsersController@index')->name('auth.dashboard.setting');
+Route::post('/auth/dashboard/setting', 'Setting\SettingUsersController@store')->name('setting.store');
+// =================================================================================
+
+Route::resource('/auth/dashboard/setting/roles', 'Setting\RoleController')->names([
+    'create' => 'auth.dashboard.roles.create',
+    'edit' => 'auth.dashboard.roles.edit'
+    ]);
+Route::get('/auth/dashboard/setting/roles', 'Setting\RoleController@index')->name('roles.index');
+
+Route::get('/auth/dashboard/setting/permission', 'Setting\PermissionController@index')->name('permissions.index');
+   
+
+// Route::get('/auth/dashboard/setting', function () {
+    
+
+//     return view('pages.admin.Website_string.setting.Show_user');
+
+    // Role::create(['name' => 'User']);
+    // Permission::create(['name' => 'edit post']);
+
+
+    // give perimission  to roles
+    // $role = Role:: findById(2);
+    // $permission = permission::findById(2);
+    // $role->givePermissionTo($permission);
+
+//     // give the user perimission
+//     // auth()-> user()->givePermissionTo('edit post');
+
+//     // give the user roles
+    // auth()-> user()->assignRole('Admin');
+
+
 // ===========================================================================
 
 
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// de ervaring informatie van de site gebruiker aan te passen
+// zoals ( company_name , place, period,description)
+Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names([
+    'create' => 'auth.dashboard.watikdoe.create',
+    'edit' => 'auth.dashboard.watikdoe.edit'
+
+]);
+Route::delete('/auth/dashboard/watikdoe/{id}', 'WatIkDoe\WatIkDoeController@destroy');
+Route::get('/auth/dashboard/watikdoe', 'WatIkDoe\WatIkDoeController@index')->name('auth.dashboard.watikdoe');
+// =================================================================================

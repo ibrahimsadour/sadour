@@ -1,44 +1,52 @@
-@extends('layouts.AdminDashboard')
+{{-- \resources\views\users\index.blade.php --}}
+@extends('layouts.app')
 
-@section('Dashboard')
-<nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
-    <a class="navbar-brand mr-lg-5" href="../index.html">
-        <img class="navbar-brand-dark" src="../assets/img/brand/light.svg" alt="Volt logo" /> <img class="navbar-brand-light" src="../assets/img/brand/dark.svg" alt="Volt logo" />
-    </a>
-    <div class="d-flex align-items-center">
-        <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+@section('title', '| Users')
+
+@section('content')
+
+<div class="col-lg-10 col-lg-offset-1">
+    <h1><i class="fa fa-users"></i> User Administration <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a>
+    <a href="{{ route('permissions.index') }}" class="btn btn-default pull-right">Permissions</a></h1>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date/Time Added</th>
+                    <th>User Roles</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach ($users as $user)
+                <tr>
+
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
+                    <td>{{  $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
+                    <td>
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id] ]) !!}
+                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table>
     </div>
-</nav>
-        
-        <div class="container-fluid bg-soft">
-            <div class="row">
-                <div class="col-12">
 
-                        <!--Setting-->
-                        <!-- resources/views/sections/setting.blade.php -->
-                        @include('pages.admin.Website_String.includes.Admin_LeftSidebar')
-                        <!--/Setting-->
+    <a href="{{ route('users.create') }}" class="btn btn-success">Add User</a>
 
-                        <main class="content">
+</div>
 
-
-
-                                <!--Setting-->
-                                <!-- resources/views/sections/setting.blade.php -->
-                                @include('pages.admin.Website_String.includes.Admin_header')
-                                <!--/Setting-->
-
-                                <h2 style="color:red;"> Hier kan jij een nieuw gebruiker of schrijver toevogen</h2          >
-
-
-                                <!--Setting-->
-                                <!-- resources/views/sections/setting.blade.php -->
-                                @include('pages.admin.Website_String.includes.Admin_footer')
-                                <!--/Setting-->
-                        </main>
-                </div>
-            </div>
-        </div>
 @endsection

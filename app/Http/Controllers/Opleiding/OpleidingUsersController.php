@@ -10,6 +10,15 @@ Use App\opleiding;
 
 class OpleidingUsersController extends Controller
 {
+
+
+    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
+
+        public function __construct()
+    {
+        $this->middleware(['role:Admin'])->except('index');;
+    }
+    
 /**
      * Display a listing of the resource.
      *

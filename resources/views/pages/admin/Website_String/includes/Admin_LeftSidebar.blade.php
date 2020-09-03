@@ -34,12 +34,11 @@
           <div class="multi-level collapse " role="list" id="submenu-pages" aria-expanded="false">
               <ul class="flex-column nav">
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Users </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt" >  Ervaring </span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt">  Ervaring </span></a></li>
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Opleiding </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/reset-password.html"><span>Mijn Partners</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/lock.html"><span>Contact</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/404.html"><span>Hobby's</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/500.html"><span>Wat Ik Doe</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> Wat Ik Doe</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/404.html"><span class="fa fa-cubes"> Hobby's</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/reset-password.html"><span class="fa fa-hourglass">  Mijn Partners</span></a></li>
               </ul>
           </div>
         </li>

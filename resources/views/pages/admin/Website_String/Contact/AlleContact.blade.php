@@ -52,7 +52,7 @@
                                         <p class="mb-0">Your web Ervaring dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
-                                        @role('admin')
+                                        @role('Admin')
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
@@ -69,7 +69,7 @@
                                             </div>
                                         </div>
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
-                                            @role('admin')
+                                            @role('Admin')
                                             <div class="btn-group">
                                             <form method="get" action="">
                                                 <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" disabled >
@@ -125,7 +125,7 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @role('admin')
+                                                            @role('Admin')
                                                             <a class="dropdown-item" href="{{action('Contact\ContactController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
                                                             <form method="post" class="delete_form" action="{{action('Contact\ContactController@destroy', $row['id'])}}">
                                                                 {{csrf_field()}}

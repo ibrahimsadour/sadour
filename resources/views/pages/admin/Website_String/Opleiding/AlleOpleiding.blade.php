@@ -52,7 +52,7 @@
                                         <p class="mb-0">Your web Opleiding dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
-                                    @role('admin')
+                                    @role('Admin')
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
                                             <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
@@ -68,7 +68,7 @@
                                                 <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
                                             </div>
                                         </div>
-                                        @role('admin')
+                                        @role('Admin')
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                                             <div class="btn-group">
                                             <form method="get" action="{{url('auth/dashboard/opleiding/create')}}">
@@ -125,7 +125,7 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @role('admin')
+                                                            @role('Admin')
                                                             <a class="dropdown-item" href="{{action('Opleiding\OpleidingUsersController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
                                                             <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
                                                             @endrole
