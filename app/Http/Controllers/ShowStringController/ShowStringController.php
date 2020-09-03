@@ -24,7 +24,15 @@ class ShowStringController extends Controller
 
     $website_watikdoe = DB::select('select * from wat_ik_doe ');
 
-    return view('sadour',['website_strings'=>$website_strings,'ervaring_strings'=>$ervaring_strings,'website_watikdoe'=>$website_watikdoe]);
+    $website_hobbys = DB::select('select * from  hobbys');
+
+    return view('sadour',
+    [
+      'website_strings'=>$website_strings,
+      'ervaring_strings'=>$ervaring_strings,
+      'website_watikdoe'=>$website_watikdoe,
+      'website_hobbys'=>$website_hobbys
+    ]);
 
 
   }

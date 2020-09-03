@@ -91,11 +91,5 @@ class User extends Authenticatable implements HasMedia
         return $this->hasOne(profile::class);
  
     }
-
-    public function setPasswordAttribute($password){   
-        
-        $this->attributes['password'] = bcrypt($password);
-    }
-    
 }
 

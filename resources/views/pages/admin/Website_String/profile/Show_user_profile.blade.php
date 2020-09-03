@@ -240,9 +240,8 @@
                                                                     </div>
                                                         </div>
                                                         <input type="submit"  value="Upload" class="btn btn-primary" style=" position: relative;right: 60px;top: 25px;" >
-                                                        <!-- <button type="submit" form="nameform"value="Upload">Upload</button> -->
 
-                                                    </form>
+                                                       </form>
                                                     </div>
                                                 </div>                                        
                                             </div>

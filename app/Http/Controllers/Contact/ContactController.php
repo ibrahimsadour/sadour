@@ -12,9 +12,8 @@ class ContactController extends Controller
 {
     //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
 
-    public function __construct()
-    {
-        $this->middleware(['role:Admin'])->except('index');;
+    public function __construct() {
+        $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
 /**

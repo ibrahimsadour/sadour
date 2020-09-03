@@ -37,7 +37,7 @@
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt">  Ervaring </span></a></li>
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Opleiding </span></a></li>
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> Wat Ik Doe</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/404.html"><span class="fa fa-cubes"> Hobby's</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"><span class="fa fa-cubes"> Hobby's</span></a></li>
                   <li class="nav-item"><a class="nav-link" href="../../pages/examples/reset-password.html"><span class="fa fa-hourglass">  Mijn Partners</span></a></li>
               </ul>
           </div>
@@ -49,12 +49,24 @@
           </a>
         </li>
         
-        <li class="nav-item ">
-          <a href="{{url('/auth/dashboard/setting')}}" class="nav-link">
-              <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
-              <span>Settings</span>
-          </a>
+
+        <li class="nav-item">
+          <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-Settings">
+            <span>
+              <span class="sidebar-icon"><span class="fas fa-cog"></span></span> 
+              Settings
+            </span>
+            <span class="link-arrow"><span class="fas fa-chevron-right"></span></span> 
+          </span>
+          <div class="multi-level collapse " role="list" id="submenu-Settings" aria-expanded="false">
+              <ul class="flex-column nav">
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"><span class="fa fa-users">  All Users </span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/roles')}}"><span class="fas fa-user">     Roles </span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/permission')}}"><span class="fa fa-cog">   Permissions </span></a></li>
+              </ul>
+          </div>
         </li>
+        
         <li class="nav-item ">
           <a href="{{url('/auth/dashboard/profile')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-user-circle"></span></span>

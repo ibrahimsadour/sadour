@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
+use Illuminate\Support\Facades\Hash;
 Use App\User;
 
 //Importing laravel-permission models
@@ -17,11 +18,9 @@ class SettingUsersController extends Controller
 
     //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
 
-    public function __construct()
-    {
-        $this->middleware(['role:Admin'])->except('index');;
+    public function __construct() {
+        $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
-
     /**
     * Display a listing of the resource.
     *
@@ -59,7 +58,11 @@ class SettingUsersController extends Controller
                 'password'=>'required|min:6|confirmed'
             ]);
     
-            $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
+            $user = User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+              ]); //Retrieving only the email and password data
     
             $roles = $request['roles']; //Retrieving the roles field
         //Checking if a role was selected
@@ -71,7 +74,7 @@ class SettingUsersController extends Controller
                 }
             }        
         //Redirect to the users.index view and display message
-            return redirect()->route('auth.dashboard.setting')->with('flash_message','User successfully added.');
+            return redirect()->route('auth.dashboard.setting')->with('success','User successfully added.');
         }
     
         /**
@@ -124,7 +127,7 @@ class SettingUsersController extends Controller
             else {
                 $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
             }
-            return redirect()->route('auth.dashboard.setting')->with('flash_message','User successfully edited.');
+            return redirect()->route('auth.dashboard.setting')->with('success','User successfully edited.');
         }
     
         /**
@@ -138,6 +141,6 @@ class SettingUsersController extends Controller
             $user = User::findOrFail($id); 
             $user->delete();
     
-            return redirect()->route('auth.dashboard.setting')->with('flash_message','User successfully deleted.');
+            return redirect()->route('auth.dashboard.setting')->with('success','User successfully deleted.');
         }
     }

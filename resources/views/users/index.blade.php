@@ -1,7 +1,37 @@
 @extends('layouts.AdminDashboard')
 
 @section('title', '| Users')
+<style>
+.red_more{
 
+    width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
+
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
+</style>
 @section('Dashboard')
  <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
         <a class="navbar-brand mr-lg-5" href="../../index.html">
@@ -43,13 +73,18 @@
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
                                         <div class="btn-group">
-                                        <a href="{{url('auth/dashboard/setting/roles')}}" class="btn btn-default pull-right"> <i class="fa fa-users"></i>   Roles</a>
-                                        <a href="{{ route('permissions.index') }}" class="btn btn-default pull-right"><i class="fa fa-cog"></i> Permissions</a>                                        </div>
+                                        <a href="{{url('/auth/dashboard/roles')}}" class="btn btn-default pull-right"> <i class="fa fa-users"></i>   Roles</a>
+                                        <a href="{{url('/auth/dashboard/permission')}}" class="btn btn-default pull-right"><i class="fa fa-cog"></i> Permissions</a>                                        </div>
                                     @endrole
                                     </div>
                                 </div>
 
                         <div class="col-lg-10 col-lg-offset-1">
+                                @if($message = Session::get('success'))
+                                <div class="alert alert-success">
+                                <p class="aanapssen">{{$message}}</p>
+                                </div>
+                                @endif
                             <h1 class="h4"><i class="fa fa-user"></i> User Administration </h1>
                             
 
@@ -77,6 +112,8 @@
                                             <td>{{ $user->created_at->format('F d, Y h:ia') }}</td>
                                             @if($user->roles()->pluck('name')->implode(' ') == 'Admin')
                                             <td style="color:#05a677;font-weight: 700;">{{ $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
+                                            @elseif($user->roles()->pluck('name')->implode(' ') == 'Editor')
+                                            <td style="color: #0057ff; font-weight: 700;">{{ $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                                             @else
                                             <td style="color: orange; font-weight: 700;">{{ $user->roles()->pluck('name')->implode(' ') }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
                                             @endif

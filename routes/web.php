@@ -153,8 +153,6 @@ Route::resource('/auth/dashboard/opleiding','Opleiding\OpleidingUsersController'
 Route::get('/auth/dashboard/contact', 'Contact\ContactController@index');
 Route::post('/auth/dashboard/contact', 'Contact\ContactController@edit')->name('auth.dashboard.contact.edit');
 Route::delete('/auth/dashboard/contact', 'Contact\ContactController@destroy')->name('auth.dashboard.contact');
-
-
 // =================================================================================
 
 
@@ -171,14 +169,13 @@ Route::resource('/auth/dashboard/profile', 'Profile\AvatarController')->names([
     ]);
 Route::post('/auth/dashboard/profile', 'Profile\AvatarController@sendData')->name('auth.dashboard.profile.sendData');
 
-
 // ===========================================================================
 
 
 
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
-// hier kan jij een nieuw gebruiker of schrijver voor de site toevogen
+// hier kan jij een nieuw  admin of gebruiker of schrijver voor de site toevogen
 
 Route::resource('/auth/dashboard/setting', 'Setting\SettingUsersController')->names([
     'create' => 'auth.dashboard.setting.create',
@@ -188,14 +185,34 @@ Route::get('/auth/dashboard/setting', 'Setting\SettingUsersController@index')->n
 Route::post('/auth/dashboard/setting', 'Setting\SettingUsersController@store')->name('setting.store');
 // =================================================================================
 
-Route::resource('/auth/dashboard/setting/roles', 'Setting\RoleController')->names([
+
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// hier kan jij een nieuw  roles voor de  gebruiker of schrijver van de site toevogen
+Route::resource('/auth/dashboard/roles', 'Setting\RoleController')->names([
     'create' => 'auth.dashboard.roles.create',
     'edit' => 'auth.dashboard.roles.edit'
     ]);
-Route::get('/auth/dashboard/setting/roles', 'Setting\RoleController@index')->name('roles.index');
+Route::get('/auth/dashboard/roles', 'Setting\RoleController@index')->name('auth.dashboard.roles');
+// =================================================================================
 
-Route::get('/auth/dashboard/setting/permission', 'Setting\PermissionController@index')->name('permissions.index');
-   
+
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// hier kan jij een nieuw  permission voor de  gebruiker of schrijver van de site toevogen   
+Route::resource('/auth/dashboard/permission', 'Setting\PermissionController')->names([
+    'create' => 'auth.dashboard.permission.create',
+    'edit' => 'auth.dashboard.permission.edit'
+    ]);
+
+Route::get('/auth/dashboard/permission', 'Setting\PermissionController@index')->name('auth.dashboard.permission');
+// Route::post('/auth/dashboard/permission', 'Setting\PermissionController@update')->name('auth.dashboard.permission.edit');
+// =================================================================================
+
+
+
 
 // Route::get('/auth/dashboard/setting', function () {
     
@@ -223,8 +240,8 @@ Route::get('/auth/dashboard/setting/permission', 'Setting\PermissionController@i
 
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
-// de ervaring informatie van de site gebruiker aan te passen
-// zoals ( company_name , place, period,description)
+// de watikdoe informatie van de site gebruiker aan te passen
+// zoals ( title , description)
 Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names([
     'create' => 'auth.dashboard.watikdoe.create',
     'edit' => 'auth.dashboard.watikdoe.edit'
@@ -232,4 +249,19 @@ Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names
 ]);
 Route::delete('/auth/dashboard/watikdoe/{id}', 'WatIkDoe\WatIkDoeController@destroy');
 Route::get('/auth/dashboard/watikdoe', 'WatIkDoe\WatIkDoeController@index')->name('auth.dashboard.watikdoe');
+// =================================================================================
+
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// de watikdoe informatie van de site gebruiker aan te passen
+// zoals ( title , description)
+Route::resource('/auth/dashboard/hobbys','Hobbys\HobbysController')->names([
+    'create' => 'auth.dashboard.hobbys.create',
+    'edit' => 'auth.dashboard.hobbys.edit'
+
+]);
+Route::delete('/auth/dashboard/hobbys/{id}', 'Hobbys\HobbysController@destroy');
+Route::post('/auth/dashboard/hobbys/{id}', 'Hobbys\HobbysController@update')->name('hobbys.update');
+Route::get('/auth/dashboard/hobbys', 'Hobbys\HobbysController@index')->name('auth.dashboard.hobbys');
 // =================================================================================

@@ -75,6 +75,8 @@
                             {{ Form::close() }}
 
                         </div>
+
+                        
                     <!--Setting-->
                     <!-- resources/views/sections/setting.blade.php -->
                     @include('pages.admin.Website_String.includes.Admin_footer')

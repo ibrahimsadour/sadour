@@ -17,7 +17,7 @@ use Spatie\Permission\Models\Permission;
 class RoleController extends Controller {
 
     public function __construct() {
-        $this->middleware(['auth', 'isAdmin']);//isAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
     /**
@@ -27,10 +27,9 @@ class RoleController extends Controller {
      */
     public function index() {
 
-            // $roles = Role::all();//Get all roles
+        $roles = Role::all();//Get all roles
+        return view('roles.index')->with('roles', $roles);
 
-            // return view('roles.index')->with('roles', $roles);
-            return 'hoi';
     }
 
     /**
@@ -39,6 +38,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+
         $permissions = Permission::all();//Get all permissions
 
         return view('roles.create', ['permissions'=>$permissions]);
@@ -73,9 +73,8 @@ class RoleController extends Controller {
             $role->givePermissionTo($p);
         }
 
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role'. $role->name.' added!'); 
+        return redirect()->route('auth.dashboard.roles')->with('success','Role '. $role->name.' added!'); 
+        
     }
 
     /**
@@ -132,9 +131,7 @@ class RoleController extends Controller {
             $role->givePermissionTo($p);  //Assign permission to role
         }
 
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role'. $role->name.' updated!');
+        return redirect()->route('auth.dashboard.roles')->with('success','Role '. $role->name.' updated!');
     }
 
     /**
@@ -148,9 +145,7 @@ class RoleController extends Controller {
         $role = Role::findOrFail($id);
         $role->delete();
 
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role deleted!');
+        return redirect()->route('auth.dashboard.roles')->with('success','Role deleted!');
 
     }
 }

@@ -1,44 +1,143 @@
-@extends('layouts.app')
+@extends('layouts.AdminDashboard')
 
-@section('title', '| Permissions')
+@section('title', '| Users')
+<style>
+.red_more{
 
-@section('content')
+    width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
 
-<div class="col-lg-10 col-lg-offset-1">
-    <h1><i class="fa fa-key"></i>Available Permissions
 
-    <a href="{{ route('users.index') }}" class="btn btn-default pull-right">Users</a>
-    <a href="{{ route('roles.index') }}" class="btn btn-default pull-right">Roles</a></h1>
-    <hr>
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
 
-            <thead>
-                <tr>
-                    <th>Permissions</th>
-                    <th>Operation</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($permissions as $permission)
-                <tr>
-                    <td>{{ $permission->name }}</td> 
-                    <td>
-                    <a href="{{ URL::to('permissions/'.$permission->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+}
+.alert-danger{
+    color: black!important;
 
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['permissions.destroy', $permission->id] ]) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
+}
 
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
+</style>
 
-    <a href="{{ URL::to('permissions/create') }}" class="btn btn-success">Add Permission</a>
+@section('Dashboard')
+<nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
+            <a class="navbar-brand mr-lg-5" href="../../index.html">
+                <img class="navbar-brand-dark" src="{{asset('img/admin/logo_site.png')}}" alt="Volt logo" /> <img class="navbar-brand-light" src="{{asset('img/admin/logo_site.png')}}" alt="Volt logo" />
+            </a>
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+    </nav>
 
-</div>
+        <div class="container-fluid bg-soft">
+            <div class="row">
+                <div class="col-12">
+                    <!--Setting-->
+                    <!-- resources/views/sections/setting.blade.php -->
+                    @include('pages.admin.Website_String.includes.Admin_LeftSidebar')
+                    <!--/Setting-->
+                    <main class="content">
 
+                        <!--Setting-->
+                        <!-- resources/views/sections/setting.blade.php -->
+                        @include('pages.admin.Website_String.includes.Admin_header')
+                        <!--/Setting-->
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                            <div class="d-block mb-4 mb-md-0">
+                                <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+                                    <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                                    <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                                    <li class="breadcrumb-item"><a href="#">User Administration</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Permissions</li>
+                                    </ol>
+                                </nav>
+                                <h2 class="h4"><i class="fa fa-key"></i> Available Permissions</h2>
+
+                            </div>
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                            @role('Admin')
+                                <div class="btn-group">
+                                <a href="{{route('auth.dashboard.setting')}}" class="btn btn-default pull-right"> <i class="fa fa-users"></i>   Users</a>
+                                <a href="{{route('auth.dashboard.roles') }}" class="btn btn-default pull-right"><i class="fa fa-cog"></i> Roles</a>                                        </div>
+                            @endrole
+                            </div>
+                        </div>
+
+
+                            <div class="col-lg-10 col-lg-offset-1">
+                            <div class="col-lg-10 col-lg-offset-1">
+                                 @if($message = Session::get('success'))
+                                <div class="alert alert-success">
+                                <p class="aanapssen">{{$message}}</p>
+                                </div>
+                                @endif
+                                <hr>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Permissions</th>
+                                                <th>Operation</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($permissions as $permission)
+                                            <tr>
+                                                <td>{{ $permission->name }}</td> 
+                                                <td>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="icon icon-sm">
+                                                            <span class="fas fa-ellipsis-h icon-dark"></span>
+                                                        </span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="../invoice.html"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                        @role('Admin')
+                                                        <a class="dropdown-item" href="{{ route('auth.dashboard.permission.edit', $permission->id) }}  " style="color:navy;"><span class="fas fa-edit mr-2"></span>Edit</a> 
+                                                        <form method="post" class="delete_form" action="{{ route('permission.destroy', $permission->id) }}">
+                                                            {{csrf_field()}}
+                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                            <button type="submit"  style="  border: none;background: none; color:red;"><span class="fas fa-trash-alt mr-2"></span>Remove</button>
+                                                        </form>
+                                                        @endrole                                                     
+                                                    </div>
+                                                </div>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <a href="{{ route('auth.dashboard.permission.create') }}" class="btn btn-primary"> <i class="fa fa-key"></i>  Add Permission</a>
+
+                            </div>
+
+                        <!--Setting-->
+                        <!-- resources/views/sections/setting.blade.php -->
+                        @include('pages.admin.Website_String.includes.Admin_footer')
+                        <!--/Setting-->
+                    </main>
+                </div>
+            </div>
+        </div>
 @endsection

@@ -1,13 +1,6 @@
 @extends('layouts.AdminDashboard')
 <style>
-.red_more{
 
-    width: 300px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
 
 
 .alert{
@@ -72,11 +65,10 @@ padding: 0rem 1rem!important;
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                                             <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Website String</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">wat ik doe</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Hobbys</li>
                                             </ol>
                                         </nav>
-                                        <h2 class="h4">All Wat ik doe</h2>
-                                        <p class="mb-0">Your web wat ik doe dashboard template.</p>
+                                        <p class="mb-0">Your  Hobbys dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
@@ -99,7 +91,7 @@ padding: 0rem 1rem!important;
                                         @role('Admin')
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                                             <div class="btn-group">
-                                            <form method="get" action="{{url('auth/dashboard/watikdoe/create')}}">
+                                            <form method="get" action="{{url('auth/dashboard/hobbys/create')}}">
                                                 <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" >
                                                         <span class="icon icon-sm icon-gray">
                                                             <span class="fas fa-user-plus"></span>
@@ -123,25 +115,22 @@ padding: 0rem 1rem!important;
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Titel</th>						
-                                            <th>description</th>
+                                            <th>Name</th>						
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- Item -->
-                                        @foreach($website_watikdoe as $row)
+                                        @foreach($website_hobbyse as $row)
                                             <tr>
                                                 <td>
                                                     <a href="#" class="font-weight-bold">
                                                     {{$row['id']}}
                                                     </a>
                                                 </td>
-                                                <td class="red_more">
-                                                    <span class="font-weight-normal">{{$row['titel']}}</span>
+                                                <td>
+                                                    <span class="font-weight-normal">{{$row['name']}}</span>
                                                 </td>
-                                                <td><span class="font-weight-normal">{{$row['description']}}</span></td>                        
-
                                                 <td>
                                                     <div class="btn-group">
                                                         <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -153,8 +142,8 @@ padding: 0rem 1rem!important;
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                             @role('Admin')
-                                                            <a class="dropdown-item" href="{{action('WatIkDoe\WatIkDoeController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
-                                                            <form method="post" class="delete_form" action="{{action('WatIkDoe\WatIkDoeController@destroy', $row['id'])}}">
+                                                            <a class="dropdown-item" href="{{action('Hobbys\HobbysController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                            <form method="post" class="delete_form" action="{{action('Hobbys\HobbysController@destroy', $row['id'])}}">
                                                             {{csrf_field()}}
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <button type="submit"  style="  border: none;background: none; color:red;"><span class="fas fa-trash-alt mr-2"></span>Remove</button>
