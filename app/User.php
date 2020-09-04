@@ -72,14 +72,17 @@ class User extends Authenticatable implements HasMedia
 
 
 
-       return $this->avatar->getUrl('thumb');
 
-        // $img_src= $this->media[1]->getUrl();
-        // if($img_src != " "){
+        $img_src= $this->media;
+        if(count($img_src) > 0 ){
 
-        // return  $img_src;
+            return $this->avatar->getUrl('thumb');
+
+        }else{
+            return  asset('img/admin/user.png');
+        }
+
         // @dd($img_src);
-        // return $this->avatar->getUrl('thumb');
         //  return  $this->media[0]->getUrl();
         
 

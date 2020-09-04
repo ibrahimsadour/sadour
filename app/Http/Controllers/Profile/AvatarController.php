@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Validator,Redirect,Response,Session;
 Use App\profile;
+Use App\User;
 class AvatarController extends Controller
 {
 
@@ -91,10 +92,10 @@ class AvatarController extends Controller
         ]);
 
         // return redirect()->back(); 
-        return redirect()->route('auth.dashboard.profile.sendData')->with('success', 'Your information is updated');
+        return redirect()->route('auth.dashboard.profile')->with('success', 'Your information is updated');
    
     }
-
+        
 
 
     /**
@@ -142,8 +143,11 @@ class AvatarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-
+        // $user = user::findOrFail($id);
+        // $user->avatar_id -> deleteAvatar;
+        // $user->delete();
+        // return redirect()->back();    
     }
 }

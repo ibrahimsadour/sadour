@@ -15,7 +15,7 @@ class OpleidingUsersController extends Controller
     //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
 
     public function __construct() {
-        $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     
 /**
@@ -35,7 +35,8 @@ class OpleidingUsersController extends Controller
     
     public function show($id)
     {
-        //
+        $website_opleiding = opleiding::find($id);
+        return view('pages.admin.Website_String.Opleiding.ShowOpleiding', compact('website_opleiding', 'id'));
     }
 
     /**
@@ -62,7 +63,9 @@ class OpleidingUsersController extends Controller
             'place'     =>  $request->get('place')
         ]);
         $add_user->save();
-        return redirect()->route('auth.dashboard.opleiding.create')->with('success', 'Data Added');
+     
+        return redirect()->route('auth.dashboard.opleiding')->with('success',' opleiding bij '.$add_user->education_name.' Added!');
+
     }
    
     public function edit($id)
@@ -86,15 +89,27 @@ class OpleidingUsersController extends Controller
         ]);
 
         $opleiding = opleiding::find($id);
-        $opleiding->company_name = $request->get('education_name');
+        $opleiding->education_name = $request->get('education_name');
         $opleiding->place = $request->get('period');
         $opleiding->period = $request->get('place');
 
 
         $opleiding->save();
-        return redirect()->route('auth.dashboard.opleiding.edit',['opleiding' => $opleiding->id])->with('success', 'Data Updated');
+       
+        return redirect()->route('auth.dashboard.opleiding')->with('success',' opleiding bij '.$opleiding->education_name.' Updated!');
+
     }
    
+    public function destroy($id)
+    {
 
+        $ervaring = opleiding::findOrFail($id);
+        $ervaring->delete();
+
+        return redirect()->route('auth.dashboard.opleiding')->with('success','opleiding deleted!');
+
+
+        
+    }
 
 }

@@ -15,7 +15,7 @@ class AdminAddUsersController extends Controller
 
         public function __construct()
     {
-        $this->middleware(['role:Admin'])->except('index');;
+        $this->middleware(['role:Admin'])->except('index','show');;
     }
 /**
      * Display a listing of the resource.
@@ -34,7 +34,8 @@ class AdminAddUsersController extends Controller
     
     public function show($id)
     {
-        //
+        $website_strings = admin::find($id);
+        return view('pages.admin.Website_String.Users.show', compact('website_strings', 'id'));
     }
 
     /**
@@ -104,7 +105,8 @@ class AdminAddUsersController extends Controller
         $student->Phone = $request->get('Phone');
         $student->function = $request->get('function');
         $student->save();
-        return redirect()->route('auth.dashboard.admin.edit',['admin' => $student->id])->with('success', 'Data Updated');
+       
+        return redirect()->route('auth.dashboard.admin')->with('success',' Informatie bij '.$student->name.' Updated!');
     }
    
 

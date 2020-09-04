@@ -8,7 +8,25 @@ display: -webkit-box;
 -webkit-line-clamp: 2;
 overflow: hidden;
 }
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
 
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
 </style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -84,7 +102,7 @@ overflow: hidden;
                                 <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                                 @if($message = Session::get('success'))
                                 <div class="alert alert-success">
-                                <p>{{$message}}</p>
+                                <p class="aanapssen" >{{$message}}</p>
                                 </div>
                                 @endif
                                 <table class="table table-hover">
@@ -134,7 +152,7 @@ overflow: hidden;
                                                             <span class="sr-only">Toggle Dropdown</span>
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="../invoice.html"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                            <a class="dropdown-item" href="{{action('Admin\AdminAddUsersController@show', $row['id'])}}"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                             @role('Admin')
                                                             <a class="dropdown-item" href="{{action('Admin\AdminAddUsersController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
                                                             <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>Remove</a>

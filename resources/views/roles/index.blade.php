@@ -109,7 +109,7 @@ padding: 0rem 1rem!important;
                                             <td style="color: orange; font-weight: 700;">{{ $role->name }}</td>{{-- Retrieve array of roles associated to a user and convert to string --}}
 
                                             @endif
-                                            <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}</td>
+                                            <td>{{ str_replace(array('[',']','"'),'',   $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}</td>
                                            
                                             <td>
                                                 <div class="btn-group">
@@ -120,7 +120,7 @@ padding: 0rem 1rem!important;
                                                         <span class="sr-only">Toggle Dropdown</span>
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="../invoice.html"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                        <a class="dropdown-item" href=""><span class="fas fa-eye mr-2"></span>View Details</a>
                                                         @role('Admin')
                                                         <a class="dropdown-item" href="{{ route('auth.dashboard.roles.edit', $role->id) }}" style="color:navy;"><span class="fas fa-edit mr-2"></span>Edit</a> 
                                                         <form method="post" class="delete_form" action="{{ route('roles.destroy', $role->id) }}">

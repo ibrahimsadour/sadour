@@ -23,6 +23,10 @@
     .alert {
     padding: 0rem 1rem!important;
     }
+    .aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
 </style>
 </style>
 @section('Dashboard')
@@ -73,7 +77,7 @@
                                 @endif
                                 @if(\Session::has('success'))
                                 <div class="alert alert-success">
-                                <p>{{ \Session::get('success') }}</p>
+                                <p class="aanapssen" >{{ \Session::get('success') }}</p>
                             </div>
                         @endif
                             <div class="col-12 col-xl-8">
@@ -86,8 +90,9 @@
                                     @foreach($user_profile as $row)
                                     
                                         @if($id == $row['user_id'])
-                                        <form  method="post" action="{{route('auth.dashboard.profile.sendData')}}">
+                                        <form  method="POST" action="{{route('auth.dashboard.profile.sendData')}}">
                                             {{csrf_field()}}
+                                            @method('put')
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">
                                                     <div>
@@ -114,8 +119,8 @@
                                                     <label for="gender">Gender</label>
                                                     <select  name="gender"  value="{{$row['gender']}}" class="form-select mb-0" id="gender" aria-label="Gender select example">
                                                         <option selected>Gender</option>
-                                                        <option value="1">Female</option>
-                                                        <option value="2">Male</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Male">Male</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -205,8 +210,13 @@
 
                                                             </form>
                                                             
-                                                            <a href="#" ><i class="text-danger fa fa-minus-circle fa-1x"></i></a>
+                                                            <a href="#" onclick="event.preventDefault();document.getElementById('deleteForm{{$avatar->id}}').submit()" ><i class="text-danger fa fa-minus-circle fa-1x"></i></a>
+                                                            <form action="{{route('profile.destroy',auth()->id())}}" style="display:none;" id="deleteForm{{$avatar->id}}" method="POST">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <input type="hidden" type="submit" name="deleteAvatar" value="{{$avatar->id}}">
 
+                                                            </form>
                                                         </div>
                                                         <div class="float-right">
                                                         <a href="#" ><i class="text-info fa fa-eye fa-1x"></i></a>
@@ -229,8 +239,9 @@
                                                         <div class="alert alert-danger">{{session()->get('error')}}</div>
                                                     
                                                     @endif
-                                                    <form action="{{url('auth/dashboard/profile')}}" method="post" enctype="multipart/form-data">
+                                                    <form action="{{route('auth.dashboard.profile.store')}}" method="post" enctype="multipart/form-data">
                                                     @csrf
+                                                    @method('post')
                                                        <div class="d-flex" style="position: relative;right: 50px;top: 10px;">
                                                                 <span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
                                                                 <input type="file"  name="avatar" >

@@ -13,7 +13,7 @@ class ContactController extends Controller
     //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
 
     public function __construct() {
-        $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'role:Admin|Editor'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
 /**
@@ -55,9 +55,15 @@ class ContactController extends Controller
         // deze variabel is gemaakt bij het insert van de contact form blijvet de string van de site
         $website_strings = DB::select('select * from admin_informatie where id = ?', [1]);
         $ervaring_strings = DB::select('select * from ervaring ');
-    
+        $website_watikdoe = DB::select('select * from wat_ik_doe ');
+        $website_hobbys = DB::select('select * from  hobbys');
 
-        return view('sadour',['website_strings'=>$website_strings,'ervaring_strings'=>$ervaring_strings]);
+        return view('sadour',[
+            'website_strings'=>$website_strings,
+            'ervaring_strings'=>$ervaring_strings,
+             'website_watikdoe'=>$website_watikdoe,
+             'website_hobbys'=>$website_hobbys
+             ]);
     }
    
  
@@ -72,14 +78,11 @@ class ContactController extends Controller
     public function destroy($id)
     {
 
-        $post =contact::where('id',$id)->first();
+        $contact = contact::findOrFail($id);
+        $contact->delete();
 
-        if ($post != null) {
-            $post->delete();
-            return redirect()->route('auth.dashboard.contact')->with(['success'=> 'Successfully deleted!!']);
-        }
-    
-        return redirect()->route('auth.dashboard.contact')->with(['message'=> 'Wrong ID!!']);
+        return redirect()->route('auth.dashboard.contact')->with('success','contact deleted!');
+
 
         
     }

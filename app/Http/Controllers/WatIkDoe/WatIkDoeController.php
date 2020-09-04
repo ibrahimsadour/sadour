@@ -16,7 +16,7 @@ class WatIkDoeController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['role:Admin'])->except('index');;
+        $this->middleware(['role:Admin|Editor'])->except('index','show');;
     }
 /**
      * Display a listing of the resource.
@@ -35,7 +35,8 @@ class WatIkDoeController extends Controller
     
     public function show($id)
     {
-        //
+        $website_watikdoe = watikdoe::find($id);
+        return view('pages.admin.Website_String.WatIkDoe.show', compact('website_watikdoe', 'id'));
     }
 
     /**
@@ -91,7 +92,9 @@ class WatIkDoeController extends Controller
 
 
         $watikdoe->save();
-        return redirect()->route('auth.dashboard.watikdoe.edit',['watikdoe' => $watikdoe->id])->with('success', 'Data Updated');
+        // return redirect()->route('auth.dashboard.watikdoe.edit',['watikdoe' => $watikdoe->id])->with('success', 'Data Updated');
+        return redirect()->route('auth.dashboard.watikdoe')->with('success',' watikdoe bij '.$watikdoe->titel.' Updated!');
+
     }
 
     public function destroy($id)

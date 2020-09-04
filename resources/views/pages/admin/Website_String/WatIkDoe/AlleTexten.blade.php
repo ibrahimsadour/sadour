@@ -151,9 +151,11 @@ padding: 0rem 1rem!important;
                                                             <span class="sr-only">Toggle Dropdown</span>
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @role('Admin')
+                                                            <a class="dropdown-item" href="{{action('WatIkDoe\WatIkDoeController@show', $row['id'])}}"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                            @hasanyrole('Editor|Admin')
                                                             <a class="dropdown-item" href="{{action('WatIkDoe\WatIkDoeController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                            @endhasanyrole
+                                                            @role('Admin')
                                                             <form method="post" class="delete_form" action="{{action('WatIkDoe\WatIkDoeController@destroy', $row['id'])}}">
                                                             {{csrf_field()}}
                                                             <input type="hidden" name="_method" value="DELETE" />

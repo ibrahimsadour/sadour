@@ -127,9 +127,9 @@ padding: 0rem 1rem!important;
                                         </tbody>
                                     </table>
                                 </div>
-
+                                @role('Admin')
                                 <a href="{{ route('auth.dashboard.permission.create') }}" class="btn btn-primary"> <i class="fa fa-key"></i>  Add Permission</a>
-
+                                @endrole    
                             </div>
 
                         <!--Setting-->

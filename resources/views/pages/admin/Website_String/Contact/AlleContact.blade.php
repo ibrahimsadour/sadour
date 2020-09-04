@@ -8,6 +8,22 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+
+ 
+
+    .alert-success{
+        color: black!important;
+
+    }
+    .alert-danger{
+        color: black!important;
+
+    }
+    
+    .alert {
+    padding: 0rem 1rem!important;
+    }
+
 </style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -113,7 +129,7 @@
                                                     <span class="font-weight-normal">{{$row['name']}}</span>
                                                 </td>
                                                 <td><span class="font-weight-normal">{{$row['email']}}</span></td>                        
-                                                <td><span class="font-weight-normal">{{$row['message']}}</span></td>
+                                                <td><span class="font-weight-normal red_more ">{{$row['message']}}</span></td>
 
                                                 <td>
                                                     <div class="btn-group">
@@ -125,8 +141,10 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @role('Admin')
+                                                            @hasanyrole('Editor|Admin')
                                                             <a class="dropdown-item" href="{{action('Contact\ContactController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                            @endhasanyrole
+                                                            @role('Admin')
                                                             <form method="post" class="delete_form" action="{{action('Contact\ContactController@destroy', $row['id'])}}">
                                                                 {{csrf_field()}}
                                                                 <input type="hidden" name="_method" value="DELETE" />

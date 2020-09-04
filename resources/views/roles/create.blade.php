@@ -1,7 +1,22 @@
 @extends('layouts.AdminDashboard')
 
 @section('title', '| Add User')
+<style>
+ 
 
+    .alert-success{
+        color: black!important;
+
+    }
+    .alert-danger{
+        color: black!important;
+
+    }
+    
+    .alert {
+    padding: 0rem 1rem!important;
+    }
+</style>
 @section('Dashboard')
 
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -28,6 +43,20 @@
                 <!-- resources/views/sections/setting.blade.php -->
                 @include('pages.admin.Website_String.includes.Admin_header')
                 <!--/Setting-->
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                    </ul>
+                    </div>
+                    @endif
+                    @if(\Session::has('success'))
+                    <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                </div>
+                @endif
                 <div class='col-lg-4 col-lg-offset-4'>
 
                     <h1 class="h4"><i class='fa fa-key'></i> Add Role</h1>

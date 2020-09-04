@@ -8,6 +8,25 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
+
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
 </style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -87,7 +106,7 @@
                                 <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                                 @if($message = Session::get('success'))
                                 <div class="alert alert-success">
-                                <p>{{$message}}</p>
+                                <p class="aanapssen" >{{$message}}</p>
                                 </div>
                                 @endif
                                 <table class="table table-hover">
@@ -124,11 +143,17 @@
                                                             <span class="sr-only">Toggle Dropdown</span>
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="#"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @role('Admin')
+                                                            <a class="dropdown-item" href="{{action('Opleiding\OpleidingUsersController@show', $row['id'])}}"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                            @hasanyrole('Editor|Admin')
                                                             <a class="dropdown-item" href="{{action('Opleiding\OpleidingUsersController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
-                                                            <a class="dropdown-item text-danger" href="#"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
-                                                            @endrole
+                                                            @endhasanyrole
+                                                            
+                                                            @role('Admin')
+                                                            <form method="post" class="delete_form" action="{{action('Opleiding\OpleidingUsersController@destroy', $row['id'])}}">
+                                                                {{csrf_field()}}
+                                                                <input type="hidden" name="_method" value="DELETE" />
+                                                                <button type="submit"  style="  border: none;background: none; color:red;"><span class="fas fa-trash-alt mr-2"></span>Remove</button>
+                                                            </form>                                                              @endrole
                                                         </div>
                                                     </div>
                                                 </td>

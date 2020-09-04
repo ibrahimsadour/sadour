@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\User;
+use App\Http\Requests\RoleStoreRequest;
 
 use Auth;
 
@@ -50,13 +51,7 @@ class RoleController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-    //Validate name and permissions field
-        $this->validate($request, [
-            'name'=>'required|unique:roles|max:10',
-            'permissions' =>'required',
-            ]
-        );
+    public function store(RoleStoreRequest $request) {
 
         $name = $request['name'];
         $role = new Role();

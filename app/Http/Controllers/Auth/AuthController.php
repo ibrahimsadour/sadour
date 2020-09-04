@@ -93,7 +93,6 @@ class AuthController extends Controller
       }
        return Redirect::to("/auth/login")->withSuccess('Opps! You do not have access');
 
-
     }
  
     public function create(array $data)

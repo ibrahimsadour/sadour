@@ -9,6 +9,10 @@ label {
        margin-bottom: .5rem;
 }
 
+.view {
+       margin-bottom: .5rem;
+       background-color: #2e3650!important;
+        color: white!important ;
 }
 </style>
 @section('Dashboard')
@@ -43,72 +47,57 @@ label {
 
                                    <div class="row">
                                           <div class="col-md-12" style="max-width: 50%;">
-                                                 <br />
-                                                 <h3>Edit all text of the Site</h3>
-                                                 <br />
-                                                 
-                                                 @if(count($errors) > 0)
-                                                 <div class="alert alert-danger">
-                                                        <ul>
-                                                        @foreach($errors->all() as $error)
-                                                        <li>{{$error}}</li>
-                                                        @endforeach
-                                                        </ul>
-                                                 </div>
-                                                 @endif
+                                                
+                                                        <div class="form-group">
+                                                            <a href="{{route('auth.dashboard.admin')}}" class="btn btn-default pull-right breadcrumb-item "> <i class="	fa fa-angle-double-left"> Terug naar Alle admin informatie   </a></i> 
+                                                        </div>
 
-                                                 <form method="post" action="{{action('Admin\AdminAddUsersController@update',['admin' => $website_strings->id])}}">
-                                                        {{csrf_field()}}
-                                                        {{ method_field('PATCH') }}
                                                         <div class="form-group">
                                                         <label for="name">Name</label>
-                                                        <input type="text" name="name" class="form-control" value="{{$website_strings->name}}" placeholder="Enter name" />
+                                                        <input type="text" class="form-control view" disabled value="{{$website_strings->name}}" placeholder="Enter name" />
                                                         </div>
                                                         <div class="form-group">
                                                         <label for="name">Description</label>
-                                                        <textarea  name="description" class="form-control"  value="{{$website_strings->description}}"   rows="4" cols="50">{{$website_strings->description}}</textarea>
+                                                        <textarea   class="form-control view"  disabled value="{{$website_strings->description}}"   rows="4" cols="50">{{$website_strings->description}}</textarea>
 
                                                         </div>
 
                                                         <div class="form-group">
                                                         <label for="name">Keywords</label>
-                                                        <textarea  name="keywords" class="form-control"  value="{{$website_strings->keywords}}"   rows="4" cols="50">{{$website_strings->keywords}}</textarea>
+                                                        <textarea   class="form-control view" disabled value="{{$website_strings->keywords}}"   rows="4" cols="50">{{$website_strings->keywords}}</textarea>
                                                         </div>
 
                                                         <div class="form-group">
                                                         <label for="name">Date</label>
-                                                        <input type="text" name="date" class="form-control" value="{{$website_strings->date}}" placeholder="Enter date" />
+                                                        <input type="text"  class="form-control view" disabled value="{{$website_strings->date}}" placeholder="Enter date" />
                                                         </div>
 
 
                                                         <div class="form-group">
                                                         <label for="name">Address</label>
-                                                        <input type="text" name="Address" class="form-control" value="{{$website_strings->Address}}" placeholder="Enter Address" />
+                                                        <input type="text"  class="form-control view" disabled value="{{$website_strings->Address}}" placeholder="Enter Address" />
                                                         </div>
 
                                                         <div class="form-group">
                                                         <label for="name">Email</label>
-                                                        <input type="text" name="Email" class="form-control" value="{{$website_strings->Email}}" placeholder="Enter Email" />
+                                                        <input type="text" name="Email" class="form-control view" disabled value="{{$website_strings->Email}}" placeholder="Enter Email" />
                                                         </div>
 
                                                         <div class="form-group">
                                                         <label for="name">Phone</label>
-                                                        <input type="text" name="Phone" class="form-control" value="{{$website_strings->Phone}}" placeholder="Enter Phone" />
+                                                        <input type="text"  class="form-control view" disabled value="{{$website_strings->Phone}}" placeholder="Enter Phone" />
                                                         </div>
 
                                                         <div class="form-group">
                                                         <label for="name">Function</label>
-                                                        <input type="text" name="function" class="form-control" value="{{$website_strings->function}}" placeholder="Enter function" />
+                                                        <input type="text" class="form-control view" disabled value="{{$website_strings->function}}" placeholder="Enter function" />
                                                         </div>
 
                                                         <div class="form-group">
                                                         <label for="name">show</label>
-                                                        <input type="text" name="view" class="form-control" value="{{$website_strings->view}}" placeholder="Enter function" />
+                                                        <input type="text" class="form-control view" disabled value="{{$website_strings->view}}" placeholder="Enter function" />
                                                         </div>
-                                                        <div class="form-group">
-                                                        <input type="submit" class="btn btn-primary" value="Edit" />
-                                                        </div>
-                                                 </form>
+
                                           </div>
                                    </div>
 
