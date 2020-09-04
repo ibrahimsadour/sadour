@@ -4,20 +4,13 @@
             <?php  $page_url= URL::current(); 
             $find_create    = 'create';
             $find_edit = 'edit';
+            $find_ = 'edit';
+            $find_edit = 'edit';
             $mystring2 =  $page_url;
             $pos2 = stripos($mystring2, $find_create); 
             $pos3 = stripos($mystring2, $find_edit); 
             if ($pos2 === false && $pos3 === false ) {
-                echo ' 
-                <div class="d-flex">
-                <!-- Search form -->
-                    <form class="navbar-search form-inline" id="navbar-search-main">
-                        <div class="input-group input-group-merge search-bar">
-                            <span class="input-group-text" id="topbar-addon"><span class="fas fa-search"></span></span>
-                            <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
-                        </div>
-                    </form>
-                </div>';
+                echo  'Welcome Back To Your Platform';
             }else{
                 echo ' 
                 <div class="d-flex">
@@ -76,8 +69,8 @@
                 </div>
                 </a>
                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-right mt-2">
-                <a class="dropdown-item font-weight-bold" href="#"><span class="far fa-user-circle"></span>My Profile</a>
-                <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-cog"></span>Settings</a>
+                <a class="dropdown-item font-weight-bold" href="{{route('auth.dashboard.profile')}}"><span class="far fa-user-circle"></span>My Profile</a>
+                <a class="dropdown-item font-weight-bold" href="{{route('auth.dashboard.setting')}}"><span class="fas fa-cog"></span>Settings</a>
                 <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-envelope-open-text"></span>Messages</a>
                 <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-user-shield"></span>Support</a>
                 <div role="separator" class="dropdown-divider"></div>

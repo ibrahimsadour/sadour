@@ -28,11 +28,10 @@
     font-weight: 700;
 }
 </style>
-</style>
 @section('Dashboard')
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
     <a class="navbar-brand mr-lg-5" href="../index.html">
-        <img class="navbar-brand-dark" src="../assets/img/brand/light.svg" alt="Volt logo" /> <img class="navbar-brand-light" src="../assets/img/brand/dark.svg" alt="Volt logo" />
+        <img class="navbar-brand-dark" src="{{asset('img/admin/logo_site.png')}}" alt="Volt logo" /> <img class="navbar-brand-light" src="{{asset('img/admin/logo_site.png')}}" alt="Volt logo" />
     </a>
     <div class="d-flex align-items-center">
         <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,8 +59,21 @@
                                 <!-- resources/views/sections/setting.blade.php -->
                                 @include('pages.admin.Website_String.includes.Admin_header')
                                 <!--/Setting-->
-
-                                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+                                <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(/img/abstract-bg-1.jpg); background-size: cover; background-position: center top;">
+                                    <!-- Mask -->
+                                    <span class="mask bg-gradient-default opacity-8"></span>
+                                    <!-- Header container -->
+                                    <div class="container-fluid d-flex align-items-center">
+                                        <div class="row">
+                                        <div class="col-lg-7 col-md-10">
+                                            <h1 class="display-2 text-white" style="    color: #262b40 !important;">Hello {{ Auth::user()->name }}</h1>
+                                            <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+                                            <a href="#!" class="btn btn-neutral">Edit profile</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 
 
                         </div>
@@ -242,7 +254,7 @@
                                                     <form action="{{route('auth.dashboard.profile.store')}}" method="post" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('post')
-                                                       <div class="d-flex" style="position: relative;right: 50px;top: 10px;">
+                                                       <div class="d-flex" style="">
                                                                 <span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
                                                                 <input type="file"  name="avatar" >
                                                                     <div class="d-md-block text-left">
@@ -250,7 +262,7 @@
                                                                         <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
                                                                     </div>
                                                         </div>
-                                                        <input type="submit"  value="Upload" class="btn btn-primary" style=" position: relative;right: 60px;top: 25px;" >
+                                                        <input type="submit"  value="Upload" class="btn btn-primary hoiibo" style=" " >
 
                                                        </form>
                                                     </div>

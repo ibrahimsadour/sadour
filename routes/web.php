@@ -169,7 +169,13 @@ Route::delete('/auth/dashboard/opleiding/{id}', 'Opleiding\OpleidingUsersControl
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // de Contact berichten van de site te laat zien
-Route::get('/auth/dashboard/contact', 'Contact\ContactController@index')->name('auth.dashboard.contact')->middleware('auth');
+Route::resource('/auth/dashboard/contact', 'Contact\ContactController')->names([
+    'create' => 'auth.dashboard.contact.create',
+    'edit' => 'auth.dashboard.contact.edit',
+    'index' =>'auth.dashboard.contact',
+    'show' =>'auth.dashboard.contact.show',
+    
+    ])->middleware('auth');
 Route::post('/auth/dashboard/contact', 'Contact\ContactController@edit')->name('auth.dashboard.contact.edit')->middleware('auth');
 Route::delete('/auth/dashboard/contact/{id}', 'Contact\ContactController@destroy')->name('auth.dashboard.contact.delete')->middleware('auth');
 // =================================================================================

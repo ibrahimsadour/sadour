@@ -20,7 +20,7 @@
         <li class="nav-item  active ">
           <a href="{{url('auth/dashboard')}}" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
-            <span>Overview</span>
+            <span>Dashboard</span>
           </a>
         </li>
         <li class="nav-item">

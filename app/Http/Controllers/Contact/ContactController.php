@@ -13,7 +13,7 @@ class ContactController extends Controller
     //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
 
     public function __construct() {
-        $this->middleware(['auth', 'role:Admin|Editor'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show','create'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
 /**
@@ -32,7 +32,8 @@ class ContactController extends Controller
     
     public function show($id)
     {
-        //
+        $contact_strings = contact::find($id);
+        return view('pages.admin.Website_String.Contact.show', compact('contact_strings', 'id'));
     }
 
 
@@ -64,7 +65,7 @@ class ContactController extends Controller
              'website_watikdoe'=>$website_watikdoe,
              'website_hobbys'=>$website_hobbys
              ]);
-    }
+        }
    
  
 

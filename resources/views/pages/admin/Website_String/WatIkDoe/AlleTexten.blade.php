@@ -90,12 +90,10 @@ padding: 0rem 1rem!important;
                                 </div>
                                 <div class="table-settings mb-4">
                                     <div class="row align-items-center justify-content-between">
-                                        <div class="col col-md-6 col-lg-3 col-xl-4">
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span>
-                                                <input type="text" class="form-control" id="exampleInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                                            </div>
-                                        </div>
+                                    <!-- hier wordt de Search form geinclude -->
+                                    <!-- resources/views/pages/admin/Websit_String.blade.php -->
+                                    @include('pages.admin.Website_String.includes.search_form')
+                                    <!-- End Search Form -->
                                         @role('Admin')
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                                             <div class="btn-group">
@@ -119,7 +117,7 @@ padding: 0rem 1rem!important;
                                 <p class="aanapssen">{{$message}}</p>
                                 </div>
                                 @endif
-                                <table class="table table-hover">
+                                <table class="table table-hover"  id="myTable">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
