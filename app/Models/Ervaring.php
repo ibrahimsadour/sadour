@@ -1,14 +1,13 @@
 <?php
 
-namespace App;
-
+namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 
-class hobbys extends Model
+class Ervaring extends Model
 {
    
 
@@ -17,7 +16,7 @@ class hobbys extends Model
      *
      * @var string
      */
-    protected $table = 'hobbys';
+    protected $table = 'ervaring';
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +24,7 @@ class hobbys extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'company_name', 'place','period','description'
     ];
 
 }

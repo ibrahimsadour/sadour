@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
-Use App\contact;
+Use App\Models\Contact;
 
 
 class ContactController extends Controller
@@ -24,7 +24,7 @@ class ContactController extends Controller
     public function index()
     {
 
-        $contact_strings = contact::all()->toArray();
+        $contact_strings = Contact::all()->toArray();
 
         return view('pages.admin.Website_String.Contact.AlleContact', compact('contact_strings'));
    
@@ -32,7 +32,7 @@ class ContactController extends Controller
     
     public function show($id)
     {
-        $contact_strings = contact::find($id);
+        $contact_strings = Contact::find($id);
         return view('pages.admin.Website_String.Contact.show', compact('contact_strings', 'id'));
     }
 
@@ -46,7 +46,7 @@ class ContactController extends Controller
             'message'     =>  'required'
             
         ]);
-        $add_user = new contact([
+        $add_user = new Contact([
             'name'    =>  $request->get('name'),
             'email'     =>  $request->get('email'),
             'message'     =>  $request->get('message')
@@ -79,7 +79,7 @@ class ContactController extends Controller
     public function destroy($id)
     {
 
-        $contact = contact::findOrFail($id);
+        $contact = Contact::findOrFail($id);
         $contact->delete();
 
         return redirect()->route('auth.dashboard.contact')->with('success','contact deleted!');

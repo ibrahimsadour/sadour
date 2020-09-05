@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
-Use App\admin;
+Use App\Models\Admin;
 
 
 class AdminAddUsersController extends Controller
@@ -25,7 +25,7 @@ class AdminAddUsersController extends Controller
     public function index()
     {
 
-        $website_strings = admin::all()->toArray();
+        $website_strings = Admin::all()->toArray();
 
         return view('pages.admin.Website_String.Users.AllUsers', compact('website_strings'));
 
@@ -34,7 +34,7 @@ class AdminAddUsersController extends Controller
     
     public function show($id)
     {
-        $website_strings = admin::find($id);
+        $website_strings = Admin::find($id);
         return view('pages.admin.Website_String.Users.show', compact('website_strings', 'id'));
     }
 
@@ -56,7 +56,7 @@ class AdminAddUsersController extends Controller
             'keywords'     =>  'required'
             
         ]);
-        $add_user = new admin([
+        $add_user = new Admin([
             'name'    =>  $request->get('name'),
             'description'     =>  $request->get('description'),
             'keywords'     =>  $request->get('keywords'),
@@ -75,7 +75,7 @@ class AdminAddUsersController extends Controller
     {
 
     
-        $website_strings = admin::find($id);
+        $website_strings = Admin::find($id);
         return view('pages.admin.Website_String.Users.Edit', compact('website_strings', 'id'));
     
 
@@ -95,7 +95,7 @@ class AdminAddUsersController extends Controller
             'function'     =>  'required'
         ]);
 
-        $student = admin::find($id);
+        $student = Admin::find($id);
         $student->name = $request->get('name');
         $student->description = $request->get('description');
         $student->keywords = $request->get('keywords');

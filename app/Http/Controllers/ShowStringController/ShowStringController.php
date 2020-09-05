@@ -6,8 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\User;
-Use App\ervaring;
-Use App\contact;
+Use App\Models\Ervaring;
+Use App\Models\Contact;
 class ShowStringController extends Controller
 {
     

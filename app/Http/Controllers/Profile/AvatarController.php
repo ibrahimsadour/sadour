@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Validator,Redirect,Response,Session;
-Use App\profile;
+Use App\Models\Profile;
 Use App\User;
 class AvatarController extends Controller
 {
@@ -23,7 +23,7 @@ class AvatarController extends Controller
     public function index()
     {
         $avatars=auth()->user()->getMedia('avatar');
-        $user_profile = profile::all()->toArray();
+        $user_profile = Profile::all()->toArray();
 
         // $edit_user_profile = profile::find($id);
         return view('pages.admin.Website_String.profile.Show_user_profile',compact('avatars'), compact('user_profile'));

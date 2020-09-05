@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
-Use App\watikdoe;
+Use App\Models\Watikdoe;
 
 
 class WatIkDoeController extends Controller
@@ -26,7 +26,7 @@ class WatIkDoeController extends Controller
     public function index()
     {
         
-        $website_watikdoe= watikdoe::all()->toArray();
+        $website_watikdoe= Watikdoe::all()->toArray();
 
         return view('pages.admin.Website_String.WatIkDoe.AlleTexten', compact('website_watikdoe'));
 
@@ -35,7 +35,7 @@ class WatIkDoeController extends Controller
     
     public function show($id)
     {
-        $website_watikdoe = watikdoe::find($id);
+        $website_watikdoe = Watikdoe::find($id);
         return view('pages.admin.Website_String.WatIkDoe.show', compact('website_watikdoe', 'id'));
     }
 
@@ -57,7 +57,7 @@ class WatIkDoeController extends Controller
 
             
         ]);
-        $add_user = new watikdoe([
+        $add_user = new Watikdoe([
             'titel'    =>  $request->get('titel'),
             'description'     =>  $request->get('description')
         ]);
@@ -69,7 +69,7 @@ class WatIkDoeController extends Controller
     {
 
     
-    $website_watikdoe = watikdoe::find($id);
+    $website_watikdoe = Watikdoe::find($id);
     return view('pages.admin.Website_String.watikdoe.Edit', compact('website_watikdoe', 'id'));
     
 
@@ -85,7 +85,7 @@ class WatIkDoeController extends Controller
             
         ]);
 
-        $watikdoe = watikdoe::find($id);
+        $watikdoe = Watikdoe::find($id);
         $watikdoe->titel = $request->get('titel');
         $watikdoe->description = $request->get('description');
 
@@ -101,7 +101,7 @@ class WatIkDoeController extends Controller
     {
         
         // dd($id);
-        $watikdoe = watikdoe::find($id);
+        $watikdoe = Watikdoe::find($id);
         
         if ($watikdoe != null) {
         $watikdoe->delete();

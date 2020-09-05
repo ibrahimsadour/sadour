@@ -84,7 +84,7 @@
             </ul>
         </div>
         <div class="drawer-footer mt-50 mb-30 text-center">
-            <p class="font-12 mt-10"> &copy;  {{ now()->year }}.</p>
+            <p class="font-12 mt-10"> @foreach($website_strings as $strings){{$strings ->name}}@endforeach &copy;  {{ now()->year }}.</p>
         </div>
     </div>
 </div>       

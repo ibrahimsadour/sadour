@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 
-class opleiding extends Model
+class Contact extends Model
 {
    
 
@@ -17,7 +17,7 @@ class opleiding extends Model
      *
      * @var string
      */
-    protected $table = 'opleiding';
+    protected $table = 'contact';
 
     /**
      * The attributes that are mass assignable.
@@ -25,7 +25,7 @@ class opleiding extends Model
      * @var array
      */
     protected $fillable = [
-        'education_name', 'period','place'
+        'name', 'email','message'
     ];
 
 }

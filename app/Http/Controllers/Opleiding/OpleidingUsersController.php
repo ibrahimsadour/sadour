@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
-Use App\opleiding;
+Use App\Models\Opleiding;
 
 
 class OpleidingUsersController extends Controller
@@ -26,7 +26,7 @@ class OpleidingUsersController extends Controller
     public function index()
     {
 
-        $website_opleiding= opleiding::all()->toArray();
+        $website_opleiding= Opleiding::all()->toArray();
 
         return view('pages.admin.Website_String.Opleiding.AlleOpleiding', compact('website_opleiding'));
 
@@ -35,7 +35,7 @@ class OpleidingUsersController extends Controller
     
     public function show($id)
     {
-        $website_opleiding = opleiding::find($id);
+        $website_opleiding = Opleiding::find($id);
         return view('pages.admin.Website_String.Opleiding.ShowOpleiding', compact('website_opleiding', 'id'));
     }
 
@@ -57,7 +57,7 @@ class OpleidingUsersController extends Controller
             'place'     =>  'required'
             
         ]);
-        $add_user = new opleiding([
+        $add_user = new Opleiding([
             'education_name'    =>  $request->get('education_name'),
             'period'     =>  $request->get('period'),
             'place'     =>  $request->get('place')
@@ -72,7 +72,7 @@ class OpleidingUsersController extends Controller
     {
 
     
-    $website_opleiding = opleiding::find($id);
+    $website_opleiding = Opleiding::find($id);
     return view('pages.admin.Website_String.Opleiding.EditOpleiding', compact('website_opleiding', 'id'));
     
 
@@ -88,7 +88,7 @@ class OpleidingUsersController extends Controller
             
         ]);
 
-        $opleiding = opleiding::find($id);
+        $opleiding = Opleiding::find($id);
         $opleiding->education_name = $request->get('education_name');
         $opleiding->place = $request->get('period');
         $opleiding->period = $request->get('place');
@@ -103,7 +103,7 @@ class OpleidingUsersController extends Controller
     public function destroy($id)
     {
 
-        $ervaring = opleiding::findOrFail($id);
+        $ervaring = Opleiding::findOrFail($id);
         $ervaring->delete();
 
         return redirect()->route('auth.dashboard.opleiding')->with('success','opleiding deleted!');

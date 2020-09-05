@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Validator,Redirect,Response,Session;
-Use App\ervaring;
+Use App\Models\Ervaring;
 
 
 class ErvaringUsersController extends Controller
@@ -29,7 +29,7 @@ class ErvaringUsersController extends Controller
     {
         if(Auth::check()){
             
-            $website_ervaring= ervaring::all()->toArray();
+            $website_ervaring= Ervaring::all()->toArray();
 
             return view('pages.admin.Website_String.Ervaring.AlleErvaring', compact('website_ervaring'));          
         }
@@ -41,7 +41,7 @@ class ErvaringUsersController extends Controller
     
     public function show($id)
     {
-        $website_ervaring = ervaring::find($id);
+        $website_ervaring = Ervaring::find($id);
         return view('pages.admin.Website_String.Ervaring.ShowErvaring', compact('website_ervaring', 'id'));
     }
 
@@ -63,7 +63,7 @@ class ErvaringUsersController extends Controller
             'period'     =>  'required'
             
         ]);
-        $add_user = new ervaring([
+        $add_user = new Ervaring([
             'company_name'    =>  $request->get('company_name'),
             'place'     =>  $request->get('place'),
             'period'     =>  $request->get('period'),
@@ -78,7 +78,7 @@ class ErvaringUsersController extends Controller
     {
 
     
-    $website_ervaring = ervaring::find($id);
+    $website_ervaring = Ervaring::find($id);
     return view('pages.admin.Website_String.Ervaring.EditErvaring', compact('website_ervaring', 'id'));
     
 
@@ -94,7 +94,7 @@ class ErvaringUsersController extends Controller
             
         ]);
 
-        $ervaring = ervaring::find($id);
+        $ervaring = Ervaring::find($id);
         $ervaring->company_name = $request->get('company_name');
         $ervaring->place = $request->get('place');
         $ervaring->period = $request->get('period');
@@ -108,7 +108,7 @@ class ErvaringUsersController extends Controller
     public function destroy($id)
     {
 
-        $ervaring = ervaring::findOrFail($id);
+        $ervaring = Ervaring::findOrFail($id);
         $ervaring->delete();
 
         return redirect()->route('auth.dashboard.ervaring')->with('success','ervaring deleted!');

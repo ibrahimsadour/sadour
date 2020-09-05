@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
-Use App\hobbys;
+Use App\Models\Hobbys;
 
 
 class HobbysController extends Controller
@@ -24,7 +24,7 @@ class HobbysController extends Controller
     public function index()
     {
         
-        $website_hobbyse= hobbys::all()->toArray();
+        $website_hobbyse= Hobbys::all()->toArray();
 
         return view('pages.admin.Website_String.Hobbys.AlleTexten', compact('website_hobbyse'));
 
@@ -33,7 +33,7 @@ class HobbysController extends Controller
     
     public function show($id)
     {
-        $website_hobbyse = hobbys::find($id);
+        $website_hobbyse = Hobbys::find($id);
         return view('pages.admin.Website_String.Hobbys.show', compact('website_hobbyse', 'id'));
     }
 
@@ -53,7 +53,7 @@ class HobbysController extends Controller
             'name'    =>  'required'
             
         ]);
-        $add_user = new hobbys([
+        $add_user = new Hobbys([
             'name'    =>  $request->get('name')
         ]);
         $add_user->save();
@@ -64,7 +64,7 @@ class HobbysController extends Controller
     {
 
     
-    $website_hobbys = hobbys::find($id);
+    $website_hobbys = Hobbys::find($id);
     return view('pages.admin.Website_String.hobbys.Edit', compact('website_hobbys', 'id'));
     
 
@@ -80,7 +80,7 @@ class HobbysController extends Controller
             
         ]);
 
-        $hobbys = hobbys::find($id);
+        $hobbys = Hobbys::find($id);
         $hobbys->name = $request->get('name');
 
 
@@ -94,7 +94,7 @@ class HobbysController extends Controller
     {
         
         // dd($id);
-        $watikdoe = hobbys::find($id);
+        $watikdoe = Hobbys::find($id);
         
         if ($watikdoe != null) {
         $watikdoe->delete();
