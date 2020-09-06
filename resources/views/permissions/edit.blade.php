@@ -2,7 +2,27 @@
 
 
 @section('title', '| Edit User')
+<style>
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
 
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
+</style>
 
 @section('Dashboard')
 
@@ -36,6 +56,20 @@
 
                     <h1 class="h4"><i class='fa fa-key'></i> Edit <span style="color:#fa5252;">{{$permission->name}}</span></h1>
                     <br>
+                    @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="aanapssen">{{$error}}</li>
+                        @endforeach
+                        </ul>
+                        </div>
+                        @endif
+                        @if(\Session::has('success'))
+                        <div class="alert alert-success">
+                        <p class="aanapssen">{{ \Session::get('success') }}</p>
+                    </div>
+                    @endif
                     {{ Form::model($permission, array('route' => array('permission.update', $permission->id), 'method' => 'PUT')) }}
 
                     <div class="form-group">

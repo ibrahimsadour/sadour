@@ -2,7 +2,22 @@
 
 
 @section('title', '| Edit User')
+<style>
+ 
 
+    .alert-success{
+        color: black!important;
+
+    }
+    .alert-danger{
+        color: black!important;
+
+    }
+    
+    .alert {
+    padding: 0rem 1rem!important;
+    }
+</style>
 
 @section('Dashboard')
 
@@ -36,7 +51,20 @@
                     <div class='col-lg-4 col-lg-offset-4'>
                         <h1 class="h4"><i class='fa fa-key'></i> Edit Role: {{$role->name}}</h1>
                         <hr>
-
+                        @if(count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                            </ul>
+                            </div>
+                            @endif
+                            @if(\Session::has('success'))
+                            <div class="alert alert-success">
+                            <p>{{ \Session::get('success') }}</p>
+                        </div>
+                        @endif
                         {{ Form::model($role, array('route' => array('roles.update', $role->id), 'method' => 'PUT')) }}
 
                         <div class="form-group">

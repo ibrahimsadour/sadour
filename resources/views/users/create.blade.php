@@ -1,7 +1,27 @@
 @extends('layouts.AdminDashboard')
 
 @section('title', '| Add User')
+<style>
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
 
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
+</style>
 @section('Dashboard')
 
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -34,6 +54,20 @@
 
                     <h1 class="h4"><i class='fa fa-user-plus'></i> Add User</h1>
                     <hr>
+                    @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="aanapssen">{{$error}}</li>
+                        @endforeach
+                        </ul>
+                        </div>
+                        @endif
+                        @if(\Session::has('success'))
+                        <div class="alert alert-success">
+                        <p class="aanapssen">{{ \Session::get('success') }}</p>
+                    </div>
+                    @endif
                     {{ Form::open(array(
                     'action' => array('Setting\SettingUsersController@store'),
                     'method' => 'POST')) }}

@@ -36,7 +36,8 @@ class RoleStoreRequest extends FormRequest
         return [
 
 
-            'name.required'=>'de naam in niet ingevuld'
+            'name.required'=>'de naam in niet ingevuld',
+            'permissions.required'=>'de permissions in niet ingevuld'
             
         ];
     }

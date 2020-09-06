@@ -3,7 +3,27 @@
 
 @section('title', '| Edit User')
 
+<style>
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
 
+}
+.alert-danger{
+    color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
+</style>
 @section('Dashboard')
 
 <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -36,7 +56,20 @@
 
                             <h1 class="h4"><i class='fa fa-user-plus'></i> Edit {{$user->name}}</h1>
                             <hr>
-
+                            @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach($errors->all() as $error)
+                                    <li class="aanapssen">{{$error}}</li>
+                                @endforeach
+                                </ul>
+                                </div>
+                                @endif
+                                @if(\Session::has('success'))
+                                <div class="alert alert-success">
+                                <p class="aanapssen">{{ \Session::get('success') }}</p>
+                            </div>
+                            @endif
                             {{ Form::model($user, array('action' => array('Setting\SettingUsersController@update', $user->id), 'method' => 'PUT')) }}{{-- Form model binding to automatically populate our fields with user data --}}
                             <div class="form-group">
                                 {{ Form::label('name', 'Name') }}
@@ -70,7 +103,7 @@
 
                             </div>
 
-                            {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
+                            {{ Form::submit('Edit', array('class' => 'btn btn-primary')) }}
 
                             {{ Form::close() }}
 
