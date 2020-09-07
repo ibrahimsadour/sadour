@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\Models\Hobbys;
+use App\Http\Requests\AdminDashboard\HobbysRequest;
 
 
 class HobbysController extends Controller
@@ -47,12 +48,9 @@ class HobbysController extends Controller
         return view('pages.admin.Website_String.Hobbys.Add');
     }
 
-    public function store(Request $request)
+    public function store(HobbysRequest $request)
     {
-        $this->validate($request, [
-            'name'    =>  'required'
-            
-        ]);
+
         $add_user = new Hobbys([
             'name'    =>  $request->get('name')
         ]);
@@ -69,23 +67,11 @@ class HobbysController extends Controller
     
 
     }
-    public function update(Request $request, $id)
+    public function update(HobbysRequest $request, $id)
     {
-
-        // dd($request);
-
-        $this->validate($request, [
-            'name'    =>  'required',
-
-            
-        ]);
 
         $hobbys = Hobbys::find($id);
         $hobbys->name = $request->get('name');
-
-
-
-
         $hobbys->save();
         return redirect()->route('auth.dashboard.hobbys')->with('success', 'Data Updated');
     }

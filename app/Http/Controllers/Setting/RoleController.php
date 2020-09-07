@@ -102,15 +102,10 @@ class RoleController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(RoleStoreRequest $request, $id) {
 
         $role = Role::findOrFail($id);//Get role with the given id
-    //Validate name and permission fields
-        $this->validate($request, [
-            'name'=>'required|max:10|unique:roles,name,'.$id,
-            'permissions' =>'required',
-        ]);
-
+    
         $input = $request->except(['permissions']);
         $permissions = $request['permissions'];
         $role->fill($input)->save();

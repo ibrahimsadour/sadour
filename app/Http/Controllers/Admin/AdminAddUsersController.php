@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\Models\Admin;
+use App\Http\Requests\AdminDashboard\AdminStoreRequest;
 
 
 class AdminAddUsersController extends Controller
@@ -47,14 +48,8 @@ class AdminAddUsersController extends Controller
         return view('pages.admin.Website_String.Users.Add');
     }
 
-    public function store(Request $request)
+    public function store(AdminStoreRequest $request)
     {
-        $this->validate($request, [
-            'name'    =>  'required',
-            'description'     =>  'required',
-            'keywords'     =>  'required'
-            
-        ]);
         $add_user = new Admin([
             'name'    =>  $request->get('name'),
             'description'     =>  $request->get('description'),
@@ -79,20 +74,8 @@ class AdminAddUsersController extends Controller
     
 
     }
-    public function update(Request $request, $id)
+    public function update(AdminStoreRequest $request, $id)
     {
-
-       
-        $this->validate($request, [
-            'name'    =>  'required',
-            'description'     =>  'required',
-            'keywords'     =>  'required',
-            'date'     =>  'required',
-            'Address'     =>  'required',
-            'Email'     =>  'required',
-            'Phone'     =>  'required',
-            'function'     =>  'required'
-        ]);
 
         $student = Admin::find($id);
         $student->name = $request->get('name');

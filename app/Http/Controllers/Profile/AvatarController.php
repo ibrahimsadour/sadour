@@ -8,11 +8,10 @@ use App\Http\Requests;
 use Validator,Redirect,Response,Session;
 Use App\Models\Profile;
 Use App\User;
+use App\Http\Requests\AdminDashboard\AvatarRequest;
+
 class AvatarController extends Controller
 {
-
-
-
 
 
     /**
@@ -58,21 +57,9 @@ class AvatarController extends Controller
         
         
     }
-    public function sendData(Request $request)
+    public function sendData(AvatarRequest $request)
     {
 
-        $this->validate($request, [
-            'first_name'    =>  'required',
-            'birthday'     =>  'required',
-            'gender'    =>  'required',
-            'email'     =>  'required',
-            'phone'     =>  'required',
-            'address'    =>  'required',
-            'city'     =>  'required',
-            'zip'     =>  'required'
-            
-            
-        ]);
 
         $user = auth()->user();
         $profile = $user->profile()->updateOrCreate (
@@ -143,11 +130,16 @@ class AvatarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        // $user = user::findOrFail($id);
-        // $user->avatar_id -> deleteAvatar;
-        // $user->delete();
-        // return redirect()->back();    
+
+    //    $mediaItems[0]->delete();
+        
+        // $contact->delete();
+
+        // return redirect()->route('auth.dashboard.contact')->with('success','contact deleted!');
+
+
+        
     }
 }

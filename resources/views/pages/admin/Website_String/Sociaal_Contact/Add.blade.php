@@ -15,6 +15,7 @@
     }
     .alert-danger{
         color: black!important;
+
     }
     
     .alert {
@@ -55,7 +56,7 @@
                                 <div class="row">
                                     <div class="col-md-12" style="max-width: 50%;"> 
                                         <br />
-                                        <h3 aling="center">Add User</h3>
+                                        <h3 aling="center">Add your sociaal link</h3>
                                         <br />
                                         @if(count($errors) > 0)
                                         <div class="alert alert-danger">
@@ -72,46 +73,25 @@
                                         </div>
                                         @endif
 
-                                        <form method="post" action="{{url('auth/dashboard/admin')}}">
+                                        <form method="post" action="{{url('auth/dashboard/sociaal_contact')}}">
                                             {{csrf_field()}}
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="name" required />
+                                                <input type="text" name="facebook" class="form-control" placeholder="facebook" required />
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="text" name="description" class="form-control" placeholder="description" required/>
+                                                <input type="text" name="twitter" class="form-control" placeholder="twitter" required/>
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="text" name="keywords" class="form-control" placeholder="keywords" required/>
+                                                <input type="text" name="instagram" class="form-control" placeholder="instagram" required/>
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="text" name="date" class="form-control" placeholder="date of birth" required/>
+                                                <input type="text" name="linkedin" class="form-control" placeholder="linkedin" required/>
                                             </div>
 
-                                            <div class="form-group">
-                                                <input type="text" name="Address" class="form-control" placeholder="Address" required/>
-                                            </div>
 
-                                            <div class="form-group">
-                                                <input type="text" name="Email" class="form-control" placeholder="Email"required />
-                                            </div>
-
-                                            <div class="form-group">
-                                                <input type="text" name="Phone" class="form-control" placeholder="Phone" required/>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <input type="text" name="function" class="form-control" placeholder="function"required />
-                                            </div>
-                                            <div class="form-group">
-                                            <select name="view" id="view" class="form-control">
-                                                <option value="2">Select ( YES - NO )</option>
-                                                <option value="1">Yes</option>
-                                                <option value="2">No</option>
-                                            </select>
-                                            </div>
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-primary" />
                                             </div>

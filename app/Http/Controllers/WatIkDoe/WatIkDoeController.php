@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\Models\Watikdoe;
+use App\Http\Requests\AdminDashboard\WatIkdoeRequest;
 
 
 class WatIkDoeController extends Controller
@@ -49,14 +50,9 @@ class WatIkDoeController extends Controller
         return view('pages.admin.Website_String.WatIkDoe.Add');
     }
 
-    public function store(Request $request)
+    public function store(WatIkdoeRequest $request)
     {
-        $this->validate($request, [
-            'titel'    =>  'required',
-            'description'     =>  'required'
 
-            
-        ]);
         $add_user = new Watikdoe([
             'titel'    =>  $request->get('titel'),
             'description'     =>  $request->get('description')
@@ -74,16 +70,8 @@ class WatIkDoeController extends Controller
     
 
     }
-    public function update(Request $request, $id)
+    public function update(WatIkdoeRequest $request, $id)
     {
-
-        // dd($request);
-
-        $this->validate($request, [
-            'titel'    =>  'required',
-            'description'     =>  'required'
-            
-        ]);
 
         $watikdoe = Watikdoe::find($id);
         $watikdoe->titel = $request->get('titel');

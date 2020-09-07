@@ -275,3 +275,19 @@ Route::resource('/auth/dashboard/hobbys','Hobbys\HobbysController')->names([
 
 ])->middleware('auth');
 // =================================================================================
+
+// =================================================================================
+// deze Route is gemaakt door Ibrahim sadour
+// de Sociaal contact informatie van de site gebruiker aan te passen
+// zoals ( facebook , instgraam, twitter,linkdin)
+Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalController')->names([
+    'create' => 'auth.dashboard.sociaal_contact.create',
+    'edit' => 'auth.dashboard.sociaal_contact.edit',
+    'show' =>'auth.dashboard.sociaal_contact.show',
+    'index' =>'auth.dashboard.sociaal_contact',
+    'destroy' =>'auth.dashboard.sociaal_contact.destroy',
+    'update' => 'sociaal_contact.update'
+    
+
+])->middleware('auth');
+// =================================================================================

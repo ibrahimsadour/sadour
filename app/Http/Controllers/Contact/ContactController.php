@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\Models\Contact;
+use App\Http\Requests\AdminDashboard\ContactRequest;
 
 
 class ContactController extends Controller
@@ -38,14 +39,9 @@ class ContactController extends Controller
 
 
 
-    public function create (Request $request)
+    public function create (ContactRequest $request)
     {
-        $this->validate($request, [
-            'name'    =>  'required',
-            'email'     =>  'required',
-            'message'     =>  'required'
-            
-        ]);
+
         $add_user = new Contact([
             'name'    =>  $request->get('name'),
             'email'     =>  $request->get('email'),

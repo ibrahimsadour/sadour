@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Validator,Redirect,Response,Session;
 Use App\Models\Ervaring;
+use App\Http\Requests\AdminDashboard\ErvaringRequest;
 
 
 class ErvaringUsersController extends Controller
@@ -55,14 +56,9 @@ class ErvaringUsersController extends Controller
         return view('pages.admin.Website_String.Ervaring.AddErvaring');
     }
 
-    public function store(Request $request)
+    public function store(ErvaringRequest $request)
     {
-        $this->validate($request, [
-            'company_name'    =>  'required',
-            'place'     =>  'required',
-            'period'     =>  'required'
-            
-        ]);
+
         $add_user = new Ervaring([
             'company_name'    =>  $request->get('company_name'),
             'place'     =>  $request->get('place'),
@@ -83,16 +79,8 @@ class ErvaringUsersController extends Controller
     
 
     }
-    public function update(Request $request, $id)
+    public function update(ErvaringRequest $request, $id)
     {
-
-        // dd($request);
-        $this->validate($request, [
-            'company_name'    =>  'required',
-            'place'     =>  'required',
-            'period'     =>  'required'
-            
-        ]);
 
         $ervaring = Ervaring::find($id);
         $ervaring->company_name = $request->get('company_name');

@@ -8,10 +8,8 @@ label {
 .form-control {
        margin-bottom: .5rem;
 }
-.alert-danger{
-    color:black !important;
-}
 
+}
 </style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -59,26 +57,26 @@ label {
                                                  </div>
                                                  @endif
 
-                                                 <form method="post" action="{{action('Opleiding\OpleidingUsersController@update',['opleiding' => $website_opleiding->id])}}">
+                                                 <form method="post" action="{{action('Sociaal_contact\SociaalController@update',['website_sociaal_contact' => $website_sociaal_contact->id])}}">
                                                         {{csrf_field()}}
                                                         {{ method_field('PATCH') }}
                                                         <div class="form-group">
-                                                        <label for="name">Education name</label>
-                                                        <input type="text" name="education_name" class="form-control" value="{{$website_opleiding->education_name}}" placeholder="Enter education name" />
+                                                        <label for="name">facebook</label>
+                                                        <input type="text" name="facebook" class="form-control" value="{{$website_sociaal_contact->facebook}}" placeholder="Enter facebook" />
                                                         </div>
                                                         <div class="form-group">
-                                                        <label for="name">Period</label>
-                                                        <input type="text" name="period" class="form-control" value="{{$website_opleiding->period}}" placeholder="Enter period" />
+                                                        <label for="name">twitter</label>
+                                                        <input type="text" name="twitter" class="form-control" value="{{$website_sociaal_contact->twitter}}" placeholder="Enter twitter" />
                                                         </div>
                                                         <div class="form-group">
-                                                        <label for="name">place</label>
-                                                        <input type="text" name="place" class="form-control" value="{{$website_opleiding->place}}" placeholder="Enter keywords" />
+                                                        <label for="name">instagram</label>
+                                                        <input type="text" name="instagram" class="form-control" value="{{$website_sociaal_contact->instagram}}" placeholder="Enter instagram" />
                                                         </div>
-                                                        <!-- <div class="form-group">
-                                                        <label for="name">Description</label>
-                                                        <textarea  name="description" class="form-control"  value="{{$website_opleiding->description}}"   rows="4" cols="50">{{$website_opleiding->description}}</textarea>
-                                                        </div> -->
 
+                                                        <div class="form-group">
+                                                        <label for="name">linkedin</label>
+                                                        <input type="text" name="linkedin" class="form-control" value="{{$website_sociaal_contact->linkedin}}" placeholder="Enter linkedin" />
+                                                        </div>
 
                                                         <div class="form-group">
                                                         <input type="submit" class="btn btn-primary" value="Edit" />

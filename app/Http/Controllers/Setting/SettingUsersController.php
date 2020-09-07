@@ -8,6 +8,7 @@ use Validator,Redirect,Response,Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 Use App\User;
+use App\Http\Requests\SetiingUsersStoreRequest;
 
 //Importing laravel-permission models
 use Spatie\Permission\Models\Role;
@@ -51,14 +52,8 @@ class SettingUsersController extends Controller
         * @param  \Illuminate\Http\Request  $request
         * @return \Illuminate\Http\Response
         */
-        public function store(Request $request) {
-        //Validate name, email and password fields
-            $this->validate($request, [
-                'name'=>'required|max:120',
-                'email'=>'required|email|unique:users',
-                'password'=>'required|min:6|confirmed'
-            ]);
-    
+        public function store(SetiingUsersStoreRequest $request) {
+
             $user = User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
@@ -109,15 +104,10 @@ class SettingUsersController extends Controller
         * @param  int  $id
         * @return \Illuminate\Http\Response
         */
-        public function update(Request $request, $id) {
+        public function update(SetiingUsersStoreRequest $request, $id) {
             $user = User::findOrFail($id); //Get role specified by id
     
-        //Validate name, email and password fields    
-            $this->validate($request, [
-                'name'=>'required|max:120',
-                'email'=>'required|email|unique:users,email,'.$id,
-                'password'=>'required|min:6|confirmed'
-            ]);
+  
             $input = $request->only(['name', 'email', 'password']); //Retreive the name, email and password fields
             $roles = $request['roles']; //Retreive all roles
             $user->fill($input)->save();

@@ -208,7 +208,7 @@
                                             <h2 class="h5 mb-4">Select profile photo</h2>
                                             <div class="d-xl-flex align-items-center" style="display:block!important;">
 
-                                                <div class="card h-100" style="display: -webkit-box;">
+                                                <div class="card h-100" >
                                                     @foreach($avatars as $avatar)
                                                     <div class="card-body" style="height: 50%; width: 50%;">
                                                         <img src="{{$avatar->getUrl('card')}}" class="card-img-top" alt="avatar ">
@@ -231,8 +231,8 @@
                                                             </form>
                                                         </div>
                                                         <div class="float-right">
-                                                        <a href="#" ><i class="text-info fa fa-eye fa-1x"></i></a>
-                                                        <a href="#" ><i class="text-warning fa fa-cloud-download-alt fa-1x"></i></a>
+                                                        <a href="{{$avatar->getUrl('card')}}"   target="_blank" ><i class="text-info fa fa-eye fa-1x"></i></a>
+                                                        <a href="{{$avatar->getUrl('card')}}" download ><i class="text-warning fa fa-cloud-download-alt fa-1x"></i></a>
 
                                                         </div>
                                                     </div>

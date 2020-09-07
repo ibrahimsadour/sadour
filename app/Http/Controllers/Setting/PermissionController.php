@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\User;
+use App\Http\Requests\PermissionRequest;
 
 use Auth;
 
@@ -48,10 +49,8 @@ class PermissionController extends Controller {
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request) {
-        $this->validate($request, [
-            'name'=>'required|max:40',
-        ]);
+    public function store(PermissionRequest $request) {
+
 
         $name = $request['name'];
         $permission = new Permission();
@@ -81,6 +80,7 @@ class PermissionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function show($id) {
+        
         return redirect('permissions');
     }
 
@@ -91,6 +91,7 @@ class PermissionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function edit($id) {
+
         $permission = Permission::findOrFail($id);
 
         return view('permissions.edit', compact('permission'));
@@ -103,14 +104,11 @@ class PermissionController extends Controller {
     * @param  int  $id
     * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, $id) {
+    public function update(PermissionRequest $request, $id) {
+
         $permission = Permission::findOrFail($id);
-        $this->validate($request, [
-            'name'=>'required|max:40',
-        ]);
         $input = $request->all();
         $permission->fill($input)->save();
-
         return redirect()->route('auth.dashboard.permission')->with('success','Permission '. $permission->name.' updated!');
 
     }
@@ -122,14 +120,8 @@ class PermissionController extends Controller {
     * @return \Illuminate\Http\Response
     */
     public function destroy($id) {
-        $permission = Permission::findOrFail($id);
 
-    //Make it impossible to delete this specific permission    
-    // if ($permission->name == "Administer roles & permissions") {
-    //         return redirect()->route('permissions.index')
-    //         ->with('flash_message',
-    //          'Cannot delete this Permission!');
-    //     }
+        $permission = Permission::findOrFail($id);
 
         $permission->delete();
 

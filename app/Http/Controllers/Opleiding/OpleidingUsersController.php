@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\Models\Opleiding;
+use App\Http\Requests\AdminDashboard\OpleidingRequest;
+
 
 
 class OpleidingUsersController extends Controller
@@ -49,7 +51,7 @@ class OpleidingUsersController extends Controller
         return view('pages.admin.Website_String.Opleiding.AddOpleiding');
     }
 
-    public function store(Request $request)
+    public function store(OpleidingRequest $request)
     {
         $this->validate($request, [
             'education_name'    =>  'required',
@@ -77,7 +79,7 @@ class OpleidingUsersController extends Controller
     
 
     }
-    public function update(Request $request, $id)
+    public function update(OpleidingRequest $request, $id)
     {
 
         // dd($request);

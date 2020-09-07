@@ -38,7 +38,7 @@
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Opleiding </span></a></li>
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> Wat Ik Doe</span></a></li>
                   <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"><span class="fa fa-cubes"> Hobby's</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="../../pages/examples/reset-password.html"><span class="fa fa-hourglass">  Mijn Partners</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Sociaal contact</span></a></li>
               </ul>
           </div>
         </li>

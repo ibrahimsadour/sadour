@@ -4,7 +4,7 @@
     <div class="timeline-wrap  overflow-hide mb-30">
         <ul class="timeline">
             @foreach($ervaring_strings as $ervaring)
-            @if($ervaring ->id == 9)
+            @if($ervaring ->id == 1)
             <li>
                 <div class="timeline-badge">
                     <i class="zmdi zmdi-case font-blue"></i>
@@ -24,7 +24,7 @@
             @endforeach 
             
             @foreach($ervaring_strings as $ervaring)
-            @if($ervaring ->id == 10)
+            @if($ervaring ->id == 2)
             <li class="timeline-inverted">
                 <div class="timeline-badge">
                     <i class="zmdi zmdi-format-color-text font-green"></i>
@@ -44,7 +44,7 @@
             @endforeach
 
             @foreach($ervaring_strings as $ervaring)
-            @if($ervaring ->id == 11)
+            @if($ervaring ->id == 3)
             <li>
                 <div class="timeline-badge">
                     <i class="zmdi zmdi-city-alt font-yellow"></i>
@@ -63,7 +63,7 @@
             @endif 
             @endforeach
             @foreach($ervaring_strings as $ervaring)
-            @if($ervaring ->id == 12)
+            @if($ervaring ->id == 4)
             <li class="timeline-inverted">
                 <div class="timeline-badge">
                     <i class="zmdi zmdi-grain -color-text font-blue"></i>
@@ -83,7 +83,7 @@
             @endforeach 
 
             @foreach($ervaring_strings as $ervaring)
-            @if($ervaring ->id ===  13)
+            @if($ervaring ->id ===  5)
             <li>
                 <div class="timeline-badge">
                     <i class="zmdi zmdi-city-alt font-green"></i>
@@ -103,7 +103,7 @@
             @endforeach 
 
             @foreach($ervaring_strings as $ervaring)
-            @if($ervaring ->id == 14)
+            @if($ervaring ->id == 6)
             <li class="timeline-inverted">
                 <div class="timeline-badge">
                     <i class="zmdi zmdi-grain -color-text font-blue"></i>

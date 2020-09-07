@@ -1,15 +1,25 @@
 @extends('layouts.AdminDashboard')
 <style>
-label {
-    font-weight: 600;
-    margin-bottom: .5rem;
-    display: inline-block;
-}
-.form-control {
-       margin-bottom: .5rem;
-}
+    label {
+        font-weight: 600;
+        margin-bottom: .5rem;
+        display: inline-block;
+    }
+    .form-control {
+        margin-bottom: .5rem;
+    }
 
-}
+    .alert-success{
+        color: black!important;
+
+    }
+    .alert-danger{
+        color: black!important;
+    }
+    
+    .alert {
+    padding: 0rem 1rem!important;
+    }
 </style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
