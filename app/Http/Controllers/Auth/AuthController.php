@@ -19,7 +19,12 @@ class AuthController extends Controller
 
     public function show()
     {
+        if (Auth::check()) {
+          return view('auth.dashboard');
+      }else{
         return view('auth.login');
+
+      }
     }  
  
     public function register()
