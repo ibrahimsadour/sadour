@@ -11,7 +11,7 @@ use Spatie\MediaLibrary\MediaCollections\File;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia , MustVerifyEmail
 {
     use Notifiable,HasRoles,InteractsWithMedia;
 

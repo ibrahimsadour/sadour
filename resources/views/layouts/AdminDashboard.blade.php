@@ -68,6 +68,9 @@
 <body class="bg-soft">
 
 @yield('login_form')
+@yield('verify_login_user')
+@yield('rest_password')
+@yield('rest_password_with_email')
 @yield('register_form')
 @yield('Dashboard')
 

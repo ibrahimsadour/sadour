@@ -141,9 +141,6 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="{{action('Contact\ContactController@show', $row['id'])}}"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @hasanyrole('Editor|Admin')
-                                                            <a class="dropdown-item" href="{{action('Contact\ContactController@edit', $row['id'])}}"><span class="fas fa-edit mr-2"></span>Edit</a>
-                                                            @endhasanyrole
                                                             @role('Admin')
                                                             <form method="post" class="delete_form" action="{{action('Contact\ContactController@destroy', $row['id'])}}">
                                                             {{csrf_field()}}

@@ -1,8 +1,10 @@
 <?php
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\AdminAddUsersController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+Auth::routes(['verify' =>true]);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,7 +88,7 @@ Route::group( [
 
     // URL: /auth/dashboard
     // Route name: auth.dashboard
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('.dashboard');
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('.dashboard')->middleware('verified');
 
 
     // URL: /auth/logout
@@ -119,7 +121,6 @@ Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names(
     'edit' => 'auth.dashboard.admin.edit',
     'index' => 'auth.dashboard.admin',
     'show' =>'auth.dashboard.admin.show'
-
 ])->middleware('auth');
 // =================================================================================
 
@@ -132,20 +133,9 @@ Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names(
         'create' => 'auth.dashboard.ervaing.create',
         'edit' => 'auth.dashboard.ervaring.edit',
         'index' =>'auth.dashboard.ervaring',
-        'show' =>'auth.dashboard.ervaring.show'
-
+        'show' =>'auth.dashboard.ervaring.show',
+        'destroy'=>'auth.dashboard.ervaring.delete'
     ])->middleware('auth');
-    Route::delete('/auth/dashboard/ervaring/{id}', 'Ervaring\ErvaringUsersController@destroy')->name('auth.dashboard.ervaring.delete')->middleware('auth');
-
-    // Route::group( [
-    //     'as' => '.auth', //Het is 'als'-gedeelte van de tweede parameter definieert de naam van de route.
-    //     'prefix' => '/auth/dashboard/ervaring' // deze om mijn code verkorter te maken dus niet nodig bij elke rout /auth te typen.
-    // ],function() {
-    //     Route::get('', 'Ervaring\ErvaringUsersController@index') ->name('auth.dashboard.ervaing');
-    //     Route::post('create', 'Ervaring\ErvaringUsersController@create') ->name('.dashboard.ervaing.create');
-    //     Route::POST('edit', 'Ervaring\ErvaringUsersController@edit') ->name('auth.dashboard.ervaing.edit');
-    // });
-// Route::resource('/auth/dashboard/ervaring', [ 'as' => 'login', 'Ervaring' => 'ErvaringUsersController']);
 // =================================================================================
 
 
@@ -158,10 +148,7 @@ Route::resource('/auth/dashboard/opleiding','Opleiding\OpleidingUsersController'
     'edit' => 'auth.dashboard.opleiding.edit',
     'index' =>'auth.dashboard.opleiding',
     'show' =>'auth.dashboard.opleiding.show'
-
 ])->middleware('auth');
-Route::delete('/auth/dashboard/opleiding/{id}', 'Opleiding\OpleidingUsersController@destroy')->name('auth.dashboard.opleiding.delete')->middleware('auth');
-
 // =================================================================================
 
 
@@ -174,10 +161,7 @@ Route::resource('/auth/dashboard/contact', 'Contact\ContactController')->names([
     'edit' => 'auth.dashboard.contact.edit',
     'index' =>'auth.dashboard.contact',
     'show' =>'auth.dashboard.contact.show',
-    
     ])->middleware('auth');
-Route::post('/auth/dashboard/contact', 'Contact\ContactController@edit')->name('auth.dashboard.contact.edit')->middleware('auth');
-Route::delete('/auth/dashboard/contact/{id}', 'Contact\ContactController@destroy')->name('auth.dashboard.contact.delete')->middleware('auth');
 // =================================================================================
 
 
@@ -191,7 +175,6 @@ Route::resource('/auth/dashboard/profile', 'Profile\AvatarController')->names([
     'create' => 'auth.dashboard.profile.create',
     'edit' => 'auth.dashboard.profile.edit',
     'index' =>'auth.dashboard.profile'
-    
     ])->middleware('auth');
 Route::put('/auth/dashboard/profile', 'Profile\AvatarController@sendData')->name('auth.dashboard.profile.sendData')->middleware('auth');
 Route::post('/auth/dashboard/profile', 'Profile\AvatarController@store')->name('auth.dashboard.profile.store')->middleware('auth');
@@ -205,10 +188,10 @@ Route::post('/auth/dashboard/profile', 'Profile\AvatarController@store')->name('
 
 Route::resource('/auth/dashboard/setting', 'Setting\SettingUsersController')->names([
     'create' => 'auth.dashboard.setting.create',
-    'edit' => 'auth.dashboard.setting.edit'
+    'edit' => 'auth.dashboard.setting.edit',
+    'index' => 'auth.dashboard.setting',
+    'store' => 'setting.store'
     ])->middleware('auth');
-Route::get('/auth/dashboard/setting', 'Setting\SettingUsersController@index')->name('auth.dashboard.setting')->middleware('auth');
-Route::post('/auth/dashboard/setting', 'Setting\SettingUsersController@store')->name('setting.store')->middleware('auth');
 // =================================================================================
 
 
@@ -220,10 +203,8 @@ Route::resource('/auth/dashboard/roles', 'Setting\RoleController')->names([
     'create' => 'auth.dashboard.roles.create',
     'edit' => 'auth.dashboard.roles.edit',
     'show' =>'auth.dashboard.roles.show',
-    'index' =>'auth.dashboard.roles',
-
-    ]);
-Route::get('/auth/dashboard/roles', 'Setting\RoleController@index')->name('auth.dashboard.roles');
+    'index' =>'auth.dashboard.roles'
+    ])->middleware('auth');
 // =================================================================================
 
 
@@ -233,11 +214,9 @@ Route::get('/auth/dashboard/roles', 'Setting\RoleController@index')->name('auth.
 // hier kan jij een nieuw  permission voor de  gebruiker of schrijver van de site toevogen   
 Route::resource('/auth/dashboard/permission', 'Setting\PermissionController')->names([
     'create' => 'auth.dashboard.permission.create',
-    'edit' => 'auth.dashboard.permission.edit'
-    ]);
-
-Route::get('/auth/dashboard/permission', 'Setting\PermissionController@index')->name('auth.dashboard.permission');
-// Route::post('/auth/dashboard/permission', 'Setting\PermissionController@update')->name('auth.dashboard.permission.edit');
+    'edit' => 'auth.dashboard.permission.edit',
+    'index' =>'auth.dashboard.permission'
+    ])->middleware('auth');
 // =================================================================================
 
 
@@ -274,25 +253,25 @@ Route::get('/auth/dashboard/permission', 'Setting\PermissionController@index')->
 Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names([
     'create' => 'auth.dashboard.watikdoe.create',
     'edit' => 'auth.dashboard.watikdoe.edit',
-    'show' =>'auth.dashboard.watikdoe.show'
+    'show' =>'auth.dashboard.watikdoe.show',
+    'index' =>'auth.dashboard.watikdoe'
 
-]);
-Route::delete('/auth/dashboard/watikdoe/{id}', 'WatIkDoe\WatIkDoeController@destroy');
-Route::get('/auth/dashboard/watikdoe', 'WatIkDoe\WatIkDoeController@index')->name('auth.dashboard.watikdoe');
+])->middleware('auth');
 // =================================================================================
 
 
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
-// de watikdoe informatie van de site gebruiker aan te passen
+// de hobbys informatie van de site gebruiker aan te passen
 // zoals ( title , description)
 Route::resource('/auth/dashboard/hobbys','Hobbys\HobbysController')->names([
     'create' => 'auth.dashboard.hobbys.create',
     'edit' => 'auth.dashboard.hobbys.edit',
-    'show' =>'auth.dashboard.hobbys.show'
+    'show' =>'auth.dashboard.hobbys.show',
+    'index' =>'auth.dashboard.hobbys',
+    'destroy' =>'auth.dashboard.hobbys.destroy',
+    'update' => 'hobbys.update'
+    
 
-]);
-Route::delete('/auth/dashboard/hobbys/{id}', 'Hobbys\HobbysController@destroy');
-Route::post('/auth/dashboard/hobbys/{id}', 'Hobbys\HobbysController@update')->name('hobbys.update');
-Route::get('/auth/dashboard/hobbys', 'Hobbys\HobbysController@index')->name('auth.dashboard.hobbys');
+])->middleware('auth');
 // =================================================================================

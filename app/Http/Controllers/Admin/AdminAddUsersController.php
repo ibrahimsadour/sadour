@@ -24,7 +24,6 @@ class AdminAddUsersController extends Controller
      */
     public function index()
     {
-
         $website_strings = Admin::all()->toArray();
 
         return view('pages.admin.Website_String.Users.AllUsers', compact('website_strings'));
