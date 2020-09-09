@@ -2,49 +2,12 @@
 <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
 							<h4>Bedankt voor het bezoeken.</h4>
 							<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design {{$strings ->name}}</p>
-								<ul class="social-icons mt-10">
-									<li>
-										<a class="facebook-link" href="#">
-											<i id="tt6" class="zmdi zmdi-facebook"></i>
-											<div class="mdl-tooltip" data-mdl-for="tt6">
-												facebook
-											</div>
-										</a>
-									</li>
-									<li>
-										<a class="twitter-link" href="#">
-											<i id="tt7" class="zmdi zmdi-twitter"></i>
-											<div class="mdl-tooltip" data-mdl-for="tt7">
-												twitter
-											</div>
-										</a>
-									</li>
-									<li>
-										<a class="linkedin-link" href="#">
-											<i id="tt8" class="zmdi zmdi-linkedin"></i>
-											<div class="mdl-tooltip" data-mdl-for="tt8">
-												linkedin
-											</div>
-										</a>
-									</li>
-									<li>
-										<a class="dribbble-link" href="#">
-											<i id="tt9" class="zmdi zmdi-dribbble"></i>
-											<div class="mdl-tooltip" data-mdl-for="tt9">
-												dribbble
-											</div>
-										</a>
-									</li>
-									<li>
-										<a class="instagram-link" href="#">
-											<i id="tt10" class="zmdi zmdi-instagram"></i>
-											<div class="mdl-tooltip" data-mdl-for="tt10">
-												instagram
-											</div>
-										</a>
-									</li>
-								</ul>
-											
+
+							<!--Sociaal_Contact-->
+							<!-- resources/views/sections/Sociaal_Contact.blade.php -->
+							@include('sections.Sociaal_Contact')
+							<!--/Sociaal_Contact-->	
+								
 						</footer>
 						<!--Footer Sec-->
 					</div>

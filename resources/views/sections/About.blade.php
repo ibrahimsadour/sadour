@@ -6,48 +6,10 @@
                 <div class="row">
                     <div class="col-md-5 col-xs-12 mb-30">
                         <div class="candidate-img mb-35"></div>
-                        <ul class="social-icons">
-                            <li>
-                                <a class="facebook-link" href="#">
-                                    <i id="tt1" class="zmdi zmdi-facebook"></i>
-                                    <div class="mdl-tooltip" data-mdl-for="tt1">
-                                        facebook
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="twitter-link" href="#">
-                                    <i id="tt2" class="zmdi zmdi-twitter"></i>
-                                    <div class="mdl-tooltip" data-mdl-for="tt2">
-                                        twitter
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="linkedin-link" href="#">
-                                    <i id="tt3" class="zmdi zmdi-linkedin"></i>
-                                    <div class="mdl-tooltip" data-mdl-for="tt3">
-                                        linkedin
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dribbble-link" href="#">
-                                    <i id="tt4" class="zmdi zmdi-dribbble"></i>
-                                    <div class="mdl-tooltip" data-mdl-for="tt4">
-                                        dribbble
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="instagram-link" href="#">
-                                    <i id="tt5" class="zmdi zmdi-instagram"></i>
-                                    <div class="mdl-tooltip" data-mdl-for="tt5">
-                                        instagram
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                        <!--Sociaal_Contact-->
+                        <!-- resources/views/sections/Sociaal_Contact.blade.php -->
+                        @include('sections.Sociaal_Contact')
+                        <!--/Sociaal_Contact-->
                     </div>
                     <div class="col-md-7 col-xs-12">
                         <div class="info-wrap">

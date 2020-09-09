@@ -5,48 +5,10 @@
         <div class="drawer-profile-wrap">
             <div class="candidate-img-drawer mt-25 mb-20"></div>
             <span class="candidate-name block mb-10 text-center">@foreach($website_strings as $strings){{$strings ->name}}@endforeach</span>
-            <ul class="social-icons  mb-30">
-                <li>
-                    <a class="facebook-link" href="https://www.facebook.com/sadour95">
-                        <i id="tt11" class="zmdi zmdi-facebook"></i>
-                        <div class="mdl-tooltip" data-mdl-for="tt11">
-                            facebook
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="twitter-link" href="#">
-                        <i id="tt12" class="zmdi zmdi-twitter"></i>
-                        <div class="mdl-tooltip" data-mdl-for="tt12">
-                            twitter
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="linkedin-link" href="#">
-                        <i id="tt13" class="zmdi zmdi-linkedin"></i>
-                        <div class="mdl-tooltip" data-mdl-for="tt13">
-                            linkedin
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="dribbble-link" href="#">
-                        <i id="tt14" class="zmdi zmdi-dribbble"></i>
-                        <div class="mdl-tooltip" data-mdl-for="tt14">
-                            dribbble
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a class="instagram-link" href="#">
-                        <i id="tt15" class="zmdi zmdi-instagram"></i>
-                        <div class="mdl-tooltip" data-mdl-for="tt15">
-                            instagram
-                        </div>
-                    </a>
-                </li>
-            </ul>
+            <!--Sociaal_Contact-->
+            <!-- resources/views/sections/Sociaal_Contact.blade.php -->
+            @include('sections.Sociaal_Contact')
+            <!--/Sociaal_Contact-->
         </div>
         <div class="mdl-scroll-spy-2">
             <ul class="mdl-navigation">
