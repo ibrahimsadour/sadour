@@ -54,12 +54,15 @@ class ContactController extends Controller
         $ervaring_strings = DB::select('select * from ervaring ');
         $website_watikdoe = DB::select('select * from wat_ik_doe ');
         $website_hobbys = DB::select('select * from  hobbys');
+        $website_sociaal_contact = DB::select('select * from  sociaal_contact');
 
         return view('sadour',[
             'website_strings'=>$website_strings,
             'ervaring_strings'=>$ervaring_strings,
              'website_watikdoe'=>$website_watikdoe,
-             'website_hobbys'=>$website_hobbys
+             'website_hobbys'=>$website_hobbys,
+             'website_sociaal_contact'=>$website_sociaal_contact
+
              ]);
         }
    
