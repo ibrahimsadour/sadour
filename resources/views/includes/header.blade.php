@@ -34,7 +34,7 @@
                 </ul>
                 <!-- Right aligned menu below button -->
                 <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon ver-more-btn">
-                    <i class="material-icons">more_vert</i>
+                <i class="zmdi zmdi-more-vert"></i>
                 </button>
 
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
@@ -48,7 +48,7 @@
 
                 <!-- Right aligned menu below button -->
                 <button id="demo-menu-lower-right_language" class="mdl-button mdl-js-button mdl-button--icon ver-more-btn">
-                    <i class="material-icons">language</i>
+                    <i class="zmdi zmdi-globe"></i>
                 </button>
 
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
