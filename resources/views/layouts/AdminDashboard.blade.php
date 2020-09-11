@@ -1,18 +1,8 @@
 <!--
 
 =========================================================
-* Volt - Bootstrap 5 Admin Dashboard
+* Ibrahim Sadour -  Admin Dashboard
 =========================================================
-
-* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
-* Copyright 2020 Themesberg (https://www.themesberg.com)
-
-* Designed and coded by https://themesberg.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
-
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -22,25 +12,27 @@
 <!-- Primary Meta Tags -->
 <title> Ibrahim Sadour Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="title" content="Volt Bootstrap 5 Dashboard - Sign in page">
-<meta name="author" content="Themesberg">
-<meta name="description" content="Volt is a free and open source Bootstrap 5 Admin Dashboard featuring 11 example pages, 100 components and 3 plugins with Vanilla JS.">
-<meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, free bootstrap 5 dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard" />
-<link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard">
+<meta name="title" content="Ibrahim Sadour Dashboard">
+<meta name="author" content="Ibrahim Sadour">
+<meta name="description" content="ik ben verantwoordelijk voor het ontwerpen, coderen en aanpassen van websites, van lay-out tot functie en volgens de specificaties van de klant. Streef ernaar om visueel aantrekkelijke sites te maken met een gebruiksvriendelijk ontwerp en duidelijke navigatie.">
+<meta name="keywords" content="graphic design, web design,website design,website builder,web developer,web designer
+,webdesign, ecommerce website, web design company, website creator, website designer, responsive web design, web development company, best website design,web design software,web page design,build a website,web developer salary
+,design website,web design courses,how to design a website,web design inspiration,website layout,web designer salary,web application development" />
+<link rel="canonical" href="https://sadour.nl/">
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://demo.themesberg.com/volt">
-<meta property="og:title" content="Volt Bootstrap 5 Dashboard - Sign in page">
-<meta property="og:description" content="Volt is a free and open source Bootstrap 5 Admin Dashboard featuring 11 example pages, 100 components and 3 plugins with Vanilla JS.">
-<meta property="og:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-bootstrap-5-dashboard/volt-bootstrap-5-dashboard-preview.jpg">
+<meta property="og:type" content="Ibrahim Sadour">
+<meta property="og:url" content="https://sadour.nl/">
+<meta property="og:title" content="Ibrahim Sadour Dashboard">
+<meta property="og:description" content="Ibrahim Sadour, I am responsible for designing, coding and customizing websites, from layout to function and according to customer specifications. Strive to create visually appealing sites with a user-friendly design and clear navigation.">
+<meta property="og:image" content="/img/admin/logo_site.png">
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://demo.themesberg.com/volt">
-<meta property="twitter:title" content="Volt Bootstrap 5 Dashboard - Sign in page">
-<meta property="twitter:description" content="Volt is a free and open source Bootstrap 5 Admin Dashboard featuring 11 example pages, 100 components and 3 plugins with Vanilla JS.">
-<meta property="twitter:image" content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-bootstrap-5-dashboard/volt-bootstrap-5-dashboard-preview.jpg">
+<meta property="twitter:card" content="Ibrahim Sadour">
+<meta property="twitter:url" content="https://sadour.nl/">
+<meta property="twitter:title" content="Ibrahim Sadour Dashboard">
+<meta property="twitter:description" content="Ibrahim Sadour, I am responsible for designing, coding and customizing websites, from layout to function and according to customer specifications. Strive to create visually appealing sites with a user-friendly design and clear navigation.">
+<meta property="twitter:image" content="/img/admin/logo_site.png">
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{asset('favicon.ico') }}">
