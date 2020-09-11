@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\ervaring::all()->count() }}</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Ervaring::all()->count() }}</span>
                                 <span class="text-nowrap">Aantal Ervaring</span>
                             </p>
                         </div>
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\opleiding::all()->count() }}</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Opleiding::all()->count() }}</span>
                                 <span class="text-nowrap"> Antal Opleiding</span>
                             </p>
                         </div>
@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{ \App\Models\watikdoe::all()->count() }} </span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{ \App\Models\Watikdoe::all()->count() }} </span>
                                 <span class="text-nowrap">Aantal diensten</span>
                             </p>
                         </div>
@@ -125,7 +125,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\hobbys::all()->count() }}</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Hobbys::all()->count() }}</span>
                                 <span class="text-nowrap">Aantal hobbys</span>
                             </p>
                         </div>
@@ -147,7 +147,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\contact::all()->count() }}</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Contact::all()->count() }}</span>
                                 <span class="text-nowrap">Antal berichten    </span>
                             </p>
                         </div>
