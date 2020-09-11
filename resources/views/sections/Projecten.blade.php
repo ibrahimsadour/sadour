@@ -41,7 +41,7 @@
 
                 <li class="item mdl-card mdl-shadow--2dp pa-0  photography">
                     <div class="light-img-wrap mdl-card__title pa-0">
-                        <img class="img-responsive" src="img/projecten/sadour.png"  alt="Image description" />
+                        <img class="img-responsive" src="img/projecten/sadour.jpg"  alt="Image description" />
                         <div class="light-img-overlay"></div>
                         <span class="img-cap">Ibrahim Sadour</span>
                     </div>
@@ -53,7 +53,7 @@
 
                 <li class="item mdl-card mdl-shadow--2dp pa-0 design">
                     <div class="light-img-wrap mdl-card__title pa-0">
-                        <img class="img-responsive" src="img/projecten/carservice.png"  alt="Image description" />
+                        <img class="img-responsive" src="img/projecten/carservice.jpg"  alt="Image description" />
                         <div class="light-img-overlay"></div>
                         <span class="img-cap">Car Service Kuwait</span>
                     </div>

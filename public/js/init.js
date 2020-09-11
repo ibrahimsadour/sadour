@@ -493,7 +493,7 @@ $(document).on('click', '#goto_box_2', function (e) {
 		hash:false,
 		autoplay:true,		
         dynamicEl: [{
-            "src": 'img/projecten/sadour.png',
+            "src": 'img/projecten/sadour.jpg',
             'subHtml': '<h4>Sadour.nl</h4><p>Ibrahim Sadour</p>'
         }]
     })
@@ -508,7 +508,7 @@ $(document).on('click', '#goto_box_3', function (e) {
 		hash:false,
 		autoplay:true,
         dynamicEl: [{
-            'src': 'img/projecten/carservice.png',
+            'src': 'img/projecten/carservice.jpg',
             'subHtml': "<h4>carservicekuwait</h4><p>https://carservicekuwait.com/</p>"
         }]
     })
