@@ -1,4 +1,11 @@
 <!--References Sec-->
+<style>
+    .reference-sec .owl-theme .owl-controls {
+    display: none;
+
+}
+
+</style>
 <section id="references_sec" class="reference-sec sec-pad-top-sm">
     <h2 class="mb-30">mijn partners</h2>
     <div class="row">
@@ -16,10 +23,26 @@
                         <span class="ref-desgn block">Lead Designer in Fakebook</span>
                     </div>
                 </div>
-                <div class="clearfix"></div>
+                
             </div>
         </div>
     </div>
-
 </section>
+
+<!--Client Sec-->
+<section id="client_sec" class="client-sec sec-pad-top-sm">
+    <div class="row">
+        <div class="col-sm-12 mb-30">
+            <div class="client-carousel">
+                <img src="img/my partners/php.png" alt="client">
+                <img src="img/my partners/html.png" alt="client">
+                <img src="img/my partners/css.png" alt="client">
+                <img src="img/my partners/javascript.png" alt="client">
+                <img src="img/my partners/github.png" alt="client">
+                <img src="img/my partners/WordPress.svg_.png" alt="client">
+            </div>
+        </div>
+    </div>
+</section>
+<!--/Client Sec-->
 <!--/References Sec-->

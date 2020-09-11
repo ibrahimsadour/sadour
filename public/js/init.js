@@ -477,13 +477,9 @@ $(document).on('click', '#goto_box_1', function (e) {
 		thumbnail: false,
 		hash:false,
 		autoplay:true,		
-        dynamicEl: [{
-            "poster": 'img/gallery1.jpg',
-			"html":'#video1',
-            'subHtml': '<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>'
-        }, {
-            'src': 'img/gallery2.jpg',
-            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
+		dynamicEl: [{
+            "src": 'img/projecten/sadourtaxi.jpg',
+            'subHtml': '<h4>Sadourtaxi.nl</h4><p>Ibrahim Sadour</p>'
         }]
     })
  
@@ -497,9 +493,8 @@ $(document).on('click', '#goto_box_2', function (e) {
 		hash:false,
 		autoplay:true,		
         dynamicEl: [{
-            "poster": 'img/gallery2.jpg',
-			"html":'#video1',
-            'subHtml': '<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>'
+            "src": 'img/projecten/sadour.png',
+            'subHtml': '<h4>Sadour.nl</h4><p>Ibrahim Sadour</p>'
         }]
     })
  
@@ -513,67 +508,13 @@ $(document).on('click', '#goto_box_3', function (e) {
 		hash:false,
 		autoplay:true,
         dynamicEl: [{
-            'src': 'img/gallery3.jpg',
-            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
+            'src': 'img/projecten/carservice.png',
+            'subHtml': "<h4>carservicekuwait</h4><p>https://carservicekuwait.com/</p>"
         }]
     })
  
 });
 
-$(document).on('click', '#goto_box_4', function (e) {
-	e.preventDefault();
-    $(this).lightGallery({
-        dynamic: true,
-		thumbnail: false,
-		hash:false,
-		autoplay:true,
-        dynamicEl: [{
-           
-            'src': 'img/gallery4.jpg',
-            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
-        }, {
-            'src': 'https://vimeo.com/1084537',
-            'poster': 'img/gallery5.jpg',
-            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
-        }]
-    })
- 
-});
-
-$(document).on('click', '#goto_box_5', function (e) {
-	e.preventDefault();
-    $(this).lightGallery({
-        dynamic: true,
-		thumbnail: false,
-		hash:false,
-		autoplay:true,
-        dynamicEl: [{
-            "poster": 'img/gallery5.jpg',
-			"html":'#video1',
-            'subHtml': '<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>'
-        }]
-    })
- 
-});
-
-$(document).on('click', '#goto_box_6', function (e) {
-	e.preventDefault();
-    $(this).lightGallery({
-        dynamic: true,
-		thumbnail: false,
-		hash:false,
-		autoplay:true,
-        dynamicEl: [{
-            'src': 'https://www.youtube.com/watch?v=Pq9yPrLWMyU',
-            'poster': 'img/gallery6.jpg',
-            'subHtml': "<h4>Coniston Calmness</h4><p>Beautiful morning</p>"
-        }, {
-            'src': 'img/gallery6.jpg',
-            'subHtml': "<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"
-        }]
-    })
- 
-});
 /***** LightGallery init end*****/
 
 /***** Availablity Calendar Start*****/

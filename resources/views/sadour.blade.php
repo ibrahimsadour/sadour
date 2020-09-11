@@ -49,15 +49,16 @@
             <!--/Education Sec-->
             
             
+            <!--Client Sec-->
+            @include('sections.Projecten')
+            <!--/Client Sec-->
+            <!-- contact -->
             
             <!--References Sec-->
             @include('sections.References')
             <!--/References Sec-->
             
-            <!--Client Sec-->
-            @include('sections.Client')
-            <!--/Client Sec-->
-            <!-- contact -->
+
 
             
             <!--Contact Sec-->
