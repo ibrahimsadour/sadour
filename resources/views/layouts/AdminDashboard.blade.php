@@ -55,6 +55,8 @@
 
 <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
+
+
 </head>
 
 <body class="bg-soft">
@@ -107,7 +109,8 @@
 <!-- Volt JS -->
 <script src="{{asset('admin_dashboard/assets/js/volt.js') }}"></script>
 
-    
+
+
 </body>
 
 </html>

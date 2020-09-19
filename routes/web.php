@@ -291,3 +291,12 @@ Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalContro
 
 ])->middleware('auth');
 // =================================================================================
+
+
+Route::get('/auth/dashboard/calendar', function () {
+    return view('pages.admin.Website_String.Calendar.index');
+});
+Route::get('index','Calendar\CalendarController@index')->name('allEvent');
+Route::post('/auth/dashboard/calendar','Calendar\CalendarController@store')->name('calendar.store');
+
+

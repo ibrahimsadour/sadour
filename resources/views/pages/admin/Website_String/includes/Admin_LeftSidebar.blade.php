@@ -17,7 +17,7 @@
         </div>
       </div>
       <ul class="nav flex-column">
-        <li class="nav-item  active ">
+        <li  class="{{ Request::is('auth/dashboard') ? 'nav-item active' : '' }}"  >
           <a href="{{url('auth/dashboard')}}" class="nav-link">
             <span class="sidebar-icon"><span class="fas fa-chart-pie"></span></span>
             <span>Dashboard</span>
@@ -33,16 +33,16 @@
           </span>
           <div class="multi-level collapse " role="list" id="submenu-pages" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Users </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt">  Ervaring </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Opleiding </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> Wat Ik Doe</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"><span class="fa fa-cubes"> Hobby's</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Sociaal contact</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/admin') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Users </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/ervaring') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt">  Ervaring </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/opleiding') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Opleiding </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/watikdoe') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> Wat Ik Doe</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/hobbys') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"><span class="fa fa-cubes"> Hobby's</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/sociaal_contact') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Sociaal contact</span></a></li>
               </ul>
           </div>
         </li>
-        <li class="nav-item ">
+        <li class="{{ Request::is('auth/dashboard/contact') ? 'nav-item active' : '' }}">
           <a href="{{url('/auth/dashboard/contact')}}" class="nav-link">
               <span class="sidebar-icon"><span class="fa fa-envelope"></span></span>
               <span>Contact</span>
@@ -60,17 +60,23 @@
           </span>
           <div class="multi-level collapse " role="list" id="submenu-Settings" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"><span class="fa fa-users">  All Users </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/roles')}}"><span class="fas fa-user">     Roles </span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('/auth/dashboard/permission')}}"><span class="fa fa-cog">   Permissions </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/setting') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"><span class="fa fa-users">  All Users </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/roles') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/roles')}}"><span class="fas fa-user">     Roles </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/permission') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/permission')}}"><span class="fa fa-cog">   Permissions </span></a></li>
               </ul>
           </div>
         </li>
         
-        <li class="nav-item ">
+        <li class="{{ Request::is('auth/dashboard/profile') ? 'nav-item active' : '' }}">
           <a href="{{url('/auth/dashboard/profile')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-user-circle"></span></span>
               <span>My Profile</span>
+          </a>
+        </li>
+        <li class="{{ Request::is('auth/dashboard/calendar') ? 'nav-item active' : '' }}">
+          <a href="{{URL('/auth/dashboard/calendar')}}" class="nav-link">
+              <span class="sidebar-icon"><span class="fas fa-calendar-alt"></span></span>
+              <span>Calendar</span>
           </a>
         </li>
         <!-- <li class="nav-item">
