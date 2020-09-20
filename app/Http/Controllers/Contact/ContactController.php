@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Validator,Redirect,Response,Session;
 Use App\Models\Contact;
 use App\Http\Requests\AdminDashboard\ContactRequest;
-
+use Alert;
 
 class ContactController extends Controller
 {
@@ -47,23 +47,11 @@ class ContactController extends Controller
             'email'     =>  $request->get('email'),
             'message'     =>  $request->get('message')
         ]);
-        $add_user->save();
         
-        // deze variabel is gemaakt bij het insert van de contact form blijvet de string van de site
-        $website_strings = DB::select('select * from admin_informatie where id = ?', [1]);
-        $ervaring_strings = DB::select('select * from ervaring ');
-        $website_watikdoe = DB::select('select * from wat_ik_doe ');
-        $website_hobbys = DB::select('select * from  hobbys');
-        $website_sociaal_contact = DB::select('select * from  sociaal_contact');
-
-        return view('sadour',[
-            'website_strings'=>$website_strings,
-            'ervaring_strings'=>$ervaring_strings,
-             'website_watikdoe'=>$website_watikdoe,
-             'website_hobbys'=>$website_hobbys,
-             'website_sociaal_contact'=>$website_sociaal_contact
-
-             ]);
+        $add_user->save();
+        Alert::success('sended!', 'Your message with successfully sended');
+        return redirect()->back();
+       
         }
    
  
