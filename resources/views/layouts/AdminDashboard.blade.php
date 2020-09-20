@@ -55,7 +55,12 @@
 
 <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
+<!-- tabeldate CSS -->
+<link  href="{{asset('css/dataTables.min.css')}}" rel="stylesheet" >
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 
+<!-- #################################################### -->
+<!-- End tabeldate -->
 
 </head>
 
@@ -70,6 +75,10 @@
 
 @yield('add-adata')
 
+<!-- tabelDate Js -->
+<script src="{{asset('js/dataTables.min.js')}}" type="text/javascript" ></script>
+
+<!-- End tabeldate -->
 
 <!-- Core -->
 <script src="{{asset('admin_dashboard/vendor/popper.js/dist/umd/popper.min.js') }}"></script>

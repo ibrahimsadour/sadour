@@ -18,7 +18,7 @@ class AdminAddUsersController extends Controller
     {
         $this->middleware(['role:Admin'])->except('index','show');;
     }
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

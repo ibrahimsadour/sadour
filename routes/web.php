@@ -292,11 +292,28 @@ Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalContro
 ])->middleware('auth');
 // =================================================================================
 
+Route::group(['middleware' => ['auth']], function () {
 
-Route::get('/auth/dashboard/calendar', function () {
-    return view('pages.admin.Website_String.Calendar.index');
+    // deze route om het calendar te laat zien 
+    Route::get('/auth/dashboard/calendar', function () {
+
+        // deze stukje om te cheken als de gebruiker ingelogd of nee
+        if(Auth::check()){
+            return view('pages.admin.Website_String.Calendar.index');
+        }
+
+        // als de gebruiker niet ingelogd dan krijgt hij inlogen scherm
+        return Redirect::to("/auth/login")->withSuccess('Opps! You do not have access');
+    });
+    // deze om de niewuw event te tonen op de calendar
+    Route::get('index','Calendar\CalendarController@index')->name('allEvent');
+    // deze route om een nieuw event te toevoegen op de calendar
+    Route::post('/auth/dashboard/calendar','Calendar\CalendarController@store')->name('calendar.store');
+
+    
+    // URL: /auth/dashboard/calendar/allevent ( show and delet event)
+    Route::get('/auth/dashboard/calendar/allevent','Calendar\CalendarController@show')->name('calendar.show');
+    Route::delete('/auth/dashboard/calendar/allevent/{id}','Calendar\CalendarController@destroy')->name('delet.event');
+
 });
-Route::get('index','Calendar\CalendarController@index')->name('allEvent');
-Route::post('/auth/dashboard/calendar','Calendar\CalendarController@store')->name('calendar.store');
-
 

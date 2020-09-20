@@ -21,4 +21,10 @@ class Calendar extends Model
     protected $fillable = [
         'title', 'start','end','allDay','color','textColor'
     ];
+
+    public function user (){
+
+        return $this->belongsTo(User::class);
+ 
+    }
 }

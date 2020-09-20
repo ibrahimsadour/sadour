@@ -8,12 +8,14 @@ use Validator,Redirect,Response,Session;
 Use App\Models\Calendar;
 use App\Http\Requests\AdminDashboard\CalendarRequest;
 use Alert;
+Use App\User;
+use Illuminate\Support\Facades\Auth;
 class CalendarController extends Controller
 {
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
+    //met deze functie mag allen de index method pagina getoond worden voor gewoon gebruiker 
 
     public function __construct() {
-        $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show','create'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
     /**
@@ -23,16 +25,23 @@ class CalendarController extends Controller
      */
     public function index()
     {
-
-        $event = Calendar::latest()->get();
-   
+        $user = auth()->user();
+        $user_id = $user->id;
+        $event = DB::table('calendars')->where('user_id', '=', $user_id )->get();
         return response()->json($event, 200);
      
     }   
 
     public function show()
     {
+        if(Auth::check()){
+            $user = auth()->user();
+            $user_id = $user->id;
+            $calendar_event= Calendar::all()->whereIn('user_id',$user_id )->toArray();
 
+            return view('pages.admin.Website_String.Calendar.AlleEevent', compact('calendar_event'));          
+        }
+           return Redirect::to("/auth/login")->withSuccess('Opps! You do not have access');
 
     }   
 
@@ -65,8 +74,19 @@ class CalendarController extends Controller
         {
             if(empty($request->eventId)){
                 
-            Calendar::create($request->all());
-            Alert::success('Success', 'Event created successfully');
+            $user = auth()->user();
+            $user_id = $user->id;
+            $event = $user->calender()->create([
+
+                'user_id' =>  $user_id,
+                'title'    =>  $request->get('title'),
+                'start'     =>  $request->get('start'),
+                'end'     =>  $request->get('end'),
+                'allDay'     =>  $request->get('allDay'),
+                'textColor'     =>  $request->get('textColor'),
+                ]);
+            
+            Alert::success('Good Job!', 'Event created successfully');
             return redirect()->back();
 
             }else{
@@ -80,7 +100,7 @@ class CalendarController extends Controller
                     'textColor'=>$request->textColor,
                 ]);
 
-                Alert::success('Success', 'Event Updated successfully');
+                Alert::info('Event Updated successfully');
                 return redirect()->back();
             }
 
@@ -100,10 +120,12 @@ class CalendarController extends Controller
      */
     public function destroy($id)
     {
+        $event = Calendar::findOrFail($id);
+        $event->delete();
 
-
-
-        
+        Alert::error('Event Deleted Successfully');
+        return redirect()->back();
+    
     }
 
 

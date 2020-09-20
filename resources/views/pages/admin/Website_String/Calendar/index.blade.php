@@ -107,7 +107,11 @@ crossorigin="anonymous" type="text/javascript" ></script>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                         @role('Admin')
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-primary">All Event</button>
+                                        <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" id="addevent">
+                                                <span class="icon icon-sm icon-gray" >
+                                                    <span class="fas fa-calendar-plus" style="font-size: 2.5rem;" ></span>
+                                                </span>
+                                        </button>
                                         </div>
                                         @endrole
                                     </div>
@@ -123,11 +127,9 @@ crossorigin="anonymous" type="text/javascript" ></script>
                                     @role('Admin')
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                                             <div class="btn-group">
-                                                <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" id="addevent">
-                                                        <span class="icon icon-sm icon-gray" >
-                                                            <span class="fas fa-calendar-plus" style="font-size: 2.5rem;" ></span>
-                                                        </span>
-                                                </button>
+                                                <form action="{{route('calendar.show')}}">
+                                                    <button style="padding: 5px 20px 5px 20px;"type="submit" class="btn btn-sm btn-outline-primary"> All Event  <span class="fas fa-calendar-alt"></span></button>
+                                                </form>
                                             </div>
                                         </div>
                                     @endrole
@@ -210,7 +212,7 @@ var calendar = $('#calendar').fullCalendar({
   header: {
     left: 'prev,next today',
     center: 'title',
-    right: 'year,month,basicWeek,basicDay'
+    right: 'year,month,basicWeek,basicDay,listWeek'
 
   },
   timezone: 'local',
