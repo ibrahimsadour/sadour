@@ -12,8 +12,8 @@
                 </nav>
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                <a href="#" class="btn btn-sm btn-neutral">New</a>
-                <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                <a href="{{URL('/auth/dashboard/calendar/allevent')}}" class="btn btn-sm btn-neutral">All Event <span class="fas fa-calendar-alt"> </span> </a>
+                <a href="{{URL('/auth/dashboard/calendar')}}" class="btn btn-sm btn-neutral">Calendar <span class="fas fa-calendar-plus"></span></a>
                 </div>
             </div>
             <!-- Card stats -->

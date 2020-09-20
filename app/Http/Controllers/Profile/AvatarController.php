@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Validator,Redirect,Response,Session;
 Use App\Models\Profile;
 Use App\User;
+use Alert;
 use App\Http\Requests\AdminDashboard\AvatarRequest;
 
 class AvatarController extends Controller
@@ -79,8 +80,8 @@ class AvatarController extends Controller
         ]);
 
         // return redirect()->back(); 
-        return redirect()->route('auth.dashboard.profile')->with('success', 'Your information is updated');
-   
+        Alert::success('success!', 'Your information is updated');
+        return redirect()->back();
     }
         
 
