@@ -212,7 +212,7 @@ var calendar = $('#calendar').fullCalendar({
   header: {
     left: 'prev,next today',
     center: 'title',
-    right: 'year,month,basicWeek,agendaDay,listWeek'
+    right: 'year,month,agendaWeek,agendaDay,listWeek'
 
   },
   timezone: 'local',
