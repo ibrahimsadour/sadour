@@ -60,7 +60,7 @@ class CalendarController extends Controller
             'start'     =>  'required',
             'end'     =>  'required',
             'allDay'     =>  'required',
-            'textColor' =>   'required'
+            'textColor' =>   'required',
         ]);
 
 
@@ -84,6 +84,7 @@ class CalendarController extends Controller
                 'end'     =>  $request->get('end'),
                 'allDay'     =>  $request->get('allDay'),
                 'textColor'     =>  $request->get('textColor'),
+                'backgroundColor' =>$request->get('backgroundColor')
                 ]);
             
             Alert::success('Good Job!', 'Event created successfully');
@@ -98,6 +99,7 @@ class CalendarController extends Controller
                     'end'=>$request->end,
                     'allDay'=>$request->allDay,
                     'textColor'=>$request->textColor,
+                    'backgroundColor'=>$request->backgroundColor,
                 ]);
 
                 Alert::info('Event Updated successfully');

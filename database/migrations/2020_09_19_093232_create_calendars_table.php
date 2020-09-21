@@ -21,6 +21,7 @@ class CreateCalendarsTable extends Migration
             $table->dateTime('end');
             $table->integer('allDay');
             $table->string('textColor');
+            $table->string('backgroundColor');
             $table->timestamps();
         });
     }

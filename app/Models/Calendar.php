@@ -19,7 +19,7 @@ class Calendar extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'start','end','allDay','color','textColor'
+        'title', 'start','end','allDay','backgroundColor','textColor'
     ];
 
     public function user (){

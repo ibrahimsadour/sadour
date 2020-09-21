@@ -22,10 +22,10 @@
                 <label><input type="checkbox" name="allDay" value="0" checked/> Partial</label>
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                     <label> Background Color </label>
-                <input type="color" name="color" class="form-control" />
-            </div> -->
+                <input type="color" name="backgroundColor" class="form-control" />
+            </div>
 
             <div class="form-group">
                     <label> Text Color </label>
