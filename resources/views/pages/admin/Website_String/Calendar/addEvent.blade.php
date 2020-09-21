@@ -18,8 +18,8 @@
             </div>
 
             <div class="form-group">
-                <label><input type="checkbox" name="allDay" value="1"  checked/> All Day</label><br>
-                <label><input type="checkbox" name="allDay" value="0"/> Partial</label>
+                <label><input type="checkbox" name="allDay" value="1"  /> All Day</label><br>
+                <label><input type="checkbox" name="allDay" value="0" checked/> Partial</label>
             </div>
 
             <!-- <div class="form-group">

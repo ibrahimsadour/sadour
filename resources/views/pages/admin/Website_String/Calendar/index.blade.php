@@ -212,14 +212,14 @@ var calendar = $('#calendar').fullCalendar({
   header: {
     left: 'prev,next today',
     center: 'title',
-    right: 'year,month,basicWeek,basicDay,listWeek'
+    right: 'year,month,basicWeek,agendaDay,listWeek'
 
   },
   timezone: 'local',
   height: "auto",
   selectable: true,
-  showNonCurrentDates:false,
-  editable:false,
+  showNonCurrentDates:true,
+  editable:true,
   dragabble: true,
   defaultView: 'month',
   yearColumns: 4,
