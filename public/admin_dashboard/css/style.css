@@ -1,0 +1,69 @@
+/* Deze Css code toegovogd door ibrahim sadour op 22-09-2020
+deze voor de table van de User / ervaring / opleiding / hoppys / wat id doe / all event  */
+
+
+.alert{
+  margin-bottom: 0rem;
+}
+.alert-success{
+  color: black!important;
+
+}
+.alert-danger{
+  color: black!important;
+
+}
+
+.alert {
+padding: 0rem 1rem!important;
+}
+
+.red_more{
+
+  width: 100px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.aanapssen{
+  text-align: center;
+  font-weight: 700;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+  padding: 0.25em 0.5em 0.25em 0.5em!important    ;
+}
+.dataTables_wrapper{
+  margin-top: 1%;
+  margin-bottom: 1%;
+  }
+.dataTables_wrapper .dataTables_info{
+  font-weight: 600 !important;
+}
+label{
+  font-weight: 600 !important;
+  color: #4a5073;
+}
+.dataTables_wrapper .dataTables_filter input{
+  border-radius: 0.5rem!important;
+}
+.sorting{
+  font-weight: 900 !important;
+  color: #4a5073!important;
+  font-size: 15px!important;
+}
+.sorting_asc{
+  font-weight: 900 !important;
+  color: #4a5073!important;
+  font-size: 15px!important;
+}
+.dataTables_info{
+  float: right!important;
+}
+.dataTables_paginate{
+  float:left!important;
+}
+.fa-home{
+  margin-top: 5px!important;
+}
+  /* End code Of ibrahim sadour */

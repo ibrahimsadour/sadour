@@ -63,7 +63,22 @@ class CalendarController extends Controller
             'textColor' =>   'required',
         ]);
 
+        // // dd($request->get('start'));
+            // $find_slash    = '/';
 
+            // $pos2 = stripos($sart, $find_slash); 
+            // if ($pos2 != false ) {
+            //     $sart = str_replace('/', '-', $sart); 
+            // }else{
+            //     echo ' 
+            //     niet gevonden';
+            // }
+        //     $start = $request->get('start');
+        //     $end = $request->get('end');
+
+        //     $start = str_replace('/', '-', $start);
+        //     $end = str_replace('/', '-', $end);
+        // //     // @dd($sart);
 
         if($validator->failed())
         {

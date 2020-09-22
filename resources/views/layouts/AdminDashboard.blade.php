@@ -19,7 +19,7 @@
 ,webdesign, ecommerce website, web design company, website creator, website designer, responsive web design, web development company, best website design,web design software,web page design,build a website,web developer salary
 ,design website,web design courses,how to design a website,web design inspiration,website layout,web designer salary,web application development" />
 <link rel="canonical" href="https://sadour.nl/">
-
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="Ibrahim Sadour">
 <meta property="og:url" content="https://sadour.nl/">
@@ -52,6 +52,7 @@
 
 <!-- Volt CSS -->
 <link type="text/css" href="{{asset('admin_dashboard/css/volt.css') }}" rel="stylesheet">
+<link type="text/css" href="{{asset('admin_dashboard/css/style.css') }}" rel="stylesheet">
 
 <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 

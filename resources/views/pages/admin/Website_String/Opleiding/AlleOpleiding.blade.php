@@ -1,33 +1,5 @@
 @extends('layouts.AdminDashboard')
-<style>
-.red_more{
-
-    width: 300px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-.alert{
-    margin-bottom: 0rem;
-}
-.alert-success{
-    color: black!important;
-
-}
-.alert-danger{
-    color: black!important;
-
-}
-
-.alert {
-padding: 0rem 1rem!important;
-}
-.aanapssen{
-    text-align: center;
-    font-weight: 700;
-}
-</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
         <a class="navbar-brand mr-lg-5" href="../../index.html">
@@ -50,9 +22,6 @@ padding: 0rem 1rem!important;
 
                         <main class="content">
 
-
-
-
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
                                 @include('pages.admin.Website_String.includes.Admin_header')
@@ -64,40 +33,22 @@ padding: 0rem 1rem!important;
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                                             <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Website String</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Opleiding </li>
+                                            <li class="breadcrumb-item active" aria-current="page">Education </li>
                                             </ol>
                                         </nav>
-                                        <h2 class="h4">All Opleiding </h2>
-                                        <p class="mb-0">Your web Opleiding dashboard template.</p>
+                                        <h2 class="h4">All Education </h2>
+                                        <p class="mb-0">Your web Education dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
-                                            <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
-                                        </div>
-                                    @endrole
-                                    </div>
-                                </div>
-                                <div class="table-settings mb-4">
-                                    <div class="row align-items-center justify-content-between">
-                                    <!-- hier wordt de Search form geinclude -->
-                                    <!-- resources/views/pages/admin/Websit_String.blade.php -->
-                                    @include('pages.admin.Website_String.includes.search_form')
-                                    <!-- End Search Form -->
-                                        @role('Admin')
-                                        <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
-                                            <div class="btn-group">
                                             <form method="get" action="{{url('auth/dashboard/opleiding/create')}}">
-                                                <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" >
-                                                        <span class="icon icon-sm icon-gray">
-                                                            <span class="fas fa-user-plus"></span>
-                                                        </span>
+                                                <button  class="btn btn-sm btn-outline-primary"> 
+                                                    <span class="fas fa-graduation-cap"> Add Education </span> 
                                                 </button>
                                             </form>
-                                            </div>
                                         </div>
-                                        @endrole
+                                    @endrole
                                     </div>
                                 </div>
 
@@ -107,7 +58,7 @@ padding: 0rem 1rem!important;
                                 <p class="aanapssen" >{{$message}}</p>
                                 </div>
                                 @endif
-                                <table class="table table-hover" id="myTable">
+                                <table class="table table-hover" id="myTable" style="border-color: #eaedf2;width:100%; margin-bottom: 10px;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -126,7 +77,7 @@ padding: 0rem 1rem!important;
                                                     {{$row['id']}}
                                                     </a>
                                                 </td>
-                                                <td class="red_more">
+                                                <td>
                                                     <span class="font-weight-normal">{{$row['education_name']}}</span>
                                                 </td>
                                                 <td><span class="font-weight-normal">{{$row['period']}}</span></td>                        
@@ -159,34 +110,7 @@ padding: 0rem 1rem!important;
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination mb-0">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">Previous</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">4</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">5</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
-                                </div>
+                                
                             </div>
 
 
@@ -199,3 +123,8 @@ padding: 0rem 1rem!important;
                 </div>
             </div>
 @endsection
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable();
+} );
+</script>

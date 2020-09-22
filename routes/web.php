@@ -22,29 +22,6 @@ Auth::routes(['verify' =>true]);
 
 
 
-// Route::get('/sadour', function () {
-
-//     // $role = Role::create(['name' => 'user']);
-//     // $permission = Permission::create(['name' => 'see post']);
-
-
-//     // give perimission  to roles
-//     // $role = Role:: findById(3);
-//     // $permission = permission::findById(3);
-//     // $role->givePermissionTo($permission);
-
-//     // give the user perimission
-//     // auth()-> user()->givePermissionTo('edit post');
-
-//     // give the user roles
-//     // auth()-> user()->assignRole('user');
-    
-
-//         return view('sadour');
-
-// });
-
-
 // =================================================================================
 // deze Route is gemaakt door Ibrahim om (CV van ibrahim sadour door de butten te downloaden)
 Route::get('/download', function () {
@@ -219,31 +196,6 @@ Route::resource('/auth/dashboard/permission', 'Setting\PermissionController')->n
     ])->middleware('auth');
 // =================================================================================
 
-
-
-
-// Route::get('/auth/dashboard/ibo', function () {
-    
-
-//     return view('pages.admin.Website_string.setting.Show_user');
-
-    // Role::create(['name' => 'Admin']);
-    // Permission::create(['name' => 'edit post']);
-
-
-    // give perimission  to roles
-    // $role = Role:: findById(2);
-    // $permission = permission::findById(2);
-    // $role->givePermissionTo($permission);
-
-//     // give the user perimission
-//     // auth()-> user()->givePermissionTo('edit post');
-
-//     // give the user roles
-    // auth()-> user()->assignRole('Admin');
-
-
-// ===========================================================================
 
 
 // =================================================================================

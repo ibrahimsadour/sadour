@@ -1,18 +1,6 @@
 @extends('layouts.AdminDashboard')
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<style>
-.dataTables_wrapper .dataTables_paginate .paginate_button{
-    padding: 0.25em 0.5em 0.25em 0.5em!important    ;
-}
-.dataTables_wrapper{
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-.dataTables_wrapper .dataTables_info{
-    font-weight: 600 !important;
-}
 
-</style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
         <a class="navbar-brand mr-lg-5" href="../../index.html">
@@ -36,8 +24,6 @@
                         <main class="content">
 
 
-
-
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
                                 @include('pages.admin.Website_String.includes.Admin_header')
@@ -47,12 +33,12 @@
                                     <div class="d-block mb-4 mb-md-0">
                                         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                                            <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
+                                            <li class="breadcrumb-item"><a href="#" ><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Calendar</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">All Event</li>
                                             </ol>
                                         </nav>
-                                        <h2 class="h4">All Event</h2>
+                                        <h2 class="">All Event</h2>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
@@ -153,7 +139,6 @@
                 </div>
             </div>
 @endsection
-                                @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 <script>
 $(document).ready(function() {

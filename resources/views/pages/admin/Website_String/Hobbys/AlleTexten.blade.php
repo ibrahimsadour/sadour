@@ -1,33 +1,5 @@
 @extends('layouts.AdminDashboard')
-<style>
-
-
-
-.alert{
-    margin-bottom: 0rem;
-}
-.alert-success{
-    color: black!important;
-
-}
-.alert-danger{
-    color: black!important;
-
-}
-
-.alert {
-padding: 0rem 1rem!important;
-}
-.aanapssen{
-    text-align: center;
-    font-weight: 700;
-    top: 8px;
-    position: relative;
-}
-
-
-
-</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -73,43 +45,24 @@ padding: 0rem 1rem!important;
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-primary">Share</button>
-                                            <button type="button" class="btn btn-sm btn-outline-primary">Export</button>
+                                            <form method="get" action="{{url('auth/dashboard/hobbys/create')}}">
+                                                <button  class="btn btn-sm btn-outline-primary"> 
+                                                    <span class="fa fa-cubes"> Add Hobby's</span>
+                                                </button>
+                                            </form>
                                         </div>
                                     @endrole
 
                                     </div>
                                 </div>
-                                <div class="table-settings mb-4">
-                                    <div class="row align-items-center justify-content-between">
-                                    <!-- hier wordt de Search form geinclude -->
-                                    <!-- resources/views/pages/admin/Websit_String.blade.php -->
-                                    @include('pages.admin.Website_String.includes.search_form')
-                                    <!-- End Search Form -->
-                                        @role('Admin')
-                                        <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
-                                            <div class="btn-group">
-                                            <form method="get" action="{{url('auth/dashboard/hobbys/create')}}">
-                                                <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" >
-                                                        <span class="icon icon-sm icon-gray">
-                                                            <span class="fas fa-user-plus"></span>
-                                                        </span>
-                                                </button>
-                                            </form>
-                                            </div>
-                                        </div>
-                                        @endrole
-
-                                    </div>
-                                </div>
-
+                                
                                 <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                                 @if($message = Session::get('success'))
                                 <div class="alert alert-success">
                                 <p class="aanapssen">{{$message}}</p>
                                 </div>
                                 @endif
-                                <table class="table table-hover" id="myTable">
+                                <table class="table table-hover"  id="myTable" style="border-color: #eaedf2;width:100%; margin-bottom: 10px;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -157,36 +110,6 @@ padding: 0rem 1rem!important;
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class="card-footer px-3 border-0 d-flex align-items-center justify-content-between">
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination mb-0">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">Previous</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">4</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">5</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    <div class="font-weight-bold small">Showing <b>5</b> out of <b>25</b> entries</div>
-                                </div>
-                            </div>
-
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
@@ -197,3 +120,8 @@ padding: 0rem 1rem!important;
                 </div>
             </div>
 @endsection
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable();
+} );
+</script>

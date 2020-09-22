@@ -128,7 +128,7 @@ crossorigin="anonymous" type="text/javascript" ></script>
                                         <div class="col-4 col-md-2 col-xl-1 pl-md-0 text-right">
                                             <div class="btn-group">
                                                 <form action="{{route('calendar.show')}}">
-                                                    <button style="padding: 5px 20px 5px 20px;"type="submit" class="btn btn-sm btn-outline-primary"> All Event  <span class="fas fa-calendar-alt"></span></button>
+                                                    <button type="submit" class="btn btn-sm btn-outline-primary"> All Event  <span class="fas fa-calendar-alt"></span></button>
                                                 </form>
                                             </div>
                                         </div>
@@ -194,7 +194,7 @@ function convert(str){
 
 $('#addevent').on('click',function(){
 
-    $('#dialog').dialog({
+    $('#dialog2').dialog({
 
         title:'Add Event',
         widht:600,
