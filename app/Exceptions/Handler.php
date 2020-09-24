@@ -50,9 +50,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if($exception  instanceof FileUnacceptableForCollection){
-
-            return redirect()->back()->with('error','Only JPEG file type is accepted');
+        if ($this->isHttpException($exception)) {
+            if ($exception->getStatusCode() == 404) {
+                return response()->view('sections.'.'errors.' . '404', [], 404);
+            }
+            if ($exception->getStatusCode() == 500) {
+                return response()->view('sections.'.'errors.' . '500', [], 404);
+            }
         }
         return parent::render($request,  $exception);
 
