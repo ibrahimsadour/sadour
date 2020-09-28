@@ -98,7 +98,7 @@ class ProjectController extends Controller
         $Projects = Projects::select('id', 'name',  'photo', 'description')->find($request -> project_id);
 
         // view all information of the project 
-        return view('pages.admin.Website_String.Projects.show', compact('Projects'));
+        return view('pages.admin.Website_String.Projects.Show', compact('Projects'));
 
     }
 
