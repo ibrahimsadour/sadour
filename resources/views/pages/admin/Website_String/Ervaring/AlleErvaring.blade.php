@@ -62,7 +62,7 @@
                                 <p  class="aanapssen" >{{$message}}</p>
                                 </div>
                                 @endif
-                                <table class="table table-hover" id="myTable" id="myTable" style="border-color: #eaedf2;width:100%; margin-bottom: 10px;">
+                                <table class="table table-hover" id="myTable" style="border-color: #eaedf2;width:100%; margin-bottom: 10px;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>

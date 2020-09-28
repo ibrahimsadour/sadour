@@ -244,6 +244,8 @@ Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalContro
 ])->middleware('auth');
 // =================================================================================
 
+// =================================================================================
+// Calendar
 Route::group(['middleware' => ['auth']], function () {
 
     // deze route om het calendar te laat zien 
@@ -268,4 +270,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/auth/dashboard/calendar/allevent/{id}','Calendar\CalendarController@destroy')->name('delet.event');
 
 });
+// =================================================================================
 
+
+// =================================================================================
+// Project
+Route::group( [
+    'prefix' => '/auth/dashboard/projects', // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
+    'middleware' => 'auth', 
+],function() {
+
+    Route::get('','Projects\ProjectController@index')->name('project.all');
+    Route::get('create','Projects\ProjectController@create')->name('project.create');
+    Route::post('store','Projects\ProjectController@store')->name('ajax.project.store');
+    Route::post('destroy','Projects\ProjectController@destroy')->name('ajax.project.destroy');
+    Route::get('edit/{project_id}','Projects\ProjectController@edit')->name('ajax.project.edit');
+    Route::post('update','Projects\ProjectController@update')->name('ajax.project.update');
+    Route::get('show/{project_id}','Projects\ProjectController@show')->name('ajax.project.show');
+});

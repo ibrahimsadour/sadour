@@ -79,6 +79,12 @@
               <span>Calendar</span>
           </a>
         </li>
+        <li class="{{ Request::is('auth/dashboard/projects') ? 'nav-item active' : '' }}">
+          <a href="{{URL('/auth/dashboard/projects')}}" class="nav-link">
+              <span class="sidebar-icon"><span class="fab fa-r-project"></span></span>
+              <span>Projects</span>
+          </a>
+        </li>
         <!-- <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-app">
             <span>
