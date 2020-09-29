@@ -211,7 +211,7 @@
                                                 <div class="card h-100" >
                                                     @foreach($avatars as $avatar)
                                                     <div class="card-body" style="height: 50%; width: 50%;">
-                                                        <img src="{{$avatar->getUrl('card')}}" class="card-img-top" alt="avatar ">
+                                                        <img src="{{$avatar->getUrl()}}" class="card-img-top" alt="avatar ">
                                                         <div class="float-left">
                                                             
                                                             <a href="#" onclick="event.preventDefault();document.getElementById('selectForm{{$avatar->id}}').submit()" ><i class="text-sucess fa fa-check fa-1x"></i></a>
@@ -231,8 +231,8 @@
                                                             </form>
                                                         </div>
                                                         <div class="float-right">
-                                                        <a href="{{$avatar->getUrl('card')}}"   target="_blank" ><i class="text-info fa fa-eye fa-1x"></i></a>
-                                                        <a href="{{$avatar->getUrl('card')}}" download ><i class="text-warning fa fa-cloud-download-alt fa-1x"></i></a>
+                                                        <a href="{{$avatar->getUrl()}}"   target="_blank" ><i class="text-info fa fa-eye fa-1x"></i></a>
+                                                        <a href="{{$avatar->getUrl()}}" download ><i class="text-warning fa fa-cloud-download-alt fa-1x"></i></a>
 
                                                         </div>
                                                     </div>

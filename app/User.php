@@ -46,21 +46,21 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('avatar') // deze code om een nieuw avatar te toevoegen.
+        $this->addMediaCollection('avatar'); // deze code om een nieuw avatar te toevoegen.
             //  ->acceptsFile(function (File $file) { //deze functie is voor alle type JPEG wordt gesturd.
             //   return $file->mimeType === 'image/jpeg';
         
 
-        ->registerMediaConversions(function (Media $media){
+        // ->registerMediaConversions(function (Media $media){
         
-            $this->addMediaConversion('card')
-            ->width(500)
-            ->height(500);
+        //     $this->addMediaConversion('card')
+        //     ->width(500)
+        //     ->height(500);
             
-            $this->addMediaConversion('thumb')
-            ->width(100)
-            ->height(100);
-        });
+        //     $this->addMediaConversion('thumb')
+        //     ->width(100)
+        //     ->height(100);
+        // });
     }
 
     public function avatar(){
@@ -69,21 +69,23 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
 
     public function getAvatarUrlAttribute () {
 
+        
 
+        $img_src1= $this->media;
+        $img_src2= $this->avatar;
 
+        if(count($img_src1) > 0 ){
+            if($img_src2){
 
-
-        $img_src= $this->media;
-        if(count($img_src) > 0 ){
-
-            return $this->avatar->getUrl('thumb');
+                return $this->avatar->getFullUrl();
+            }
 
         }else{
             return  asset('img/admin/user.png');
         }
 
-        // @dd($img_src);
-        //  return  $this->media[0]->getUrl();
+    //     // @dd($img_src);
+    //     //  return  $this->media[0]->getUrl();
         
 
         

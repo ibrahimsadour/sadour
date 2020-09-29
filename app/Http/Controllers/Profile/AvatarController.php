@@ -22,14 +22,12 @@ class AvatarController extends Controller
      */
     public function index()
     {
-        $avatars=auth()->user()->getMedia('avatar');
+        $avatars = auth()->user()->getMedia('avatar');
         $user_profile = Profile::all()->toArray();
 
-        // $edit_user_profile = profile::find($id);
         return view('pages.admin.Website_String.profile.Show_user_profile',compact('avatars'), compact('user_profile'));
         
        
-        // return view('pages.admin.Website_String.profile.Show_user_profile', compact('edit_user_profile', 'id'));
     }
 
     /**
@@ -51,10 +49,16 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $user = auth()->user();
         $user -> addMedia($request->avatar)->toMediaCollection('avatar');
-
+ 
+        Alert::info('Event Updated successfully');
         return redirect()->back();
+      
+            
+      
+
         
         
     }
@@ -132,13 +136,16 @@ class AvatarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    { 
+        $user = auth()->user();
+        $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia($id)); // This will remove all associated media in the 'images' collection except the first media
 
     //    $mediaItems[0]->delete();
         
         // $contact->delete();
 
-        // return redirect()->route('auth.dashboard.contact')->with('success','contact deleted!');
+        Alert::success('success!', 'Your Image is deleted');
+        return redirect()->back();
 
 
         
