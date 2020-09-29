@@ -88,7 +88,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <textarea  name="description" class="form-control" placeholder="description" required  rows="4" cols="50"></textarea>
+                                                <textarea  name="description" class="form-control" placeholder="description" required  rows="4" cols="50">
+                                                </textarea>
                                             </div>
 
 

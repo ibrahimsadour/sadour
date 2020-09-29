@@ -3,6 +3,9 @@
 .form-control {
     margin-bottom: .5rem;
 }
+.form-text{
+    font-weight: 900;
+}
 </style>
 @section('Dashboard')
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-md-none">
@@ -53,7 +56,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Kieiz een foto</label>
+                                                <label for="photo">Kieiz een foto</label>
                                                 <input type="file" class="form-control" name="photo" class="@error('photo') is-invalid @enderror">
                                                 <small id="photo_error" class="form-text text-danger"></small>
 
@@ -61,22 +64,21 @@
 
 
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Name</label>
+                                                <label for="Name">Name</label>
                                                 <input type="text" class="form-control" name="name" placeholder="{{__('messages.Offer Name')}}">
                                                 <small id="name_error" class="form-text text-danger"></small>
 
                                             </div>
 
-
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1"> Discrption</label>
-                                                <input type="text" class="form-control" name="description" placeholder="{{__('messages.Offer Name')}}">
+                                                <label for="Name">Description :</label>
+                                                <textarea id="ckeditor" name="description"></textarea>
                                                 <small id="description_error" class="form-text text-danger"></small>
-
+                                                <script> CKEDITOR.replace('ckeditor' );</script>        
                                             </div>
 
-
                                             <button id="projects_submit" class="btn btn-primary">Save </button>
+                                            
                                         </form>
                                     </div>
                                 </div>
@@ -89,54 +91,8 @@
                 </div>
             </div>
 @endsection
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
-<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
-<script
-    src="https://code.jquery.com/jquery-3.5.0.min.js"
-    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
-    crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-
-
-  $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    //get provider branches
-    $(document).on('click', '#projects_submit', function (e) {
-        e.preventDefault();
-        $('#photo_error').text('');
-        $('#name_error').text('');
-        $('#description_error').text('');
-    
-        var formData = new FormData($('#projectsForm')[0]);
-        $.ajax({
-            type: 'post',
-            enctype:"multipart/form-data",
-            url: "{{route('ajax.project.store')}}",
-            data: formData,
-            processData : false,
-            contentType:false,
-            cache:false,
-            success: function (data) {
-                if(data.status == true)
-                    swal("Done!", data.msg, "success");
-                   
-            },
-            error: function (reject){
-
-                var response = $.parseJSON(reject.responseText);
-                $.each(response.errors,function(key, val){
-
-                    $('#' + key + "_error").text(val[0]);
-                });
-            }
-        });
-    });
-
-</script>
+<!--Ajax code + text Editor code -->
+<!-- resources/views/pages/admin/Website_String/Projects/ajax -->
+@include('pages.admin.Website_String.Projects.ajaxAddProject')
+<!--/ajax code-->

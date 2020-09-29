@@ -30,6 +30,7 @@
                     <!-- <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">portefeuille</a></li> -->
                     <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">ervaring</a></li>
                     <li><a class="mdl-navigation__link" data-scroll href="#education_sec">opleiding</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#projecten_sec">Projecten</a></li>
                     <li><a class="mdl-navigation__link" data-scroll href="#contact_sec">contact</a></li>
                 </ul>
                 <!-- Right aligned menu below button -->

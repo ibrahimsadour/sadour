@@ -274,7 +274,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 // =================================================================================
-// Project
+// Project Admin Pages
 Route::group( [
     'prefix' => '/auth/dashboard/projects', // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
     'middleware' => 'auth', 
@@ -287,4 +287,10 @@ Route::group( [
     Route::get('edit/{project_id}','Projects\ProjectController@edit')->name('ajax.project.edit');
     Route::post('update','Projects\ProjectController@update')->name('ajax.project.update');
     Route::get('show/{project_id}','Projects\ProjectController@show')->name('ajax.project.show');
+    // get all project to show on home page
+
 });
+
+// Project Sadour.nl Pages
+Route::get('projects','Projects\ProjectController@getAllProject')->name('git.all');
+Route::get('show/{project_id}','Projects\ProjectController@getOneProject')->name('git.one.project');

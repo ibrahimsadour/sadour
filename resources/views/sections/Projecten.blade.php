@@ -21,7 +21,7 @@
     padding-right: 15px;
 }
 </style>
-<section id="portfolio_sec" class="portfolio-sec sec-pad-top-sm">
+<section id="projecten_sec" class="portfolio-sec sec-pad-top-sm">
 <h2 class="mb-30">projecten</h2>
     <div class="gallery-wrap mb-30">
         <div class="portfolio-wrap project-gallery">

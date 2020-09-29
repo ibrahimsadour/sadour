@@ -25,7 +25,7 @@ class ProjectsRequest  extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'description' => 'required|max:500',
+            'description' => 'required|max:100000',
             'photo' => 'required|mimes:png,jpg,jpeg',
         ];
     }
@@ -35,7 +35,7 @@ class ProjectsRequest  extends FormRequest
 
             'name.required' => 'projects name   required',
             'name.unique' => 'project name bestaat all  ',
-            'description.required' => 'project description bestaat all ',
+            'description.required' => 'project description required ',
             'photo.required' =>  'projects photo required',
             'photo.mimes' =>  'projects photo is niet geldig',
             

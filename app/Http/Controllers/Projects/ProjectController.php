@@ -14,7 +14,47 @@ use App\Http\Requests\AdminDashboard\ProjectsRequest;
 class ProjectController extends Controller
 
 {
-   
+    // Sadour.nl Controller --->
+    // ************************
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllProject()
+    {
+        $Projects = Projects::select('id',
+        'photo',
+        'name',
+        'description',
+        'created_at',
+        'updated_at'
+    )->get(); // return collection
+
+    return view('Projects.projects', compact('Projects'));
+    }
+
+    public function getOneProject(Request $request)
+    {
+        $Projects = Projects::find($request ->project_id);  // search in given table id only
+
+        if (!$Projects)
+            return response()->json([
+                'status' => false,
+                'msg' => 'Projects has not found',
+            ]);
+
+        $Projects = Projects::select('id', 'name',  'photo', 'description','created_at')->find($request -> project_id);
+
+        // view all information of the project 
+        return view('Projects.OneProject', compact('Projects'));
+
+    }
+    // **************************
+    // End sadodour.nl Controller 
+
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +66,7 @@ class ProjectController extends Controller
         'photo',
         'name',
         'description',
-    )->limit(10)->get(); // return collection
+    )->get(); // return collection
 
     return view('pages.admin.Website_String.Projects.All', compact('Projects'));
     }

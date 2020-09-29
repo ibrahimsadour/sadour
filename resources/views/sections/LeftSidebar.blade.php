@@ -35,6 +35,13 @@
                         <i class="zmdi zmdi-library pr-15"></i>
                         <span class="font-capitalize">opleiding</span>
                     </a>
+                </li>
+
+                <li>
+                    <a class="mdl-navigation__link border-top-sep" data-scroll href="#projecten_sec">
+                        <i class="zmdi zmdi-folder-outline pr-15"></i>
+                        <span class="font-capitalize">Projecten</span>
+                    </a>
                 </li>	
                 
                 <li>
