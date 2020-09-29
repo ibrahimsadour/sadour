@@ -234,14 +234,7 @@ b{
             <p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design </p>
 
         </footer>
-        <span class="posted-on">
-            <a href="https://www.tutsmake.com/laravel-8-rest-api-crud-with-passport-auth-tutorial/" rel="bookmark">
-            <time datetime="2020-09-28T05:18:47+00:00" class="modified-entry-date" itemprop="dateModified">
-            September 28, 2020 </time>
-            <time datetime="2020-09-28T05:18:45+00:00" class="entry-date" itemprop="datePublished">
-            September 28, 2020 </time>
-            </a>
-        </span>
+
         <!--Footer Sec-->
 	
 	</div>	

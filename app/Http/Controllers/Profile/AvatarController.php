@@ -53,13 +53,8 @@ class AvatarController extends Controller
         $user = auth()->user();
         $user -> addMedia($request->avatar)->toMediaCollection('avatar');
  
-        Alert::info('Event Updated successfully');
+        Alert::success('Your Image is added');
         return redirect()->back();
-      
-            
-      
-
-        
         
     }
     public function sendData(AvatarRequest $request)
@@ -124,6 +119,8 @@ class AvatarController extends Controller
     {   $user = auth()->user();
         $user->avatar_id = $request-> selectedAvatar;
         $user->save();
+
+        Alert::info('Your image avatar is updated');
         return redirect()->back();
 
 
@@ -137,17 +134,12 @@ class AvatarController extends Controller
      */
     public function destroy($id)
     { 
-        $user = auth()->user();
-        $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia($id)); // This will remove all associated media in the 'images' collection except the first media
+        $user = auth()->user($id);
+        $user->clearMediaCollectionExcept('avatar', $user->getFirstMedia());
 
-    //    $mediaItems[0]->delete();
-        
-        // $contact->delete();
-
-        Alert::success('success!', 'Your Image is deleted');
+        Alert::error('success!', 'Your Image is deleted');
         return redirect()->back();
 
 
-        
     }
 }
