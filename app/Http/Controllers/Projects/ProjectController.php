@@ -116,7 +116,7 @@ class ProjectController extends Controller
         return response()->json([
             'status' => false,
             'msg' => 'Projects has not created',
-        ]);
+        ]);  
     }
 
     /**
@@ -198,7 +198,9 @@ class ProjectController extends Controller
     public function destroy( Request $request)
     {
         $Projects = Projects::find($request ->id);   // Offer::where('id','$Projects_id') -> first();
-
+        $image_path = public_path().'\images\Projects/'.$Projects->photo;
+        if(file_exists($image_path)) // check if the image indeed exists
+        unlink($image_path);
         if (!$Projects)
         return response()->json([
 

@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-                                        <i class="fa fa-users"></i>
+                                        <i class="fas fa-user"></i>
                                     </div>
 
                                 </div>
@@ -160,11 +160,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}">Setting</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"> User Management</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                        <i class="fas fa-cog"></i>
+                                        <i class="fa fa-users"></i>
                                     </div>
                                 </div>
                             </div>
@@ -192,6 +192,97 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2">Hier kan jij je profile aanpassen</span>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                
+                <!-- Card stats  ( 9 ) -->
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"> Projects</h5></a>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                                        <i  class="fab fa-r-project"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 mb-0 text-sm">
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Hobbys::all()->count() }}</span>
+                                <span class="text-nowrap">Aantal hobbys</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card stats  ( 10 ) -->
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/contact')}}"> Sociaal contact</h5></a>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                                        <i class="fa fa-globe "></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 mb-0 text-sm">
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Contact::all()->count() }}</span>
+                                <span class="text-nowrap">Antal berichten    </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card stats  ( 11 ) -->
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}">Calendar</h5></a>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 mb-0 text-sm">
+                                <span class="text-success mr-2">Rollen aanpassen / Nieuw gebruiker</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card stats  ( 12 ) -->
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-stats">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/profile')}}"> </h5></a>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                        <i class="far fa-user-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 mb-0 text-sm">
+                                <span class="text-success mr-2">Comming soon</span>
 
                             </p>
                         </div>
