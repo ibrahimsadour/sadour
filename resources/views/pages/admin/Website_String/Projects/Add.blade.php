@@ -94,5 +94,5 @@
 
 <!--Ajax code + text Editor code -->
 <!-- resources/views/pages/admin/Website_String/Projects/ajax -->
-@include('pages.admin.Website_String.Projects.ajaxAddProject')
+@include('pages.admin.Website_String.Projects.Ajax_code.ajaxAddProject')
 <!--/ajax code-->

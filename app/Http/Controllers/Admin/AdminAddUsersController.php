@@ -27,7 +27,7 @@ class AdminAddUsersController extends Controller
     {
         $website_strings = Admin::all()->toArray();
 
-        return view('pages.admin.Website_String.Users.AllUsers', compact('website_strings'));
+        return view('pages.admin.Website_String.Admin_information.AllUsers', compact('website_strings'));
 
    
     }   
@@ -35,7 +35,7 @@ class AdminAddUsersController extends Controller
     public function show($id)
     {
         $website_strings = Admin::find($id);
-        return view('pages.admin.Website_String.Users.show', compact('website_strings', 'id'));
+        return view('pages.admin.Website_String.Admin_information.show', compact('website_strings', 'id'));
     }
 
     /**
@@ -45,7 +45,7 @@ class AdminAddUsersController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.Website_String.Users.Add');
+        return view('pages.admin.Website_String.Admin_information.Add');
     }
 
     public function store(AdminStoreRequest $request)
@@ -70,7 +70,7 @@ class AdminAddUsersController extends Controller
 
     
         $website_strings = Admin::find($id);
-        return view('pages.admin.Website_String.Users.Edit', compact('website_strings', 'id'));
+        return view('pages.admin.Website_String.Admin_information.Edit', compact('website_strings', 'id'));
     
 
     }

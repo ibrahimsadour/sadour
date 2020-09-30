@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 Auth::routes(['verify' =>true]);
+use App\Http\Controllers\Projects\ProjectController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -280,13 +282,13 @@ Route::group( [
     'middleware' => 'auth', 
 ],function() {
 
-    Route::get('','Projects\ProjectController@index')->name('project.all');
-    Route::get('create','Projects\ProjectController@create')->name('project.create');
-    Route::post('store','Projects\ProjectController@store')->name('ajax.project.store');
-    Route::post('destroy','Projects\ProjectController@destroy')->name('ajax.project.destroy');
-    Route::get('edit/{project_id}','Projects\ProjectController@edit')->name('ajax.project.edit');
-    Route::post('update','Projects\ProjectController@update')->name('ajax.project.update');
-    Route::get('show/{project_id}','Projects\ProjectController@show')->name('ajax.project.show');
+    Route::get('',[ProjectController::class, 'index'])->name('project.all');
+    Route::get('create',[ProjectController::class, 'create'])->name('project.create');
+    Route::post('store',[ProjectController::class, 'store'])->name('ajax.project.store');
+    Route::post('destroy',[ProjectController::class, 'destroy'])->name('ajax.project.destroy');
+    Route::get('edit/{project_id}',[ProjectController::class, 'edit'])->name('ajax.project.edit');
+    Route::post('update',[ProjectController::class, 'update'])->name('ajax.project.update');
+    Route::get('show/{project_id}',[ProjectController::class, 'show'])->name('ajax.project.show');
     // get all project to show on home page
 
 });
