@@ -33,11 +33,11 @@
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                                             <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Website String</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Users</li>
+                                            <li class="breadcrumb-item active" aria-current="page">  Admin information </li>
                                             </ol>
                                         </nav>
-                                        <h2 class="h4">All Users</h2>
-                                        <p class="mb-0">Your web Users dashboard template.</p>
+                                        <h2 class="h4"> Your web Admin information dashboard template.</h2>
+                                        <!-- <p class="mb-0">Y  our web Admin information dashboard template.</p> -->
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')

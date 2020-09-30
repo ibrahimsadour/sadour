@@ -71,8 +71,8 @@
                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-right mt-2">
                 <a class="dropdown-item font-weight-bold" href="{{route('auth.dashboard.profile')}}"><span class="far fa-user-circle"></span>My Profile</a>
                 <a class="dropdown-item font-weight-bold" href="{{route('auth.dashboard.setting')}}"><span class="fas fa-cog"></span>Settings</a>
-                <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-envelope-open-text"></span>Messages</a>
-                <a class="dropdown-item font-weight-bold" href="#"><span class="fas fa-user-shield"></span>Support</a>
+                <a class="dropdown-item font-weight-bold" href="{{url('/auth/dashboard/contact')}}"><span class="fas fa-envelope-open-text"></span>Messages</a>
+                <a class="dropdown-item font-weight-bold" href="https://www.facebook.com/sadour95" target="_blank"><span class="fas fa-user-shield"></span>Support</a>
                 <div role="separator" class="dropdown-divider"></div>
                 <a class="dropdown-item font-weight-bold" href="{{url('auth/logout')}}"><span class="fas fa-sign-out-alt text-danger"></span>Logout</a>
                 </div>

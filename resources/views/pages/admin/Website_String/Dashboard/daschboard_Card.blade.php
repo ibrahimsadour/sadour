@@ -1,5 +1,5 @@
 <!-- Dashboard -->
-<div class="header bg-primary pb-6" >
+<div class="header bg-primary pb-6" style="border-radius: 0.5rem;" >
     <div class="container-fluid">
         <div class="header-body">
             <div class="row align-items-center py-4">
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}">  Users </h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}">    Admin information  </h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -36,7 +36,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\User::all()->count() }}</span>
-                                <span class="text-nowrap">Aantal gebruiker in de sites</span>
+                                <span class="text-nowrap">Number of user in the sites</span>
                             </p>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}">  Ervaring </h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}">    Experience  </h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -59,7 +59,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Ervaring::all()->count() }}</span>
-                                <span class="text-nowrap">Aantal Ervaring</span>
+                                <span class="text-nowrap">Number of Experience</span>
                             </p>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}">  Opleiding </h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}">    Education  </h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -81,7 +81,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Opleiding::all()->count() }}</span>
-                                <span class="text-nowrap"> Antal Opleiding</span>
+                                <span class="text-nowrap"> Number of Training</span>
                             </p>
                         </div>
                     </div>
@@ -93,17 +93,17 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"> Wat Ik Doe</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"> What I do</h5></a>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
                                         <i class="fa fa-american-sign-language-interpreting"></i>
                                     </div>
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{ \App\Models\Watikdoe::all()->count() }} </span>
-                                <span class="text-nowrap">Aantal diensten</span>
+                                <span class="text-nowrap">Number of services</span>
                             </p>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"> Hobby's</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"> Hobbies</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -125,8 +125,8 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Hobbys::all()->count() }}</span>
-                                <span class="text-nowrap">Aantal hobbys</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Hobbys::all()->count() }}</span>
+                                <span class="text-nowrap">Number of hobbies</span>
                             </p>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Contact::all()->count() }}</span>
-                                <span class="text-nowrap">Antal berichten    </span>
+                                <span class="text-nowrap">Number of messages </span>
                             </p>
                         </div>
                     </div>
@@ -163,13 +163,13 @@
                                     <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"> User Management</h5></a>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                    <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
                                         <i class="fa fa-users"></i>
                                     </div>
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">Rollen aanpassen / Nieuw gebruiker</span>
+                                <span class="text-success mr-2">Customize Roles / New User</span>
                             </p>
                         </div>
                     </div>
@@ -191,7 +191,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">Hier kan jij je profile aanpassen</span>
+                                <span class="text-success mr-2">Here you can modify your profile</span>
 
                             </p>
                         </div>
@@ -217,7 +217,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Hobbys::all()->count() }}</span>
-                                <span class="text-nowrap">Aantal hobbys</span>
+                                <span class="text-nowrap">Number of projects</span>
                             </p>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/contact')}}"> Sociaal contact</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/contact')}}"> Social contact</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -239,7 +239,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Contact::all()->count() }}</span>
-                                <span class="text-nowrap">Antal berichten    </span>
+                                <span class="text-nowrap">Number of platform </span>
                             </p>
                         </div>
                     </div>
@@ -254,13 +254,13 @@
                                     <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}">Calendar</h5></a>
                                 </div>
                                 <div class="col-auto">
-                                    <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                                    <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">Rollen aanpassen / Nieuw gebruiker</span>
+                                <span class="text-success mr-2">add new event</span>
                             </p>
                         </div>
                     </div>
@@ -293,3 +293,4 @@
         </div>
     </div>
 </div>
+<br>

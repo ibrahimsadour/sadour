@@ -43,9 +43,13 @@
                                 <div class="btn-toolbar mb-2 mb-md-0">
                                 @role('Admin')
                                     <div class="btn-group">
-                                    <form method="get" action="{{url('auth/dashboard/projects/create')}}">
-                                        <button  class="btn btn-sm btn-outline-primary"> Add New Projects  <span class="icon icon-sm icon-gray"><i class="fab fa-r-project"></i></span></button>
-                                    </form>
+                                        <form method="get" action="{{url('auth/dashboard/projects/create')}}" style="margin-right: 10px;">
+                                            <button  class="btn btn-sm btn-outline-primary"> Add New Projects  <span class="icon icon-sm icon-gray"><i class="fas fa-plus"></i></span></button>
+                                        </form>
+                                        
+                                        <form method="get" action="{{url('projects')}}"  target="_blank">
+                                            <button  class="btn btn-sm btn-outline-primary" > Display all on the site  <span class="icon icon-sm icon-gray"><i class="fas fa-eye mr-2"></i></span></button>
+                                        </form>
                                     </div>
                                 @endrole
 
@@ -82,13 +86,14 @@
                                                     <span class="sr-only">Toggle Dropdown</span>
                                                 </button>
                                                 <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="{{route('git.one.project',$Project->id)}}" target="_blank"><span class="fas fa-eye mr-2"></span>Display on the site </a>
                                                     <a class="dropdown-item" href="{{route('ajax.project.show',$Project->id)}}"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                     @hasanyrole('Editor|Admin')
                                                     <a class="dropdown-item" href="{{route('ajax.project.edit',$Project->id)}}"><span class="fas fa-edit mr-2"></span>Edit</a>
                                                     @endhasanyrole
                                                     
                                                     @role('Admin')
-                                                    <a class="delete_btn dropdown-item"  project_id="{{$Project -> id}}"   href=""><span class="fas fa-edit mr-2"></span>Remove</a>
+                                                    <a class="delete_btn dropdown-item"  project_id="{{$Project -> id}}"  style="color:red;" href=""><span class="fas fa-trash-alt mr-2"></span>Remove</a>
                                                     @endrole
                                                 </div>
                                             </div>

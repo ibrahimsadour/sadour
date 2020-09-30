@@ -33,12 +33,12 @@
           </span>
           <div class="multi-level collapse " role="list" id="submenu-pages" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="{{ Request::is('auth/dashboard/admin') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Users </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/ervaring') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt">  Ervaring </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/opleiding') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Opleiding </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/watikdoe') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> Wat Ik Doe</span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/hobbys') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"><span class="fa fa-cubes"> Hobby's</span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/sociaal_contact') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Sociaal contact</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/admin') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Admin information </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/ervaring') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}"><span class="far fa-file-alt">  Experience </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/opleiding') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Education </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/watikdoe') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> What I do</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/hobbys') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"><span class="fa fa-cubes"> Hobbies</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/sociaal_contact') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Social contact</span></a></li>
               </ul>
           </div>
         </li>
