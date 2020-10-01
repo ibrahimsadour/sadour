@@ -61,11 +61,10 @@
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                                             <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Website String</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Ervaring</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
                                             </ol>
                                         </nav>
-                                        <h2 class="h4">All Ervaring</h2>
-                                        <p class="mb-0">Your web Ervaring dashboard template.</p>
+                                        <h2 class="h4">Your web Contact dashboard template.</h2>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                         @role('Admin')
@@ -90,7 +89,7 @@
                                             <form method="get" action="">
                                                 <button  class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" disabled >
                                                         <span class="icon icon-sm icon-gray">
-                                                            <span class="fas fa-user-plus"></span>
+                                                            <span class="fa fa-envelope"></span>
                                                         </span>
                                                 </button>
                                             </form>
@@ -142,6 +141,7 @@
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item" href="{{action('Contact\ContactController@show', $row['id'])}}"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                             @role('Admin')
+                                                            <a class="dropdown-item" href="mailto:{{$row['email']}}" style="color: green;"><span class="fa fa-envelope"></span> Reply </a>
                                                             <form method="post" class="delete_form" action="{{action('Contact\ContactController@destroy', $row['id'])}}">
                                                             {{csrf_field()}}
                                                             <input type="hidden" name="_method" value="DELETE" />
