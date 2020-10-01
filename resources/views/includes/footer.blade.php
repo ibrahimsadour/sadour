@@ -43,5 +43,4 @@
 		<script src="{{URL::asset('js/init.js')}}"></script>
 	</body>
 
-<!-- Mirrored from hencework.com/theme/matresume/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Jun 2020 16:35:11 GMT -->
 </html>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Validator,Redirect,Response,Session;
 Use App\Models\Projects;
 use App\Traits\OfferTrait;
-
+use Illuminate\Support\Facades\DB;
 // valdatie van de form input wordt in een aparte bestaand toegoeogd
 use App\Http\Requests\AdminDashboard\ProjectsRequest;
 
@@ -15,8 +15,8 @@ class ProjectController extends Controller
 
 {
     // Sadour.nl Controller --->
-    // ************************
 
+    // ************************
     /**
      * Display a listing of the resource.
      *
@@ -30,9 +30,9 @@ class ProjectController extends Controller
         'description',
         'created_at',
         'updated_at'
-    )->get(); // return collection
+    )->paginate(10); // return collection
 
-    return view('Projects.projects', compact('Projects'));
+    return view('Projects.layouts.masterCategories', ['Projects' => $Projects]);
     }
 
     public function getOneProject(Request $request)
@@ -52,6 +52,7 @@ class ProjectController extends Controller
 
     }
     // **************************
+
     // End sadodour.nl Controller 
 
 

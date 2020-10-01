@@ -207,7 +207,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/hobbys')}}"> Projects</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/projects')}}"> Projects</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -216,7 +216,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Hobbys::all()->count() }}</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Projects::all()->count() }}</span>
                                 <span class="text-nowrap">Number of projects</span>
                             </p>
                         </div>
@@ -229,7 +229,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/contact')}}"> Social contact</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"> Social contact</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -238,7 +238,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Contact::all()->count() }}</span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Sociaal_Contact::all()->count() }}</span>
                                 <span class="text-nowrap">Number of platform </span>
                             </p>
                         </div>
@@ -251,7 +251,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}">Calendar</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/calendar')}}">Calendar</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">

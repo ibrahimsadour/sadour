@@ -1,0 +1,127 @@
+.portfolio-sec .bottom-links {
+    display: block;
+    padding: 12px 15px;
+    text-align: right;
+    font-size: 22px;
+}
+.portfolio-sec .light-img-wrap .img-cap {
+    position: absolute;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    display: inline-block;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2;
+}
+.portfolio-sec .bottom-links a:first-child {
+    padding-right: 15px;
+}
+.img-responsive{
+    height: 350px!important;
+    max-height: 350px;
+    width: 100%!important;
+}
+.mdl-card__title {
+
+    height: 400px;
+}
+.portfolio-sec .light-img-wrap .img-cap {
+    position: relative;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    display: inline-block;
+    left: 20px;
+    bottom: 0px;
+    z-index: 2;
+    padding-top: 10px;
+}
+.text-muted{
+    float: left;
+    font-size: 14px;
+}
+.page-header{
+    padding: 40px;
+    background-color: #fff;
+    margin-bottom: 40px;
+}
+h1:first-child{
+    margin-bottom: .25rem;
+    font-family: source sans pro,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1.75rem;
+    font-size: 3rem;
+}
+.taxonomy-description{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    font-family: noto sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    word-wrap: break-word;
+    color: #333;
+}
+.subTitle1{
+    position: relative;
+    left: 20px;
+    color: #0098d4;
+}
+.subTitle2{
+    position: relative;
+    left: 20px;
+    color: #0098d4;
+}
+.hr_{
+    border-right: 1px solid #e6e6e6;
+    margin-right: 10px;
+    padding-right: 10px;
+
+}
+.text-muted{
+    position: relative;
+    left: 5px;
+}
+.project_title{
+    color: #495057;
+    font-weight: 500;
+    font-size: 24px;
+}
+.subTitle{
+    width: auto;
+}
+.project_title:hover {
+      background: none;
+      color: #0098d4; 
+}
+.project_title:active {
+    background: none;
+    opacity: 1; 
+}
+.lave_comment{
+    color: #0098d4;
+}
+.lave_comment:hover {
+      background: none;
+      color: #495057; 
+}
+b{
+    font-weight: bold;
+}
+.btn-sm {
+    padding: 2.5px 5px;
+    position: relative;
+    bottom: 2px;
+    right: 3px;
+}
+.pagination_dev{
+    text-align: center;
+}
+.pagination>li>a, .pagination>li>span{
+    padding: 12px 25px;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 500;
+}

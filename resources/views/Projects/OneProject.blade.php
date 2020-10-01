@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	
-<!-- Mirrored from hencework.com/theme/matresume/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Jun 2020 16:34:58 GMT -->
 <head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -212,8 +211,8 @@ b{
                 <h2 class="author-title">Admin</h2>
                     <div class="author-bio" >
                         <p >
-                        My name is Devendra Dode. I am a full-stack developer, entrepreneur, and owner of Tutsmake.com. I like writing tutorials and tips that can help other developers. I share tutorials of PHP, Javascript, JQuery, Laravel, Livewire, Codeigniter, Vue JS, Angular JS, React Js, WordPress, and Bootstrap from a starting stage. As well as demo example. </p>
-                        <p  class="author-link" ><a class="author-link" href="https://www.tutsmake.com/author/devtutsmake-com/" rel="author">
+                        My name is Ibrahim sadour. I am a full-stack developer, entrepreneur, and owner of Sadour.nl. I like writing tutorials and tips that can help other developers. I share tutorials of PHP, Javascript, JQuery, Laravel, Livewire, Codeigniter, Vue JS, Angular JS, React Js, WordPress, and Bootstrap from a starting stage. As well as demo example. </p>
+                        <p  class="author-link" ><a class="author-link" href="" rel="author">
                         View all posts by Admin </a></p>
                         <p></p>
                     </div>    
@@ -221,7 +220,7 @@ b{
             </div>
         </header>
 
-        <header class="page-header" itemscope="itemscope" itemtype="http://schema.org/WebPageElement">
+        <header class="page-header" itemscope="itemscope" itemtype="">
             <H1> LEAVE COMMENT </H1>
         </header>
        
@@ -259,5 +258,4 @@ b{
 		<script src="{{URL::asset('js/init.js')}}"></script>
 	</body>
 
-<!-- Mirrored from hencework.com/theme/matresume/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Jun 2020 16:35:11 GMT -->
 </html>

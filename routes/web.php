@@ -292,7 +292,16 @@ Route::group( [
     // get all project to show on home page
 
 });
+// =================================================================================
+
 
 // Project Sadour.nl Pages
-Route::get('projects','Projects\ProjectController@getAllProject')->name('git.all');
-Route::get('show/{project_id}','Projects\ProjectController@getOneProject')->name('git.one.project');
+Route::group( [
+    'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
+],function() {
+
+Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all');
+Route::get('laravel_tutorial/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
+
+});
+
