@@ -6,6 +6,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 Auth::routes(['verify' =>true]);
 use App\Http\Controllers\Projects\ProjectController;
+use App\Http\Controllers\Category\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -294,14 +295,32 @@ Route::group( [
 });
 // =================================================================================
 
+// Category Admin Pages
+Route::group( [
+    'prefix' => '/auth/dashboard/category', // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
+    'middleware' => 'auth', 
+],function() {
 
+    Route::get('',[CategoryController::class, 'index'])->name('category.all');
+    Route::get('create',[CategoryController::class, 'create'])->name('category.create');
+    Route::post('store',[CategoryController::class, 'store'])->name('ajax.category.store');
+    Route::post('destroy',[CategoryController::class, 'destroy'])->name('ajax.category.destroy');
+    Route::get('edit/{category_id}',[CategoryController::class, 'edit'])->name('ajax.category.edit');
+    Route::post('update',[CategoryController::class, 'update'])->name('ajax.category.update');
+    Route::get('show/{category_id}',[CategoryController::class, 'show'])->name('ajax.category.show');
+
+    // get all category to show on admin page
+
+});
+// =================================================================================
 // Project Sadour.nl Pages
+
 Route::group( [
     'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
 ],function() {
 
-Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all');
-Route::get('laravel_tutorial/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
+    Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
+    Route::get('laravel_tutorial/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
 
 });
 

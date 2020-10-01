@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Projects extends Model
+class Category extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'category';
 
     /**
      * The attributes that are mass assignable.
@@ -19,19 +19,21 @@ class Projects extends Model
      * @var array
      */
     protected $fillable = [
-        'photo', 'name','description','category_id'
-    ];
-    protected $hidden = [
-        'created_at', 'updated_at'
+        'name', 'weergeven','created_at	','updated_at'
     ];
 
     ################## Begin Relation       #####################
-    public function category ()
-    {
 
-        return $this->hasOne('App\Models\Category','category_id ');
-    
-    }
+   
+
+        public function projects()
+        {
+
+            return $this->belongsTo('App\Models\Projects','category_id ');
+
+        }
+       
+ 
 
     ################## End Relation       #####################
 }

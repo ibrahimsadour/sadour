@@ -16,6 +16,7 @@ class CreateProjectsTable extends Migration
 
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('category_id ')->unsigned();
             $table->string('photo');
             $table->string('name');
             $table->longText('description');

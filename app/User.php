@@ -84,13 +84,11 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
             return  asset('img/admin/user.png');
         }
 
-    //     // @dd($img_src);
-    //     //  return  $this->media[0]->getUrl();
+            // @dd($img_src);
+            //  return  $this->media[0]->getUrl();
         
-
-        
-
     }
+    ################## Begin Relation       #####################
     public function profile (){
 
         return $this->hasOne(Models\profile::class);
@@ -101,5 +99,7 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
         return $this->hasOne(Models\Calendar::class);
  
     }
+    ################## End Relation       #####################
+
 }
 
