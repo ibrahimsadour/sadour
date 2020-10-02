@@ -81,6 +81,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        
+        $Categorys = Category::select('id',
+            'id',
+            'name',
+            'weergeven',
+        )->get(); // return collecti
         // view form to add new project
         return view('pages.admin.Website_String.Projects.Add', compact('Categorys'));
 
