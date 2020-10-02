@@ -128,8 +128,8 @@ padding: 0rem 1rem!important;
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item" href="../invoice.html"><span class="fas fa-eye mr-2"></span>View Details</a>
                                                         @role('Admin')
-                                                        <a class="dropdown-item" href="{{ route('auth.dashboard.setting.edit', $user->id) }}" style="color:navy;"><span class="fas fa-edit mr-2"></span>Edit</a> 
-                                                        <form method="post" class="delete_form" action="{{ route('setting.destroy', $user->id) }}">
+                                                        <a class="dropdown-item" href="{{ route('auth.dashboard.users.edit', $user->id) }}" style="color:navy;"><span class="fas fa-edit mr-2"></span>Edit</a> 
+                                                        <form method="post" class="delete_form" action="{{ route('users.destroy', $user->id) }}">
                                                             {{csrf_field()}}
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <button type="submit"  style="  border: none;background: none; color:red;"><span class="fas fa-trash-alt mr-2"></span>Remove</button>
@@ -145,7 +145,7 @@ padding: 0rem 1rem!important;
                                 </table>
                             </div>
                             @role('Admin')
-                            <a href="{{ route('auth.dashboard.setting.create') }}" class="btn btn-primary"><span class="fas fa-user-plus"></span> Add User</a>
+                            <a href="{{ route('auth.dashboard.users.create') }}" class="btn btn-primary"><span class="fas fa-user-plus"></span> Add User</a>
                             @endrole
                         </div>
                         

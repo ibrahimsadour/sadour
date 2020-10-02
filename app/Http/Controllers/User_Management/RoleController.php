@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Setting;
+namespace App\Http\Controllers\User_Management;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
@@ -29,7 +29,7 @@ class RoleController extends Controller {
     public function index() {
 
         $roles = Role::all();//Get all roles
-        return view('roles.index')->with('roles', $roles);
+        return view('pages.admin.Website_String.Roles.index')->with('roles', $roles);
 
     }
 
@@ -42,7 +42,7 @@ class RoleController extends Controller {
 
         $permissions = Permission::all();//Get all permissions
 
-        return view('roles.create', ['permissions'=>$permissions]);
+        return view('pages.admin.Website_String.Roles.create', ['permissions'=>$permissions]);
     }
 
     /**
@@ -92,7 +92,7 @@ class RoleController extends Controller {
         $role = Role::findOrFail($id);
         $permissions = Permission::all();
 
-        return view('roles.edit', compact('role', 'permissions'));
+        return view('pages.admin.Website_String.Roles.edit', compact('role', 'permissions'));
     }
 
     /**

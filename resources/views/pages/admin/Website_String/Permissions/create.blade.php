@@ -2,20 +2,25 @@
 
 @section('title', '| Add User')
 <style>
- 
+.alert{
+    margin-bottom: 0rem;
+}
+.alert-success{
+    color: black!important;
 
-    .alert-success{
-        color: black!important;
+}
+.alert-danger{
+    color: black!important;
 
-    }
-    .alert-danger{
-        color: black!important;
+}
 
-    }
-    
-    .alert {
-    padding: 0rem 1rem!important;
-    }
+.alert {
+padding: 0rem 1rem!important;
+}
+.aanapssen{
+    text-align: center;
+    font-weight: 700;
+}
 </style>
 @section('Dashboard')
 
@@ -43,57 +48,52 @@
                 <!-- resources/views/sections/setting.blade.php -->
                 @include('pages.admin.Website_String.includes.Admin_header')
                 <!--/Setting-->
-                @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                    </ul>
-                    </div>
-                    @endif
-                    @if(\Session::has('success'))
-                    <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
-                </div>
-                @endif
                 <div class='col-lg-4 col-lg-offset-4'>
 
-                    <h1 class="h4"><i class='fa fa-key'></i> Add Role</h1>
-                    <hr>
-
+                    <h1 class="h4"><i class='fa fa-key'></i> Add Permission</h1>
+                    <br>
+                    @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="aanapssen">{{$error}}</li>
+                        @endforeach
+                        </ul>
+                        </div>
+                        @endif
+                        @if(\Session::has('success'))
+                        <div class="alert alert-success">
+                        <p class="aanapssen">{{ \Session::get('success') }}</p>
+                    </div>
+                    @endif
                     {{ Form::open(array(
-                    'action' => array('Setting\RoleController@store'),
+                    'action' => array('User_Management\PermissionController@store'),
                     'method' => 'POST')) }}
-
                     <div class="form-group">
                         {{ Form::label('name', 'Name') }}
-                        {{ Form::text('name', null, array('class' => 'form-control')) }}
-                    </div>
+                        {{ Form::text('name', '', array('class' => 'form-control')) }}
+                    </div><br>
+                    @if(!$roles->isEmpty()) //If no roles exist yet
+                        <h4>Assign Permission to Roles</h4>
 
-                    <h5><b>Assign Permissions</b></h5>
-
-                    <div class='form-group'>
-                        @foreach ($permissions as $permission)
-                            {{ Form::checkbox('permissions[]',  $permission->id ) }}
-                            {{ Form::label($permission->name, ucfirst($permission->name)) }}<br>
+                        @foreach ($roles as $role) 
+                            {{ Form::checkbox('roles[]',  $role->id ) }}
+                            {{ Form::label($role->name, ucfirst($role->name)) }}<br>
 
                         @endforeach
-                    </div>
-
+                    @endif
+                    <br>
                     {{ Form::submit('Add', array('class' => 'btn btn-primary')) }}
 
                     {{ Form::close() }}
 
                 </div>
-
-                 <!--Setting-->
+                <!--Setting-->
                 <!-- resources/views/sections/setting.blade.php -->
                 @include('pages.admin.Website_String.includes.Admin_footer')
                 <!--/Setting-->
             </main>
         </div>
     </div>
-</div>               
-
+</div>         
 @endsection

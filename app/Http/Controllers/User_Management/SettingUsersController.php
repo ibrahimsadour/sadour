@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Setting;
+namespace App\Http\Controllers\User_Management;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
@@ -31,7 +31,7 @@ class SettingUsersController extends Controller
     public function index() {
         //Get all users and pass it to the view
             $users = User::all(); 
-            return view('users.index')->with('users', $users);
+            return view('pages.admin.Website_String.Users.index')->with('users', $users);
         }
     
         /**
@@ -43,7 +43,7 @@ class SettingUsersController extends Controller
         //Get all roles and pass it to the view
             $roles = Role::get();
             // dd($roles);
-            return view('users.create', ['roles'=>$roles]);
+            return view('pages.admin.Website_String.Users.create', ['roles'=>$roles]);
         }
     
         /**
@@ -70,7 +70,7 @@ class SettingUsersController extends Controller
                 }
             }        
         //Redirect to the users.index view and display message
-            return redirect()->route('auth.dashboard.setting')->with('success','User successfully added.');
+            return redirect()->route('auth.dashboard.users')->with('success','User successfully added.');
         }
     
         /**
@@ -93,7 +93,7 @@ class SettingUsersController extends Controller
             $user = User::findOrFail($id); //Get user with specified id
             $roles = Role::get(); //Get all roles
     
-            return view('users.edit', compact('user', 'roles')); //pass user and roles data to view
+            return view('pages.admin.Website_String.Users.edit', compact('user', 'roles')); //pass user and roles data to view
     
         }
     
@@ -118,7 +118,7 @@ class SettingUsersController extends Controller
             else {
                 $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
             }
-            return redirect()->route('auth.dashboard.setting')->with('success','User successfully edited.');
+            return redirect()->route('auth.dashboard.users')->with('success','User successfully edited.');
         }
     
         /**
@@ -132,6 +132,6 @@ class SettingUsersController extends Controller
             $user = User::findOrFail($id); 
             $user->delete();
     
-            return redirect()->route('auth.dashboard.setting')->with('success','User successfully deleted.');
+            return redirect()->route('auth.dashboard.users')->with('success','User successfully deleted.');
         }
     }

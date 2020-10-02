@@ -29,7 +29,7 @@ class Projects extends Model
     public function category ()
     {
 
-        return $this->hasOne('App\Models\Category','category_id ');
+        return $this->hasOne('App\Models\Category','category_id');
     
     }
 

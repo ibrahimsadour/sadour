@@ -72,7 +72,7 @@ padding: 0rem 1rem!important;
                                     <div class="btn-toolbar mb-2 mb-md-0">
                                     @role('Admin')
                                         <div class="btn-group">
-                                        <a href="{{route('auth.dashboard.setting')}}" class="btn btn-default pull-right"> <i class="fa fa-users"></i>   Users</a>
+                                        <a href="{{route('auth.dashboard.users')}}" class="btn btn-default pull-right"> <i class="fa fa-users"></i>   Users</a>
                                         <a href="{{url('/auth/dashboard/permission')}}" class="btn btn-default pull-right"><i class="fa fa-cog"></i> Permissions</a>                                        </div>
                                     @endrole
                                     </div>

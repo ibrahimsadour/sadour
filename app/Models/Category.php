@@ -26,10 +26,10 @@ class Category extends Model
 
    
 
-        public function projects()
+        public function Projects()
         {
 
-            return $this->belongsTo('App\Models\Projects','category_id ');
+            return $this->belongsTo('App\Models\Projects','category_id');
 
         }
        

@@ -166,11 +166,11 @@ Route::post('/auth/dashboard/profile', 'Profile\AvatarController@store')->name('
 // deze Route is gemaakt door Ibrahim sadour
 // hier kan jij een nieuw  admin of gebruiker of schrijver voor de site toevogen
 
-Route::resource('/auth/dashboard/setting', 'Setting\SettingUsersController')->names([
-    'create' => 'auth.dashboard.setting.create',
-    'edit' => 'auth.dashboard.setting.edit',
-    'index' => 'auth.dashboard.setting',
-    'store' => 'setting.store'
+Route::resource('/auth/dashboard/users', 'User_Management\SettingUsersController')->names([
+    'create' => 'auth.dashboard.users.create',
+    'edit' => 'auth.dashboard.users.edit',
+    'index' => 'auth.dashboard.users',
+    'store' => 'users.store'
     ])->middleware('auth');
 // =================================================================================
 
@@ -179,7 +179,7 @@ Route::resource('/auth/dashboard/setting', 'Setting\SettingUsersController')->na
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // hier kan jij een nieuw  roles voor de  gebruiker of schrijver van de site toevogen
-Route::resource('/auth/dashboard/roles', 'Setting\RoleController')->names([
+Route::resource('/auth/dashboard/roles', 'User_Management\RoleController')->names([
     'create' => 'auth.dashboard.roles.create',
     'edit' => 'auth.dashboard.roles.edit',
     'show' =>'auth.dashboard.roles.show',
@@ -192,7 +192,7 @@ Route::resource('/auth/dashboard/roles', 'Setting\RoleController')->names([
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
 // hier kan jij een nieuw  permission voor de  gebruiker of schrijver van de site toevogen   
-Route::resource('/auth/dashboard/permission', 'Setting\PermissionController')->names([
+Route::resource('/auth/dashboard/permission', 'User_Management\PermissionController')->names([
     'create' => 'auth.dashboard.permission.create',
     'edit' => 'auth.dashboard.permission.edit',
     'index' =>'auth.dashboard.permission'

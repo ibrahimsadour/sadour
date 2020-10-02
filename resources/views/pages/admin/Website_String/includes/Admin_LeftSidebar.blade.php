@@ -48,9 +48,8 @@
               <span>Contact</span>
           </a>
         </li>
-        
-
-        <li class="nav-item">
+          
+        <li class="nav-item {{ Request::is('auth/dashboard/users') ? 'nav-item active' : '' }}">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-Settings">
             <span>
               <span class="sidebar-icon"><span class="fa fa-users"></span></span> 
@@ -58,11 +57,11 @@
             </span>
             <span class="link-arrow"><span class="fas fa-chevron-right"></span></span> 
           </span>
-          <div class="multi-level collapse " role="list" id="submenu-Settings" aria-expanded="false">
+          <div class="multi-level collapse" role="list" id="submenu-Settings" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="{{ Request::is('auth/dashboard/setting') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"><span class="fa fa-users">  All Users </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/roles') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/roles')}}"><span class="fa fa-briefcase">     Roles </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/permission') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/permission')}}"><span class="fa fa-cog">   Permissions </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/users') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.users')}}"><span class="fa fa-users">  All Users </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/roles') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.roles')}}"><span class="fa fa-briefcase">     Roles </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/permission') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.permission')}}"><span class="fa fa-cog">   Permissions </span></a></li>
               </ul>
           </div>
         </li>

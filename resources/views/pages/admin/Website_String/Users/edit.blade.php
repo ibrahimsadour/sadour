@@ -70,7 +70,7 @@ padding: 0rem 1rem!important;
                                 <p class="aanapssen">{{ \Session::get('success') }}</p>
                             </div>
                             @endif
-                            {{ Form::model($user, array('action' => array('Setting\SettingUsersController@update', $user->id), 'method' => 'PUT')) }}{{-- Form model binding to automatically populate our fields with user data --}}
+                            {{ Form::model($user, array('action' => array('User_Management\SettingUsersController@update', $user->id), 'method' => 'PUT')) }}{{-- Form model binding to automatically populate our fields with user data --}}
                             <div class="form-group">
                                 {{ Form::label('name', 'Name') }}
                                 {{ Form::text('name', null, array('class' => 'form-control')) }}

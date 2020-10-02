@@ -69,7 +69,7 @@ padding: 0rem 1rem!important;
                     </div>
                     @endif
                     {{ Form::open(array(
-                    'action' => array('Setting\SettingUsersController@store'),
+                    'action' => array('User_Management\SettingUsersController@store'),
                     'method' => 'POST')) }}
 
 
