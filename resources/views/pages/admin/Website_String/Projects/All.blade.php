@@ -61,6 +61,7 @@
                     <tr>
                         <th scope="col">NO</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Category name</th>
                         <th scope="col">description</th>
                         <th scope="col">Image</th>
 
@@ -74,6 +75,7 @@
                         <tr class="projectRow{{$Project -> id}}">
                             <th scope="row">{{$Project -> id}}</th>
                             <td>{{$Project -> name}}</td>
+                            <td></td>
                             <td><span class="font-weight-normal red_more">{{$Project -> description}}</span></td>
                             <td><img  style="width: 90px; height: 90px;" src="{{asset('images/Projects/'.$Project->photo)}}"></td>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator,Redirect,Response,Session;
 Use App\Models\Projects;
+Use App\Models\Category;
 use App\Traits\OfferTrait;
 use Illuminate\Support\Facades\DB;
 // valdatie van de form input wordt in een aparte bestaand toegoeogd
@@ -70,6 +71,7 @@ class ProjectController extends Controller
     )->get(); // return collection
 
     return view('pages.admin.Website_String.Projects.All', compact('Projects'));
+
     }
 
     /**
@@ -80,7 +82,7 @@ class ProjectController extends Controller
     public function create()
     {
         // view form to add new project
-        return view('pages.admin.Website_String.Projects.Add');
+        return view('pages.admin.Website_String.Projects.Add', compact('Categorys'));
 
     }
 
@@ -100,8 +102,8 @@ class ProjectController extends Controller
         $Projects = Projects::create([
             'photo' => $file_name,
             'name' => $request->name,
-            'description' => $request->description
-
+            'description' => $request->description,
+            'category_id' => $request->category_id
 
         ]);
 

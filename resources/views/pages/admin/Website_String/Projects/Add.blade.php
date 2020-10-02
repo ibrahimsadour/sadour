@@ -71,7 +71,16 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="Name">Description :</label>
+                                                <label for="weergeven">Categorys :</label>
+                                                <select name="category_id" id="Category" class="form-control">
+                                                    @foreach($Categorys as $Category)
+                                                        <option value="{{$Category->id}}"> {{$Category->name}} </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Name"> Description :</label>
                                                 <textarea id="ckeditor" name="description"></textarea>
                                                 <small id="description_error" class="form-text text-danger"></small>
                                                 <script> CKEDITOR.replace('ckeditor' );</script>        
