@@ -63,7 +63,7 @@
                         <span class="bottom-links mdl-card__actions">
                             <span class="text-muted"><strong>3,757</strong> Viewer</span>
                             <button type="button" class="btn btn-success btn-sm float-right hidden-xl-down"> 
-                            {{$Project ->category-> name}}
+                            {{$Project ->category-> name }}
                             </button>
                             <a  href="{{route('git.one.project',$Project->id)}}"><i class="zmdi zmdi-eye"></i></a>
                         </span>
