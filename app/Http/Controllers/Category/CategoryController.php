@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
             $q -> select('id','name','description','weergeven');
         }])->paginate(10);
-        return view('Projects.pages.categorys_index',compact('Projects'));
+        return view('Projects.Pages.categorys_index',compact('Projects'));
     }
     
     public function getOneCategory(Request $request)
