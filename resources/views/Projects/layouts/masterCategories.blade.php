@@ -54,9 +54,11 @@
 @yield('categorys_index')
 <!-- end content -->
 
-<!-- Content of the website projects_index.blade -->
-@yield('projects_index')
+<!-- Content of the website OneCategory.blade -->
+@yield('OneCategory')
 <!-- end content -->
+
+
 
 <!--Footer of the website  -->
 @include('Projects.includes.footer')

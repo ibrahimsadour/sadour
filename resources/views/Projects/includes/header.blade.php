@@ -218,7 +218,7 @@
                 </div>
                 <div class="mdl-layout__header-row mdl-scroll-spy-1">
                     <!-- Title -->
-                    <a href="{{ url('/categories') }}"><span class="mdl-layout-title" style="color: rgb(0 152 212);"><img src="/img/admin/logo_site.png" style="vertical-align:middle" alt="login_img"  width="50" height="50"> SADOUR </span></a>
+                    <a href="{{ url('/categorys') }}"><span class="mdl-layout-title" style="color: rgb(0 152 212);"><img src="/img/admin/logo_site.png" style="vertical-align:middle" alt="login_img"  width="50" height="50"> SADOUR </span></a>
                     <div class="mdl-layout-spacer"></div>
                     <ul class="nav mdl-navigation mdl-layout--large-screen-only">
                         <!-- Her to get all category name -->

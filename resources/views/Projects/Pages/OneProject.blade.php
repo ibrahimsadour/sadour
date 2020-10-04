@@ -1,38 +1,7 @@
+<!-- resources/views/layouts/master.blade.php -->
+@extends('Projects.layouts.masterCategories')
+<!-- master -->    
 
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-	
-<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<title></title>
-		<meta name="title" content="Ibrahim Sadour ">
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content=""/>
-		<link rel="canonical" href="https://sadour.nl/">
-
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="Ibrahim Sadour">
-		<meta property="og:url" content="https://sadour.nl/">
-		<meta property="og:title" content="Ibrahim Sadour ">
-		<meta property="og:description" content="Ibrahim Sadour, I am responsible for designing, coding and customizing websites, from layout to function and according to customer specifications. Strive to create visually appealing sites with a user-friendly design and clear navigation.">
-		<meta property="og:image" content="/img/admin/logo_site.png">
-
-		<!-- Twitter -->
-		<meta property="twitter:card" content="Ibrahim Sadour">
-		<meta property="twitter:url" content="https://sadour.nl/">
-		<meta property="twitter:title" content="Ibrahim Sadour ">
-		<meta property="twitter:description" content="Ibrahim Sadour, I am responsible for designing, coding and customizing websites, from layout to function and according to customer specifications. Strive to create visually appealing sites with a user-friendly design and clear navigation.">
-		<meta property="twitter:image" content="/img/admin/logo_site.png">
-		
-		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
-		<!--CSS-->
-        <!--- {{URL::asset('********')}}   dit is een helper functie in PHP -->
-        <link  href="{{URL::asset('css/style.css')}}" rel="stylesheet" />
-        
-</head>
 <!--Portfolio Sec-->
 <style>
 .portfolio-sec .bottom-links {
@@ -179,15 +148,31 @@ b{
     display: grid;
 }
 </style>
-<body id="body" data-ng-app="contactApp">
+
         
-    <!--Main Content-->
-   
-    <div class="container">
+@section('OneCategory')
+<!--About Sec-->
 
+<section class="about-sec mt-180 mt-sm-120  mb-30">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <header class="page-header" itemscope="itemscope" itemtype="">
+                        <h1 class="page-title" itemprop="headline">Category: <span>All Tutorial </span></h1>
+                        <div class="taxonomy-description" itemprop="description">
+                            <p style="font-size:17px">
+                                A PHP Laravel Framework is a basic platform that allows us to develop <b> web applications</b>. In other words, it provides structure. By using a PHP Laravel Framework, you will end up saving loads of time, stopping the need to produce repetitive code, and you’ll be able to build&nbsp;<b>applications</b>&nbsp;rapidly (RAD).Laravel Tutorial – Learn Laravel in simple way starting from basic to advanced concepts with examples. Laravel Tutorial For Beingners, In this Laravel Tutorial Learn Laravel Step By Step&nbsp;Guide to Building Your Laravel&nbsp; Applications. Also Learn Laravel Topics Like Laravel Installation, Laravel Passport, Laravel Email Verification, Laravel Pagination, Laravel Rest full apis, Laravel Crud. A complete step by step guide.&nbsp;widows&nbsp;and&nbsp;ubuntu&nbsp;both&nbsp;system&nbsp;are&nbsp;installation&nbsp;process&nbsp;here.
+                            </p>
+                        </div> 
+                    </header>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
 
-
-        <header class="page-header" itemscope="itemscope" itemtype="http://schema.org/WebPageElement">
+        <header class="page-header" itemscope="itemscope" itemtype="">
             <img  class="project_img"src="{{asset('images/Projects/'.$Projects->photo)}}">
 
             <div class="taxonomy-description" itemprop="description">
@@ -226,36 +211,5 @@ b{
        
 
  
-            
-        <!--Footer Sec-->
-        <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
-            <h4>Bedankt voor het bezoeken.</h4>
-            <p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design </p>
+     @endsection
 
-        </footer>
-
-        <!--Footer Sec-->
-	
-	</div>	
-		
-	
-		<!-- Scripts -->
-		<script src="{{URL::asset('js/jquery-1.12.4.min.js')}}"></script>
-		<script src="{{URL::asset('js/angular.min.js')}}"></script>
-		<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-		<script src="{{URL::asset('js/jquery-ui.min.js')}}"></script>
-		<script src="{{URL::asset('js/material.min.js')}}"></script>
-		<script src="{{URL::asset('js/jQuery.appear.js')}}"></script>
-		<script src="{{URL::asset('js/app.js')}}"></script>
-		<script src="{{URL::asset('js/controllers.js')}}"></script>
-		<script src="{{URL::asset('js/smooth-scroll.js')}}"></script>
-		<script src="{{URL::asset('js/isotope.js')}}"></script>
-		<script src="{{URL::asset('js/lightgallery-all.js')}}"></script>
-		<script src="{{URL::asset('js/owl.carousel.min.js')}}"></script>
-		<script src="{{URL::asset('js/froogaloop2.min.js')}}"></script>
-		<script src="{{URL::asset('js/jquery.slimscroll.js')}}"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
-		<script src="{{URL::asset('js/init.js')}}"></script>
-	</body>
-
-</html>

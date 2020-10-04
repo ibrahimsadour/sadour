@@ -38,7 +38,7 @@ class ProjectController extends Controller
         $Projects = Projects::select('id', 'name',  'photo', 'description','created_at')->find($request -> project_id);
 
         // view all information of the project 
-        return view('Projects.OneProject', compact('Projects'));
+        return view('Projects.Pages.OneProject', compact('Projects'));
 
     }
     // **************************

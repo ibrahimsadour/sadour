@@ -2,7 +2,7 @@
 <!-- resources/views/layouts/master.blade.php -->
 @extends('Projects.layouts.masterCategories')
 <!-- master -->    
-@section('projects_index')
+@section('OneCategory')
 <!--About Sec-->
     <section class="about-sec mt-180 mt-sm-120  mb-30">
         <div class="row">
