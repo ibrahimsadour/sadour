@@ -22,8 +22,7 @@ class CreateProjectsTable extends Migration
             $table->string('name_url');
             $table->longText('description');
             $table->tinyInteger('weergeven')
-            ->comment('1 => show the Project on the site, 0 => donot show the Project on the site')
-            ->change();
+            ->comment('1 => show the Project on the site, 0 => donot show the Project on the site');
             $table->timestamps();
         });
     }
