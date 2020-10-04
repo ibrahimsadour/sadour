@@ -223,7 +223,7 @@
                     <div class="mdl-layout-spacer"></div>
                     <ul class="nav mdl-navigation mdl-layout--large-screen-only">
                         <!-- Her to get all category name -->
-                        <?php $Categorys = App\Models\Category::all(); ?>
+                        <?php $Categorys = App\Models\Category::all()->where('weergeven','1'); ?>
                         @foreach($Categorys as $Category)
                         <li><a class="mdl-navigation__link" href="{{action('Category\CategoryController@getOneCategory', $Category-> id)}}"  name="{{$Category-> id}}">{{ $Category-> name}}</a></li>
                         @endforeach
@@ -264,15 +264,3 @@
         </header>
         <!--/Top Header-->
 
-<script>
-    var prevScrollpos = window.pageYOffset;
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.getElementById("navbar").style.top = "0";
-    } else {
-        document.getElementById("navbar").style.top = "-100px";
-    }
-    prevScrollpos = currentScrollPos;
-    }
-</script>

@@ -37,6 +37,7 @@ $.ajaxSetup({
         }
 
         $('#photo_error').text('');
+        $('#weergeven_error').text('');
         $('#name_error').text('');
         $('#nameUrl_error').text('');
         $('#description_error').text('');

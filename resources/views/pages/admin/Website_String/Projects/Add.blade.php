@@ -91,6 +91,16 @@
                                                 <script> CKEDITOR.replace('ckeditor' );</script>        
                                             </div>
 
+                                            <div class="form-group">
+                                                <label for="weergeven">weergeven :</label>
+                                                <select name="weergeven" id="weergeven" class="form-control" style="font-weight: 700;">
+                                                    <option value="1" style="color:green; font-weight: 700;">Yes</option>
+                                                    <option value="0" style="color:red; font-weight: 700; ">NO</option>
+                                                </select>
+                                                <small id="weergeven_error" class="form-text text-danger"></small>
+                                            </div>
+
+
                                             <button id="projects_submit" class="btn btn-primary">Save </button>
                                             
                                         </form>

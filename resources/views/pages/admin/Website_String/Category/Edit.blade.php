@@ -82,7 +82,6 @@
                                                     <option value="1" style="color:green; font-weight: 700;">Yes</option>
                                                     <option value="0" style="color:red; font-weight: 700; ">NO</option>
                                                 </select>
-      
                                             </div>
 
 

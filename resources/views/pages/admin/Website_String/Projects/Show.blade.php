@@ -68,6 +68,11 @@ label {
                                                     <textarea   class="form-control view"    disabled rows="4" cols="50">{{$Projects->description}}</textarea>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="name">Weergeven</label>
+                                                    <input   class="form-control view"    disabled  value="{{$categorys->weergeven}}"/>
+                                                </div>
+
 
                                             </div>
                                     </div>

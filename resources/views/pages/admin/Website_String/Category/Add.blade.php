@@ -83,7 +83,6 @@
                                                     <option value="0" style="color:red; font-weight: 700; ">NO</option>
                                                 </select>
                                                 <small id="weergeven_error" class="form-text text-danger"></small>
-      
                                             </div>
 
                                             <button id="projects_submit" class="btn btn-primary">Save </button>

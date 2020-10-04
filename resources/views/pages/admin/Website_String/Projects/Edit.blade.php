@@ -85,6 +85,14 @@
                                                 <script> CKEDITOR.replace('ckeditor' );</script>        
                                             </div>
 
+                                            <div class="form-group">
+                                                <label for="weergeven">weergeven :</label>
+                                                <select name="weergeven" id="weergeven" class="form-control" style="font-weight: 700;">
+                                                    <option value="1" style="color:green; font-weight: 700;">Yes</option>
+                                                    <option value="0" style="color:red; font-weight: 700; ">NO</option>
+                                                </select>
+                                            </div>
+
                                             
 
                                             <button id="projects_update" class="btn btn-primary">Edit</button>

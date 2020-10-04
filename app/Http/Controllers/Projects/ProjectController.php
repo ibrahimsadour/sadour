@@ -106,6 +106,7 @@ class ProjectController extends Controller
             'name' => $request->name,
             'name_url' => $request->name_url,
             'description' => $request->description,
+            'weergeven' => $request->weergeven,
             'category_id' => $request->category_id
 
         ]);
@@ -141,7 +142,7 @@ class ProjectController extends Controller
                 'msg' => 'Projects has not found',
             ]);
 
-        $Projects = Projects::select('id', 'name','name_url','photo', 'description')->find($request -> project_id);
+        $Projects = Projects::select('id', 'name','name_url','photo', 'description','weergeven')->find($request -> project_id);
 
         // view all information of the project 
         return view('pages.admin.Website_String.Projects.Show', compact('Projects'));

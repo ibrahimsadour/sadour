@@ -26,8 +26,8 @@
         <div class="gallery-wrap mb-30">
             <div class="portfolio-wrap project-gallery">
                 <ul id="portfolio" class="portf auto-construct  project-gallery" data-col="1">
-                @if(isset($AllProjects) && $AllProjects->count() > 0 )
-                    @foreach($AllProjects as $OneProject)
+                @if(isset($OneCategoryWithHerProjects) && $OneCategoryWithHerProjects->count() > 0 )
+                    @foreach($OneCategoryWithHerProjects as $OneProject)
                         <li  class="item mdl-card mdl-shadow--2dp pa-0 branding">
                             <div class="light-img-wrap mdl-card__title pa-0">
                                 <img class="img-responsive" src="{{asset('images/Projects/'.$OneProject-> photo)}}"  alt="Image description" />

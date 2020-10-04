@@ -1,13 +1,13 @@
 /*
 
 =========================================================
-* Volt - Bootstrap 5 Admin Dashboard
+*  - Bootstrap 5 Admin Dashboard
 =========================================================
 
-* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
-* Copyright 2020 Themesberg (https://www.themesberg.com)
+* Product Page: https://www.sadour.nl
+* Copyright 2020 Themesberg (https://www.sadour.nl)
 
-* Designed and coded by https://themesberg.com
+* Designed and coded by https://www.sadour.nl
 
 =========================================================
 

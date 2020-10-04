@@ -18,7 +18,9 @@ class Category extends Migration
             $table->string('name');
             $table->string('name_url');
             $table->longText('description');
-            $table->tinyInteger('weergeven');
+            $table->tinyInteger('weergeven')
+            ->comment('1 => show the category on the site, 0 => donot show the category on the site')
+            ->change();
             $table->timestamps();
         });
     }

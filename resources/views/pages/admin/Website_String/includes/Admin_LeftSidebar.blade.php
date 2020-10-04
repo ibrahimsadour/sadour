@@ -156,13 +156,13 @@
           </a>
         </li> -->
         <!-- <li class="nav-item">
-          <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/quick-start/" target="_blank" class="nav-link d-flex align-items-center">
+          <a href="https://www.sadour.nl" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon"><span class="fas fa-book"></span></span>
             <span>Quick Start</span>
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://themesberg.com/product/admin-dashboard/volt-premium-bootstrap-5-dashboard" target="_blank" class="nav-link d-flex align-items-center">
+          <a href="https://www.sadour.nl" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon"><span class="fas fa-rocket"></span></span>
             <span>Upgrade to Pro</span>
           </a>

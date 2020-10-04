@@ -65,8 +65,8 @@
                         <th scope="col">Name Url</th>
                         <th scope="col">Category name</th>
                         <th scope="col">description</th>
+                        <th scope="col">Weergeven</th>
                         <th scope="col">Image</th>
-
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -81,6 +81,7 @@
                             <td>{{$Project -> name_url}}</td>
                             <td style="font-weight: 700; color:green;">{{$Project -> category->name}}</td>
                             <td><span class="font-weight-normal red_more">{{$Project -> description}}</span></td>
+                            <td><span class="font-weight-normal red_more" style="text-align: center;"><?php if($Project['weergeven'] === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?></span></td>
                             <td><img  style="width: 90px; height: 90px;" src="{{asset('images/Projects/'.$Project->photo)}}"></td>
 
                             <td >
