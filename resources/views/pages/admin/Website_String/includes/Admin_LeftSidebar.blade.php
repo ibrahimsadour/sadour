@@ -155,18 +155,18 @@
             <span class="mt-1">Volt Overview</span>
           </a>
         </li> -->
-        <!-- <li class="nav-item">
-          <a href="https://www.sadour.nl" target="_blank" class="nav-link d-flex align-items-center">
+        <li class="nav-item">
+          <a href="{{url('categorys')}}" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon"><span class="fas fa-book"></span></span>
             <span>Quick Start</span>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="https://www.sadour.nl" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon"><span class="fas fa-rocket"></span></span>
             <span>Upgrade to Pro</span>
           </a>
-        </li> -->
+        </li>  -->
         <li class="nav-item">
           <a href="{{url('sadour')}}" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon">

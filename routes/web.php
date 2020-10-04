@@ -305,6 +305,7 @@ Route::group( [
     Route::get('create',[CategoryController::class, 'create'])->name('category.create');
     Route::post('store',[CategoryController::class, 'store'])->name('ajax.category.store');
     Route::post('destroy',[CategoryController::class, 'destroy'])->name('ajax.category.destroy');
+    Route::post('destroyCategoryWithAllProjects',[CategoryController::class, 'destroyCategoryWithAllProjects'])->name('ajax.CategoryWithAllProjects.destroy');
     Route::get('edit/{category_id}',[CategoryController::class, 'edit'])->name('ajax.category.edit');
     Route::post('update',[CategoryController::class, 'update'])->name('ajax.category.update');
     Route::get('show/{category_id}',[CategoryController::class, 'show'])->name('ajax.category.show');

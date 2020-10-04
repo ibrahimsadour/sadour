@@ -204,4 +204,34 @@ class CategoryController extends Controller
         ]);
 
     }
+
+    public function destroyCategoryWithAllProjects( Request $request)
+    {
+        $categorys = Category::find($request ->id);   // Offer::where('id','$categorys_id') -> first();
+        if (!$categorys)
+        return response()->json([
+
+            'status' => false,
+            'msg' => 'categorys has not deleted',
+            
+      
+            
+        ]);
+
+            // $image_path = public_path().'\images\Projects/'.$categorys->Projects->photo;
+            // if(file_exists($image_path)) // check if the image indeed exists
+            // unlink($image_path);
+        // delete all Projects in this category 
+        $categorys ->Projects()->delete();
+
+        // than delete the category
+        $categorys->delete();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'categorys has deleted',
+            'id'=>$request ->id
+        ]);
+
+    }
 }

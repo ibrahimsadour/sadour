@@ -63,10 +63,12 @@
                         <th scope="col">Name</th>
                         <th scope="col">Name Url</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Weergeven</th>
+                        <th scope="col">Show</th>
                         <th scope="col">created_at</th>
                         <th scope="col">updated_at</th>
                         <th scope="col">Action</th>
+                        <th scope="col">Delete All Projects</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -78,7 +80,7 @@
                             <td>{{$category -> name}}</td>
                             <td>{{$category -> name_url}}</td>
                             <td><span class="font-weight-normal red_more">{{$category -> description}}</span></td>
-                            <td><span class="font-weight-normal red_more" style="text-align: center;"><?php if($category['weergeven'] === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?></span></td>
+                            <td><span class="font-weight-normal"><?php if($category['weergeven'] === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?></span></td>
                             <td>{{$category -> created_at}}</td>
                             <td>{{$category -> updated_at}}</td>
 
@@ -103,6 +105,12 @@
                                     </div>
                                 </div>
                             </td>
+                            @role('Admin')
+                            <td>
+                                <a  href="" style="font-size: 0.8rem;"class="deleteAllProjects_btn btn btn-outline-danger" category_id="{{$category -> id}}"><span class="fas fa-trash-alt mr-2"></span>Delete All </a>
+                            </td>
+                            @endrole
+
 
                         </tr>
                     @endforeach
