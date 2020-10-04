@@ -47,7 +47,7 @@ class CategoryController extends Controller
         // }
         // dd($categorys);
 
-        return view('Projects.pages.projects_index',compact('AllProjects'));
+        return view('Projects.Pages.projects_index',compact('AllProjects'));
     }
 
     // **************************
