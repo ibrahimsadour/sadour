@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+Use App\Models\Category;
 
 class Projects extends Model
 {
@@ -25,13 +26,13 @@ class Projects extends Model
         'created_at', 'updated_at'
     ];
 
-    ################## Begin Relation       #####################
+    ################## Begin Relation  #####################
     public function category ()
     {
 
-        return $this->hasOne('App\Models\Category','category_id');
-    
+        return $this->belongsTo('App\Models\Category', 'category_id','id');
+      
     }
 
-    ################## End Relation       #####################
+    ################## End Relation    #####################
 }

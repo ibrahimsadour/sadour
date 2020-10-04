@@ -5,17 +5,39 @@
     border-bottom: 1px solid #eeeeee;
     padding-top: 3px;
     background: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 4px;
+}
+
+@media  only screen and (max-width: 970px) {
+    
+    #HeaderWit {
+        display: none;
+    }
+}
+@media only screen and (max-width: 500px) {
+    
+    .search_form {
+        display: none;
+    }
 }
 @media only screen and (max-width: 1020px) {
     
-    #HeaderWit {
-    margin-bottom: 20px;
+    .mdl-layout__header .mdl-layout__drawer-button {
+        top: 36px!important;
     }
+}
+@media only screen and (max-width: 970px) {
+    
+    .mdl-layout__header .mdl-layout__drawer-button {
+        top: 0px!important;
+    }
+}
+.mdl-layout__header .mdl-layout__drawer-button{
+    top: 36px;
 }
 #HeaderWitCenter {
     height: 28px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
 }
 #titelContainer {
@@ -81,7 +103,7 @@
     width: 100%;
 }
 .mdl-navigation__link{
-    font-size: 20px;
+    font-size: 15px;
     color: #333;
     
 }
@@ -140,7 +162,10 @@
 .search_form_input::-webkit-.search_form_input-placeholder {
 	color: #999;
 }
+#navbar {
 
+  transition: top 0.4s;
+}
 /* search css code End her-->>>> */
 </style>
 
@@ -149,33 +174,7 @@
         <div class="mdl-spinner mdl-js-spinner is-active is-upgraded" data-upgraded=",MaterialSpinner"><div class="mdl-spinner__layer mdl-spinner__layer-1"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-2"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-3"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-4"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div></div>
     </div>
 <!--/Preloader-->
-<div id="HeaderWit">
-	<div id="HeaderWitCenter">
 
-		<!-- Hier dus de hardcoded BIERNET.nl-->
-		<div id="titelContainer">
-			<div class="titels">
-				<a id="titel1" href="/">SAD</a>
-				<a id="titel2" href="/">OUR</a>
-				<a id="titel3" href="/">.NL</a>
-				<a id="ondertitel" href="/">HHHHHHHHHHHHHHHHHHHHHHHH</a>
-			</div>
-		</div>
-
-		<div id="HeaderWitCenterRight">
-			<div id="HeaderWitCenterRightLinks">
-				<a href="">Tip de redactie</a> <a href="">Samenwerken</a> <a href="/over-ons">Over sadour</a> 
-			</div>
-			<div id="HeaderWitCenterRightSocialFollow">
-                
-				<a href="/" target="_blank" class="bg-icon bg-icon_fb"><i class="zmdi zmdi-twitter"></i></a>
-				<a href="" target="_blank" class="bg-icon bg-icon_twitter"><i class="zmdi zmdi-facebook"></i></a>
-                <a href="" target="_blank" class="bg-icon bg-icon_instagram"><i class="zmdi zmdi-whatsapp"></i></a>
-                
-			</div>
-		</div>
-	</div>
-</div>
 
 <!--Main Wrapper-->
 <div class="main-wrapper">
@@ -190,19 +189,44 @@
         <!--Top Header-->
         <header class="mdl-layout__header" id="navbar">
             <div class="header_width">
+                <div id="HeaderWit">
+                    <div id="HeaderWitCenter">
+
+                        <!-- Hier dus de hardcoded BIERNET.nl-->
+                        <div id="titelContainer">
+                            <div class="titels">
+                                <a id="titel1" href="/">SAD</a>
+                                <a id="titel2" href="/">OUR</a>
+                                <a id="titel3" href="/">.NL</a>
+                                <a id="ondertitel" href="/">HHHHHHHHHHHHHHHHHHHHHHHH</a>
+                            </div>
+                        </div>
+
+                        <div id="HeaderWitCenterRight">
+                            <div id="HeaderWitCenterRightLinks">
+                                <a href="">Tip de redactie</a> <a href="">Samenwerken</a> <a href="/over-ons">Over sadour</a> 
+                            </div>
+                            <div id="HeaderWitCenterRightSocialFollow">
+                                
+                                <a href="/" target="_blank" class="bg-icon bg-icon_fb"><i class="zmdi zmdi-twitter"></i></a>
+                                <a href="" target="_blank" class="bg-icon bg-icon_twitter"><i class="zmdi zmdi-facebook"></i></a>
+                                <a href="" target="_blank" class="bg-icon bg-icon_instagram"><i class="zmdi zmdi-whatsapp"></i></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="mdl-layout__header-row mdl-scroll-spy-1">
                     <!-- Title -->
-                    <a href="{{ url('/categories') }}"><span class="mdl-layout-title" style="color: rgb(0 152 212);"><img src="/img/admin/logo_site.png" style="vertical-align:middle" alt="login_img"  width="50" height="50"> Sadour.nl</span></a>
+                    <a href="{{ url('/categories') }}"><span class="mdl-layout-title" style="color: rgb(0 152 212);"><img src="/img/admin/logo_site.png" style="vertical-align:middle" alt="login_img"  width="50" height="50"> SADOUR </span></a>
                     <div class="mdl-layout-spacer"></div>
                     <ul class="nav mdl-navigation mdl-layout--large-screen-only">
-                        <li><a class="mdl-navigation__link" data-scroll href="#body">PHP</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">MySQL</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">Laravel</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">Jquery</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">Java Script</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#education_sec">CSS</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#projecten_sec">HTML</a></li>
-                        <li><a class="mdl-navigation__link" data-scroll href="#contact_sec">Tools</a></li>
+                        <!-- Her to get all category name -->
+                        <?php $Categorys = App\Models\Category::all(); ?>
+                        @foreach($Categorys as $Category)
+                        <li><a class="mdl-navigation__link" href="{{action('Category\CategoryController@getOneCategory', $Category-> id)}}"  name="{{$Category-> id}}">{{ $Category-> name}}</a></li>
+                        @endforeach
+                        <!-- End get category name -->
                     </ul>
 
                     <!-- Right aligned menu below button -->
@@ -239,34 +263,15 @@
         </header>
         <!--/Top Header-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-
-    //hide the top logo
-    var wdwWidth = $(window).width();
-    if (wdwWidth >= 768) {
-    $("#navbar").css("top", 50);
-    var stickyHeaderTop = $('#navbar').offset().top;
-    if ($(window).scrollTop() > stickyHeaderTop) {
-        $("#navbar").css("top", "0px");
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
     } else {
-        $("#navbar").css("top", "60px");
+        document.getElementById("navbar").style.top = "-100px";
     }
-    $(window).scroll(function() {
-        if ($(this).scrollTop() >= stickyHeaderTop) {
-        var scroll = $(window).scrollTop();
-        var navTop = 50 - scroll;
-        if (navTop <= 0) {
-            navTop = 0;
-        }
-        $("#navbar").css("top", navTop);
-        } else {
-        $("#navbar").css("top", "60px");
-        }
-    });
-    } else {
-    $("#navbar").css("top", "0px");
+    prevScrollpos = currentScrollPos;
     }
-    });
 </script>

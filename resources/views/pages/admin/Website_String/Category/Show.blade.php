@@ -53,6 +53,10 @@ label {
                                                 <label for="name">Name</label>
                                                 <input type="text"  class="form-control view" value="{{$categorys->name}}"disabled/>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="name">Description</label>
+                                                    <textarea   class="form-control view"    disabled rows="4" cols="50">{{$categorys->description}}</textarea>
+                                                </div>
 
                                                 <div class="form-group">
                                                     <label for="name">Weergeven</label>

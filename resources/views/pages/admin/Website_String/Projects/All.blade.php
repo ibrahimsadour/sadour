@@ -60,6 +60,7 @@
                     <thead>
                     <tr>
                         <th scope="col">NO</th>
+                        <th scope="col">Category ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Category name</th>
                         <th scope="col">description</th>
@@ -74,8 +75,9 @@
                     @foreach($Projects as $Project)
                         <tr class="projectRow{{$Project -> id}}">
                             <th scope="row">{{$Project -> id}}</th>
+                            <td style="font-weight: 700; color:green;">{{$Project -> category_id }}</td>
                             <td>{{$Project -> name}}</td>
-                            <td></td>
+                            <td style="font-weight: 700; color:green;">{{$Project -> category->name}}</td>
                             <td><span class="font-weight-normal red_more">{{$Project -> description}}</span></td>
                             <td><img  style="width: 90px; height: 90px;" src="{{asset('images/Projects/'.$Project->photo)}}"></td>
 

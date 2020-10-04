@@ -72,12 +72,12 @@
 
 
                                             <div class='form-group'>
-                                            <label for="Categorys">Categorys :</label><br>
-                                                @foreach ($Categorys as $Category)
+                                                <label for="Categorys">Categorys :</label><br>
+                                                    @foreach ($Categorys as $Category)
 
-                                                 <label style="cursor: pointer;"><input type="checkbox" value="{{$Category->id}}" name="category_id"> {{$Category->name}}  </label><br>
+                                                    <label style="cursor: pointer;"><input type="checkbox" value="{{$Category->id}}" name="category_id"> {{$Category->name}}  </label><br>
 
-                                                @endforeach
+                                                    @endforeach
                                             </div>
                                             <div class="form-group">
                                                 <label for="Name"> Description :</label>

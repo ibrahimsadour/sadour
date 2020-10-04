@@ -25,6 +25,7 @@ class CategoryRequest  extends FormRequest
     {
         return [
             'name' => 'required|max:100',
+            'description' => 'required|max:100000',
             'weergeven' => 'required|max:1',
         ];
     }
@@ -34,6 +35,7 @@ class CategoryRequest  extends FormRequest
 
             'name.required' => 'Category name is required',
             'name.unique' => 'Category name bestaat all  ',
+            'description.required' => 'Category description is required  ',
             'weergeven.required' => 'Category weergeven is required ',
             
             

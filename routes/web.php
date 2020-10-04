@@ -319,8 +319,18 @@ Route::group( [
     'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
 ],function() {
 
-    Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
+    // Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
     Route::get('laravel_tutorial/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
+
+});
+
+
+Route::group( [
+    'prefix' => 'categorys' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
+],function() {
+
+    Route::get('',[CategoryController::class, 'getAllProjects'])->name('git.all.category');
+    Route::get('show/{id}',[CategoryController::class, 'getOneCategory'])->name('git.one.category');
 
 });
 

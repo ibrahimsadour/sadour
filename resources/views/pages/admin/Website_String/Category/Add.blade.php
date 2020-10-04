@@ -62,6 +62,12 @@
                                                 <small id="name_error" class="form-text text-danger"></small>
 
                                             </div>
+                                            <div class="form-group">
+                                                <label for="Name"> Description :</label>
+                                                <textarea id="ckeditor" name="description"></textarea>
+                                                <small id="description_error" class="form-text text-danger"></small>
+                                                <script> CKEDITOR.replace('ckeditor' );</script>        
+                                            </div>
 
 
                                             <div class="form-group">

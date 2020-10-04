@@ -23,18 +23,7 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getAllProject()
-    {
-        $Projects = Projects::select('id',
-        'photo',
-        'name',
-        'description',
-        'created_at',
-        'updated_at'
-    )->paginate(10); // return collection
-
-    return view('Projects.layouts.masterCategories', ['Projects' => $Projects]);
-    }
+   
 
     public function getOneProject(Request $request)
     {
@@ -63,14 +52,21 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $Projects = Projects::select('id',
-        'photo',
-        'name',
-        'description',
-    )->get(); // return collection
 
-    return view('pages.admin.Website_String.Projects.All', compact('Projects'));
+    {   
+        #####################################################################
+        ############## Projects with categorys ##############################
+        #####################################################################
+        // hier wordt een relatie gemaakt tussen de table projects en category
+        // met de formaat van de code kan ik de data van de twee teble halen
+
+        $Projects = Projects::with(['category'=> function($q){
+
+            $q -> select('id','name','description','weergeven');
+        }])->get();
+        //  return $Projects -> category;
+        // return response()->json($Projects, 200);
+        return view('pages.admin.Website_String.Projects.All', compact('Projects'));
 
     }
 
@@ -167,8 +163,12 @@ class ProjectController extends Controller
                 'msg' => 'Projects has not found',
             ]);
 
-        $Projects = Projects::select('id', 'name',  'photo', 'description')->find($request -> project_id);
+            $Projects = Projects::with(['category'=> function($q){
 
+                $q -> select('id','name','description','weergeven');
+            }])->find($request -> project_id);
+        // $Projects = Projects::select('id', 'name',  'photo', 'description')->find($request -> project_id);
+            // return response()->json($Projects, 200);
         return view('pages.admin.Website_String.Projects.Edit', compact('Projects'));
     }
 

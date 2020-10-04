@@ -61,6 +61,7 @@
                     <tr>
                         <th scope="col">NO</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Weergeven</th>
                         <th scope="col">created_at</th>
                         <th scope="col">updated_at</th>
@@ -74,6 +75,7 @@
                         <tr class="projectRow{{$category -> id}}">
                             <th scope="row">{{$category -> id}}</th>
                             <td>{{$category -> name}}</td>
+                            <td><span class="font-weight-normal red_more">{{$category -> description}}</span></td>
                             <td><span class="font-weight-normal red_more" style="text-align: center;"><?php if($category['weergeven'] === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?></span></td>
                             <td>{{$category -> created_at}}</td>
                             <td>{{$category -> updated_at}}</td>

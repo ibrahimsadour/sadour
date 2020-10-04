@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+Use App\Models\Projects;
 class Category extends Model
 {
     /**
@@ -19,21 +19,17 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'weergeven','created_at	','updated_at'
+        'name', 'weergeven','description','created_at','updated_at'
     ];
 
-    ################## Begin Relation       #####################
+    ################## Begin Relation #####################
 
    
 
         public function Projects()
         {
-
-            return $this->belongsTo('App\Models\Projects','category_id');
-
+            return $this->hasMany('App\Models\Projects', 'category_id');
         }
-       
- 
 
-    ################## End Relation       #####################
+    ################## End Relation   #####################
 }

@@ -56,7 +56,7 @@
 
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Kieiz een foto</label>
-                                                <input type="file" class="form-control" name="photo" class="@error('photo') is-invalid @enderror">
+                                                <input type="file" class="form-control" name="photo"   value="{{$Projects->photo}}" class="@error('photo') is-invalid @enderror">
 
                                             </div>
 
@@ -66,7 +66,13 @@
                                                 <input type="text" class="form-control" name="name" value="{{$Projects->name}}" >
 
                                             </div>
+                                            
+                                            <div class='form-group'>
+                                                <label for="Categorys">Categorys :</label><br>
 
+                                                    <label style="cursor: pointer;"><input type="checkbox" value="{{$Projects->category->id}}" name="category_id" checked> {{$Projects->category->name}}  </label><br>
+
+                                            </div>
 
                                             <div class="form-group">
                                                 <label for="Name">Description :</label>

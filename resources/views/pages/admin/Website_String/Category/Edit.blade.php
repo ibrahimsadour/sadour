@@ -64,6 +64,13 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label for="Name">Description :</label>
+                                                <textarea id="ckeditor" name="description" value="{!! $categorys->description !!}">{!! $categorys->description !!}</textarea>
+                                                <small id="description_error" class="form-text text-danger"></small>
+                                                <script> CKEDITOR.replace('ckeditor' );</script>        
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="weergeven">weergeven :</label>
                                                 <select name="weergeven" id="weergeven" class="form-control" style="font-weight: 700;">
                                                     <option value="1" style="color:green; font-weight: 700;">Yes</option>

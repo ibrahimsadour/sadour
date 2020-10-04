@@ -40,23 +40,23 @@
 @include('Projects.includes.header')
 <!-- End Header  -->
 
-    <!--Left Sidebar--> 
-    <!-- resources/views/sections/LeftSidebar.blade.php -->
-    @include('Projects.includes.LeftSidebar')
-    <!--/Left Sidebar-->
+<!--Left Sidebar--> 
+<!-- resources/views/sections/LeftSidebar.blade.php -->
+@include('Projects.includes.LeftSidebar')
+<!--/Left Sidebar-->
+<!--Main Content-->
 
-    <!--Main Content-->
-    <div class="main-content relative">
+<div class="main-content relative">
     <div class="container">
-<!-- Header -->
-@include('Projects.includes.categoriesName')
-<!-- End Header  -->
 
 
-<!-- Header -->
-@include('Projects.projects')
-<!-- End Header  -->
+<!-- Content of the website categorys_index.blade -->
+@yield('categorys_index')
+<!-- end content -->
 
+<!-- Content of the website projects_index.blade -->
+@yield('projects_index')
+<!-- end content -->
 
 <!--Footer of the website  -->
 @include('Projects.includes.footer')

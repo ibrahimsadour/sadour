@@ -1,12 +1,12 @@
-<!--Footer Sec-->
-<footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
-	<h4>Bedankt voor het bezoeken.</h4>
-	<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design </p>
+		<!--Footer Sec-->
+		<footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
+			<h4>Bedankt voor het bezoeken.</h4>
+			<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design </p>
 
-</footer>
+		</footer>
 
-<!--Footer Sec-->
-
+		<!--Footer Sec-->
+	</div>
 </div>	
 		
 	

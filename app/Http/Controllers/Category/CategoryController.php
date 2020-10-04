@@ -5,16 +5,62 @@ namespace App\Http\Controllers\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Category;
+Use App\Models\Projects;
 use App\Http\Requests\AdminDashboard\CategoryRequest;
 
 class CategoryController extends Controller
 {
+
+
+    // Sadour.nl Controller --->
+
+    // ************************
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllProjects()
+    {
+        #####################################################################
+        ############## Projects with categorys ##############################
+        #####################################################################
+        // hier wordt een relatie gemaakt tussen de table projects en category
+        // met de formaat van de code kan ik de data van de twee teble halen
+
+        $Projects = Projects::with(['category'=> function($q){
+
+            $q -> select('id','name','description','weergeven');
+        }])->paginate(10);
+        return view('Projects.pages.categorys_index',compact('Projects'));
+    }
+    
+    public function getOneCategory(Request $request)
+    {
+
+
+        $categorys = Category::with('Projects')->find($request ->id);
+        
+        $AllProjects  = $categorys ->Projects;
+        // foreach($AllProjects as $OneProject){
+          
+        // }
+        // dd($categorys);
+
+        return view('Projects.pages.projects_index',compact('AllProjects'));
+    }
+
+    // **************************
+
+    // End sadodour.nl Controller 
+
     // this to show all category on the admin page 
     public function index()
     {
         $categorys = Category::select(
         'id',
         'name',
+        'description',
         'weergeven',
         'created_at',
         'updated_at'
@@ -39,7 +85,7 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not found',
             ]);
 
-        $categorys = Category::select('id', 'name',  'weergeven')->find($request -> category_id);
+        $categorys = Category::select('id', 'name',  'weergeven','description')->find($request -> category_id);
 
         // view all information of the project 
         return view('pages.admin.Website_String.Category.Show', compact('categorys'));
@@ -64,7 +110,8 @@ class CategoryController extends Controller
         //save Projects into DB using AJAX
         $categorys = Category::create([
             'name' => $request->name,
-            'weergeven' => $request->weergeven
+            'weergeven' => $request->weergeven,
+            'description'=> $request->description
 
 
         ]);
@@ -101,7 +148,7 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not found',
             ]);
 
-        $categorys = Category::select('id', 'name',  'weergeven')->find($request -> category_id);
+        $categorys = Category::select('id', 'name',  'weergeven','description')->find($request -> category_id);
 
         return view('pages.admin.Website_String.Category.Edit', compact('categorys'));
     }
