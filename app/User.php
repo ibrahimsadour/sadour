@@ -91,7 +91,7 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
     ################## Begin Relation       #####################
     public function profile (){
 
-        return $this->hasOne(Models\profile::class);
+        return $this->hasOne(Models\Profile::class);
  
     }
     public function calender (){
