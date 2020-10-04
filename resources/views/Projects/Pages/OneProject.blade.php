@@ -150,10 +150,10 @@ b{
 </style>
 
         
-@section('OneCategory')
+@section('OneProject')
 <!--About Sec-->
 
-<section class="about-sec mt-180 mt-sm-120  mb-30">
+    <section class="about-sec mt-180 mt-sm-120  mb-30">
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">

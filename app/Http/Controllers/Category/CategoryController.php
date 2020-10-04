@@ -35,6 +35,7 @@ class CategoryController extends Controller
         return view('Projects.Pages.categorys_index',compact('Projects'));
     }
     
+    
     public function getOneCategory(Request $request)
     {
 
@@ -60,6 +61,7 @@ class CategoryController extends Controller
         $categorys = Category::select(
         'id',
         'name',
+        'name_url',
         'description',
         'weergeven',
         'created_at',
@@ -85,7 +87,7 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not found',
             ]);
 
-        $categorys = Category::select('id', 'name',  'weergeven','description')->find($request -> category_id);
+        $categorys = Category::select('id', 'name','name_url',  'weergeven','description')->find($request -> category_id);
 
         // view all information of the project 
         return view('pages.admin.Website_String.Category.Show', compact('categorys'));
@@ -110,6 +112,7 @@ class CategoryController extends Controller
         //save Projects into DB using AJAX
         $categorys = Category::create([
             'name' => $request->name,
+            'name_url' => $request->name_url,
             'weergeven' => $request->weergeven,
             'description'=> $request->description
 
@@ -148,7 +151,7 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not found',
             ]);
 
-        $categorys = Category::select('id', 'name',  'weergeven','description')->find($request -> category_id);
+        $categorys = Category::select('id', 'name','name_url',  'weergeven','description')->find($request -> category_id);
 
         return view('pages.admin.Website_String.Category.Edit', compact('categorys'));
     }

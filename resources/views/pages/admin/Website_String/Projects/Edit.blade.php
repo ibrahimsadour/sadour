@@ -64,7 +64,11 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Name</label>
                                                 <input type="text" class="form-control" name="name" value="{{$Projects->name}}" >
+                                            </div>
 
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Name Url</label>
+                                                <input type="text" class="form-control" name="name_url" value="{{$Projects->name_url}}" >
                                             </div>
                                             
                                             <div class='form-group'>

@@ -49,10 +49,17 @@ label {
                                                     <label for="name">Id</label>
                                                     <input type="text"  class="form-control view" value="{{$categorys->id}}" disabled/>
                                                 </div>
+                                                
                                                 <div class="form-group">
                                                 <label for="name">Name</label>
                                                 <input type="text"  class="form-control view" value="{{$categorys->name}}"disabled/>
                                                 </div>
+
+                                                <div class="form-group">
+                                                <label for="name">Name Url</label>
+                                                <input type="text"  class="form-control view" value="{{$categorys->name_url}}"disabled/>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="name">Description</label>
                                                     <textarea   class="form-control view"    disabled rows="4" cols="50">{{$categorys->description}}</textarea>

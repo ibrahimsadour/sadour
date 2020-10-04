@@ -31,7 +31,7 @@
                         <li  class="item mdl-card mdl-shadow--2dp pa-0 branding">
                             <div class="light-img-wrap mdl-card__title pa-0">
                                 <img class="img-responsive" src="{{asset('images/Projects/'.$OneProject-> photo)}}"  alt="Image description" />
-                                <span class="img-cap"><a href="" class="project_title"> {{$OneProject-> name}} </a></span>
+                                <span class="img-cap"><a href="{{route('git.one.project',$OneProject->id)}}" class="project_title"> {{$OneProject-> name}} </a></span>
                             </div>
                             <div class="subTitle"> 	
                                 <div class="subTitle1" >{{$OneProject-> created_at}}<span class="hr_"></span> 
@@ -45,7 +45,7 @@
                                 <button type="button" class="btn btn-success btn-sm float-right hidden-xl-down"  > 
                                     FREE
                                 </button>
-                                <a  href=""><i class="zmdi zmdi-eye"></i></a>
+                                <a  href="{{route('git.one.project',$OneProject->id)}}"><i class="zmdi zmdi-eye"></i></a>
                             </span>
 
                         </li>

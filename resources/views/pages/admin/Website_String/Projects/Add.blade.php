@@ -65,9 +65,14 @@
 
                                             <div class="form-group">
                                                 <label for="Name">Name</label>
-                                                <input type="text" class="form-control" name="name" placeholder="{{__('messages.Offer Name')}}">
+                                                <input type="text" class="form-control" name="name" placeholder="Name project">
                                                 <small id="name_error" class="form-text text-danger"></small>
+                                            </div>
 
+                                            <div class="form-group">
+                                                <label for="Name url">Name Url</label>
+                                                <input type="text" class="form-control" name="name_url" placeholder="Name Url Project">
+                                                <small id="nameUrl_error" class="form-text text-danger"></small>
                                             </div>
 
 

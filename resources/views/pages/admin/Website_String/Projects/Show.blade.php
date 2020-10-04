@@ -52,9 +52,15 @@ label {
                                                 <label for="name">Id</label>
                                                 <input type="text"  class="form-control view" value="{{$Projects->id}}" disabled/>
                                                 </div>
+
                                                 <div class="form-group">
-                                                <label for="name">Name</label>
-                                                <input type="text"  class="form-control view" value="{{$Projects->name}}"disabled/>
+                                                    <label for="name">Name</label>
+                                                    <input type="text"  class="form-control view" value="{{$Projects->name}}"disabled/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="name url">Name Url</label>
+                                                    <input type="text"  class="form-control view" value="{{$Projects->name_url}}"disabled/>
                                                 </div>
 
                                                 <div class="form-group">

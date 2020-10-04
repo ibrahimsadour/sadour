@@ -64,6 +64,12 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label for="exampleInputEmail1">Name</label>
+                                                <input type="text" class="form-control" name="name_url" value="{{$categorys->name_url}}" >
+
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="Name">Description :</label>
                                                 <textarea id="ckeditor" name="description" value="{!! $categorys->description !!}">{!! $categorys->description !!}</textarea>
                                                 <small id="description_error" class="form-text text-danger"></small>

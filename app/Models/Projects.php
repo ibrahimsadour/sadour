@@ -20,7 +20,7 @@ class Projects extends Model
      * @var array
      */
     protected $fillable = [
-        'photo', 'name','description','category_id'
+        'photo', 'name','name_url','description','category_id'
     ];
     protected $hidden = [
         'created_at', 'updated_at'

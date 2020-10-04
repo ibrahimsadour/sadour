@@ -38,6 +38,7 @@ $.ajaxSetup({
 
         $('#photo_error').text('');
         $('#name_error').text('');
+        $('#nameUrl_error').text('');
         $('#description_error').text('');
         var formData = new FormData($('#projectsForm')[0]);
         $.ajax({

@@ -209,6 +209,7 @@
                             <div id="HeaderWitCenterRightSocialFollow">
                                 
                                 <a href="/" target="_blank" class="bg-icon bg-icon_fb"><i class="zmdi zmdi-twitter"></i></a>
+                                <a href="/" target="_blank" class="bg-icon bg-icon_fb"><i class="zmdi zmdi-instagram"></i></a>
                                 <a href="" target="_blank" class="bg-icon bg-icon_twitter"><i class="zmdi zmdi-facebook"></i></a>
                                 <a href="" target="_blank" class="bg-icon bg-icon_instagram"><i class="zmdi zmdi-whatsapp"></i></a>
                                 

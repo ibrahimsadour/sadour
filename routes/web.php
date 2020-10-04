@@ -320,7 +320,7 @@ Route::group( [
 ],function() {
 
     // Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
-    Route::get('laravel_tutorial/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
+    Route::get('{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
 
 });
 
@@ -330,7 +330,7 @@ Route::group( [
 ],function() {
 
     Route::get('',[CategoryController::class, 'getAllProjects'])->name('git.all.category');
-    Route::get('show/{id}',[CategoryController::class, 'getOneCategory'])->name('git.one.category');
+    Route::get('{id}',[CategoryController::class, 'getOneCategory'])->name('git.one.category');
 
 });
 

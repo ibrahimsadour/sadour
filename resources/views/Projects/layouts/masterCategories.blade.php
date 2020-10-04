@@ -58,7 +58,9 @@
 @yield('OneCategory')
 <!-- end content -->
 
-
+<!-- Content of the website OneCategory.blade -->
+@yield('OneProject')
+<!-- end content -->
 
 <!--Footer of the website  -->
 @include('Projects.includes.footer')

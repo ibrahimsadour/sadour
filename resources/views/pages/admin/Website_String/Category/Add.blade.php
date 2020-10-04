@@ -58,8 +58,14 @@
 
                                             <div class="form-group">
                                                 <label for="Name">Name Category:</label>
-                                                <input type="text" class="form-control" name="name" placeholder="name category">
+                                                <input type="text" class="form-control" name="name" placeholder="Name category">
                                                 <small id="name_error" class="form-text text-danger"></small>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Name Url">Name Category:</label>
+                                                <input type="text" class="form-control" name="name_url" placeholder="Name Url Category">
+                                                <small id="nameUrl_error" class="form-text text-danger"></small>
 
                                             </div>
                                             <div class="form-group">

@@ -62,7 +62,7 @@ class ProjectController extends Controller
 
         $Projects = Projects::with(['category'=> function($q){
 
-            $q -> select('id','name','description','weergeven');
+            $q -> select('id','name','name_url','description','weergeven');
         }])->get();
         //  return $Projects -> category;
         // return response()->json($Projects, 200);
@@ -104,6 +104,7 @@ class ProjectController extends Controller
         $Projects = Projects::create([
             'photo' => $file_name,
             'name' => $request->name,
+            'name_url' => $request->name_url,
             'description' => $request->description,
             'category_id' => $request->category_id
 
@@ -140,7 +141,7 @@ class ProjectController extends Controller
                 'msg' => 'Projects has not found',
             ]);
 
-        $Projects = Projects::select('id', 'name',  'photo', 'description')->find($request -> project_id);
+        $Projects = Projects::select('id', 'name','name_url','photo', 'description')->find($request -> project_id);
 
         // view all information of the project 
         return view('pages.admin.Website_String.Projects.Show', compact('Projects'));
