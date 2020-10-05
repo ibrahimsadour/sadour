@@ -74,9 +74,15 @@
                                             <div class='form-group'>
                                                 <label for="Categorys">Categorys :</label><br>
 
-                                                    <label style="cursor: pointer;"><input type="checkbox" value="{{$Projects->category->id}}" name="category_id" checked> {{$Projects->category->name}}  </label><br>
+                                                    <label style="cursor: pointer;"><input type="checkbox" value="{{$Projects->category->id}}"  checked> {{$Projects->category->name}}  <span style="color:green;">current category</span></label><br>
 
+                                                <select name="category_id" id="category_id" class="form-control" style="font-weight: 700;">
+                                                    @foreach($allCategorys as $allCategory)
+                                                    <option value="{{$allCategory ->id}}" style="color:green; font-weight: 700;">{{$allCategory ->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
+                                           
 
                                             <div class="form-group">
                                                 <label for="Name">Description :</label>

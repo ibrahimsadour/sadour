@@ -47,7 +47,7 @@
                                 <button  class="btn btn-sm btn-outline-primary"> Add New Projects  <span class="icon icon-sm icon-gray"><i class="fas fa-plus"></i></span></button>
                             </form>
                             
-                            <form method="get" action="{{url('projects')}}"  target="_blank">
+                            <form method="get" action="{{route('git.all.category')}}"  target="_blank">
                                 <button  class="btn btn-sm btn-outline-primary" > Display all on the site  <span class="icon icon-sm icon-gray"><i class="fas fa-eye mr-2"></i></span></button>
                             </form>
                         </div>

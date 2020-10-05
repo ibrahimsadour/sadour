@@ -169,9 +169,10 @@ class ProjectController extends Controller
 
                 $q -> select('id','name','description','weergeven');
             }])->find($request -> project_id);
+            $allCategorys = Category::select('id','name')->get();
         // $Projects = Projects::select('id', 'name',  'photo', 'description')->find($request -> project_id);
             // return response()->json($Projects, 200);
-        return view('pages.admin.Website_String.Projects.Edit', compact('Projects'));
+        return view('pages.admin.Website_String.Projects.Edit', compact('Projects','allCategorys'));
     }
 
     /**

@@ -78,11 +78,11 @@
 
                                             <div class='form-group'>
                                                 <label for="Categorys">Categorys :</label><br>
+                                                <select name="category_id" id="category_id" class="form-control" style="font-weight: 700;">
                                                     @foreach ($Categorys as $Category)
-
-                                                    <label style="cursor: pointer;"><input type="checkbox" value="{{$Category->id}}" name="category_id"> {{$Category->name}}  </label><br>
-
+                                                    <option value="{{$Category ->id}}" style="color:green; font-weight: 700;">{{$Category ->name}}</option>
                                                     @endforeach
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Name"> Description :</label>
