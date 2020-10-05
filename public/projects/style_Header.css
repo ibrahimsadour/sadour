@@ -1,3 +1,12 @@
+.bg-struct.bg-img {
+    background: url("../img/Categorys/beatitud.jpg");
+    background-position: center;
+    background-size: cover; 
+    
+}
+.mt-180 {
+    margin-top: 350px !important; }
+
 /* Header page css code  */
 #HeaderWit {
     height: 32px;
