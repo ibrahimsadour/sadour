@@ -59,7 +59,18 @@ class CategoryController extends Controller
     // this to show all category on the admin page 
     public function index()
     {
-        $categorys =  DB::table('category')->get();
+        $categorys = Category::select(
+            'id',
+            'name',
+            'name_url',
+            'description',
+            'weergeven',
+            'created_at',
+            'updated_at',
+            'title',
+            'keywords',
+            'description_back'
+        )->get(); // return collection
 
     return view('pages.admin.Website_String.Category.All', compact('categorys'));
     }
