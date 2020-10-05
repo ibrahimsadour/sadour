@@ -177,3 +177,13 @@
 transition: top 0.4s;
 }
 /* search css code End her-->>>> */
+
+/* Left Sidebar  */
+.left_side_logo{
+    vertical-align: middle;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    margin: 0 auto;
+}
+/* Left Sidebar  */

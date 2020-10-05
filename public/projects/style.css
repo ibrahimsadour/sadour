@@ -127,15 +127,7 @@ b{
 }
 
 
-/* Left Sidebar  */
-.left_side_logo{
-    vertical-align: middle;
-    height: 100px;
-    width: 100px;
-    background-size: cover;
-    margin: 0 auto;
-}
-/* Left Sidebar  */
+
 
 /* categorys_index.blade CSS CODE */
     .subTitle1{
