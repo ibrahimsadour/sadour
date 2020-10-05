@@ -1,178 +1,7 @@
-<style>
-#HeaderWit {
-    height: 32px;
-    width: 100%;
-    border-bottom: 1px solid #eeeeee;
-    padding-top: 3px;
-    background: #fff;
-    margin-bottom: 4px;
-}
-
-@media  only screen and (max-width: 970px) {
-    
-    #HeaderWit {
-        display: none;
-    }
-}
-@media only screen and (max-width: 500px) {
-    
-    .search_form {
-        display: none;
-    }
-}
-@media only screen and (max-width: 1020px) {
-    
-    .mdl-layout__header .mdl-layout__drawer-button {
-        top: 36px!important;
-    }
-}
-@media only screen and (max-width: 970px) {
-    
-    .mdl-layout__header .mdl-layout__drawer-button {
-        top: 0px!important;
-    }
-}
-.mdl-layout__header .mdl-layout__drawer-button{
-    top: 36px;
-}
-#HeaderWitCenter {
-    height: 28px;
-    max-width: 1100px;
-    margin: auto;
-}
-#titelContainer {
-    width: 400px;
-}
-#titelContainer {
-    float: left;
-}
-.titels {
-    width: 100%;
-    margin-top: 0px;
-    margin-left: 0px;
-    font-size: 22px;
-}
-#titel1 {
-    float: left;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
-#titel2 {
-    float: left;
-    color: rgb(0 152 212);
-    text-decoration: none;
-    font-weight: bold;
-}
-#titel3 {
-    float: left;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
-#ondertitel {
-    font-size: 13px;
-    color: #333;
-    margin: 10px 0 0 5px;
-    float: left;
-}
-#HeaderWitCenterRight {
-    width: 500px;
-    float: right;
-    text-align: right;
-}
-#HeaderWitCenterRightLinks {
-    float: left;
-    margin-top: 3px;
-}
-#HeaderWitCenterRight a {
-    margin-right: 20px;
-    font-size: 12px;
-    color: #333;
-}
-#HeaderWitCenterRightSocialFollow {
-    margin-top: 3px;
-}
-.zmdi{
-    font-weight: 700;
-    font-size: 25px;
-}
-
-
-.mdl-layout__header{
-    width: 100%;
-}
-.mdl-navigation__link{
-    font-size: 15px;
-    color: #333;
-    
-}
-.mdl-layout__header .mdl-button--icon.ver-more-btn{
-    padding: 0px 25px;
-}
-/* Search form Css code Begin Her ->>>> */
-.search_form{
-    padding: 0px 25px;
-}
-.search_form_input {
-	outline: none;
-}
-.search_form_input[type=search] {
-	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
-	font-family: inherit;
-    font-size: 100%;
-    color: black;
-    font-weight:500;
-}
-.search_form_input::-webkit-search-decoration,
-.search_form_input::-webkit-search-cancel-button {
-	display: none; 
-}
-
-
-.search_form_input[type=search] {
-	background: #ffffff  url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
-	border: solid 1px #ccc;
-	padding: 9px 10px 9px 32px;
-	width: 100px;
-	
-	-webkit-border-radius: 10em;
-	-moz-border-radius: 10em;
-	border-radius: 10em;
-	
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	transition: all .5s;
-}
-.search_form_input[type=search]:focus {
-	width: 230px;
-	background-color: #fff;
-	border-color: rgb(0 152 212)    ;
-	
-	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-	box-shadow: 0 0 5px rgba(109,207,246,.5);
-}
-
-
-.search_form_input:-moz-placeholder {
-	color: #999;
-}
-.search_form_input::-webkit-.search_form_input-placeholder {
-	color: #999;
-}
-#navbar {
-
-  transition: top 0.4s;
-}
-/* search css code End her-->>>> */
-</style>
-
 <!--Preloader-->
-    <div class="preloader-it">
-        <div class="mdl-spinner mdl-js-spinner is-active is-upgraded" data-upgraded=",MaterialSpinner"><div class="mdl-spinner__layer mdl-spinner__layer-1"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-2"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-3"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-4"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div></div>
-    </div>
+<div class="preloader-it">
+    <div class="mdl-spinner mdl-js-spinner is-active is-upgraded" data-upgraded=",MaterialSpinner"><div class="mdl-spinner__layer mdl-spinner__layer-1"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-2"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-3"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div><div class="mdl-spinner__layer mdl-spinner__layer-4"><div class="mdl-spinner__circle-clipper mdl-spinner__left"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__gap-patch"><div class="mdl-spinner__circle"></div></div><div class="mdl-spinner__circle-clipper mdl-spinner__right"><div class="mdl-spinner__circle"></div></div></div></div>
+</div>
 <!--/Preloader-->
 
 
@@ -189,36 +18,38 @@
         <!--Top Header-->
         <header class="mdl-layout__header" id="navbar">
             <div class="header_width">
+                <!-- Hier is the first top header -->
                 <div id="HeaderWit">
                     <div id="HeaderWitCenter">
 
-                        <!-- Hier dus de hardcoded BIERNET.nl-->
+                        <!-- Hier dus de hardcoded sadour.nl-->
                         <div id="titelContainer">
                             <div class="titels">
                                 <a id="titel1" href="/">SAD</a>
                                 <a id="titel2" href="/">OUR</a>
                                 <a id="titel3" href="/">.NL</a>
-                                <a id="ondertitel" href="/">HHHHHHHHHHHHHHHHHHHHHHHH</a>
+                                <a id="ondertitel" href="/">with different programming (web) tutorial.</a>
                             </div>
                         </div>
 
                         <div id="HeaderWitCenterRight">
                             <div id="HeaderWitCenterRightLinks">
-                                <a href="">Tip de redactie</a> <a href="">Samenwerken</a> <a href="/over-ons">Over sadour</a> 
+                                <a href="">Tip de redactie</a> <a href="">Samenwerken</a> <a href="">Over sadour</a> 
                             </div>
+                            <!-- Sociaal follow links -->
                             <div id="HeaderWitCenterRightSocialFollow">
-                                
                                 <a href="/" target="_blank" class="bg-icon bg-icon_fb"><i class="zmdi zmdi-twitter"></i></a>
                                 <a href="/" target="_blank" class="bg-icon bg-icon_fb"><i class="zmdi zmdi-instagram"></i></a>
                                 <a href="" target="_blank" class="bg-icon bg-icon_twitter"><i class="zmdi zmdi-facebook"></i></a>
                                 <a href="" target="_blank" class="bg-icon bg-icon_instagram"><i class="zmdi zmdi-whatsapp"></i></a>
-                                
                             </div>
                         </div>
                     </div>
                 </div>
+                <!--End the first top header  -->
                 <div class="mdl-layout__header-row mdl-scroll-spy-1">
                     <!-- Title -->
+                    <!-- logo imeg of the Site -->
                     <a href="{{ url('/categorys') }}"><span class="mdl-layout-title" style="color: rgb(0 152 212);"><img src="/img/admin/logo_site.png" style="vertical-align:middle" alt="login_img"  width="50" height="50"> SADOUR </span></a>
                     <div class="mdl-layout-spacer"></div>
                     <ul class="nav mdl-navigation mdl-layout--large-screen-only">
@@ -231,6 +62,7 @@
                     </ul>
 
                     <!-- Right aligned menu below button -->
+                    <!-- Contact me and Call me -->
                     <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon ver-more-btn">
                     <i class="zmdi zmdi-more-vert"></i>
                     </button>
@@ -241,6 +73,7 @@
                     </ul>
 
                     <!-- Right aligned menu below button -->
+                    <!-- swithc the language between EN and Nl and AR -->
                     <button id="demo-menu-lower-right_language" class="mdl-button mdl-js-button mdl-button--icon ver-more-btn">
                         <i class="zmdi zmdi-globe"></i>
                     </button>
@@ -263,4 +96,3 @@
             </div>  
         </header>
         <!--/Top Header-->
-

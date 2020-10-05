@@ -681,6 +681,22 @@ $(document).on('click', '#reset', function (e) {
 });
 /***** Setting Panel End*****/
 
+/***** 
+ * Deze stuke code is gemaakt op 05-10-2020
+ * dit zorgt voor dat de hedaer van de site verweijdert gewoorden bij de scrollen
+ * 
+ *   *****/
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+if (prevScrollpos > currentScrollPos) {
+	document.getElementById("navbar").style.top = "0";
+} else {
+	document.getElementById("navbar").style.top = "-100px";
+}
+prevScrollpos = currentScrollPos;
+}
+
 
 
 

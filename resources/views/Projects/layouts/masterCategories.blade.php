@@ -44,8 +44,8 @@
 <!-- resources/views/sections/LeftSidebar.blade.php -->
 @include('Projects.includes.LeftSidebar')
 <!--/Left Sidebar-->
-<!--Main Content-->
 
+<!--Main Content-->
 <div class="main-content relative">
     <div class="container">
 

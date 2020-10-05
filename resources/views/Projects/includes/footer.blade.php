@@ -1,16 +1,15 @@
-		<!--Footer Sec-->
+		<!-- Begin Footer Sec-->
 		<footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
 			<h4>Bedankt voor het bezoeken.</h4>
-			<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design </p>
+			<p class="mt-10">Copyright ©  {{ now()->year }} All rights reserved by web design <a href="/sadour"> Ibrahim Sadour </a></p>
 
 		</footer>
-
-		<!--Footer Sec-->
+		<!-- End Footer Sec-->
 	</div>
 </div>	
 		
 	
-	<!-- Scripts -->
+	<!-- Begin Scripts -->
 	<script src="{{URL::asset('js/jquery-1.12.4.min.js')}}"></script>
 	<script src="{{URL::asset('js/angular.min.js')}}"></script>
 	<script src="{{URL::asset('js/bootstrap.min.js')}}"></script>
@@ -27,6 +26,8 @@
 	<script src="{{URL::asset('js/jquery.slimscroll.js')}}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxXt2P7-U38bK0xEFIT-ebZJ1ngK8wjww"></script>
 	<script src="{{URL::asset('js/init.js')}}"></script>
+	<!-- End Scripts -->
+
 </body>
 
 </html>

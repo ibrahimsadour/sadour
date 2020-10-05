@@ -125,3 +125,200 @@ b{
     font-size: 20px;
     font-weight: 500;
 }
+
+/* Header page css code  */
+    #HeaderWit {
+        height: 32px;
+        width: 100%;
+        border-bottom: 1px solid #eeeeee;
+        padding-top: 3px;
+        background: #fff;
+        margin-bottom: 4px;
+    }
+
+    @media  only screen and (max-width: 970px) {
+        
+        #HeaderWit {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        
+        .search_form {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 1020px) {
+        
+        .mdl-layout__header .mdl-layout__drawer-button {
+            top: 36px!important;
+        }
+    }
+    @media only screen and (max-width: 970px) {
+        
+        .mdl-layout__header .mdl-layout__drawer-button {
+            top: 0px!important;
+        }
+    }
+    .mdl-layout__header .mdl-layout__drawer-button{
+        top: 36px;
+    }
+    #HeaderWitCenter {
+        height: 28px;
+        max-width: 1100px;
+        margin: auto;
+    }
+    #titelContainer {
+        width: 400px;
+    }
+    #titelContainer {
+        float: left;
+    }
+    .titels {
+        width: 100%;
+        margin-top: 0px;
+        margin-left: 0px;
+        font-size: 22px;
+    }
+    #titel1 {
+        float: left;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #titel2 {
+        float: left;
+        color: rgb(0 152 212);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #titel3 {
+        float: left;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #ondertitel {
+        font-size: 13px;
+        color: #333;
+        margin: 10px 0 0 5px;
+        float: left;
+    }
+    #HeaderWitCenterRight {
+        width: 500px;
+        float: right;
+        text-align: right;
+    }
+    #HeaderWitCenterRightLinks {
+        float: left;
+        margin-top: 3px;
+    }
+    #HeaderWitCenterRight a {
+        margin-right: 20px;
+        font-size: 12px;
+        color: #333;
+    }
+    #HeaderWitCenterRightSocialFollow {
+        margin-top: 3px;
+    }
+    .zmdi{
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+
+    .mdl-layout__header{
+        width: 100%;
+    }
+    .mdl-navigation__link{
+        font-size: 15px;
+        color: #333;
+        
+    }
+    .mdl-layout__header .mdl-button--icon.ver-more-btn{
+        padding: 0px 25px;
+    }
+/* End header css code */
+/* Search form Css code Begin Her ->>>> */
+    .search_form{
+        padding: 0px 25px;
+    }
+    .search_form_input {
+        outline: none;
+    }
+    .search_form_input[type=search] {
+        -webkit-appearance: textfield;
+        -webkit-box-sizing: content-box;
+        font-family: inherit;
+        font-size: 100%;
+        color: black;
+        font-weight:500;
+    }
+    .search_form_input::-webkit-search-decoration,
+    .search_form_input::-webkit-search-cancel-button {
+        display: none; 
+    }
+
+
+    .search_form_input[type=search] {
+        background: #ffffff  url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+        border: solid 1px #ccc;
+        padding: 9px 10px 9px 32px;
+        width: 100px;
+        
+        -webkit-border-radius: 10em;
+        -moz-border-radius: 10em;
+        border-radius: 10em;
+        
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        transition: all .5s;
+    }
+    .search_form_input[type=search]:focus {
+        width: 230px;
+        background-color: #fff;
+        border-color: rgb(0 152 212)    ;
+        
+        -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+        -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+        box-shadow: 0 0 5px rgba(109,207,246,.5);
+    }
+
+
+    .search_form_input:-moz-placeholder {
+        color: #999;
+    }
+    .search_form_input::-webkit-.search_form_input-placeholder {
+        color: #999;
+    }
+    #navbar {
+
+    transition: top 0.4s;
+    }
+/* search css code End her-->>>> */
+
+/* Left Sidebar  */
+.left_side_logo{
+    vertical-align: middle;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    margin: 0 auto;
+}
+/* Left Sidebar  */
+
+/* categorys_index.blade CSS CODE */
+    .subTitle1{
+        padding-top: 20px;
+    }
+    .portfolio-sec .light-img-wrap .img-cap{
+        width: 92%;
+    }
+    .red_more{
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    }
+/* End categorys_index.blade code */

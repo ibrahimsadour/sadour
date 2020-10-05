@@ -4,21 +4,6 @@
 <!-- in deze sectie wordt alle content van de website toegoevogd.. -->
 
     <!--Main Content-->
-<style>
-    .subTitle1{
-        padding-top: 20px;
-    }
-    .portfolio-sec .light-img-wrap .img-cap{
-        width: 92%;
-    }
-    .red_more{
-    width: 100%;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-}
-</style>
 @section('categorys_index')
 
 <!--About Sec-->

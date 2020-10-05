@@ -315,13 +315,12 @@ Route::group( [
 });
 // =================================================================================
 // Project Sadour.nl Pages
-
 Route::group( [
     'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
 ],function() {
 
     // Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
-    Route::get('{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
+    Route::get('project/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
 
 });
 
