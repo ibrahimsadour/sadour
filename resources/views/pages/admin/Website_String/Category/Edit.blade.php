@@ -60,13 +60,11 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Name</label>
                                                 <input type="text" class="form-control" name="name" value="{{$categorys->name}}" >
-
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Name</label>
                                                 <input type="text" class="form-control" name="name_url" value="{{$categorys->name_url}}" >
-
                                             </div>
 
                                             <div class="form-group">
@@ -82,6 +80,26 @@
                                                     <option value="1" style="color:green; font-weight: 700;">Yes</option>
                                                     <option value="0" style="color:red; font-weight: 700; ">NO</option>
                                                 </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Title">Title Category:</label>
+                                                <input type="text" class="form-control" name="title" value="{{$categorys->title}}">
+                                                <small id="title_error" class="form-text text-danger"></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Title">Keywords:</label>
+                                                <textarea  name="keywords" class="form-control"  required   value="{{$categorys->keywords}}">{{$categorys->keywords}}
+                                                </textarea>
+                                                <small id="keywords_error" class="form-text text-danger"></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Title">description_back:</label>
+                                                <textarea  name="description_back" class="form-control"  required  rows="4" cols="50" value="{{$categorys->description_back}}">{{$categorys->description_back}}
+                                                </textarea>
+                                                <small id="description_back_error" class="form-text text-danger"></small>
                                             </div>
 
 

@@ -35,11 +35,13 @@ $.ajaxSetup({
         for (instance in CKEDITOR.instances) {
        CKEDITOR.instances[instance].updateElement();
         }
-        description_error
         $('#weergeven_error').text('');
-        $('#nameUrl_error').text('');
         $('#description_error').text('');
         $('#name_error').text('');
+        $('#name_url_error').text('');
+        $('#title_error').text('');
+        $('#keywords_error').text('');
+        $('#description_back_error').text('');
         var formData = new FormData($('#projectsForm')[0]);
         $.ajax({
             type: 'post',

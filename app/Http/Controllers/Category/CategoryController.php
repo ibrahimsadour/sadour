@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 Use App\Models\Category;
 Use App\Models\Projects;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\AdminDashboard\CategoryRequest;
 
 class CategoryController extends Controller
@@ -58,15 +59,7 @@ class CategoryController extends Controller
     // this to show all category on the admin page 
     public function index()
     {
-        $categorys = Category::select(
-        'id',
-        'name',
-        'name_url',
-        'description',
-        'weergeven',
-        'created_at',
-        'updated_at'
-    )->get(); // return collection
+        $categorys =  DB::table('category')->get();
 
     return view('pages.admin.Website_String.Category.All', compact('categorys'));
     }
@@ -87,7 +80,7 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not found',
             ]);
 
-        $categorys = Category::select('id', 'name','name_url',  'weergeven','description')->find($request -> category_id);
+        $categorys = Category::select('id', 'name','name_url','weergeven','description','title','keywords','description_back')->find($request -> category_id);
 
         // view all information of the project 
         return view('pages.admin.Website_String.Category.Show', compact('categorys'));
@@ -114,7 +107,11 @@ class CategoryController extends Controller
             'name' => $request->name,
             'name_url' => $request->name_url,
             'weergeven' => $request->weergeven,
-            'description'=> $request->description
+            'description'=> $request->description,
+            'title'=> $request->title,
+            'keywords'=> $request->keywords,
+            'description_back'=> $request->description_back
+
 
 
         ]);
@@ -151,7 +148,7 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not found',
             ]);
 
-        $categorys = Category::select('id', 'name','name_url',  'weergeven','description')->find($request -> category_id);
+        $categorys = Category::select('id', 'name','name_url',  'weergeven','description','title','keywords','description_back')->find($request -> category_id);
 
         return view('pages.admin.Website_String.Category.Edit', compact('categorys'));
     }
@@ -229,7 +226,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'status' => true,
-            'msg' => 'categorys has deleted',
+            'msg' => 'categorys has deleted with all her     projects',
             'id'=>$request ->id
         ]);
 

@@ -64,6 +64,9 @@
                         <th scope="col">Name Url</th>
                         <th scope="col">Description</th>
                         <th scope="col">Show</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Keywords</th>
+                        <th scope="col">Description_back</th>
                         <th scope="col">created_at</th>
                         <th scope="col">updated_at</th>
                         <th scope="col">Action</th>
@@ -80,7 +83,14 @@
                             <td>{{$category -> name}}</td>
                             <td>{{$category -> name_url}}</td>
                             <td><span class="font-weight-normal red_more">{{$category -> description}}</span></td>
-                            <td><span class="font-weight-normal"><?php if($category['weergeven'] === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?></span></td>
+                            <td>
+                                <span class="font-weight-normal">
+                                <?php  $weergeven = $category->weergeven; if($weergeven === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?>
+                                </span>
+                            </td>
+                            <td>{{$category -> title}}</td>
+                            <td>{{$category -> keywords}}</td>
+                            <td>{{$category -> description_back}}</td>
                             <td>{{$category -> created_at}}</td>
                             <td>{{$category -> updated_at}}</td>
 

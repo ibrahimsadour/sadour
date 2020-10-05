@@ -60,14 +60,14 @@
                                                 <label for="Name">Name Category:</label>
                                                 <input type="text" class="form-control" name="name" placeholder="Name category">
                                                 <small id="name_error" class="form-text text-danger"></small>
-
                                             </div>
+
                                             <div class="form-group">
-                                                <label for="Name Url">Name Category:</label>
+                                                <label for="Name Url">Name Url Category:</label>
                                                 <input type="text" class="form-control" name="name_url" placeholder="Name Url Category">
-                                                <small id="nameUrl_error" class="form-text text-danger"></small>
-
+                                                <small id="name_url_error" class="form-text text-danger"></small>
                                             </div>
+
                                             <div class="form-group">
                                                 <label for="Name"> Description :</label>
                                                 <textarea id="ckeditor" name="description"></textarea>
@@ -83,6 +83,26 @@
                                                     <option value="0" style="color:red; font-weight: 700; ">NO</option>
                                                 </select>
                                                 <small id="weergeven_error" class="form-text text-danger"></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Title">Title Category:</label>
+                                                <input type="text" class="form-control" name="title" placeholder="title Category">
+                                                <small id="title_error" class="form-text text-danger"></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Title">Keywords:</label>
+                                                <textarea  name="keywords" class="form-control"  required  >
+                                                </textarea>
+                                                <small id="keywords_error" class="form-text text-danger"></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="Title">description_back:</label>
+                                                <textarea  name="description_back" class="form-control"  required  rows="4" cols="50">
+                                                </textarea>
+                                                <small id="description_back_error" class="form-text text-danger"></small>
                                             </div>
 
                                             <button id="projects_submit" class="btn btn-primary">Save </button>

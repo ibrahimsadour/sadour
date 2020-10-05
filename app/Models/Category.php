@@ -19,7 +19,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name','name_url', 'weergeven','description','created_at','updated_at'
+        'name','name_url', 'weergeven','description','title','keywords','description_back','created_at','updated_at'
     ];
 
     ################## Begin Relation #####################

@@ -70,6 +70,26 @@ label {
                                                     <input   class="form-control view"    disabled  value="{{$categorys->weergeven}}"/>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="Title">Title Category:</label>
+                                                    <input type="text" class="form-control view" disabled value="{{$categorys->title}}">
+                                                    <small id="title_error" class="form-text text-danger"></small>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="Title">Keywords:</label>
+                                                    <textarea disabled class="form-control view"  required   value="{{$categorys->keywords}}">{{$categorys->keywords}}
+                                                    </textarea>
+                                                    <small id="keywords_error" class="form-text text-danger"></small>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="Title">description_back:</label>
+                                                    <textarea disabled class="form-control view"  required  rows="4" cols="50" value="{{$categorys->description_back}}">{{$categorys->description_back}}
+                                                    </textarea>
+                                                    <small id="description_back_error" class="form-text text-danger"></small>
+                                                </div>
+
 
                                             </div>
                                     </div>
