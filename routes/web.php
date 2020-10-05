@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 Auth::routes(['verify' =>true]);
+define('PAGINATION_COUNT',10); // aantale items die op een pagina wordt getoond voor de heel website
 use App\Http\Controllers\Projects\ProjectController;
 use App\Http\Controllers\Category\CategoryController;
 

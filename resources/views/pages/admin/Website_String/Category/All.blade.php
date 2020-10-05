@@ -68,7 +68,6 @@
                         <th scope="col">Keywords</th>
                         <th scope="col">Description_back</th>
                         <th scope="col">created_at</th>
-                        <th scope="col">updated_at</th>
                         <th scope="col">Action</th>
                         <th scope="col">Delete All Projects</th>
 
@@ -89,10 +88,9 @@
                                 </span>
                             </td>
                             <td>{{$category -> title}}</td>
-                            <td>{{$category -> keywords}}</td>
-                            <td>{{$category -> description_back}}</td>
+                            <td><span class="font-weight-bold red_more ">{{$category -> keywords}}</span></td>
+                            <td><span class="font-weight-bold red_more ">{{$category -> description_back}}</span></td>
                             <td>{{$category -> created_at}}</td>
-                            <td>{{$category -> updated_at}}</td>
 
                             <td >
                                 <div class="btn-group">

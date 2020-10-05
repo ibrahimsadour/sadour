@@ -32,7 +32,7 @@ class CategoryController extends Controller
         $Projects = Projects::with(['category'=> function($q){
 
             $q -> select('id','name','description','weergeven');
-        }])->where('weergeven','1')->paginate(10);
+        }])->where('weergeven','1')->paginate(PAGINATION_COUNT);
         return view('Projects.Pages.categorys_index',compact('Projects'));
     }
     
@@ -43,12 +43,12 @@ class CategoryController extends Controller
 
         $categorys = Category::with('Projects')->find($request ->id);
         
-        $OneCategoryWithHerProjects  = $categorys ->Projects->where('weergeven','1');
+        $OneCategoryWithHerProjects  = $categorys ->Projects->where('weergeven',1);
         // foreach($AllProjects as $OneProject){
           
         // }
         // dd($categorys);
-
+        // return response()->json($categorys, 200, );
         return view('Projects.Pages.OneCategory',compact('OneCategoryWithHerProjects'));
     }
 

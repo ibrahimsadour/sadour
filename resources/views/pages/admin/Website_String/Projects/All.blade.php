@@ -77,8 +77,8 @@
                         <tr class="projectRow{{$Project -> id}}">
                             <th scope="row">{{$Project -> id}}</th>
                             <td style="font-weight: 700; color:green;">{{$Project -> category_id }}</td>
-                            <td>{{$Project -> name}}</td>
-                            <td>{{$Project -> name_url}}</td>
+                            <td><span class="font-weight-bold red_more ">{{$Project -> name}}</span></td>
+                            <td><span class="font-weight-bold red_more ">{{$Project -> name_url}}</span></td>
                             <td style="font-weight: 700; color:green;">{{$Project -> category->name}}</td>
                             <td><span class="font-weight-normal red_more">{{$Project -> description}}</span></td>
                             <td><span class="font-weight-normal"><?php if($Project['weergeven'] === 1){ echo '<span style="color:green;  font-weight: 700;">Yes</span>';}else  echo '<span style="color:red;  font-weight: 700;">NO</span>' ?></span></td>

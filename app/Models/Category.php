@@ -28,7 +28,7 @@ class Category extends Model
 
         public function Projects()
         {
-            return $this->hasMany('App\Models\Projects', 'category_id');
+            return $this->hasMany('App\Models\Projects', 'category_id','id');
         }
 
     ################## End Relation   #####################
