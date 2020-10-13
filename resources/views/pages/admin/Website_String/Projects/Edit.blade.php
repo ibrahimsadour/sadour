@@ -54,6 +54,15 @@
 
                                             <input type="text"  name="project_id"  value="{{$Projects->id}}" style="display:none;">
 
+
+
+                                            <div class="form-group">
+                                                <div class="text-center">
+                                                    <img
+                                                        src="{{asset('images/Projects/'.$Projects->photo)}}"
+                                                        class="  height-150" alt="Project Photo">
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Kieiz een foto</label>
                                                 <input type="file" class="form-control" name="photo"   value="{{$Projects->photo}}" class="@error('photo') is-invalid @enderror">
