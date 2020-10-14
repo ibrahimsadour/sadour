@@ -26,6 +26,7 @@ use App\Http\Controllers\Category\CategoryController;
 
 
 
+
 // =================================================================================
 // deze Route is gemaakt door Ibrahim om (CV van ibrahim sadour door de butten te downloaden)
 Route::get('/download', function () {
@@ -192,7 +193,7 @@ Route::resource('/auth/dashboard/roles', 'User_Management\RoleController')->name
 
 // =================================================================================
 // deze Route is gemaakt door Ibrahim sadour
-// hier kan jij een nieuw  permission voor de  gebruiker of schrijver van de site toevogen   
+// hier kan jij een nieuw  permission voor de  gebruiker of schrijver van de site toevogen
 Route::resource('/auth/dashboard/permission', 'User_Management\PermissionController')->names([
     'create' => 'auth.dashboard.permission.create',
     'edit' => 'auth.dashboard.permission.edit',
@@ -227,7 +228,7 @@ Route::resource('/auth/dashboard/hobbys','Hobbys\HobbysController')->names([
     'index' =>'auth.dashboard.hobbys',
     'destroy' =>'auth.dashboard.hobbys.destroy',
     'update' => 'hobbys.update'
-    
+
 
 ])->middleware('auth');
 // =================================================================================
@@ -243,7 +244,7 @@ Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalContro
     'index' =>'auth.dashboard.sociaal_contact',
     'destroy' =>'auth.dashboard.sociaal_contact.destroy',
     'update' => 'sociaal_contact.update'
-    
+
 
 ])->middleware('auth');
 // =================================================================================
@@ -252,7 +253,7 @@ Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalContro
 // Calendar
 Route::group(['middleware' => ['auth']], function () {
 
-    // deze route om het calendar te laat zien 
+    // deze route om het calendar te laat zien
     Route::get('/auth/dashboard/calendar', function () {
 
         // deze stukje om te cheken als de gebruiker ingelogd of nee
@@ -268,7 +269,7 @@ Route::group(['middleware' => ['auth']], function () {
     // deze route om een nieuw event te toevoegen op de calendar
     Route::post('/auth/dashboard/calendar','Calendar\CalendarController@store')->name('calendar.store');
 
-    
+
     // URL: /auth/dashboard/calendar/allevent ( show and delet event)
     Route::get('/auth/dashboard/calendar/allevent','Calendar\CalendarController@show')->name('calendar.show');
     Route::delete('/auth/dashboard/calendar/allevent/{id}','Calendar\CalendarController@destroy')->name('delet.event');
@@ -280,8 +281,8 @@ Route::group(['middleware' => ['auth']], function () {
 // =================================================================================
 // Project Admin Pages
 Route::group( [
-    'prefix' => '/auth/dashboard/projects', // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
-    'middleware' => 'auth', 
+    'prefix' => '/auth/dashboard/projects', // deze om mijn code verkorter te maken dus niet nodig bij elke rout
+    'middleware' => 'auth',
 ],function() {
 
     Route::get('',[ProjectController::class, 'index'])->name('project.all');
@@ -298,8 +299,8 @@ Route::group( [
 
 // Category Admin Pages
 Route::group( [
-    'prefix' => '/auth/dashboard/category', // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
-    'middleware' => 'auth', 
+    'prefix' => '/auth/dashboard/category', // deze om mijn code verkorter te maken dus niet nodig bij elke rout
+    'middleware' => 'auth',
 ],function() {
 
     Route::get('',[CategoryController::class, 'index'])->name('category.all');
@@ -317,7 +318,7 @@ Route::group( [
 // =================================================================================
 // Project Sadour.nl Pages
 Route::group( [
-    'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
+    'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout
 ],function() {
 
     // Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
@@ -327,7 +328,7 @@ Route::group( [
 
 
 Route::group( [
-    'prefix' => 'categorys' // deze om mijn code verkorter te maken dus niet nodig bij elke rout 
+    'prefix' => 'categorys' // deze om mijn code verkorter te maken dus niet nodig bij elke rout
 ],function() {
 
     Route::get('',[CategoryController::class, 'getAllProjects'])->name('git.all.category');

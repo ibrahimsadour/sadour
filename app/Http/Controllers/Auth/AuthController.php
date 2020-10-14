@@ -16,7 +16,12 @@ class AuthController extends Controller
 
  
 
-
+    
+    /**
+     * show login form
+     *
+     * @return void
+     */
     public function show()
     {
         if (Auth::check()) {
@@ -26,7 +31,12 @@ class AuthController extends Controller
 
       }
     }  
- 
+     
+    /**
+     * register , This is made to show registertion form for the user
+     *
+     * @return void
+     */
     public function register()
     {
         return view('auth.register');
@@ -34,7 +44,15 @@ class AuthController extends Controller
 
 
    
-     
+         
+    /**
+     * postLogin , Check whether the user uses the correct email and password
+     * @identify is for(email and phone number)
+     * @$field controller if the user has written email or mobile number
+     * @$value grab the content of the input here
+     * @param  mixed $request
+     * @return void
+     */
     public function postLogin(Request $request)
     {
         request()->validate([
@@ -42,27 +60,11 @@ class AuthController extends Controller
         'password' => 'required',
         ]);
  
+      $value = request() ->input('identify'); 
 
-      // return 'mobile';
-      $value = request() ->input('identify'); //hier pak de inhoud van de input
-
-      //controller als de gebruiker email of mobilenummer heeft geschreven:
-
-      $field = filter_var($value,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile'; // ? perces zoals if statment
-
-      /*  
-      if(filter_var($value,FILTER_VALIDATE_EMAIL){
-
-          $field = 'email';
-      }else{
-          $field = 'mobile';
-      }
-      */
-
+      $field = filter_var($value,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile'; 
 
       request() -> merge([$field => $value ]);
-
-      
       
         $credentials = $request->only($field, 'password');
         if (Auth::attempt($credentials)) {
@@ -73,7 +75,13 @@ class AuthController extends Controller
         return Redirect::to("/auth/login")->withSuccess('Oppes! You have entered invalid credentials');
 
     }
- 
+     
+    /**
+     * postRegister
+     * Here to add a new user to the date base and check is it too added already or no
+     * @param  mixed $request
+     * @return void
+     */
     public function postRegister(Request $request)
     {  
         request()->validate([
@@ -89,7 +97,12 @@ class AuthController extends Controller
        
         return Redirect::to("/auth/dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
-     
+         
+    /**
+     * dashboard , check if the user allowd to see the dashboard
+     *
+     * @return void
+     */
     public function dashboard()
     {
  
@@ -99,7 +112,13 @@ class AuthController extends Controller
        return Redirect::to("/auth/login")->withSuccess('Opps! You do not have access');
 
     }
- 
+     
+    /**
+     * create
+     *
+     * @param  mixed $data
+     * @return void
+     */
     public function create(array $data)
     {
       return User::create([
@@ -109,7 +128,12 @@ class AuthController extends Controller
         'password' => Hash::make($data['password']),
       ]);
     }
-     
+         
+    /**
+     * logout
+     *
+     * @return void
+     */
     public function logout() {
         Session::flush();
         Auth::logout();

@@ -10,13 +10,24 @@ use App\Http\Requests\RoleStoreRequest;
 
 use Auth;
 
-//Importing laravel-permission models
+/**
+ * Importing laravel-permission models
+ *
+ * @return Spatie\Permission\Models\Role;
+ * @return Spatie\Permission\Models\Permission;
+ */
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 
 class RoleController extends Controller {
 
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
     public function __construct() {
         $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
@@ -47,7 +58,8 @@ class RoleController extends Controller {
 
     /**
      * Store a newly created resource in storage.
-     *
+     * @foreach Looping thru selected permissions
+     * Fetch the newly created role and assign permission
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -60,10 +72,10 @@ class RoleController extends Controller {
         $permissions = $request['permissions'];
 
         $role->save();
-    //Looping thru selected permissions
+        
         foreach ($permissions as $permission) {
             $p = Permission::where('id', '=', $permission)->firstOrFail(); 
-         //Fetch the newly created role and assign permission
+         
             $role = Role::where('name', '=', $name)->first(); 
             $role->givePermissionTo($p);
         }
@@ -97,28 +109,32 @@ class RoleController extends Controller {
 
     /**
      * Update the specified resource in storage.
-     *
+     * @param $role Get role with the given id
+     * @param $p_all Get all permissions
+     * @param revokePermissionTo Remove all permissions associated with role
+     * @param $p Get corresponding form //permission in db
+     * @param givePermissionTo Assign permission to role
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(RoleStoreRequest $request, $id) {
 
-        $role = Role::findOrFail($id);//Get role with the given id
+        $role = Role::findOrFail($id);
     
         $input = $request->except(['permissions']);
         $permissions = $request['permissions'];
         $role->fill($input)->save();
 
-        $p_all = Permission::all();//Get all permissions
+        $p_all = Permission::all();
 
         foreach ($p_all as $p) {
-            $role->revokePermissionTo($p); //Remove all permissions associated with role
+            $role->revokePermissionTo($p); 
         }
 
         foreach ($permissions as $permission) {
-            $p = Permission::where('id', '=', $permission)->firstOrFail(); //Get corresponding form //permission in db
-            $role->givePermissionTo($p);  //Assign permission to role
+            $p = Permission::where('id', '=', $permission)->firstOrFail(); 
+            $role->givePermissionTo($p);  
         }
 
         return redirect()->route('auth.dashboard.roles')->with('success','Role '. $role->name.' updated!');

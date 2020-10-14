@@ -10,19 +10,30 @@ use App\Http\Requests\PermissionRequest;
 
 use Auth;
 
-//Importing laravel-permission models
+
+/**
+ * Importing laravel-permission models
+ *
+ * @return Spatie\Permission\Models\Role;
+ * @return Spatie\Permission\Models\Permission;
+ */
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 
 class PermissionController extends Controller {
 
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
     public function __construct() {
         $this->middleware(['auth', 'role:Admin'])->except('index'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
     
-
     
     /**
     * Display a listing of the resource.
@@ -32,8 +43,7 @@ class PermissionController extends Controller {
     public function index() {
         $permissions = Permission::all(); //Get all permissions
 
-        return view('pages.admin.Website_String.Permissions.index
-        ')->with('permissions', $permissions);
+        return view('pages.admin.Website_String.Permissions.index')->with('permissions', $permissions);
     }
 
     /**
@@ -50,7 +60,10 @@ class PermissionController extends Controller {
 
     /**
     * Store a newly created resource in storage.
-    *
+    * If one or more role is selected
+    * Match input role to db record
+    * Match input //permission to db record
+    * validation => PermissionRequest
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
@@ -65,11 +78,11 @@ class PermissionController extends Controller {
 
         $permission->save();
 
-        if (!empty($request['roles'])) { //If one or more role is selected
+        if (!empty($request['roles'])) { 
             foreach ($roles as $role) {
-                $r = Role::where('id', '=', $role)->firstOrFail(); //Match input role to db record
+                $r = Role::where('id', '=', $role)->firstOrFail(); 
 
-                $permission = Permission::where('name', '=', $name)->first(); //Match input //permission to db record
+                $permission = Permission::where('name', '=', $name)->first(); 
                 $r->givePermissionTo($permission);
             }
         }

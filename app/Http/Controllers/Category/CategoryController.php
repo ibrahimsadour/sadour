@@ -13,22 +13,17 @@ class CategoryController extends Controller
 {
 
 
-    // Sadour.nl Controller --->
-
-    // ************************
-    /**
+    /** Sadour.nl Controller
      * Display a listing of the resource.
-     *
+     * #####################################################################
+     * ############## Projects with categorys ##############################
+     * #####################################################################
+     * here a relationship is made between the table projects and category
+     *   with the format of the code I can get the data from the two teble
      * @return \Illuminate\Http\Response
      */
     public function getAllProjects()
     {
-        #####################################################################
-        ############## Projects with categorys ##############################
-        #####################################################################
-        // hier wordt een relatie gemaakt tussen de table projects en category
-        // met de formaat van de code kan ik de data van de twee teble halen
-
         $Projects = Projects::with(['category'=> function($q){
 
             $q -> select('id','name','description','weergeven');
@@ -36,7 +31,13 @@ class CategoryController extends Controller
         return view('Projects.Pages.categorys_index',compact('Projects'));
     }
     
-    
+        
+    /**
+     * getOneCategory wish her projects
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function getOneCategory(Request $request)
     {
 
@@ -44,19 +45,16 @@ class CategoryController extends Controller
         $categorys = Category::with('Projects')->find($request ->id);
         
         $OneCategoryWithHerProjects  = $categorys ->Projects->where('weergeven',1);
-        // foreach($AllProjects as $OneProject){
-          
-        // }
-        // dd($categorys);
-        // return response()->json($categorys, 200, );
+
         return view('Projects.Pages.OneCategory',compact('OneCategoryWithHerProjects'));
     }
 
-    // **************************
-
-    // End sadodour.nl Controller 
-
-    // this to show all category on the admin page 
+ 
+    /**
+     * index
+     * this to show all category on the admin page
+     * @return void
+     */
     public function index()
     {
         $categorys = Category::select(
@@ -77,7 +75,7 @@ class CategoryController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * view all information of the project 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -93,27 +91,33 @@ class CategoryController extends Controller
 
         $categorys = Category::select('id', 'name','name_url','weergeven','description','title','keywords','description_back')->find($request -> category_id);
 
-        // view all information of the project 
+        
         return view('pages.admin.Website_String.Category.Show', compact('categorys'));
 
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * view form to add new Category
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        // view form to add new Category
+        
         return view('pages.admin.Website_String.Category.Add');
 
     }
-
-    // this to add new category via admin pages
+  
+    /**
+     * store
+     * this to add new category via admin pages 
+     * save Projects into DB using AJAX
+     * @param  mixed $request
+     * @return void
+     */
     public function store(CategoryRequest $request)
     {
-        //save Projects into DB using AJAX
+
         $categorys = Category::create([
             'name' => $request->name,
             'name_url' => $request->name_url,
@@ -122,8 +126,6 @@ class CategoryController extends Controller
             'title'=> $request->title,
             'keywords'=> $request->keywords,
             'description_back'=> $request->description_back
-
-
 
         ]);
 
@@ -145,13 +147,13 @@ class CategoryController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * search in given table id only
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request)
     {
-        $categorys = Category::find($request ->category_id);  // search in given table id only
+        $categorys = Category::find($request ->category_id);  
 
         if (!$categorys)
             return response()->json([
@@ -180,7 +182,6 @@ class CategoryController extends Controller
                 'msg' => 'categorys has not updated',
             ]);
 
-        //update data
         $categorys->update($request->all());
 
         return response()->json([
@@ -189,17 +190,21 @@ class CategoryController extends Controller
         ]);
     
     }
-
+    
+    /**
+     * destroy to delte one category
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function destroy( Request $request)
     {
-        $categorys = Category::find($request ->id);   // Offer::where('id','$categorys_id') -> first();
+        $categorys = Category::find($request ->id);   
         if (!$categorys)
         return response()->json([
 
             'status' => false,
             'msg' => 'categorys has not deleted',
-            
-      
             
         ]);
 
@@ -212,27 +217,27 @@ class CategoryController extends Controller
         ]);
 
     }
-
+    
+    /**
+     * destroyCategoryWithAllProjects
+     * this to delet oneCategory with her projects
+     * delete all Projects in this category  than delete the category
+     * @param  mixed $request
+     * @return void
+     */
     public function destroyCategoryWithAllProjects( Request $request)
     {
-        $categorys = Category::find($request ->id);   // Offer::where('id','$categorys_id') -> first();
+        $categorys = Category::find($request ->id);   
         if (!$categorys)
         return response()->json([
 
             'status' => false,
             'msg' => 'categorys has not deleted',
             
-      
-            
         ]);
 
-            // $image_path = public_path().'\images\Projects/'.$categorys->Projects->photo;
-            // if(file_exists($image_path)) // check if the image indeed exists
-            // unlink($image_path);
-        // delete all Projects in this category 
         $categorys ->Projects()->delete();
 
-        // than delete the category
         $categorys->delete();
 
         return response()->json([

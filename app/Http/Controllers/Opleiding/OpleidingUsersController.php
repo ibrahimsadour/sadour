@@ -14,13 +14,18 @@ class OpleidingUsersController extends Controller
 {
 
 
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
 
     public function __construct() {
         $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,7 +39,13 @@ class OpleidingUsersController extends Controller
 
    
     }   
-    
+        
+    /**
+     * show
+     * to show on eduction
+     * @param  mixed $id
+     * @return void
+     */
     public function show($id)
     {
         $website_opleiding = Opleiding::find($id);
@@ -50,7 +61,13 @@ class OpleidingUsersController extends Controller
     {
         return view('pages.admin.Website_String.Opleiding.AddOpleiding');
     }
-
+    
+    /**
+     * store
+     * validation => OpleidingRequest
+     * @param  mixed $request
+     * @return void
+     */
     public function store(OpleidingRequest $request)
     {
         $this->validate($request, [
@@ -69,20 +86,29 @@ class OpleidingUsersController extends Controller
         return redirect()->route('auth.dashboard.opleiding')->with('success',' opleiding bij '.$add_user->education_name.' Added!');
 
     }
-   
+       
+    /**
+     * edit
+     * to show edit form
+     * @param  mixed $id
+     * @return void
+     */
     public function edit($id)
     {
+        $website_opleiding = Opleiding::find($id);
+        return view('pages.admin.Website_String.Opleiding.EditOpleiding', compact('website_opleiding', 'id'));
+    }    
 
-    
-    $website_opleiding = Opleiding::find($id);
-    return view('pages.admin.Website_String.Opleiding.EditOpleiding', compact('website_opleiding', 'id'));
-    
-
-    }
+    /**
+     * update
+     * to edit the eduction
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update(OpleidingRequest $request, $id)
     {
 
-        // dd($request);
         $this->validate($request, [
             'education_name'    =>  'required',
             'period'     =>  'required',
@@ -101,17 +127,20 @@ class OpleidingUsersController extends Controller
         return redirect()->route('auth.dashboard.opleiding')->with('success',' opleiding bij '.$opleiding->education_name.' Updated!');
 
     }
-   
+       
+    /**
+     * destroy
+     * to remove the eduction
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id)
     {
-
         $ervaring = Opleiding::findOrFail($id);
         $ervaring->delete();
 
         return redirect()->route('auth.dashboard.opleiding')->with('success','opleiding deleted!');
 
-
-        
     }
 
 }

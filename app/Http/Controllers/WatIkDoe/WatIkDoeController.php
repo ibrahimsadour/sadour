@@ -13,15 +13,21 @@ class WatIkDoeController extends Controller
 {
 
 
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
 
     public function __construct()
     {
         $this->middleware(['role:Admin|Editor'])->except('index','show');;
     }
-/**
+
+    /**
      * Display a listing of the resource.
-     *
+     * @param Watikdoe get all array waht i doe
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -33,7 +39,13 @@ class WatIkDoeController extends Controller
 
    
     }   
-    
+        
+    /**
+     * show
+     *
+     * @param  mixed $website_watikdoe return one itmes
+     * @return void
+     */
     public function show($id)
     {
         $website_watikdoe = Watikdoe::find($id);
@@ -42,8 +54,8 @@ class WatIkDoeController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * to inser the new info to database
+     * @return \Illuminate\Http\redirect
      */
     public function create()
     {
@@ -60,16 +72,27 @@ class WatIkDoeController extends Controller
         $add_user->save();
         return redirect()->route('auth.dashboard.watikdoe')->with('success', 'Data Added');
     }
-   
+       
+    /**
+     * edit
+     * @return to show edit form
+     * @param  mixed $id
+     * @return void
+     */
     public function edit($id)
     {
-
     
-    $website_watikdoe = Watikdoe::find($id);
-    return view('pages.admin.Website_String.watikdoe.Edit', compact('website_watikdoe', 'id'));
+        $website_watikdoe = Watikdoe::find($id);
+        return view('pages.admin.Website_String.watikdoe.Edit', compact('website_watikdoe', 'id'));
     
-
-    }
+    }    
+    /**
+     * update
+     * to edit the info
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update(WatIkdoeRequest $request, $id)
     {
 
@@ -80,15 +103,19 @@ class WatIkDoeController extends Controller
 
 
         $watikdoe->save();
-        // return redirect()->route('auth.dashboard.watikdoe.edit',['watikdoe' => $watikdoe->id])->with('success', 'Data Updated');
         return redirect()->route('auth.dashboard.watikdoe')->with('success',' watikdoe bij '.$watikdoe->titel.' Updated!');
 
     }
-
+    
+    /**
+     * destroy
+     * to delet the info
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id)
     {
         
-        // dd($id);
         $watikdoe = Watikdoe::find($id);
         
         if ($watikdoe != null) {

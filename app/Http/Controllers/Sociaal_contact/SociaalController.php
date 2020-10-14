@@ -12,14 +12,17 @@ use App\Http\Requests\AdminDashboard\SociaalRequest;
 class SociaalController extends Controller
 {
 
-
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
-
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */ 
     public function __construct() {
         $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
     
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -33,11 +36,16 @@ class SociaalController extends Controller
     
    
     }   
-    
+        
+    /**
+     * show
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function show($id)
     {
-        // $website_opleiding = Opleiding::find($id);
-        // return view('pages.admin.Website_String.Opleiding.ShowOpleiding', compact('website_opleiding', 'id'));
+
     }
 
     /**
@@ -49,7 +57,14 @@ class SociaalController extends Controller
     {
         return view('pages.admin.Website_String.Sociaal_Contact.Add');
     }
-
+    
+    /**
+     * store
+     * to insert new social links to database
+     * validation=>SociaalRequest
+     * @param  mixed $request
+     * @return void
+     */
     public function store(SociaalRequest $request)
     {
         $website_sociaal_contact = new Sociaal_Contact([
@@ -64,17 +79,29 @@ class SociaalController extends Controller
         return redirect()->route('auth.dashboard.sociaal_contact')->with('success',' Sociaal Contact bij '.$website_sociaal_contact->facebook.' Added!');
 
     }
-   
+       
+    /**
+     * edit
+     * to show edit form
+     * @param  mixed $id
+     * @return void
+     */
     public function edit($id)
     {
 
-    
-    $website_sociaal_contact = Sociaal_Contact::find($id);
+        $website_sociaal_contact = Sociaal_Contact::find($id);
 
-    return view('pages.admin.Website_String.Sociaal_Contact.Edit', compact('website_sociaal_contact', 'id'));
-    
+        return view('pages.admin.Website_String.Sociaal_Contact.Edit', compact('website_sociaal_contact', 'id'));  
 
     }
+        
+    /**
+     * update
+     * to edit the current social links
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update(SociaalRequest $request, $id)
     {
 
@@ -90,17 +117,19 @@ class SociaalController extends Controller
         return redirect()->route('pages.admin.Website_String.Sociaal_Contact')->with('success',' Sociaal Contact bij '.$website_sociaal_contact->facebook.' Updated!');
 
     }
-   
+       
+    /**
+     * destroy
+     * to remove current social links
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id)
     {
-
         $website_sociaal_contact = Sociaal_Contact::findOrFail($id);
         $website_sociaal_contact->delete();
 
         return redirect()->route('auth.dashboard.sociaal_contact')->with('success','sociaal_contact deleted!');
 
-
-        
     }
-
 }

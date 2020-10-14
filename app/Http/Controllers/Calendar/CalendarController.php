@@ -12,10 +12,15 @@ Use App\User;
 use Illuminate\Support\Facades\Auth;
 class CalendarController extends Controller
 {
-    //met deze functie mag allen de index method pagina getoond worden voor gewoon gebruiker 
-
+    
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
     public function __construct() {
-        $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+        $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); 
     }
 
     /**
@@ -31,7 +36,12 @@ class CalendarController extends Controller
         return response()->json($event, 200);
      
     }   
-
+    
+    /**
+     * show
+     * to show user events in the page (Allevents)
+     * @return void
+     */
     public function show()
     {
         if(Auth::check()){
@@ -45,13 +55,13 @@ class CalendarController extends Controller
 
     }   
 
-    public function create ( $request)
-    {
-
-
-
-    }
-
+    
+    /**
+     * store
+     * to insert new event to datebase
+     * @param  mixed $request
+     * @return void
+     */
     public function store (request $request)
     {
         $validator = Validator::make($request->all(),[
@@ -63,22 +73,6 @@ class CalendarController extends Controller
             'textColor' =>   'required',
         ]);
 
-        // // dd($request->get('start'));
-            // $find_slash    = '/';
-
-            // $pos2 = stripos($sart, $find_slash); 
-            // if ($pos2 != false ) {
-            //     $sart = str_replace('/', '-', $sart); 
-            // }else{
-            //     echo ' 
-            //     niet gevonden';
-            // }
-        //     $start = $request->get('start');
-        //     $end = $request->get('end');
-
-        //     $start = str_replace('/', '-', $start);
-        //     $end = str_replace('/', '-', $end);
-        // //     // @dd($sart);
 
         if($validator->failed())
         {
@@ -126,8 +120,6 @@ class CalendarController extends Controller
 
     }
     
- 
-
 
     /**
      * Remove the specified resource from storage.

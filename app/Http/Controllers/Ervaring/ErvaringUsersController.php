@@ -15,13 +15,16 @@ use App\Http\Requests\AdminDashboard\ErvaringRequest;
 class ErvaringUsersController extends Controller
 {
 
-
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
-
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
     public function __construct() {
         $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -39,7 +42,14 @@ class ErvaringUsersController extends Controller
 
    
     }   
-    
+        
+    /**
+     * show 
+     * to show one experince in the page
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function show($id)
     {
         $website_ervaring = Ervaring::find($id);
@@ -55,7 +65,14 @@ class ErvaringUsersController extends Controller
     {
         return view('pages.admin.Website_String.Ervaring.AddErvaring');
     }
-
+    
+    /**
+     * store
+     * Valedtion =>ErvaringRequest
+     * to insert new experience to datebase
+     * @param  mixed $request
+     * @return void
+     */
     public function store(ErvaringRequest $request)
     {
 
@@ -69,16 +86,28 @@ class ErvaringUsersController extends Controller
         return redirect()->route('auth.dashboard.ervaring')->with('success',' Ervaring bij '.$add_user->company_name.' Added!');
 
     }
-   
+       
+    /**
+     * edit 
+     * to show edit form
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function edit($id)
     {
 
-    
-    $website_ervaring = Ervaring::find($id);
-    return view('pages.admin.Website_String.Ervaring.EditErvaring', compact('website_ervaring', 'id'));
-    
-
+        $website_ervaring = Ervaring::find($id);
+        return view('pages.admin.Website_String.Ervaring.EditErvaring', compact('website_ervaring', 'id'));
     }
+        
+    /**
+     * update
+     * to edit the experience
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update(ErvaringRequest $request, $id)
     {
 
@@ -93,6 +122,13 @@ class ErvaringUsersController extends Controller
         // return redirect()->route('auth.dashboard.ervaring.edit',['ervaring' => $ervaring->id])->with('success', 'Data Updated');
         return redirect()->route('auth.dashboard.ervaring')->with('success',' Ervaring bij '.$ervaring->company_name.' Updated!');
     }
+    
+    /**
+     * destroy
+     * to remove experience
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id)
     {
 
@@ -101,9 +137,6 @@ class ErvaringUsersController extends Controller
 
         return redirect()->route('auth.dashboard.ervaring')->with('success','ervaring deleted!');
 
-
-        
     }
-
 
 }

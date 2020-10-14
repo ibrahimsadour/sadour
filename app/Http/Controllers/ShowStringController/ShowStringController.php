@@ -15,7 +15,12 @@ class ShowStringController extends Controller
     
   /**
    * Show the application dashboard.
-   *
+   * this is important function on the site becuse her show all string on the site
+   * @website_strings to show all website string from datebase to the site
+   * @ervaring_strings to show all website string from datebase to the site
+   * @website_watikdoe to show all website string from datebase to the site
+   * @website_hobbys to show all website string from datebase to the site
+   * @website_sociaal_contact to show all website string from datebase to the site
    * @return \Illuminate\Contracts\Support\Renderable
    */
   public function show_string()
@@ -38,9 +43,5 @@ class ShowStringController extends Controller
       'website_hobbys'=>$website_hobbys,
       'website_sociaal_contact'=>$website_sociaal_contact
     ]);
-
-
   }
-
-
 }

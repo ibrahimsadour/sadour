@@ -30,16 +30,6 @@ class AvatarController extends Controller
        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // auth()->user()->clearMediaCollection();
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -49,7 +39,7 @@ class AvatarController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+
         $user = auth()->user();
         $user -> addMedia($request->avatar)->toMediaCollection('avatar');
  
@@ -57,6 +47,13 @@ class AvatarController extends Controller
         return redirect()->back();
         
     }
+        
+    /**
+     * sendData
+     * to inser new profile to database
+     * @param  mixed $request
+     * @return void
+     */
     public function sendData(AvatarRequest $request)
     {
 
@@ -77,40 +74,17 @@ class AvatarController extends Controller
             'city'     =>  $request->get('city'),
             'zip'     =>  $request->get('zip')
         ]);
-
-        // return redirect()->back(); 
+ 
         Alert::success('success!', 'Your information is updated');
         return redirect()->back();
     }
         
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        // $edit_user_profile = profile::find($id);
-        // return view('pages.admin.Website_String.profile.Show_user_profile', compact('edit_user_profile', 'id'));
-    }
 
     /**
      * Update the specified resource in storage.
-     *
+     * to edit user profile info
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -128,7 +102,7 @@ class AvatarController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * to delet user profile avatar
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

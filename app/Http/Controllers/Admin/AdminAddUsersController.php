@@ -12,9 +12,13 @@ use App\Http\Requests\AdminDashboard\AdminStoreRequest;
 class AdminAddUsersController extends Controller
 {
 
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
 
-        public function __construct()
+    /**
+     * __construct
+     * With this function just the index method may show for ordinary user
+     * @return void
+     */
+    public function __construct()
     {
         $this->middleware(['role:Admin'])->except('index','show');;
     }
@@ -29,9 +33,15 @@ class AdminAddUsersController extends Controller
 
         return view('pages.admin.Website_String.Admin_information.AllUsers', compact('website_strings'));
 
-   
-    }   
-    
+
+    }
+
+    /**
+     * show
+     * this to show admin information on the dashboard
+     * @param  mixed $id
+     * @return void
+     */
     public function show($id)
     {
         $website_strings = Admin::find($id);
@@ -48,8 +58,16 @@ class AdminAddUsersController extends Controller
         return view('pages.admin.Website_String.Admin_information.Add');
     }
 
+    /**
+     * store
+     * insert admin info to database
+     * Validtion => AdminStoreRequest
+     * @param  mixed $request
+     * @return void
+     */
     public function store(AdminStoreRequest $request)
     {
+
         $add_user = new Admin([
             'name'    =>  $request->get('name'),
             'description'     =>  $request->get('description'),
@@ -64,16 +82,27 @@ class AdminAddUsersController extends Controller
         $add_user->save();
         return redirect()->route('auth.dashboard.admin.create')->with('success', 'Data Added');
     }
-   
+
+    /**
+     * edit
+     * To show Edit form
+     * @param  mixed $id
+     * @return void
+     */
     public function edit($id)
     {
 
-    
         $website_strings = Admin::find($id);
         return view('pages.admin.Website_String.Admin_information.Edit', compact('website_strings', 'id'));
-    
-
+ 
     }
+    /**
+     * update
+     * Edit user info
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update(AdminStoreRequest $request, $id)
     {
 
@@ -87,10 +116,10 @@ class AdminAddUsersController extends Controller
         $student->Phone = $request->get('Phone');
         $student->function = $request->get('function');
         $student->save();
-       
+
         return redirect()->route('auth.dashboard.admin')->with('success',' Informatie bij '.$student->name.' Updated!');
     }
-   
+
 
 
 }

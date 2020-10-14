@@ -11,13 +11,19 @@ use Alert;
 
 class ContactController extends Controller
 {
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
-
+    
+    
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
     public function __construct() {
         $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show','create'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
 
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -30,7 +36,14 @@ class ContactController extends Controller
         return view('pages.admin.Website_String.Contact.AlleContact', compact('contact_strings'));
    
     }   
-    
+        
+    /**
+     * show
+     *  to show one message on the dashboard
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function show($id)
     {
         $contact_strings = Contact::find($id);
@@ -38,7 +51,14 @@ class ContactController extends Controller
     }
 
 
-
+    
+    /**
+     * create
+     * Valedtion => ContactRequest
+     * this  to insert new message to database 
+     * @param  mixed $request
+     * @return void
+     */
     public function create (ContactRequest $request)
     {
 
@@ -57,7 +77,7 @@ class ContactController extends Controller
  
 
 
-        /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -70,10 +90,7 @@ class ContactController extends Controller
         $contact->delete();
 
         return redirect()->route('auth.dashboard.contact')->with('success','contact deleted!');
-
-
         
     }
-
 
 }

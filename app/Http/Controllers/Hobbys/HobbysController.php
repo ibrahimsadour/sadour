@@ -12,12 +12,16 @@ use App\Http\Requests\AdminDashboard\HobbysRequest;
 class HobbysController extends Controller
 {
 
-
-    //met deze functie mag alle de index method pagina getoond worden voor gewoon gebruiker 
+    /**
+     * __construct 
+     * with this function only the index method page should be shown for normal user
+     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @return void
+     */
     public function __construct() {
         $this->middleware(['auth', 'role:Admin|Editor'])->except('index','show'); //isAdmin middleware lets only users with a //specific permission permission to access these resources
     }
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -31,7 +35,13 @@ class HobbysController extends Controller
 
    
     }   
-    
+        
+    /**
+     * show to show on hobby
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function show($id)
     {
         $website_hobbyse = Hobbys::find($id);
@@ -47,7 +57,14 @@ class HobbysController extends Controller
     {
         return view('pages.admin.Website_String.Hobbys.Add');
     }
-
+    
+    /**
+     * store
+     * validation => HobbysRequest
+     * to inser new hobby to datebase
+     * @param  mixed $request
+     * @return void
+     */
     public function store(HobbysRequest $request)
     {
 
@@ -57,7 +74,13 @@ class HobbysController extends Controller
         $add_user->save();
         return redirect()->route('auth.dashboard.hobbys')->with('success', 'Data Added');
     }
-   
+       
+    /**
+     * edit
+     * to show edit form
+     * @param  mixed $id
+     * @return void
+     */
     public function edit($id)
     {
 
@@ -66,7 +89,14 @@ class HobbysController extends Controller
     return view('pages.admin.Website_String.hobbys.Edit', compact('website_hobbys', 'id'));
     
 
-    }
+    }    
+    /**
+     * update
+     * to edit the hobby
+     * @param  mixed $request
+     * @param  mixed $id
+     * @return void
+     */
     public function update(HobbysRequest $request, $id)
     {
 
@@ -75,11 +105,17 @@ class HobbysController extends Controller
         $hobbys->save();
         return redirect()->route('auth.dashboard.hobbys')->with('success', 'Data Updated');
     }
-
+    
+    /**
+     * destroy
+     * to remove the hobby
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id)
     {
         
-        // dd($id);
         $watikdoe = Hobbys::find($id);
         
         if ($watikdoe != null) {

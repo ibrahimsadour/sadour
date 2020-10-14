@@ -9,25 +9,22 @@ Use App\Models\Projects;
 Use App\Models\Category;
 use App\Traits\OfferTrait;
 use Illuminate\Support\Facades\DB;
-// valdatie van de form input wordt in een aparte bestaand toegoeogd
 use App\Http\Requests\AdminDashboard\ProjectsRequest;
 
 class ProjectController extends Controller
 
 {
-    // Sadour.nl Controller --->
 
-    // ************************
     /**
      * Display a listing of the resource.
-     *
+     * Sadour.nl Controller
+     * search in given table id only
+     * view all information of the project 
      * @return \Illuminate\Http\Response
      */
-   
-
     public function getOneProject(Request $request)
     {
-        $Projects = Projects::find($request ->project_id);  // search in given table id only
+        $Projects = Projects::find($request ->project_id);  
 
         if (!$Projects)
             return response()->json([
@@ -37,35 +34,30 @@ class ProjectController extends Controller
 
         $Projects = Projects::select('id', 'name',  'photo', 'description','created_at')->find($request -> project_id);
 
-        // view all information of the project 
+        
         return view('Projects.Pages.OneProject', compact('Projects'));
 
     }
-    // **************************
 
-    // End sadodour.nl Controller 
 
 
     /**
      * Display a listing of the resource.
-     *
+     * hier wordt een relatie gemaakt tussen de table projects en category
+     * met de formaat van de code kan ik de data van de twee teble halen
+     *   #####################################################################
+     *   ############## Projects with categorys ##############################
+     *   #####################################################################
      * @return \Illuminate\Http\Response
      */
     public function index()
 
     {   
-        #####################################################################
-        ############## Projects with categorys ##############################
-        #####################################################################
-        // hier wordt een relatie gemaakt tussen de table projects en category
-        // met de formaat van de code kan ik de data van de twee teble halen
 
         $Projects = Projects::with(['category'=> function($q){
 
             $q -> select('id','name','name_url','description','weergeven');
         }])->get();
-        //  return $Projects -> category;
-        // return response()->json($Projects, 200);
         return view('pages.admin.Website_String.Projects.All', compact('Projects'));
 
     }
@@ -90,17 +82,17 @@ class ProjectController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * save Projects into DB using AJAX
+     * insert  table Projectss in database
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     use OfferTrait;
     public function store(ProjectsRequest $request)
     {
-        //save Projects into DB using AJAX
-
+ 
         $file_name =  $this->saveImage($request->photo, 'images/Projects');
-        //insert  table Projectss in database
+
         $Projects = Projects::create([
             'photo' => $file_name,
             'name' => $request->name,
@@ -116,7 +108,6 @@ class ProjectController extends Controller
             'status' => true,
             'msg' => 'Projects has created'
       
-            
         ]);
 
         else
@@ -128,13 +119,14 @@ class ProjectController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * search in given table id only
+     * view all information of the project 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request)
     {
-        $Projects = Projects::find($request ->project_id);  // search in given table id only
+        $Projects = Projects::find($request ->project_id);  
 
         if (!$Projects)
             return response()->json([
@@ -144,20 +136,19 @@ class ProjectController extends Controller
 
         $Projects = Projects::select('id', 'name','name_url','photo', 'description','weergeven')->find($request -> project_id);
 
-        // view all information of the project 
         return view('pages.admin.Website_String.Projects.Show', compact('Projects'));
 
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * search in given table id only
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request)
     {
-        $Projects = Projects::find($request ->project_id);  // search in given table id only
+        $Projects = Projects::find($request ->project_id);  
 
         if (!$Projects)
             return response()->json([
@@ -170,14 +161,13 @@ class ProjectController extends Controller
                 $q -> select('id','name','description','weergeven');
             }])->find($request -> project_id);
             $allCategorys = Category::select('id','name')->get();
-        // $Projects = Projects::select('id', 'name',  'photo', 'description')->find($request -> project_id);
-            // return response()->json($Projects, 200);
+
         return view('pages.admin.Website_String.Projects.Edit', compact('Projects','allCategorys'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     * //update data
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -191,7 +181,7 @@ class ProjectController extends Controller
                 'msg' => 'Projects has not updated',
             ]);
 
-        //update data
+        
         $Projects->update($request->all());
 
         return response()->json([
@@ -203,24 +193,21 @@ class ProjectController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * @file_exists check if the image indeed exists
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy( Request $request)
     {
-        $Projects = Projects::find($request ->id);   // Offer::where('id','$Projects_id') -> first();
+        $Projects = Projects::find($request ->id);   
         $image_path = public_path().'\images\Projects/'.$Projects->photo;
-        if(file_exists($image_path)) // check if the image indeed exists
+        if(file_exists($image_path)) 
         unlink($image_path);
         if (!$Projects)
         return response()->json([
 
             'status' => false,
             'msg' => 'Projects has not deleted',
-            
-      
-            
         ]);
 
         $Projects->delete();
