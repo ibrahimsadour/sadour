@@ -26,7 +26,12 @@ class Projects extends Model
         'created_at', 'updated_at'
     ];
 
-    ################## Begin Relation  #####################
+    ################## Begin Relation  #####################    
+    /**
+     * category
+     * realtion on to one with category
+     * @return void
+     */
     public function category ()
     {
 

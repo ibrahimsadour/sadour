@@ -21,7 +21,12 @@ class Calendar extends Model
     protected $fillable = [
         'title', 'start','end','allDay','backgroundColor','textColor'
     ];
-
+    
+    /**
+     * user
+     * relation one to one with the User tabel
+     * @return void
+     */
     public function user (){
 
         return $this->belongsTo(User::class);

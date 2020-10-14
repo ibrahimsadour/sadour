@@ -20,15 +20,16 @@ use App\Http\Controllers\Category\CategoryController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('sadour');
-// });
 
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim om (CV van ibrahim sadour door de butten te downloaden)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| download Routes
+|--------------------------------------------------------------------------
+|this Route was made by Ibrahim to download (resume of ibrahim sadour through the butten)
+*/
 Route::get('/download', function () {
 
     $file = public_path()."/CV Ibrahim Sadour.docx";
@@ -37,15 +38,21 @@ Route::get('/download', function () {
     );
     return Response::download($file,"Cv Ibrahim Sadour.docx", $headers);
 })->name('Download_Cv');
-// =================================================================================
+/*=================================================================================*/
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour  voor (login system)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| download Routes
+|--------------------------------------------------------------------------
+|this Route was created by Ibrahim sadour for (login system)
+|'as' => '.auth', It's 'if' part of the second parameter defines the route name.
+| 'prefix' => '/auth' this to shorten my code so no need to type / auth at every rout.
+*/
 Route::group( [
-    'as' => '.auth', //Het is 'als'-gedeelte van de tweede parameter definieert de naam van de route.
-    'prefix' => '/auth' // deze om mijn code verkorter te maken dus niet nodig bij elke rout /auth te typen.
+    'as' => '.auth', 
+    'prefix' => '/auth'
 ],function() {
 
     // URL: /auth/login
@@ -78,39 +85,49 @@ Route::group( [
     Route::get('/logout', [AuthController::class, 'logout'])->name('.logout');
 
 });
-// =================================================================================
+ /*=================================================================================*/
 
 
 
-
-// =================================================================================
-// deze route om de informatie van  gebruiker op de site te laatzien
+/*=================================================================================
+|--------------------------------------------------------------------------
+| ShowString Routes
+|--------------------------------------------------------------------------
+|this route to display the user's information on the site
+*/
 Route::get('', 'ShowStringController\ShowStringController@show_string');
 Route::get('sadour', 'ShowStringController\ShowStringController@show_string');
-// ------------
+
 Route::post('', 'ShowStringController\ShowStringController@store')->name('sadour.create');
 Route::post('sadour', 'Contact\ContactController@create')->name('contact.create');
 
-// =================================================================================
+/* =================================================================================*/
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de informatie van de site gebruiker aan te passen
-// zoals ( name , description, keywords,date,Address,Email,Phone)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| admin Routes
+|--------------------------------------------------------------------------
+|this Route was made by Ibrahim sadour
+|such as (name, description, keywords, date, Address, Email, Phone)
+|edit the information of the site user
+*/
 Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names([
     'create' => 'auth.dashboard.admin.create',
     'edit' => 'auth.dashboard.admin.edit',
     'index' => 'auth.dashboard.admin',
     'show' =>'auth.dashboard.admin.show'
 ])->middleware('auth');
-// =================================================================================
+/* =================================================================================*/
 
-
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de ervaring informatie van de site gebruiker aan te passen
-// zoals ( company_name , place, period,description)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| experience Routes
+|--------------------------------------------------------------------------
+|this Route was made by Ibrahim sadour
+|customize the site user's experience information
+|like (company_name, place, period, description)
+*/
     Route::resource('/auth/dashboard/ervaring','Ervaring\ErvaringUsersController')->names([
         'create' => 'auth.dashboard.ervaing.create',
         'edit' => 'auth.dashboard.ervaring.edit',
@@ -118,26 +135,34 @@ Route::resource('/auth/dashboard/admin','Admin\AdminAddUsersController')->names(
         'show' =>'auth.dashboard.ervaring.show',
         'destroy'=>'auth.dashboard.ervaring.delete'
     ])->middleware('auth');
-// =================================================================================
+/* =================================================================================*/
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de Opleding informatie van de site gebruiker aan te passen
-// zoals ( education_name , place, period )
+/*=================================================================================
+|--------------------------------------------------------------------------
+| education Routes
+|--------------------------------------------------------------------------
+|this Route was made by Ibrahim sadour
+|change the training information of the site user
+|like (education_name, place, period)
+*/
 Route::resource('/auth/dashboard/opleiding','Opleiding\OpleidingUsersController')->names([
     'create' => 'auth.dashboard.opleiding.create',
     'edit' => 'auth.dashboard.opleiding.edit',
     'index' =>'auth.dashboard.opleiding',
     'show' =>'auth.dashboard.opleiding.show'
 ])->middleware('auth');
-// =================================================================================
+/* =================================================================================*/
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de Contact berichten van de site te laat zien
+/*=================================================================================
+|--------------------------------------------------------------------------
+| contact Routes
+|--------------------------------------------------------------------------
+|this Route was made by Ibrahim sadour
+|showing the Contact messages from the site
+*/
 Route::resource('/auth/dashboard/contact', 'Contact\ContactController')->names([
     'create' => 'auth.dashboard.contact.create',
     'edit' => 'auth.dashboard.contact.edit',
@@ -150,9 +175,13 @@ Route::resource('/auth/dashboard/contact', 'Contact\ContactController')->names([
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// hier kan jij informatie van de gebruiker aanpassen.
+/*=================================================================================
+|--------------------------------------------------------------------------
+| profile Routes
+|--------------------------------------------------------------------------
+this Route was made by Ibrahim sadour
+here you can edit information profile of the user.
+*/
 Route::resource('/auth/dashboard/profile', 'Profile\AvatarController')->names([
     'create' => 'auth.dashboard.profile.create',
     'edit' => 'auth.dashboard.profile.edit',
@@ -164,10 +193,13 @@ Route::post('/auth/dashboard/profile', 'Profile\AvatarController@store')->name('
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// hier kan jij een nieuw  admin of gebruiker of schrijver voor de site toevogen
-
+/*=================================================================================
+|--------------------------------------------------------------------------
+| profile Routes
+|--------------------------------------------------------------------------
+this Route was made by Ibrahim sadour
+here you can add a new admin or user or writer for the site
+*/
 Route::resource('/auth/dashboard/users', 'User_Management\SettingUsersController')->names([
     'create' => 'auth.dashboard.users.create',
     'edit' => 'auth.dashboard.users.edit',
@@ -178,9 +210,13 @@ Route::resource('/auth/dashboard/users', 'User_Management\SettingUsersController
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// hier kan jij een nieuw  roles voor de  gebruiker of schrijver van de site toevogen
+/*=================================================================================
+|--------------------------------------------------------------------------
+| roles Routes
+|--------------------------------------------------------------------------
+this Route was made by Ibrahim sadour
+here you can add new roles for the user or writer of the site
+*/
 Route::resource('/auth/dashboard/roles', 'User_Management\RoleController')->names([
     'create' => 'auth.dashboard.roles.create',
     'edit' => 'auth.dashboard.roles.edit',
@@ -191,9 +227,13 @@ Route::resource('/auth/dashboard/roles', 'User_Management\RoleController')->name
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// hier kan jij een nieuw  permission voor de  gebruiker of schrijver van de site toevogen
+/*=================================================================================
+|--------------------------------------------------------------------------
+| permission Routes
+|--------------------------------------------------------------------------
+this Route was made by Ibrahim sadour
+here you can add a new permission for the user or writer of the site
+*/
 Route::resource('/auth/dashboard/permission', 'User_Management\PermissionController')->names([
     'create' => 'auth.dashboard.permission.create',
     'edit' => 'auth.dashboard.permission.edit',
@@ -203,10 +243,14 @@ Route::resource('/auth/dashboard/permission', 'User_Management\PermissionControl
 
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de watikdoe informatie van de site gebruiker aan te passen
-// zoals ( title , description)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| watikdoe Routes
+|--------------------------------------------------------------------------
+this Route was made by Ibrahim sadour
+modify the site user's what I do information
+such as (title, description)
+*/
 Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names([
     'create' => 'auth.dashboard.watikdoe.create',
     'edit' => 'auth.dashboard.watikdoe.edit',
@@ -217,10 +261,14 @@ Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names
 // =================================================================================
 
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de hobbys informatie van de site gebruiker aan te passen
-// zoals ( title , description)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| hobbys Routes
+|--------------------------------------------------------------------------
+deze Route is gemaakt door Ibrahim sadour
+de hobbys informatie van de site gebruiker aan te passen
+zoals ( title , description)
+*/
 Route::resource('/auth/dashboard/hobbys','Hobbys\HobbysController')->names([
     'create' => 'auth.dashboard.hobbys.create',
     'edit' => 'auth.dashboard.hobbys.edit',
@@ -233,10 +281,14 @@ Route::resource('/auth/dashboard/hobbys','Hobbys\HobbysController')->names([
 ])->middleware('auth');
 // =================================================================================
 
-// =================================================================================
-// deze Route is gemaakt door Ibrahim sadour
-// de Sociaal contact informatie van de site gebruiker aan te passen
-// zoals ( facebook , instgraam, twitter,linkdin)
+/*=================================================================================
+|--------------------------------------------------------------------------
+| sociaal_contact Routes
+|--------------------------------------------------------------------------
+this Route was made by Ibrahim sadour
+modify the site user's social contact information
+such as (facebook, instgraam, twitter, linkdin)
+*/
 Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalController')->names([
     'create' => 'auth.dashboard.sociaal_contact.create',
     'edit' => 'auth.dashboard.sociaal_contact.edit',
@@ -249,24 +301,28 @@ Route::resource('/auth/dashboard/sociaal_contact','Sociaal_contact\SociaalContro
 ])->middleware('auth');
 // =================================================================================
 
-// =================================================================================
-// Calendar
+/*=================================================================================
+|--------------------------------------------------------------------------
+| calendar Routes
+|--------------------------------------------------------------------------
+this route to show the calendar
+*/
 Route::group(['middleware' => ['auth']], function () {
 
-    // deze route om het calendar te laat zien
+   
     Route::get('/auth/dashboard/calendar', function () {
 
-        // deze stukje om te cheken als de gebruiker ingelogd of nee
+        //this bit to check if the user is logged in or no
         if(Auth::check()){
             return view('pages.admin.Website_String.Calendar.index');
         }
 
-        // als de gebruiker niet ingelogd dan krijgt hij inlogen scherm
+        //if the user is not logged in, he will get the login screen
         return Redirect::to("/auth/login")->withSuccess('Opps! You do not have access');
     });
-    // deze om de niewuw event te tonen op de calendar
+    // this to show the new event on the calendar
     Route::get('index','Calendar\CalendarController@index')->name('allEvent');
-    // deze route om een nieuw event te toevoegen op de calendar
+    // this route to add a new event to the calendar
     Route::post('/auth/dashboard/calendar','Calendar\CalendarController@store')->name('calendar.store');
 
 
@@ -278,10 +334,14 @@ Route::group(['middleware' => ['auth']], function () {
 // =================================================================================
 
 
-// =================================================================================
-// Project Admin Pages
+/*=================================================================================
+|--------------------------------------------------------------------------
+| Project Routes
+|--------------------------------------------------------------------------
+get all project to show on home page
+*/
 Route::group( [
-    'prefix' => '/auth/dashboard/projects', // deze om mijn code verkorter te maken dus niet nodig bij elke rout
+    'prefix' => '/auth/dashboard/projects', 
     'middleware' => 'auth',
 ],function() {
 
@@ -292,14 +352,18 @@ Route::group( [
     Route::get('edit/{project_id}',[ProjectController::class, 'edit'])->name('ajax.project.edit');
     Route::post('update',[ProjectController::class, 'update'])->name('ajax.project.update');
     Route::get('show/{project_id}',[ProjectController::class, 'show'])->name('ajax.project.show');
-    // get all project to show on home page
 
 });
 // =================================================================================
 
-// Category Admin Pages
+/*=================================================================================
+|--------------------------------------------------------------------------
+| category Routes
+|--------------------------------------------------------------------------
+get all project to show on home page
+*/
 Route::group( [
-    'prefix' => '/auth/dashboard/category', // deze om mijn code verkorter te maken dus niet nodig bij elke rout
+    'prefix' => '/auth/dashboard/category', 
     'middleware' => 'auth',
 ],function() {
 
@@ -312,21 +376,30 @@ Route::group( [
     Route::post('update',[CategoryController::class, 'update'])->name('ajax.category.update');
     Route::get('show/{category_id}',[CategoryController::class, 'show'])->name('ajax.category.show');
 
-    // get all category to show on admin page
 
 });
 // =================================================================================
-// Project Sadour.nl Pages
+
+
+/*=================================================================================
+|--------------------------------------------------------------------------
+| Project Sadour.nl Pages
+|--------------------------------------------------------------------------
+get all project to show onsite
+*/
 Route::group( [
-    'prefix' => 'category' // deze om mijn code verkorter te maken dus niet nodig bij elke rout
+    'prefix' => 'category'
 ],function() {
 
-    // Route::get('',[ProjectController::class, 'getAllProject'])->name('git.all.category');
     Route::get('project/{project_id}',[ProjectController::class, 'getOneProject'])->name('git.one.project');
-
 });
 
-
+/*=================================================================================
+|--------------------------------------------------------------------------
+| categorys Sadour.nl Pages
+|--------------------------------------------------------------------------
+get all categorys to show onsite
+*/
 Route::group( [
     'prefix' => 'categorys' // deze om mijn code verkorter te maken dus niet nodig bij elke rout
 ],function() {
@@ -335,4 +408,4 @@ Route::group( [
     Route::get('{id}',[CategoryController::class, 'getOneCategory'])->name('git.one.category');
 
 });
-
+// =================================================================================

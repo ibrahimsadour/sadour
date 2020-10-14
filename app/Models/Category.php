@@ -25,7 +25,12 @@ class Category extends Model
     ################## Begin Relation #####################
 
    
-
+        
+        /**
+         * Projects
+         * ralation on to many with project tabel
+         * @return void
+         */
         public function Projects()
         {
             return $this->hasMany('App\Models\Projects', 'category_id','id');

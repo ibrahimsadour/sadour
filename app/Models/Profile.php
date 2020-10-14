@@ -22,7 +22,12 @@ class Profile extends Model
     protected $fillable = [
         'first_name', 'last_name','birthday','gender','email','phone','address','number','city','zip','user_id'
     ];
-
+    
+    /**
+     * user
+     * ralation on to one wirh the User tabel
+     * @return void
+     */
     public function user (){
 
         return $this->belongsTo(User::class);

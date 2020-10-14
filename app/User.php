@@ -43,11 +43,17 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
     ];
 
     // in your model
-
+    
+    /**
+     * registerMediaCollections
+     * @param addMediaCollection this code to add a new avatar.
+     * @param acceptsFile this function is for all type of JPEG sent.
+     * @return void
+     */
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('avatar'); // deze code om een nieuw avatar te toevoegen.
-            //  ->acceptsFile(function (File $file) { //deze functie is voor alle type JPEG wordt gesturd.
+        $this->addMediaCollection('avatar'); 
+            //  ->acceptsFile(function (File $file) { //
             //   return $file->mimeType === 'image/jpeg';
         
 
@@ -62,11 +68,21 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
         //     ->height(100);
         // });
     }
-
+    
+    /**
+     * avatar
+     *
+     * @return void
+     */
     public function avatar(){
         return $this ->hasOne(Media::class,'id','avatar_id');
     }
-
+    
+    /**
+     * getAvatarUrlAttribute
+     * @param $img_src1 to check if the user has avatar or not
+     * @return void
+     */
     public function getAvatarUrlAttribute () {
 
         
@@ -84,16 +100,26 @@ class User extends Authenticatable implements HasMedia , MustVerifyEmail
             return  asset('img/admin/user.png');
         }
 
-            // @dd($img_src);
-            //  return  $this->media[0]->getUrl();
         
     }
-    ################## Begin Relation       #####################
+    
+    ################## Begin Relation       #####################    
+    /**
+     * profile
+     * relation one to one 
+     * @return void
+     */
     public function profile (){
 
         return $this->hasOne(Models\Profile::class);
  
-    }
+    }    
+    /**
+     * calender
+     * relation one to one 
+     *
+     * @return void
+     */
     public function calender (){
 
         return $this->hasOne(Models\Calendar::class);
