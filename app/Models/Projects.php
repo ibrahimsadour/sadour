@@ -8,14 +8,14 @@ Use App\Models\Category;
 class Projects extends Model
 {
     /**
-     * The table associated with the model.
+     * @todo The table associated with the model.
      *
      * @var string
      */
     protected $table = 'projects';
 
     /**
-     * The attributes that are mass assignable.
+     * @todo The attributes that are mass assignable.
      *
      * @var array
      */
@@ -28,8 +28,8 @@ class Projects extends Model
 
     ################## Begin Relation  #####################    
     /**
-     * category
-     * realtion on to one with category
+     * @method category
+     * @todo realtion on to one with category
      * @return void
      */
     public function category ()

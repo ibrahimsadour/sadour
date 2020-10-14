@@ -30,7 +30,13 @@ class CalendarRequest  extends FormRequest
             'allDay'     =>  'required',
             'textColor' =>   'required'
         ];
-    }
+    }   
+     
+    /**
+     * messages
+     *@todo  the customize messages for the rules
+     * @return void
+     */
     public function messages()
     {
         return [

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class WatIkdoeRequest  extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * @todo Determine if the user is authorized to make this request.
      *
      * @return bool
      */
@@ -17,7 +17,7 @@ class WatIkdoeRequest  extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     *@todo Get the validation rules that apply to the request.
      *
      * @return array
      */
@@ -28,6 +28,12 @@ class WatIkdoeRequest  extends FormRequest
             'description'     =>  'required'
         ];
     }
+        
+    /**
+     * messages
+     *@todo  the customize messages for the rules
+     * @return void
+     */
     public function messages()
     {
         return [

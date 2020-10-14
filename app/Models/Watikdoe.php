@@ -12,15 +12,15 @@ class Watikdoe extends Model
 {
    
 
-     /**
-     * The table associated with the model.
+    /**
+     * @todo The table associated with the model.
      *
      * @var string
      */
     protected $table = 'wat_ik_doe';
 
     /**
-     * The attributes that are mass assignable.
+     * @todo The attributes that are mass assignable.
      *
      * @var array
      */

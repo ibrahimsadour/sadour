@@ -7,14 +7,14 @@ Use App\Models\Projects;
 class Category extends Model
 {
     /**
-     * The table associated with the model.
+     * @todo The table associated with the model.
      *
      * @var string
      */
     protected $table = 'category';
 
     /**
-     * The attributes that are mass assignable.
+     * @todo The attributes that are mass assignable.
      *
      * @var array
      */
@@ -27,8 +27,8 @@ class Category extends Model
    
         
         /**
-         * Projects
-         * ralation on to many with project tabel
+         * @method Projects
+         * @todo ralation on to many with project tabel
          * @return void
          */
         public function Projects()

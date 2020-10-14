@@ -8,14 +8,14 @@ class Profile extends Model
 {
     
      /**
-     * The table associated with the model.
+     * @var table table associated with the model.
      *
      * @var string
      */
     protected $table = 'profiles';
 
     /**
-     * The attributes that are mass assignable.
+     * @todo The attributes that are mass assignable.
      *
      * @var array
      */
@@ -24,8 +24,8 @@ class Profile extends Model
     ];
     
     /**
-     * user
-     * ralation on to one wirh the User tabel
+     * @method user
+     * @todo ralation on to one wirh the User tabel
      * @return void
      */
     public function user (){

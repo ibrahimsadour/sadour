@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calendar extends Model
 {
-        /**
-     * The table associated with the model.
+    /**
+     * @todo The table associated with the model.
      *
      * @var string
      */
     protected $table = 'calendars';
 
     /**
-     * The attributes that are mass assignable.
+     * @todoThe attributes that are mass assignable.
      *
      * @var array
      */
@@ -23,8 +23,8 @@ class Calendar extends Model
     ];
     
     /**
-     * user
-     * relation one to one with the User tabel
+     * @method user
+     * @todo relation one to one with the User tabel
      * @return void
      */
     public function user (){

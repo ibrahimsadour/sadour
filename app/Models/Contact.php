@@ -13,14 +13,14 @@ class Contact extends Model
    
 
      /**
-     * The table associated with the model.
+     * @todo The table associated with the model.
      *
      * @var string
      */
     protected $table = 'contact';
 
     /**
-     * The attributes that are mass assignable.
+     * @todo The attributes that are mass assignable.
      *
      * @var array
      */

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class SetiingUsersStoreRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * @todo Determine if the user is authorized to make this request.
      *
      * @return bool
      */
@@ -17,7 +17,7 @@ class SetiingUsersStoreRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * @todo Get the validation rules that apply to the request.
      *
      * @return array
      */
@@ -28,7 +28,12 @@ class SetiingUsersStoreRequest extends FormRequest
             'email'=>'required|email|unique:users',
             'password'=>'required|min:6|confirmed'
         ];
-    }
+    }    
+    /**
+     * messages
+     *@todo  the customize messages for the rules
+     * @return void
+     */
     public function messages()
     {
         return [
