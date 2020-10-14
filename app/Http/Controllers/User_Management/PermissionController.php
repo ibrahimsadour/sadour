@@ -25,8 +25,8 @@ class PermissionController extends Controller {
 
     /**
      * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
     public function __construct() {
@@ -59,11 +59,11 @@ class PermissionController extends Controller {
     }
 
     /**
-    * Store a newly created resource in storage.
-    * If one or more role is selected
-    * Match input role to db record
-    * Match input //permission to db record
-    * validation => PermissionRequest
+    * @todo Store a newly created resource in storage.
+    * @todo If one or more role is selected
+    * @todo Match input role to db record
+    * @todo Match input //permission to db record
+    * @method validation => PermissionRequest
     * @param  \Illuminate\Http\Request  $request
     * @return \Illuminate\Http\Response
     */
@@ -103,7 +103,7 @@ class PermissionController extends Controller {
     }
 
     /**
-    * Show the form for editing the specified resource.
+    * @todo Show the form for editing the specified resource.
     *
     * @param  int  $id
     * @return \Illuminate\Http\Response
@@ -117,7 +117,7 @@ class PermissionController extends Controller {
     }
 
     /**
-    * Update the specified resource in storage.
+    * @todo Update the specified resource in storage.
     *
     * @param  \Illuminate\Http\Request  $request
     * @param  int  $id
@@ -133,7 +133,7 @@ class PermissionController extends Controller {
     }
 
     /**
-    * Remove the specified resource from storage.
+    * @todo Remove the specified resource from storage.
     *
     * @param  int  $id
     * @return \Illuminate\Http\Response

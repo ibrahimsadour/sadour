@@ -14,8 +14,8 @@ class SociaalController extends Controller
 
     /**
      * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */ 
     public function __construct() {
@@ -38,7 +38,7 @@ class SociaalController extends Controller
     }   
         
     /**
-     * show
+     * @method  show
      *
      * @param  mixed $id
      * @return void
@@ -49,7 +49,7 @@ class SociaalController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @todo Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -60,8 +60,8 @@ class SociaalController extends Controller
     
     /**
      * store
-     * to insert new social links to database
-     * validation=>SociaalRequest
+     * @todo to insert new social links to database
+     * @todo validation=>SociaalRequest
      * @param  mixed $request
      * @return void
      */
@@ -82,7 +82,7 @@ class SociaalController extends Controller
        
     /**
      * edit
-     * to show edit form
+     * @todo show edit form
      * @param  mixed $id
      * @return void
      */
@@ -96,10 +96,10 @@ class SociaalController extends Controller
     }
         
     /**
-     * update
-     * to edit the current social links
-     * @param  mixed $request
-     * @param  mixed $id
+     * @method update
+     * @todo to edit the current social links
+     * @var  mixed $request
+     * @var  mixed $id
      * @return void
      */
     public function update(SociaalRequest $request, $id)
@@ -119,9 +119,9 @@ class SociaalController extends Controller
     }
        
     /**
-     * destroy
-     * to remove current social links
-     * @param  mixed $id
+     * @method destroy
+     * @todo to remove current social links
+     * @var  mixed $id
      * @return void
      */
     public function destroy($id)

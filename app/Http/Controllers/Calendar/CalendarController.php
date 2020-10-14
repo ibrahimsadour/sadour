@@ -15,8 +15,8 @@ class CalendarController extends Controller
     
     /**
      * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     *@todo with this function only the index method page should be shown for normal user
+     *@todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
     public function __construct() {
@@ -39,7 +39,7 @@ class CalendarController extends Controller
     
     /**
      * show
-     * to show user events in the page (Allevents)
+     * @todo to show user events in the page (Allevents)
      * @return void
      */
     public function show()
@@ -58,7 +58,7 @@ class CalendarController extends Controller
     
     /**
      * store
-     * to insert new event to datebase
+     * @todo to insert new event to datebase
      * @param  mixed $request
      * @return void
      */
@@ -122,7 +122,7 @@ class CalendarController extends Controller
     
 
     /**
-     * Remove the specified resource from storage.
+     * @todo Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

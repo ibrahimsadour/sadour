@@ -14,9 +14,9 @@ class WatIkDoeController extends Controller
 
 
     /**
-     * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @method __construct 
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
 
@@ -26,7 +26,7 @@ class WatIkDoeController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * @todo Display a listing of the resource.
      * @param Watikdoe get all array waht i doe
      * @return \Illuminate\Http\Response
      */
@@ -41,7 +41,7 @@ class WatIkDoeController extends Controller
     }   
         
     /**
-     * show
+     * @method show
      *
      * @param  mixed $website_watikdoe return one itmes
      * @return void
@@ -53,15 +53,21 @@ class WatIkDoeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     * to inser the new info to database
+     * @todo Show the form for creating a new resource.
+     *  @todo to inser the new info to database
      * @return \Illuminate\Http\redirect
      */
     public function create()
     {
         return view('pages.admin.Website_String.WatIkDoe.Add');
     }
-
+    
+    /**
+     * store
+     *@todo to inser data
+     * @param  mixed $request
+     * @return void
+     */
     public function store(WatIkdoeRequest $request)
     {
 
@@ -74,8 +80,8 @@ class WatIkDoeController extends Controller
     }
        
     /**
-     * edit
-     * @return to show edit form
+     * @method edit
+     * @todo  show edit form
      * @param  mixed $id
      * @return void
      */
@@ -88,7 +94,7 @@ class WatIkDoeController extends Controller
     }    
     /**
      * update
-     * to edit the info
+     * @todo to edit the info
      * @param  mixed $request
      * @param  mixed $id
      * @return void
@@ -109,7 +115,7 @@ class WatIkDoeController extends Controller
     
     /**
      * destroy
-     * to delet the info
+     * @todo to delet the info
      * @param  mixed $id
      * @return void
      */
@@ -128,7 +134,5 @@ class WatIkDoeController extends Controller
         }
 
     }
-   
-
 
 }

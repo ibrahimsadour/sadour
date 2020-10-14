@@ -17,8 +17,8 @@ class ErvaringUsersController extends Controller
 
     /**
      * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo  isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
     public function __construct() {
@@ -45,7 +45,7 @@ class ErvaringUsersController extends Controller
         
     /**
      * show 
-     * to show one experince in the page
+     *@todo  to show one experince in the page
      *
      * @param  mixed $id
      * @return void
@@ -68,8 +68,8 @@ class ErvaringUsersController extends Controller
     
     /**
      * store
-     * Valedtion =>ErvaringRequest
-     * to insert new experience to datebase
+     * @method Valedtion =>ErvaringRequest
+     * @todo to insert new experience to datebase
      * @param  mixed $request
      * @return void
      */
@@ -89,7 +89,7 @@ class ErvaringUsersController extends Controller
        
     /**
      * edit 
-     * to show edit form
+     * @todo to show edit form
      *
      * @param  mixed $id
      * @return void
@@ -103,7 +103,7 @@ class ErvaringUsersController extends Controller
         
     /**
      * update
-     * to edit the experience
+     * @todo to edit the experience
      * @param  mixed $request
      * @param  mixed $id
      * @return void
@@ -124,8 +124,8 @@ class ErvaringUsersController extends Controller
     }
     
     /**
-     * destroy
-     * to remove experience
+     * @method destroy
+     * @todo to remove experience
      * @param  mixed $id
      * @return void
      */

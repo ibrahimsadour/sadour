@@ -24,8 +24,8 @@ class RoleController extends Controller {
 
     /**
      * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
     public function __construct() {
@@ -45,7 +45,7 @@ class RoleController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @todo Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -57,9 +57,9 @@ class RoleController extends Controller {
     }
 
     /**
-     * Store a newly created resource in storage.
-     * @foreach Looping thru selected permissions
-     * Fetch the newly created role and assign permission
+     * @todo Store a newly created resource in storage.
+     * @todo  foreach Looping thru selected permissions
+     * @todo Fetch the newly created role and assign permission
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -85,7 +85,7 @@ class RoleController extends Controller {
     }
 
     /**
-     * Display the specified resource.
+     * @todo Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -95,7 +95,7 @@ class RoleController extends Controller {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @todo Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -108,9 +108,9 @@ class RoleController extends Controller {
     }
 
     /**
-     * Update the specified resource in storage.
-     * @param $role Get role with the given id
-     * @param $p_all Get all permissions
+     * @todo Update the specified resource in storage.
+     * @var  $role Get role with the given id
+     * @var $p_all Get all permissions
      * @param revokePermissionTo Remove all permissions associated with role
      * @param $p Get corresponding form //permission in db
      * @param givePermissionTo Assign permission to role
@@ -141,7 +141,7 @@ class RoleController extends Controller {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @todo Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

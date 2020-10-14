@@ -14,9 +14,9 @@ class ContactController extends Controller
     
     
     /**
-     * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @method __construct 
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
     public function __construct() {
@@ -24,6 +24,7 @@ class ContactController extends Controller
     }
 
     /**
+     * @method index
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -39,9 +40,9 @@ class ContactController extends Controller
         
     /**
      * show
-     *  to show one message on the dashboard
+     * @todo to show one message on the dashboard
      *
-     * @param  mixed $id
+     * @var  mixed $id
      * @return void
      */
     public function show($id)
@@ -54,8 +55,8 @@ class ContactController extends Controller
     
     /**
      * create
-     * Valedtion => ContactRequest
-     * this  to insert new message to database 
+     * @todo Valedtion => ContactRequest
+     * @todo this  to insert new message to database 
      * @param  mixed $request
      * @return void
      */
@@ -78,7 +79,7 @@ class ContactController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
+     * @todo Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

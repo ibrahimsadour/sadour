@@ -13,9 +13,9 @@ class HobbysController extends Controller
 {
 
     /**
-     * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @method __construct 
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
     public function __construct() {
@@ -37,7 +37,8 @@ class HobbysController extends Controller
     }   
         
     /**
-     * show to show on hobby
+     * @method show
+     * @todo show to show on hobby
      *
      * @param  mixed $id
      * @return void
@@ -49,7 +50,8 @@ class HobbysController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @method create
+     * @todo Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -59,9 +61,9 @@ class HobbysController extends Controller
     }
     
     /**
-     * store
-     * validation => HobbysRequest
-     * to inser new hobby to datebase
+     * @method store
+     * @method validation => HobbysRequest
+     * @todo to inser new hobby to datebase
      * @param  mixed $request
      * @return void
      */
@@ -76,8 +78,8 @@ class HobbysController extends Controller
     }
        
     /**
-     * edit
-     * to show edit form
+     * @method edit
+     * @todo to show edit form
      * @param  mixed $id
      * @return void
      */
@@ -91,8 +93,8 @@ class HobbysController extends Controller
 
     }    
     /**
-     * update
-     * to edit the hobby
+     * @method update
+     * @todo to edit the hobby
      * @param  mixed $request
      * @param  mixed $id
      * @return void
@@ -107,8 +109,8 @@ class HobbysController extends Controller
     }
     
     /**
-     * destroy
-     * to remove the hobby
+     * @method destroy
+     * @todo to remove the hobby
      *
      * @param  mixed $id
      * @return void

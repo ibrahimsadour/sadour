@@ -15,9 +15,9 @@ class OpleidingUsersController extends Controller
 
 
     /**
-     * __construct 
-     * with this function only the index method page should be shown for normal user
-     * isAdmin middleware lets only users with a //specific permission permission to access these resources
+     * @method __construct 
+     * @todo with this function only the index method page should be shown for normal user
+     * @todo isAdmin middleware lets only users with a //specific permission permission to access these resources
      * @return void
      */
 
@@ -41,8 +41,8 @@ class OpleidingUsersController extends Controller
     }   
         
     /**
-     * show
-     * to show on eduction
+     * @method show
+     * @todo to show on eduction
      * @param  mixed $id
      * @return void
      */
@@ -53,7 +53,7 @@ class OpleidingUsersController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @todo Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -63,8 +63,8 @@ class OpleidingUsersController extends Controller
     }
     
     /**
-     * store
-     * validation => OpleidingRequest
+     * @method store
+     * @method validation => OpleidingRequest
      * @param  mixed $request
      * @return void
      */
@@ -88,8 +88,8 @@ class OpleidingUsersController extends Controller
     }
        
     /**
-     * edit
-     * to show edit form
+     * @method edit
+     * @todo to show edit form
      * @param  mixed $id
      * @return void
      */
@@ -100,8 +100,8 @@ class OpleidingUsersController extends Controller
     }    
 
     /**
-     * update
-     * to edit the eduction
+     * @method update
+     * @todo to edit the eduction
      * @param  mixed $request
      * @param  mixed $id
      * @return void
@@ -129,8 +129,8 @@ class OpleidingUsersController extends Controller
     }
        
     /**
-     * destroy
-     * to remove the eduction
+     * @method destroy
+     * @todo to remove the eduction
      * @param  mixed $id
      * @return void
      */
