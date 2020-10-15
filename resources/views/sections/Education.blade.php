@@ -1,6 +1,6 @@
 <!--Education Sec-->
 <section id="education_sec" class="education-sec sec-pad-top-sm">
-    <h2 class="mb-30">Opleiding</h2>
+    <h2 class="mb-30">@lang('site.education')</h2>
     <div class="timeline-wrap overflow-hide mb-30">
         <ul class="timeline">
             <li>

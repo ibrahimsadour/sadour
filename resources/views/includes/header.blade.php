@@ -25,13 +25,13 @@
                 </span></a>
                 <div class="mdl-layout-spacer"></div>
                 <ul class="nav mdl-navigation mdl-layout--large-screen-only">
-                    <li><a class="mdl-navigation__link" data-scroll href="#body">over</a></li>
-                    <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">vaardigheden</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#body">@lang('site.about')</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">@lang('site.skills')</a></li>
                     <!-- <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">portefeuille</a></li> -->
-                    <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">ervaring</a></li>
-                    <li><a class="mdl-navigation__link" data-scroll href="#education_sec">opleiding</a></li>
-                    <li><a class="mdl-navigation__link" data-scroll href="#projecten_sec">Projecten</a></li>
-                    <li><a class="mdl-navigation__link" data-scroll href="#contact_sec">contact</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">@lang('site.experience')</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#education_sec">@lang('site.education')</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#projecten_sec">@lang('site.projects')</a></li>
+                    <li><a class="mdl-navigation__link" data-scroll href="#contact_sec">@lang('site.contact')</a></li>
                 </ul>
                 <!-- Right aligned menu below button -->
                 <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon ver-more-btn">
@@ -55,8 +55,8 @@
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                     data-mdl-for="demo-menu-lower-right_language">
 
-                    <li class="mdl-menu__item"><a href="#">EN</a></li>
-                    <li class="mdl-menu__item"><a href="#">NL</a></li>
+                    <li class="mdl-menu__item"><a href="lang/en">EN</a></li>
+                    <li class="mdl-menu__item"><a href="lang/nl">NL</a></li>
                     <li class="mdl-menu__item"><a href="#">AR</a></li>
                     
                 </ul>

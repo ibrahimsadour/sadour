@@ -22,30 +22,30 @@
                         </div>
                         <ul class="profile-wrap mt-50">
                             <li >
-                                <div class="profile-title">leeftijd</div>
+                                <div class="profile-title">@lang('site.age')</div>
                                 <div class="profile-desc"><?php $curent_year= date("Y"); $year=1995; echo $curent_year - $year; ?></div>
                             </li>
                             <li>
-                                <div class="profile-title">adres</div>
+                                <div class="profile-title">@lang('site.address')</div>
                                 <div class="profile-desc">
                                     <p> {{$strings ->Address}}</p>
                                 </div>
                             </li>
                             <li>
-                                <div class="profile-title">email</div>
+                                <div class="profile-title">@lang('site.email')</div>
                                 <div class="profile-desc">
                                 {{$strings ->Email}}
                                 </div>
                             </li>
                             <li>
-                                <div class="profile-title">phone</div>
+                                <div class="profile-title">@lang('site.phone')</div>
                                 <div class="profile-desc">
                                 {{$strings ->Phone}}
                                 </div>
                             </li>
                             <li>
-                                <div class="profile-title">freelance</div>
-                                <div class="profile-desc relative">Available
+                                <div class="profile-title">@lang('site.freelance')</div>
+                                <div class="profile-desc relative">@lang('site.Available')
                                     <i id="datepickopn" class="zmdi zmdi-calendar-check font-green pl-5"></i>
                                     <div id='datepicker1' class='datepicker'></div>
                                 </div>

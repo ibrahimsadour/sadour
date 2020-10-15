@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 Auth::routes(['verify' =>true]);
-define('PAGINATION_COUNT',10); // aantale items die op een pagina wordt getoond voor de heel website
 use App\Http\Controllers\Projects\ProjectController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Localization\LocalizationController;
 
 /**
 *--------------------------------------------------------------------------
@@ -24,6 +24,18 @@ use App\Http\Controllers\Category\CategoryController;
 
 
 
+
+
+// Route::group(['middleware' => 'Localization'], function () {
+
+//     Route::get('local/{locale}',[LocalizationController::class, 'index'] );
+
+//     Route::get('/home', function () {
+
+//         return view('home');
+//     });
+    
+// });
 /**
 *--------------------------------------------------------------------------
 * download Routes
@@ -95,11 +107,19 @@ Route::group( [
 *--------------------------------------------------------------------------
 *@todo this route to display the user's information on the site
 */
-Route::get('', 'ShowStringController\ShowStringController@show_string');
-Route::get('sadour', 'ShowStringController\ShowStringController@show_string');
+Route::group(['middleware' => 'Localization'], function () {
 
-Route::post('', 'ShowStringController\ShowStringController@store')->name('sadour.create');
-Route::post('sadour', 'Contact\ContactController@create')->name('contact.create');
+    // Lang route
+    Route::get('lang/{lang}',[LocalizationController::class, 'index'] );
+
+    Route::get('', 'ShowStringController\ShowStringController@show_string');
+    Route::get('sadour', 'ShowStringController\ShowStringController@show_string');
+    
+    Route::post('', 'ShowStringController\ShowStringController@store')->name('sadour.create');
+    Route::post('sadour', 'Contact\ContactController@create')->name('contact.create');
+    
+});
+
 
 /* =================================================================================*/
 

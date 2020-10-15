@@ -1,6 +1,6 @@
 <!--Hobby's Sec-->
 <section id="interest_sec" class="interest-sec sec-pad-top-sm">
-    <h2 class="mb-30">Hobby's</h2>
+    <h2 class="mb-30">@lang('site.Hobbies')</h2>
     <div class="row">
         <div class="col-md-2 col-sm-4 col-xs-6 mb-30">
             <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30">

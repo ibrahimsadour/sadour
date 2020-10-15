@@ -7,7 +7,7 @@
     <div class="row">
         <div id="form_card_height" class="col-sm-7 mb-30">
             <div  class="mdl-card mdl-shadow--2dp" data-ng-controller="ContactController">
-                <h4 class="mb-10 font-unsetcase">Hey <span  data-ng-bind="formData.inputName||'Daar'">Daar</span>, blij om van je te horen.</h4>
+                <h4 class="mb-10 font-unsetcase">Hey Daar, blij om van je te horen.</h4>
                 @if(count($errors) > 0)
                     <div class="alert alert-danger">
                         <ul>

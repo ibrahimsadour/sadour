@@ -1,6 +1,6 @@
 <!--Profile Sec-->
 <section id="profile_sec" class="profile-sec sec-pad-top-sm">
-    <h2 class="mb-30">Wat ik doe</h2>
+    <h2 class="mb-30">@lang('site.services')</h2>
     <div class="row">
         @foreach($website_watikdoe as $watikdoe)
         @if($watikdoe ->id == 1)

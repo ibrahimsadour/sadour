@@ -1,6 +1,6 @@
 <!--Experience Sec-->
 <section id="experience_sec" class="experience-sec sec-pad-top-sm">
-    <h2 class="mb-30">Ervaring</h2>
+    <h2 class="mb-30">@lang('site.experience')</h2>
     <div class="timeline-wrap  overflow-hide mb-30">
         <ul class="timeline">
             @foreach($ervaring_strings as $ervaring)

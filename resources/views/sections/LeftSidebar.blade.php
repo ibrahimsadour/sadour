@@ -15,39 +15,39 @@
                 <li>
                     <a class="mdl-navigation__link border-top-sep" data-scroll href="#body">
                         <i class="zmdi zmdi-border-color pr-15"></i>
-                        <span class="font-capitalize">over</span>
+                        <span class="font-capitalize">@lang('site.about')</span>
                     </a>
                 </li>	
                 <li>
                     <a class="mdl-navigation__link border-top-sep" data-scroll href="#skills_sec">
                         <i class="zmdi zmdi-cutlery pr-15"></i>
-                        <span class="font-capitalize">vaardigheden</span>
+                        <span class="font-capitalize">@lang('site.skills')</span>
                     </a>
                 </li>
                 <li>
                     <a class="mdl-navigation__link border-top-sep" data-scroll href="#experience_sec">
                         <i class="zmdi zmdi-shield-check pr-15"></i>
-                        <span class="font-capitalize">ervaring</span>
+                        <span class="font-capitalize">@lang('site.experience')</span>
                     </a>
                 </li>	
                 <li>
                     <a class="mdl-navigation__link border-top-sep" data-scroll href="#education_sec">
                         <i class="zmdi zmdi-library pr-15"></i>
-                        <span class="font-capitalize">opleiding</span>
+                        <span class="font-capitalize">@lang('site.education')</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="mdl-navigation__link border-top-sep" data-scroll href="#projecten_sec">
                         <i class="zmdi zmdi-folder-outline pr-15"></i>
-                        <span class="font-capitalize">Projecten</span>
+                        <span class="font-capitalize">@lang('site.projects')</span>
                     </a>
                 </li>	
                 
                 <li>
                     <a class="mdl-navigation__link border-top-sep border-bottom-sep" 	data-scroll  href="#contact_sec">
                         <i class="zmdi zmdi-email pr-15"></i>
-                        <span class="font-capitalize">contact</span>
+                        <span class="font-capitalize">@lang('site.contact')</span>
                     </a>
                 </li>	
             </ul>

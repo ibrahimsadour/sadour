@@ -22,7 +22,7 @@
 }
 </style>
 <section id="projecten_sec" class="portfolio-sec sec-pad-top-sm">
-<h2 class="mb-30">projecten</h2>
+<h2 class="mb-30">@lang('site.projects')</h2>
     <div class="gallery-wrap mb-30">
         <div class="portfolio-wrap project-gallery">
             <ul id="portfolio" class="portf auto-construct  project-gallery" data-col="3">
