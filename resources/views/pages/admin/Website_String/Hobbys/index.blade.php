@@ -75,43 +75,43 @@
                                     </thead>
                                     <tbody>
                                         <!-- Item -->
-                                        
-                                        @foreach($hobbies as $row)
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="font-weight-bold">
-                                                    {{$row['id']}}
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <span class="font-weight-normal">{{$row['name']}}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="font-weight-normal">{{get_default_lang()}}</span>
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="icon icon-sm">
-                                                                <span class="fas fa-ellipsis-h icon-dark"></span>
-                                                            </span>
-                                                            <span class="sr-only">Toggle Dropdown</span>
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="{{route('admin.hobbys.show',$row -> id)}}"><span class="fas fa-eye mr-2"></span>View Details</a>
-                                                            @hasanyrole('Editor|Admin')
-                                                            <a class="dropdown-item" href="{{route('admin.hobbys.edit',$row -> id)}}"><span class="fas fa-edit mr-2"></span>Edit</a>
-                                                            @endhasanyrole
+                                        @isset($hobbies)
+                                            @foreach($hobbies as $row)
+                                                <tr>
+                                                    <td>
+                                                        <a href="#" class="font-weight-bold">
+                                                        {{$row['id']}}
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <span class="font-weight-normal">{{$row['name']}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="font-weight-normal">{{get_default_lang()}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <span class="icon icon-sm">
+                                                                    <span class="fas fa-ellipsis-h icon-dark"></span>
+                                                                </span>
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="{{route('admin.hobbys.show',$row -> id)}}"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                                @hasanyrole('Editor|Admin')
+                                                                <a class="dropdown-item" href="{{route('admin.hobbys.edit',$row -> id)}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                                @endhasanyrole
 
-                                                            @role('Admin')
-                                                            <a class="dropdown-item" href="{{route('admin.hobbys.delete',$row -> id)}}"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
-                                                            @endrole
+                                                                @role('Admin')
+                                                                <a class="dropdown-item" href="{{route('admin.hobbys.delete',$row -> id)}}"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                                @endrole
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endisset
                                     </tbody>
                                 </table>
 
