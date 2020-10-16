@@ -29,5 +29,6 @@ class LanguagesSeeder extends Seeder
             ]      
 
         ]);
+        
     }
 }
