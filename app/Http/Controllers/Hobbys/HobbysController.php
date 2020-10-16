@@ -172,9 +172,9 @@ class HobbysController extends Controller
         ->find($id);
         // return $hobbies;
         if (!$hobbies)
-        return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
+            return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
 
-        return view('pages.admin.Website_String.hobbys.edit', compact('hobbies'));
+        return view('pages.admin.Website_String.Hobbys.edit', compact('hobbies'));
     
 
     }    
