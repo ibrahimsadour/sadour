@@ -12,12 +12,6 @@ class HobbysSeeder extends Seeder
      */
     public function run()
     {
-        Hobbys::create(['name' => 'Muziek']);
-        Hobbys::create(['name' => 'Gaming']);
-        Hobbys::create(['name' => 'Photography']);
-        Hobbys::create(['name' => 'Lezen']);
-        Hobbys::create(['name' => 'Reizen']);
-        Hobbys::create(['name' => 'Sport']);
 
         DB::table('hobbys')->insert([
             [
