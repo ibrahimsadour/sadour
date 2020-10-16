@@ -24,22 +24,12 @@ class HobbysRequest  extends FormRequest
     public function rules()
     {
         return [
-            'name'    =>  'required'
+            'hobby' => 'required|array|min:1',
+            'hobby.*.name' => 'required',
+            'hobby.*.abbr' => 'required',
         ];
     }
         
-    /**
-     * messages
-     *@todo  the customize messages for the rules
-     * @return void
-     */
-    public function messages()
-    {
-        return [
 
-            'name.required'=>'De name van de hobby is niet ingevuld'
-            
-        ];
-    }
 }
 

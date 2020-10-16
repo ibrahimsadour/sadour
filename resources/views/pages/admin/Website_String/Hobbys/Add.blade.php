@@ -73,12 +73,76 @@
                                         </div>
                                         @endif
 
-                                        <form method="post" action="{{url('auth/dashboard/hobbys')}}">
+                                        <form method="post" action="{{route('admin.hobbys.store')}}">
                                             {{csrf_field()}}
-                                            <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Name Hobbys" required />
-                                            </div>
+                                            @if(get_languages() -> count() > 0)
+                                                @foreach(get_languages() as $index => $lang)
 
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> hobby name - {{__('messages.'.$lang -> abbr)}} </label>
+                                                            <input type="text" value="" id="name"
+                                                                    class="form-control"
+                                                                    placeholder="  "
+                                                                    name="hobby[{{$index}}][name]">
+                                                            @error("hobby.$index.name")
+                                                            <span class="text-danger"> This field is required (Name)</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> Slug - {{__('messages.'.$lang -> abbr)}}
+                                                            </label>
+                                                            <input type="text" id="name"
+                                                                    class="form-control"
+                                                                    placeholder="  "
+                                                                    value="{{old('slug')}}"
+                                                                    name="hobby[{{$index}}][slug]">
+                                                            @error("hobby.$index.name")
+                                                            <span class="text-danger"> This field is required (Slug)</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-6 hidden">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> Language abbreviation {{__('messages.'.$lang -> abbr)}} </label>
+                                                            <input type="text" id="abbr"
+                                                                    class="form-control"
+                                                                    placeholder="  "
+                                                                    value="{{$lang -> abbr}}"
+                                                                    name="hobby[{{$index}}][abbr]">
+
+                                                            @error("hobby.$index.abbr")
+                                                            <span class="text-danger">This field is required (abbr)</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group mt-1">
+                                                                <input type="checkbox" value="1"
+                                                                        name="hobby[{{$index}}][active]"
+                                                                        id="switcheryColor4"
+                                                                        class="switchery" data-color="success"
+                                                                        checked/>
+                                                                <label for="switcheryColor4"
+                                                                        class="card-title ml-1">ststus  {{__('messages.'.$lang -> abbr)}} </label>
+
+                                                                @error("hobby.$index.active")
+                                                                <span class="text-danger"> </span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @endif
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-primary" />
                                             </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Hobbys extends Migration
+class Languages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Hobbys extends Migration
      */
     public function up()
     {
-        Schema::create('hobbys', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('abbr');
+            $table->string('locale')->nullable();
             $table->string('name');
-            $table->string('slug')->nullable();;
-            $table->string('translation_lang');
-            $table->integer('translation_of')->unsigned();;
+            $table->string('direction');
             $table->tinyInteger('active')
             ->comment('1 => show the product on the site, 0 => donot show the product on the site')->default('1');
             $table->timestamps();
@@ -32,7 +32,6 @@ class Hobbys extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hobbys');
-
+        Schema::dropIfExists('languages');
     }
 }

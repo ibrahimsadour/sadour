@@ -25,7 +25,28 @@ class Hobbys extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name','translation_lang','translation_of','slug','active'
     ];
+        
+    /**
+     * scopeSelection
+     *@todo this function to select some items from the database.
+     * @param  mixed $query
+     * @return void
+     */
+    public function scopeSelection($query)
+    {
 
+        return $query->select('id', 'translation_lang', 'name','translation_of','slug','active');
+    }
+    public function scopeDefaultHobby($query){
+        return  $query -> where('translation_of',0);
+    }
+
+
+    // get all translation Hobbies
+    public function Hobbies()
+    {
+        return $this->hasMany(self::class, 'translation_of');
+    }
 }

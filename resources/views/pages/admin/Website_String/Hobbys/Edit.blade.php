@@ -41,35 +41,99 @@ label {
                                 @include('pages.admin.Website_String.includes.Admin_header')
                                 <!--/Setting-->
 
-                                   <div class="row">
-                                          <div class="col-md-12" style="max-width: 50%;">
-                                                 <br />
-                                                 <h3>Edit all text of the Site</h3>
-                                                 <br />
-                                                 
-                                                 @if(count($errors) > 0)
-                                                 <div class="alert alert-danger">
-                                                        <ul>
-                                                        @foreach($errors->all() as $error)
-                                                        <li>{{$error}}</li>
-                                                        @endforeach
-                                                        </ul>
-                                                 </div>
-                                                 @endif
+                                <div class="row">
+                                    <div class="col-md-12" style="max-width: 50%;">
+                                            <br />
+                                            <h3>Edit all text of the Site</h3>
+                                            <br />
+                                            
+                                            @if(count($errors) > 0)
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                @foreach($errors->all() as $error)
+                                                <li>{{$error}}</li>
+                                                @endforeach
+                                                </ul>
+                                            </div>
+                                            @endif
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-primary"
+                                                        onclick="history.back();">
+                                                        <i class="fas fa-backward"></i> back
+                                                </button>
+                                            </div>
+                                            <br>
+                                        <form method="post" action="{{route('admin.hobbys.update',$hobbies -> id)}}">
+                                            {{csrf_field()}}
 
-                                                 <form method="post" action="{{route('hobbys.update',[$website_hobbys->id])}}">
-                                                        {{csrf_field()}}
-                                                        {{ method_field('PATCH') }}
-                                                        <div class="form-group">
-                                                        <label for="name">Name </label>
-                                                        <input type="text" name="name" class="form-control" value="{{$website_hobbys->name}}" placeholder="Enter name" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                        <input type="submit" class="btn btn-primary" value="Edit" />
-                                                        </div>
-                                                 </form>
-                                          </div>
-                                   </div>
+                                            <input name="id" value="{{$hobbies -> id}}" type="hidden">
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> hobby name  - {{__('messages.'.$hobbies -> translation_lang)}} </label>
+                                                        <input type="text" value="{{$hobbies -> name}}" id="name"
+                                                                class="form-control"
+                                                                name="hobby[0][name]">
+                                                        @error("hobby.0.name")
+                                                        <span class="text-danger"> This field is required (Name)</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> Slug - {{__('messages.'.$hobbies -> translation_lang)}} </label>
+                                                        <input type="text" value="{{$hobbies -> slug}}" id="name"
+                                                                class="form-control"
+                                                                name="hobby[0][slug]">
+                                                        @error("hobby.0.name")
+                                                        <span class="text-danger"> This field is required (Slug)</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-6 hidden">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> Language abbreviation  {{__('messages.'.$hobbies -> translation_lang)}} </label>
+                                                        <input type="text" id="abbr"
+                                                                class="form-control"
+                                                                placeholder="  "
+                                                                value="{{$hobbies -> translation_lang}}"
+                                                                name="hobby[0][abbr]">
+
+                                                        @error("hobby.0.abbr")
+                                                        <span class="text-danger">This field is required (abbr)</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group mt-1">
+                                                        <input type="checkbox" value="1"
+                                                                name="hobby[0][active]"
+                                                                id="switcheryColor4"
+                                                                class="switchery" data-color="success"
+                                                                @if($hobbies -> active == 1)checked @endif/>
+                                                        <label for="switcheryColor4"
+                                                                class="card-title ml-1">status {{__('messages.'.$hobbies -> translation_lang)}} </label>
+
+                                                        @error("hobby.0.active")
+                                                        <span class="text-danger"> </span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="submit"  value="Update"class="btn btn-primary" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->

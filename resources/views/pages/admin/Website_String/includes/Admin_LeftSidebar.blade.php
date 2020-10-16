@@ -23,6 +23,12 @@
             <span>Dashboard</span>
           </a>
         </li>
+        <li class="{{ Request::is('auth/dashboard/languages') ? 'nav-item active' : '' }}">
+          <a href="{{route('admin.languages')}}" class="nav-link">
+              <span class="sidebar-icon"><span class="fas fa-globe"></span></span>
+              <span>Site languages</span>
+          </a>
+        </li>
         <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-pages">
             <span>

@@ -8,6 +8,7 @@ use Validator,Redirect,Response,Session;
 Use App\User;
 Use App\Models\Ervaring;
 Use App\Models\Contact;
+Use App\Models\Hobbys;
 Use App\Models\Sociaal_Contact;
 
 class ShowStringController extends Controller
@@ -31,7 +32,10 @@ class ShowStringController extends Controller
 
     $website_watikdoe = DB::select('select * from wat_ik_doe ');
 
-    $website_hobbys = DB::select('select * from  hobbys');
+    $default_lang = get_default_lang();
+    $website_hobbys = Hobbys::where('translation_lang', $default_lang)
+        ->selection()
+        ->get();
 
     $website_sociaal_contact = DB::select('select * from  sociaal_contact');
 
@@ -41,6 +45,7 @@ class ShowStringController extends Controller
       'ervaring_strings'=>$ervaring_strings,
       'website_watikdoe'=>$website_watikdoe,
       'website_hobbys'=>$website_hobbys,
+      'default_lang' =>$default_lang ,
       'website_sociaal_contact'=>$website_sociaal_contact
     ]);
   }

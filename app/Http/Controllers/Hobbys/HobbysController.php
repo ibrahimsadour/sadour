@@ -28,10 +28,12 @@ class HobbysController extends Controller
      */
     public function index()
     {
-        
-        $website_hobbyse= Hobbys::all()->toArray();
-
-        return view('pages.admin.Website_String.Hobbys.AlleTexten', compact('website_hobbyse'));
+        $default_lang = get_default_lang();
+        $hobbies = Hobbys::where('translation_lang', $default_lang)
+            ->selection()
+            ->get();
+            // return$hobbies;
+        return view('pages.admin.Website_String.Hobbys.index', compact('hobbies'));
 
    
     }   
@@ -45,8 +47,15 @@ class HobbysController extends Controller
      */
     public function show($id)
     {
-        $website_hobbyse = Hobbys::find($id);
-        return view('pages.admin.Website_String.Hobbys.show', compact('website_hobbyse', 'id'));
+        //get specific categories and its translations
+        $hobbies = Hobbys::with('Hobbies')
+        ->selection()
+        ->find($id);
+            // return $hobbies;
+            if (!$hobbies)
+                return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
+
+        return view('pages.admin.Website_String.Hobbys.show', compact('hobbies', 'id'));
     }
 
     /**
@@ -70,11 +79,82 @@ class HobbysController extends Controller
     public function store(HobbysRequest $request)
     {
 
-        $add_user = new Hobbys([
-            'name'    =>  $request->get('name')
-        ]);
-        $add_user->save();
-        return redirect()->route('auth.dashboard.hobbys')->with('success', 'Data Added');
+        try {
+
+
+            //  veranderen van object(array) naar collection with deze regel
+            $hobbies = collect($request->hobby);
+            // return $hobbies;
+
+            /*
+            1 - ik haal alle talen
+            2- taal splitsen op de basis van de (defult language)
+            3 - slaa eerste de (defult languag op)
+            4 - slaa de rest van de talen op
+            translation_lang (ar -en-nl-uk) enz..
+            translation_of : de vertalen van de eeste toegoegd items
+            
+            Bijvoorbeeld : in de form voeg ik de foto daarna de name in bepalde taal 
+            en de tweede naam is de vertaling van de eerste naam.
+            */
+            $filter = $hobbies->filter(function ($value, $key) {
+                return $value['abbr'] == get_default_lang();
+            });
+
+            // veranderen van object naar array
+            $default_hobby = array_values($filter->all()) [0];
+
+
+            DB::beginTransaction(); 
+            
+            //Deze gemaakt omdat meer dan insert proces heb in hier
+            ### try {
+            ### DB::beginTransaction();
+            ### code hier
+            ### DB::commit();
+            ### } catch (\Exception $ex) {
+            ### DB::rollback();
+            ### }
+
+
+            $default_hobby_id = Hobbys::insertGetId([
+                'translation_lang' => $default_hobby['abbr'],
+                'translation_of' => 0,
+                'name' => $default_hobby['name'],
+                'slug' => $default_hobby['slug'],
+            ]);
+
+            $all_hobbies = $hobbies->filter(function ($value, $key) {
+                return $value['abbr'] != get_default_lang();
+            });
+
+
+            if (isset($all_hobbies) && $all_hobbies->count()) {
+
+                $hobbies_arr = [];
+                foreach ($all_hobbies as $hobby) {
+                    $hobbies_arr[] = [
+                        'translation_lang' => $hobby['abbr'],
+                        'translation_of' => $default_hobby_id,
+                        'name' => $hobby['name'],
+                        'slug' => $hobby['slug'],
+                    ];
+                }
+
+                Hobbys::insert($hobbies_arr);
+            }
+
+            DB::commit();
+
+            return redirect()->route('admin.hobbys.index')->with('success', 'Data Added');
+
+        } catch (\Exception $ex) {
+            return $ex;
+
+            DB::rollback();
+            return redirect()->route('admin.hobbys.index')->with('success', 'Something went wrong, please try again later');
+
+        }
     }
        
     /**
@@ -86,9 +166,15 @@ class HobbysController extends Controller
     public function edit($id)
     {
 
-    
-    $website_hobbys = Hobbys::find($id);
-    return view('pages.admin.Website_String.hobbys.Edit', compact('website_hobbys', 'id'));
+        //get specific categories and its translations
+        $hobbies = Hobbys::with('Hobbies')
+        ->selection()
+        ->find($id);
+        // return $hobbies;
+        if (!$hobbies)
+        return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
+
+        return view('pages.admin.Website_String.hobbys.Edit', compact('hobbies'));
     
 
     }    
@@ -101,11 +187,33 @@ class HobbysController extends Controller
      */
     public function update(HobbysRequest $request, $id)
     {
+        try {
+            $hobbies = Hobbys::find($id);
 
-        $hobbys = Hobbys::find($id);
-        $hobbys->name = $request->get('name');
-        $hobbys->save();
-        return redirect()->route('auth.dashboard.hobbys')->with('success', 'Data Updated');
+            if (!$hobbies)
+                return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
+            // update date
+
+            $hobby = array_values($request->hobby) [0];
+
+            if (!$request->has('hobby.0.active'))
+                $request->request->add(['active' => 0]);
+            else
+                $request->request->add(['active' => 1]);
+
+            Hobbys::where('id', $id)->update([
+                'name' => $hobby['name'],
+                'slug' => $hobby['slug'],
+                'active' => $request->active,
+            ]);
+
+            return redirect()->route('admin.hobbys.index')->with('success', 'Data Updated');
+
+        }catch(\Exception $ex) {
+            return $ex;
+            return redirect()->route('admin.hobbys.index')->with('success', 'Something went wrong, please try again later');
+
+        }
     }
     
     /**
@@ -117,18 +225,45 @@ class HobbysController extends Controller
      */
     public function destroy($id)
     {
-        
-        $watikdoe = Hobbys::find($id);
-        
-        if ($watikdoe != null) {
-        $watikdoe->delete();
-        return redirect()->route('auth.dashboard.hobbys')->with(['success'=> 'Successfully deleted!!']);
-        }else{
+        try {
 
-            return redirect()->route('auth.dashboard.hobbys')->with(['message'=> 'Wrong ID!!']);
+            $hobbies = Hobbys::find($id);
+
+            if (!$hobbies)
+            return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
+            // update date
+            
+           #Delet all translation of the hobbies
+           $hobbies -> Hobbies() -> delete();
+        
+           #delet hobby
+           $hobbies->delete();
+
+           return redirect()->route('admin.hobbys.index')->with(['success' => 'Data Deletd']);
+
+        }catch (\Exception $ex) {
+
+            return redirect()->route('admin.hobbys.index')->with('success', 'Something went wrong, please try again later');
 
         }
+    }
 
+    public function changeStatus($id)
+    {
+        try {
+            $maincategory = MainCategory::find($id);
+            if (!$maincategory)
+                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+
+           $status =  $maincategory -> active  == 0 ? 1 : 0;
+
+           $maincategory -> update(['active' =>$status ]);
+
+            return redirect()->route('admin.maincategories')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+
+        } catch (\Exception $ex) {
+            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
     }
    
 
