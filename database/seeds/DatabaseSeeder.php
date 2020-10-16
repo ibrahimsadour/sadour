@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProfileSeeder::class);
         $this->call(WatikdoeSeeder::class);
         $this->call(sociaalContactSeeder::class);
+        $this->call(LanguagesSeeder::class);
         
-
+        
     }
 }
