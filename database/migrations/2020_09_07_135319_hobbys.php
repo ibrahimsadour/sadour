@@ -16,9 +16,9 @@ class Hobbys extends Migration
         Schema::create('hobbys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('slug')->nullable();;
+            $table->string('slug')->nullable();
             $table->string('translation_lang');
-            $table->integer('translation_of')->unsigned();;
+            $table->integer('translation_of')->unsigned();
             $table->tinyInteger('active')
             ->comment('1 => show the product on the site, 0 => donot show the product on the site')->default('1');
             $table->timestamps();

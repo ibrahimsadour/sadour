@@ -12,7 +12,7 @@ class LanguagesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ervaring')->insert([
+        DB::table('languages')->insert([
             [
                 'abbr' => 'en',
                 'locale' => 'en',
