@@ -26,13 +26,16 @@ class ShowStringController extends Controller
    */
   public function show_string()
   {
+    $default_lang = get_default_lang();
+
     $website_strings = DB::select('select * from admin_informatie where id = ?', [1]);
 
-    $ervaring_strings = DB::select('select * from ervaring ');
+    $website_experience = Ervaring::where('translation_lang', $default_lang)
+    ->selection()
+    ->get();
 
     $website_watikdoe = DB::select('select * from wat_ik_doe ');
 
-    $default_lang = get_default_lang();
     $website_hobbys = Hobbys::where('translation_lang', $default_lang)
         ->selection()
         ->get();
@@ -42,7 +45,7 @@ class ShowStringController extends Controller
     return view('sadour',
     [
       'website_strings'=>$website_strings,
-      'ervaring_strings'=>$ervaring_strings,
+      'website_experience'=>$website_experience,
       'website_watikdoe'=>$website_watikdoe,
       'website_hobbys'=>$website_hobbys,
       'default_lang' =>$default_lang ,

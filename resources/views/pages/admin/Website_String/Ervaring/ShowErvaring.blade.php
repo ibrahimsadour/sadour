@@ -41,26 +41,55 @@ label {
 
                                    <div class="row">
                                             <div class="col-md-12" style="max-width: 50%;">
-                                            <div class="form-group">
-                                                <a href="{{route('auth.dashboard.ervaring')}}" class="btn btn-default pull-right breadcrumb-item "> <i class="	fa fa-angle-double-left"> Terug naar Alle Ervaring   </a></i> 
-                                            </div>
                                                 <div class="form-group">
-                                                <label for="name">company name</label>
-                                                <input type="text"  class="form-control view" value="{{$website_ervaring->company_name}}" placeholder="Enter name" disabled/>
+                                                    <button type="button" class="btn btn-primary"
+                                                            onclick="history.back();">
+                                                            <i class="fas fa-backward"></i> back
+                                                    </button>
                                                 </div>
+                                                <br>
                                                 <div class="form-group">
-                                                <label for="name">place</label>
-                                                <input type="text"  class="form-control view" value="{{$website_ervaring->place}}" placeholder="Enter description" disabled/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="name">period</label>
-                                                    <input type="text"  class="form-control view" value="{{$website_ervaring->period}}" placeholder="Enter keywords" disabled/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="name">Description</label>
-                                                    <textarea   class="form-control view"  value="{{$website_ervaring->description}}"  disabled rows="4" cols="50">{{$website_ervaring->description}}</textarea>
+                                                <label for="name">company name - {{__('messages.'.$experiences -> translation_lang)}} </label>
+                                                <input type="text"  class="form-control view" value="{{$experiences->company_name}}" placeholder="Enter name" disabled/>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label for="name">place - {{__('messages.'.$experiences -> translation_lang)}}</label>
+                                                    <input type="text"  class="form-control view" value="{{$experiences->place}}" placeholder="Enter description" disabled/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="name">period - {{__('messages.'.$experiences -> translation_lang)}}</label>
+                                                    <input type="text"  class="form-control view" value="{{$experiences->period}}" placeholder="Enter keywords" disabled/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="name">Description - {{__('messages.'.$experiences -> translation_lang)}} </label>
+                                                    <textarea   class="form-control view"  value="{{$experiences->description}}"  disabled rows="4" cols="50">{{$experiences->description}}</textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="projectinput1"> Slug - {{__('messages.'.$experiences -> translation_lang)}} </label>
+                                                    <input type="text" value="{{$experiences -> slug}}" id="name"
+                                                            class="form-control"
+                                                            disabled >
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="projectinput1"> Language abbreviation  {{__('messages.'.$experiences -> translation_lang)}} </label>
+                                                    <input type="text" id="abbr"
+                                                            class="form-control"
+                                                            placeholder="  "
+                                                            value="{{$experiences -> translation_lang}}"
+                                                            disabled >
+                                                </div>
+
+                                                <div class="form-group" >status {{__('messages.'.$experiences -> translation_lang)}} </div>
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="form-control" value="{{$experiences -> active}}" <?php if($experiences -> active == 1){echo"checked";} ?>  >
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
 
                                             </div>
                                     </div>

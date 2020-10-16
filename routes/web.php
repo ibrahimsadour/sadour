@@ -10,6 +10,7 @@ use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\Language\LanguagesController;
 use App\Http\Controllers\Localization\LocalizationController;
 use App\Http\Controllers\Hobbys\HobbysController;
+use App\Http\Controllers\Ervaring\ErvaringUsersController;
 
 /**
 *--------------------------------------------------------------------------
@@ -145,13 +146,21 @@ Route::group(['middleware' => 'Localization'], function () {
     *@todo customize the site user's experience information
     *@todo like (company_name, place, period, description)
     */
-        Route::resource('/auth/dashboard/ervaring','Ervaring\ErvaringUsersController')->names([
-            'create' => 'auth.dashboard.ervaing.create',
-            'edit' => 'auth.dashboard.ervaring.edit',
-            'index' =>'auth.dashboard.ervaring',
-            'show' =>'auth.dashboard.ervaring.show',
-            'destroy'=>'auth.dashboard.ervaring.delete'
-        ])->middleware('auth');
+
+    Route::group( [
+        'prefix' => '/auth/dashboard/experience', 
+        'middleware' => 'auth',
+    ],function() {
+        Route::get('',[ErvaringUsersController::class ,'index']) -> name('admin.experience.index');
+        Route::get('show/{id}',[ErvaringUsersController::class ,'show']) -> name('admin.experience.show');
+        Route::get('create',[ErvaringUsersController::class ,'create']) -> name('admin.experience.create');
+        Route::post('store',[ErvaringUsersController::class ,'store']) -> name('admin.experience.store');
+        Route::get('edit/{id}',[ErvaringUsersController::class ,'edit']) -> name('admin.experience.edit');
+        Route::post('update/{id}',[ErvaringUsersController::class ,'update']) -> name('admin.experience.update');
+        Route::get('delete/{id}',[ErvaringUsersController::class ,'destroy']) -> name('admin.experience.delete');
+        // //change Status the experience
+        Route::get('changeStatus/{id}',[ErvaringUsersController::class ,'changeStatus']) -> name('admin.experience.status');
+    });
     /* =================================================================================*/
 
 

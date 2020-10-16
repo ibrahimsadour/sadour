@@ -24,9 +24,11 @@ class ErvaringRequest  extends FormRequest
     public function rules()
     {
         return [
-            'company_name'    =>  'required',
-            'place'     =>  'required',
-            'period'     =>  'required'
+
+            'experience' => 'required|array|min:1',
+            'experience.*.company_name' => 'required',
+            'experience.*.place' => 'required',
+            'experience.*.period' => 'required',
         ];
     }
         

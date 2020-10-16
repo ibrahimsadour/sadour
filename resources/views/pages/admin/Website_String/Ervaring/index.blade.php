@@ -37,60 +37,73 @@
                                             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                                             <li class="breadcrumb-item"><a href="#"><span class="fas fa-home"></span></a></li>
                                             <li class="breadcrumb-item"><a href="#">Website String</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Hobbys</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Experience</li>
                                             </ol>
                                         </nav>
-                                        <p class="mb-0">Your  Hobbys dashboard template.</p>
+                                        <h2 class="h4">All Experience</h2>
+                                        <p class="mb-0">Your web Experience dashboard template.</p>
                                     </div>
                                     <div class="btn-toolbar mb-2 mb-md-0">
-                                    @role('Admin')
-                                    <div class="btn-group">
-                                        <form method="get" action="{{route('admin.hobbys.create')}}" style="margin-right: 10px;">
-                                            <button  class="btn btn-sm btn-outline-primary"> Add New Hobbies  <span class="icon icon-sm icon-gray"><i class="fas fa-plus"></i></span></button>
-                                        </form>
-                                        
-                                        <form method="get" action="{{route('Website')}}"  target="_blank">
-                                            <button  class="btn btn-sm btn-outline-primary" > Display all on the site  <span cl ass="icon icon-sm icon-gray"><i class="fas fa-eye mr-2"></i></span></button>
-                                        </form>
-                                    </div>
-                                    @endrole
+                                        @role('Admin')
+                                            <div class="btn-group">
+                                                <form method="get" action="{{route('admin.experience.create')}}"  style="margin-right: 10px;">
+                                                    <button  class="btn btn-sm btn-outline-primary"> Add Experience  <span class="icon icon-sm icon-gray"><i class="far fa-file"></i></span></button>
+                                                </form>
+
+                                                <form method="get" action="{{route('Website')}}"  target="_blank">
+                                                    <button  class="btn btn-sm btn-outline-primary" > Display all on the site  <span class="icon icon-sm icon-gray"><i class="fas fa-eye mr-2"></i></span></button>
+                                                </form>
+                                            </div>
+                                        @endrole
 
                                     </div>
                                 </div>
-                                
+
+
                                 <div class="card card-body border-light shadow-sm table-wrapper table-responsive pt-0">
                                 @if($message = Session::get('success'))
                                 <div class="alert alert-success">
-                                <p class="aanapssen">{{$message}}</p>
+                                <p  class="aanapssen" >{{$message}}</p>
                                 </div>
                                 @endif
-                                <table class="table table-hover"  id="myTable" style="border-color: #eaedf2;width:100%; margin-bottom: 10px;">
+                                <table class="table table-hover" id="myTable" style="border-color: #eaedf2;width:100%; margin-bottom: 10px;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name</th>
+                                            <th>company_name</th>
+                                            <th>Slug</th>
                                             <th>Language</th>						
+                                            <th>place</th>
+                                            <th>period</th>
+                                            <th>description</th>
                                             <th>Action</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <!-- Item -->
-                                        @isset($hobbies)
-                                            @foreach($hobbies as $row)
-                                                <tr>
+                                        @isset($experiences)
+                                            @foreach($experiences as $row)
+                                                <tr >
                                                     <td>
                                                         <a href="#" class="font-weight-bold">
                                                         {{$row['id']}}
                                                         </a>
                                                     </td>
-                                                    <td>
-                                                        <span class="font-weight-normal">{{$row['name']}}</span>
+                                                    <td >
+                                                        <span class="font-weight-normal" >{{$row['company_name']}}</span>
                                                     </td>
-                                                    <td>
-                                                        <span class="font-weight-normal">{{get_default_lang()}}</span>
+                                                    <td >
+                                                        <span class="font-weight-normal" >{{$row['slug']}}</span>
                                                     </td>
-                                                    <td>
+                                                    <td >
+                                                        <span class="font-weight-normal" >{{get_default_lang()}}</span>
+                                                    </td>
+                                                    <td><span class="font-weight-normal">{{$row['place']}}</span></td>                        
+                                                    <td><span class="font-weight-normal">{{$row['period']}}</span></td>
+                                                    <td class="red_more"><span class="font-weight-bold">{{$row['description']}}</span></td>
+
+                                                    <td >
                                                         <div class="btn-group">
                                                             <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="icon icon-sm">
@@ -99,21 +112,21 @@
                                                                 <span class="sr-only">Toggle Dropdown</span>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="{{route('admin.hobbys.show',$row -> id)}}"><span class="fas fa-eye mr-2"  style="color:#17a2b8;" ></span>View Details</a>
+                                                                <a class="dropdown-item" href="{{route('admin.experience.show',$row -> id)}}"><span class="fas fa-eye mr-2" style="color:#17a2b8;" ></span>View Details</a>
                                                                 @hasanyrole('Editor|Admin')
-                                                                <a class="dropdown-item" href="{{route('admin.hobbys.edit',$row -> id)}}"><span class="fas fa-edit mr-2" style="color:#007bff;"></span>Edit</a>
+                                                                <a class="dropdown-item" href="{{route('admin.experience.edit',$row -> id)}}"><span class="fas fa-edit mr-2" style="color:#007bff;"></span>Edit</a>
                                                                 @endhasanyrole
-
-                                                                @role('Admin')
-                                                                <a class="dropdown-item" href="{{route('admin.hobbys.delete',$row -> id)}}"><span class="fas fa-trash-alt mr-2" style="color:#dc3545;"></span>Remove</a>
                                                                 
+                                                                @role('Admin')
+                                                                    <a class="dropdown-item" href="{{route('admin.experience.delete',$row -> id)}}"><span class="fas fa-trash-alt mr-2" style="color:#dc3545;"></span>Remove</a>
+
                                                                     @if($row -> active == 0)
-                                                                        <a href="{{route('admin.hobbys.status',$row -> id)}}"
+                                                                        <a href="{{route('admin.experience.status',$row -> id)}}"
                                                                         class="dropdown-item"><span class="fas fa-toggle-on mr-2" style="color:#28a745;"></span> active</a>
                                                                             @else
-                                                                        <a href="{{route('admin.hobbys.status',$row -> id)}}"
+                                                                        <a href="{{route('admin.experience.status',$row -> id)}}"
                                                                         class="dropdown-item"><span class="fas fa-toggle-on mr-2" style="color:#ffc107;"></span> Deactivate</a>
-                                                                    @endif
+                                                                    @endif                                                        
                                                                 @endrole
                                                             </div>
                                                         </div>
@@ -124,12 +137,13 @@
                                                          @else  
                                                          <b style="color:#ffc107;">Inactive</b>
                                                         @endif
-                                                    </td>
-                                                </tr>
+                                                    </td>                                                </tr>
                                             @endforeach
                                         @endisset
                                     </tbody>
-                                </table>
+                                </table>    
+                            </div>
+
 
                                 <!--Setting-->
                                 <!-- resources/views/sections/setting.blade.php -->
