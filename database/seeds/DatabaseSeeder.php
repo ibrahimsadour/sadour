@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProfileSeeder::class);
         $this->call(WatikdoeSeeder::class);
         $this->call(sociaalContactSeeder::class);
-        $this->call(LanguageSeeder::class);
-        // $this->call(HobbysSeeder::class);
+        // $this->call(LanguageSeeder::class);
+        $this->call(HobbysSeeder::class);
         
         
     }
