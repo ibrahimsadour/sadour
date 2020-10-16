@@ -71,6 +71,7 @@
                                             <th>Name</th>
                                             <th>Language</th>						
                                             <th>Action</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,16 +99,31 @@
                                                                 <span class="sr-only">Toggle Dropdown</span>
                                                             </button>
                                                             <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="{{route('admin.hobbys.show',$row -> id)}}"><span class="fas fa-eye mr-2"></span>View Details</a>
+                                                                <a class="dropdown-item" href="{{route('admin.hobbys.show',$row -> id)}}"><span class="fas fa-eye mr-2"  style="color:#17a2b8;" ></span>View Details</a>
                                                                 @hasanyrole('Editor|Admin')
-                                                                <a class="dropdown-item" href="{{route('admin.hobbys.edit',$row -> id)}}"><span class="fas fa-edit mr-2"></span>Edit</a>
+                                                                <a class="dropdown-item" href="{{route('admin.hobbys.edit',$row -> id)}}"><span class="fas fa-edit mr-2" style="color:#007bff;"></span>Edit</a>
                                                                 @endhasanyrole
 
                                                                 @role('Admin')
-                                                                <a class="dropdown-item" href="{{route('admin.hobbys.delete',$row -> id)}}"><span class="fas fa-trash-alt mr-2"></span>Remove</a>
+                                                                <a class="dropdown-item" href="{{route('admin.hobbys.delete',$row -> id)}}"><span class="fas fa-trash-alt mr-2" style="color:#dc3545;"></span>Remove</a>
+                                                                
+                                                                    @if($row -> active == 0)
+                                                                        <a href="{{route('admin.hobbys.status',$row -> id)}}"
+                                                                        class="dropdown-item"><span class="fas fa-toggle-on mr-2" style="color:#28a745;"></span> active</a>
+                                                                            @else
+                                                                        <a href="{{route('admin.hobbys.status',$row -> id)}}"
+                                                                        class="dropdown-item"><span class="fas fa-toggle-on mr-2" style="color:#ffc107;"></span> Deactivate</a>
+                                                                    @endif
                                                                 @endrole
                                                             </div>
                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        @if($row ->active  == "1") 
+                                                         <b style="color:#28a745;">Active</b>
+                                                         @else  
+                                                         <b style="color:#ffc107;">Inactive</b>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             @endforeach

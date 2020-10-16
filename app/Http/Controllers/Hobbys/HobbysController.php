@@ -165,7 +165,6 @@ class HobbysController extends Controller
      */
     public function edit($id)
     {
-
         //get specific categories and its translations
         $hobbies = Hobbys::with('Hobbies')
         ->selection()
@@ -250,18 +249,18 @@ class HobbysController extends Controller
     public function changeStatus($id)
     {
         try {
-            $maincategory = MainCategory::find($id);
-            if (!$maincategory)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+            $hobbies = Hobbys::find($id);
+            if (!$hobbies)
+                return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);
 
-           $status =  $maincategory -> active  == 0 ? 1 : 0;
+           $status =  $hobbies -> active  == 0 ? 1 : 0;
 
-           $maincategory -> update(['active' =>$status ]);
+           $hobbies -> update(['active' =>$status ]);
 
-            return redirect()->route('admin.maincategories')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('admin.hobbys.index')->with(['success' => 'Status changed successfully']);
 
         } catch (\Exception $ex) {
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.hobbys.index')->with(['error' => 'Something went wrong, please try again later']);
         }
     }
    
