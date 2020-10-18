@@ -27,7 +27,7 @@
                 <ul class="nav mdl-navigation mdl-layout--large-screen-only">
                     <li><a class="mdl-navigation__link" data-scroll href="#body">@lang('site.about')</a></li>
                     <li><a class="mdl-navigation__link" data-scroll href="#skills_sec">@lang('site.skills')</a></li>
-                    <!-- <li><a class="mdl-navigation__link" data-scroll href="#portfolio_sec">portefeuille</a></li> -->
+                    <li><a class="mdl-navigation__link" data-scroll href="#services_sec">@lang('site.services')</a></li>
                     <li><a class="mdl-navigation__link" data-scroll href="#experience_sec">@lang('site.experience')</a></li>
                     <li><a class="mdl-navigation__link" data-scroll href="#education_sec">@lang('site.education')</a></li>
                     <li><a class="mdl-navigation__link" data-scroll href="#projecten_sec">@lang('site.projects')</a></li>

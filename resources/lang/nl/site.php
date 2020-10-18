@@ -15,6 +15,7 @@ return [
     'about' => 'Over',
     'skills' => 'vaardigheden',
     'experience' => 'ervaring',
+    'services' => 'Diensten',
     'education' => 'Opleiding',
     'projects' => 'Projecten',
     'contact' => 'contact',

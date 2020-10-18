@@ -1,98 +1,59 @@
 <!--Skills Sec-->
-
 <section id="skills_sec" class="skills-sec sec-pad-top-sm">
+    <h2 class="mb-30">@lang('site.skills')</h2>
     <div class="row">
-        <h2 class="mb-30" style="text-align: center;">@lang('site.skills')</h2>
-        <div class="col-sm-6 mb-30">
-
-            <div class="mdl-card mdl-shadow--2dp">
-                <div class="mb-30">
-                    <span class="progress-cat">PHP</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap green-bar">
-                                <span data-width="75"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>	
-                <div class="mb-30">
-                    <span class="progress-cat">HTML</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap green-bar">
-                                <span data-width="90"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
-                <div class="mb-30">
-                    <span class="progress-cat">CSS</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap green-bar">
-                                <span data-width="90"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
-
-                <div class="mb-30">
-                    <span class="progress-cat">JAVA SCRIPT</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap red-bar">
-                                <span data-width="20"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-blue">
+                <i class=""></i>
+                <span>PHP</span>
             </div>
         </div>
-        <div class="col-sm-6 mb-30">
 
-                <div class="mdl-card mdl-shadow--2dp">
-                <div class="mb-30">
-                    <span class="progress-cat">Communicatie</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap blue-bar">
-                                <span data-width="80"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>	
-                <div class="mb-30">
-                    <span class="progress-cat">Wordpress</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap green-bar">
-                                <span data-width="84"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
-                <div class="mb-30">
-                    <span class="progress-cat">SEO</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap green-bar">
-                                <span data-width="80"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
-                
-                <div class="mb-30">
-                    <span class="progress-cat">Photoshop</span>
-                    <div class="progress-bar-graph"> 
-                        <div class="progress-bar-wrap">
-                            <div class="bar-wrap red-bar">
-                                <span data-width="25"></span>
-                            </div>
-                        </div>	
-                    </div>
-                </div>
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-green">
+                <i class=""></i>
+                <span>HTML</span>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-blue">
+                <i class=""></i>
+                <span>CSS</span>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-green">
+                <i class=""></i>
+                <span>JAVA SCRIPT</span>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-blue">
+                <i class=""></i>
+                <span>Communicatie</span>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-green">
+                <i class=""></i>
+                <span>Wordpress</span>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-blue">
+                <i class=""></i>
+                <span>SEO</span>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
+            <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-green">
+                <i class=""></i>
+                <span>Photoshop</span>
             </div>
         </div>
     </div>

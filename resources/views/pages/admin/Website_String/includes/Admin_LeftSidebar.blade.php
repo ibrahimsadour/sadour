@@ -42,7 +42,7 @@
                   <li class="{{ Request::is('auth/dashboard/admin') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Admin information </span></a></li>
                   <li class="{{ Request::is('auth/dashboard/ervaring') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.experience.index')}}"><span class="far fa-file-alt">  Experience </span></a></li>
                   <li class="{{ Request::is('auth/dashboard/opleiding') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Education </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/watikdoe') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"><span class="	fa fa-american-sign-language-interpreting"> What I do</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/services') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.services.index')}}"><span class="	fa fa-american-sign-language-interpreting"> Services</span></a></li>
                   <li class="{{ Request::is('auth/dashboard/hobbys') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.hobbys.index')}}"><span class="fa fa-cubes"> Hobbies</span></a></li>
                   <li class="{{ Request::is('auth/dashboard/sociaal_contact') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Social contact</span></a></li>
               </ul>

@@ -16,6 +16,7 @@ return [
     'about' => 'About',
     'skills' => 'Skills',
     'experience' => 'Experience',
+    'services' => 'Services',
     'education' => 'education',
     'projects' => 'projects',
     'contact' => 'contact',

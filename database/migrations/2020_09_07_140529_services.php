@@ -16,7 +16,12 @@ class WatIkDoe extends Migration
         Schema::create('wat_ik_doe', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('titel');
+            $table->string('slug')->nullable();
             $table->string('description');
+            $table->string('translation_lang')->nullable();
+            $table->integer('translation_of')->unsigned();
+            $table->tinyInteger('active')
+            ->comment('1 => show the product on the site, 0 => donot show the product on the site')->default('1');
             $table->timestamps();
         });
     }

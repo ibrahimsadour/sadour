@@ -248,7 +248,7 @@ class HobbysController extends Controller
 
     public function changeStatus($id)
     {
-        try {
+        try {   
             $hobbies = Hobbys::find($id);
             if (!$hobbies)
                 return redirect()->route('admin.hobbys.index')->with(['error' => 'This section does not exist ']);

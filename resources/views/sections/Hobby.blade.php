@@ -2,23 +2,13 @@
 <section id="interest_sec" class="interest-sec sec-pad-top-sm">
     <h2 class="mb-30">@lang('site.Hobbies')</h2>
     <div class="row">
-
         @foreach($website_hobbys as $hobbys)
-            @if($hobbys ->name)
-                <div class="col-md-2 col-sm-4 col-xs-6 mb-30">
-                    <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30">
-                        <i class="zmdi zmdi-radio"></i>
-                        <span>{{$hobbys ->name}}</span>
-                    </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 mb-30">
+                <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-green">
+                    <i class="zmdi zmdi-radio"></i>
+                    <span>{{$hobbys ->name}}</span>
                 </div>
-           @else
-                <div class="col-md-2 col-sm-4 col-xs-6 mb-30">
-                    <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30">
-                        <i class="zmdi zmdi-radio"></i>
-                        <span>No date</span>
-                    </div>
-                </div>
-            @endif
+            </div>
         @endforeach 	
     </div>
 </section>

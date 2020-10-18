@@ -11,6 +11,7 @@ use App\Http\Controllers\Language\LanguagesController;
 use App\Http\Controllers\Localization\LocalizationController;
 use App\Http\Controllers\Hobbys\HobbysController;
 use App\Http\Controllers\Ervaring\ErvaringUsersController;
+use App\Http\Controllers\Services\ServicesController;
 
 /**
 *--------------------------------------------------------------------------
@@ -146,7 +147,6 @@ Route::group(['middleware' => 'Localization'], function () {
     *@todo customize the site user's experience information
     *@todo like (company_name, place, period, description)
     */
-
     Route::group( [
         'prefix' => '/auth/dashboard/experience', 
         'middleware' => 'auth',
@@ -271,19 +271,26 @@ Route::group(['middleware' => 'Localization'], function () {
 
     /** 
     *--------------------------------------------------------------------------
-    * watikdoe Routes
+    * services Routes
     *--------------------------------------------------------------------------
     *@todo this Route was made by Ibrahim sadour
     *@todo modify the site user's what I do information
     *@todo such as (title, description)
     */
-    Route::resource('/auth/dashboard/watikdoe','WatIkDoe\WatIkDoeController')->names([
-        'create' => 'auth.dashboard.watikdoe.create',
-        'edit' => 'auth.dashboard.watikdoe.edit',
-        'show' =>'auth.dashboard.watikdoe.show',
-        'index' =>'auth.dashboard.watikdoe'
-
-    ])->middleware('auth');
+    Route::group( [
+        'prefix' => '/auth/dashboard/services', 
+        'middleware' => 'auth',
+    ],function() {
+        Route::get('',[ServicesController::class ,'index']) -> name('admin.services.index');
+        Route::get('show/{id}',[ServicesController::class ,'show']) -> name('admin.services.show');
+        Route::get('create',[ServicesController::class ,'create']) -> name('admin.services.create');
+        Route::post('store',[ServicesController::class ,'store']) -> name('admin.services.store');
+        Route::get('edit/{id}',[ServicesController::class ,'edit']) -> name('admin.services.edit');
+        Route::post('update/{id}',[ServicesController::class ,'update']) -> name('admin.services.update');
+        Route::get('delete/{id}',[ServicesController::class ,'destroy']) -> name('admin.services.delete');
+        // //change Status the services
+        Route::get('changeStatus/{id}',[ServicesController::class ,'changeStatus']) -> name('admin.services.status');
+    });
     // =================================================================================
 
 

@@ -9,6 +9,7 @@ Use App\User;
 Use App\Models\Ervaring;
 Use App\Models\Contact;
 Use App\Models\Hobbys;
+Use App\Models\Services;
 Use App\Models\Sociaal_Contact;
 
 class ShowStringController extends Controller
@@ -34,7 +35,9 @@ class ShowStringController extends Controller
     ->selection()
     ->get();
 
-    $website_watikdoe = DB::select('select * from wat_ik_doe ');
+    $website_services = Services::where('translation_lang', $default_lang)
+    ->selection()
+    ->get();
 
     $website_hobbys = Hobbys::where('translation_lang', $default_lang)
         ->selection()
@@ -46,7 +49,7 @@ class ShowStringController extends Controller
     [
       'website_strings'=>$website_strings,
       'website_experience'=>$website_experience,
-      'website_watikdoe'=>$website_watikdoe,
+      'website_services'=>$website_services,
       'website_hobbys'=>$website_hobbys,
       'default_lang' =>$default_lang ,
       'website_sociaal_contact'=>$website_sociaal_contact

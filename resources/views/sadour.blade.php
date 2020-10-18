@@ -31,7 +31,7 @@
             <!--/Skills Sec-->
             
             <!--Profile Sec-->
-            @include('sections.Profile')
+            @include('sections.services')
             <!--/Profile Sec-->
             
         

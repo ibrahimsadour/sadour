@@ -1,26 +1,45 @@
 <?php
 #################################################################################
-// Deze bestaand is gemaakt door Ibrahim Sadour 06-10-2020
-// hier wordt een bepalde methode gemaakt 
-// deze methode kan ik in de heel website gebruiken.
+/**
+ * @todo This file was created by Ibrahim Sadour 06-10-2020
+ * @todo here a defined method is created
+ * @todo I can use this method throughout the website.
+ */
 ##################################################################################
 
 use Illuminate\Support\Facades\Config;
 
 
-// deze om te Select all active languages
-// Selection() deze is scope (gemaakt in de Languages models) 
-// active() deze een globaal scope om een active Languages te laat zien with Methode(where('active',1)) 
+
+/**
+ * get_languages
+ *@todo this to Select all active languages
+ * @todo Selection () this is scope (created in the Languages models)
+ * @todo active () this a global scope to display an active Languages with Method (where ('active', 1))
+ * @return void
+ */
 function get_languages(){
 
     return \App\Models\Language::active() -> Selection() -> get();
 }
-// deze method pakket de huidig taal
+
+/**
+ * get_default_lang
+ * @todo this method package the current language
+ * @return void
+ */
 function get_default_lang(){
   return   Config::get('app.locale');
 }
 
-// deze method gemaakt voor het insert van de images
+
+/**
+ * uploadImage
+ * @todo made this method for inserting the images
+ * @param  mixed $folder
+ * @param  mixed $image
+ * @return void
+ */
 function uploadImage($folder, $image)
 {
     $image->store('/', $folder);
@@ -31,6 +50,13 @@ function uploadImage($folder, $image)
 
 
 
+/**
+ * uploadVideo
+ * @todo made this method for inserting the video
+ * @param  mixed $folder
+ * @param  mixed $video
+ * @return void
+ */
 function uploadVideo($folder, $video)
 {
     $video->store('/', $folder);
@@ -39,5 +65,8 @@ function uploadVideo($folder, $video)
     return $path;
 }
 
-
-define('PAGINATION_COUNT',10); // PAGINATION_COUNT : een vast variabel  om alleen 10 items te laat zien om de pagina
+/**
+ * define
+ * @todo  PAGINATION_COUNT: a fixed variable to show only 10 items around the page
+ */
+define('PAGINATION_COUNT',10); 
