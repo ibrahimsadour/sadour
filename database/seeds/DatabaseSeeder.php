@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OpleidingSeeder::class);
         $this->call(ErvaringSeeder::class);
         $this->call(ProfileSeeder::class);
-        $this->call(WatikdoeSeeder::class);
+        $this->call(ServiceSeeder::class);
         $this->call(sociaalContactSeeder::class);
         // $this->call(LanguageSeeder::class);
         $this->call(HobbysSeeder::class);
