@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(sociaalContactSeeder::class);
         // $this->call(LanguageSeeder::class);
         $this->call(HobbysSeeder::class);
-        $this->call(ServiceSeeder::class);
+        // $this->call(ServiceSeeder::class);
         
     }
 }
