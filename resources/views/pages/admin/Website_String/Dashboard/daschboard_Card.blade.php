@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{ \App\Models\Watikdoe::all()->count() }} </span>
+                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{ \App\Models\Services::all()->count() }} </span>
                                 <span class="text-nowrap">Number of services</span>
                             </p>
                         </div>
