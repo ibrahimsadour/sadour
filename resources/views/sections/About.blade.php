@@ -2,16 +2,16 @@
 <section class="about-sec mt-180 mt-sm-120  mb-30">
     <div class="row">
         <div class="col-lg-12">
-            <div class="mdl-card mdl-shadow--2dp">
-                <div class="row">
+            <div class="mdl-card mdl-shadow--2dp border-top-blue">
+                <div class="row ">
                     <div class="col-md-5 col-xs-12 mb-30">
-                        <div class="candidate-img mb-35"></div>
+                        <div class="candidate-img mb-35 border-top-blue" ></div>
                         <!--Sociaal_Contact-->
                         <!-- resources/views/sections/Sociaal_Contact.blade.php -->
                         @include('sections.Sociaal_Contact')
                         <!--/Sociaal_Contact-->
                     </div>
-                    <div class="col-md-7 col-xs-12">
+                    <div class="col-md-7 col-xs-12 ">
                         <div class="info-wrap">
                             <h1>@foreach($website_strings as $strings){{$strings ->name}}@endforeach</h1>
                             <h5 class="mt-20 font-grey">{{$strings ->function}}</h5>
@@ -20,7 +20,7 @@
                                 <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect bg-blue font-white " href="#contact_sec" data-scroll>contact <i class="zmdi zmdi-whatsapp "></i></a>
                             </div>
                         </div>
-                        <ul class="profile-wrap mt-50">
+                        <ul class="profile-wrap mt-50 ">
                             <li >
                                 <div class="profile-title">@lang('site.age')</div>
                                 <div class="profile-desc"><?php $curent_year= date("Y"); $year=1995; echo $curent_year - $year; ?></div>

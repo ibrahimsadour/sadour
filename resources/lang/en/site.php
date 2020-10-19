@@ -20,6 +20,12 @@ return [
     'education' => 'education',
     'projects' => 'projects',
     'contact' => 'contact',
+    //contact form
+    'contact_title' => 'Hey Sir, habby to hear from you.',
+    'contact_name' => 'Name',
+    'contact_email' => 'Email',
+    'contact_messege' => 'Message',
+    // End
     'Hobbies' => "Hobbies",
     'my partners' => "my partners",
     'age' => 'Age',

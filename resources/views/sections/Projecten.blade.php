@@ -27,7 +27,7 @@
         <div class="portfolio-wrap project-gallery">
             <ul id="portfolio" class="portf auto-construct  project-gallery" data-col="3">
 
-                <li  class="item mdl-card mdl-shadow--2dp pa-0 branding">
+                <li  class="item mdl-card mdl-shadow--2dp pa-0 branding border-top-blue">
                     <div class="light-img-wrap mdl-card__title pa-0">
                         <img class="img-responsive" src="img/projecten/sadourtaxi.jpg"  alt="Image description" />
                         <div class="light-img-overlay"></div>
@@ -39,7 +39,7 @@
                     </span>
                 </li>
 
-                <li class="item mdl-card mdl-shadow--2dp pa-0  photography">
+                <li class="item mdl-card mdl-shadow--2dp pa-0  photography border-top-blue">
                     <div class="light-img-wrap mdl-card__title pa-0">
                         <img class="img-responsive" src="img/projecten/sadour.jpg"  alt="Image description" />
                         <div class="light-img-overlay"></div>
@@ -51,7 +51,7 @@
                     </span>
                 </li>
 
-                <li class="item mdl-card mdl-shadow--2dp pa-0 design">
+                <li class="item mdl-card mdl-shadow--2dp pa-0 design border-top-blue">
                     <div class="light-img-wrap mdl-card__title pa-0">
                         <img class="img-responsive" src="img/projecten/carservice.jpg"  alt="Image description" />
                         <div class="light-img-overlay"></div>
@@ -73,6 +73,10 @@
                 </video>
             </div>
         </div>
+        <span class="bottom-links mdl-card__actions" style="text-align: center;color: #2879ff;">
+            <a href="/categorys" target="_blank" style="color: #2879ff;">See more..</a>
+        </span>
     </div>
+    
 </section>
 <!--/Portfolio Sec-->

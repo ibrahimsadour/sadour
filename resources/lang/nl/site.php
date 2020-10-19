@@ -19,6 +19,12 @@ return [
     'education' => 'Opleiding',
     'projects' => 'Projecten',
     'contact' => 'contact',
+    //contact form
+    'contact_title' => 'Hey Meneer, blij om van je te horen..',
+    'contact_name' => 'Naam',
+    'contact_email' => 'Email',
+    'contact_messege' => 'Bericht',
+    // End
     'Hobbies' => "Hobby's'",
     'my partners' => "mijn partners",
     'age' => 'Leeftijd',

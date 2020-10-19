@@ -51,14 +51,14 @@
         <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
             <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-blue">
                 <img class="" src="img/my partners/Photoshop.png" alt="Girl in a jacket" width="200px" height="90px">
-                <span class="skils">SEO</span>
+                <span class="skils">Photoshop</span>
             </div>
         </div>
         
         <div class="col-md-3 col-sm-4 col-xs-6 mb-30">
             <div class="mdl-card mdl-shadow--2dp text-center pa-20 pt-30 pb-30 border-top-green">
                 <img class="" src="img/my partners/seo.png" alt="Girl in a jacket" width="200px" height="90px">
-                <span class="skils">Photoshop</span>
+                <span class="skils">SEO</span>
             </div>
         </div>
     </div>
