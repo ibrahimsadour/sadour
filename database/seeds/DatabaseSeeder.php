@@ -21,9 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call(ErvaringSeeder::class);
         $this->call(ProfileSeeder::class);
         $this->call(sociaalContactSeeder::class);
-        // $this->call(LanguageSeeder::class);
         $this->call(HobbysSeeder::class);
         // $this->call(ServiceSeeder::class);
+        // $this->call(LanguageSeeder::class);
+
         
     }
 }
