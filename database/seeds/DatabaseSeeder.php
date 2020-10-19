@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+// use database\seeds\ServiceSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,11 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(OpleidingSeeder::class);
         $this->call(ErvaringSeeder::class);
         $this->call(ProfileSeeder::class);
-        $this->call(ServiceSeeder::class);
         $this->call(sociaalContactSeeder::class);
         // $this->call(LanguageSeeder::class);
         $this->call(HobbysSeeder::class);
-        
+        $this->call(ServiceSeeder::class);
         
     }
 }
