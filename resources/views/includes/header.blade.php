@@ -55,8 +55,8 @@
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                     data-mdl-for="demo-menu-lower-right_language">
 
-                    <li class="mdl-menu__item"><a href="lang/en"><img style="width: 25%;padding-right: 5px;"src="{{asset('img/flag/united-states.png')}}" alt="En" />EN</a></li>
-                    <li class="mdl-menu__item"><a href="lang/nl"><img style="width: 23%;padding-right: 5px;"src="{{asset('img/flag/netherlands-flag.png')}}" alt="En" />NL</a></li>
+                    <li class="mdl-menu__item"><a href="{{route('localization','en')}}"><img style="width: 25%;padding-right: 5px;"src="{{asset('img/flag/united-states.png')}}" alt="En" />EN</a></li>
+                    <li class="mdl-menu__item"><a href="{{route('localization','nl')}}"><img style="width: 23%;padding-right: 5px;"src="{{asset('img/flag/netherlands-flag.png')}}" alt="En" />NL</a></li>
                     <!-- <li class="mdl-menu__item"><a href="#">AR</a></li> -->
                     
                 </ul>

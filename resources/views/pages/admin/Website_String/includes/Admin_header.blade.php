@@ -44,8 +44,8 @@
 
                     </a>
                     <div class="dropdown-menu dashboard-dropdown dropdown-menu-right mt-2">
-                    <a class="dropdown-item font-weight-bold" href="lang/en"><img style="width: 18%;padding-right: 5px;"src="{{asset('img/flag/united-states.png')}}" alt="En" />EN</a>
-                    <a class="dropdown-item font-weight-bold" href="lang/nl"><img style="width: 15%;padding-right: 5px;"src="{{asset('img/flag/netherlands-flag.png')}}" alt="En" />NL</a>
+                    <a class="dropdown-item font-weight-bold" href="{{route('localization','en')}}"><img style="width: 18%;padding-right: 5px;"src="{{asset('img/flag/united-states.png')}}" alt="En" />EN</a>
+                    <a class="dropdown-item font-weight-bold" href="{{route('localization','nl')}}"><img style="width: 15%;padding-right: 5px;"src="{{asset('img/flag/netherlands-flag.png')}}" alt="En" />NL</a>
                 </li>
             <li class="nav-item dropdown">
                 <a class="nav-link text-dark mr-lg-3 icon-notifications" data-unread-notifications="true" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

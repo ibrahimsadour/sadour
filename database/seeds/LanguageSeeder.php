@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 Use App\Models\Language;
 use Illuminate\Support\Facades\DB;
-class LanguagesSeeder extends Seeder
+class LanguageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
