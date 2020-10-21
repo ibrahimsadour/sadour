@@ -200,7 +200,7 @@ class AuthController extends Controller
       }
     } catch (\Exception $ex) {
       DB::rollback();
-      return redirect()->view('auth.login')->with('error', 'Something went wrong, please try again later');
+      return view('auth.login')->with('error', 'Something went wrong, please try again later');
 
     }
 
