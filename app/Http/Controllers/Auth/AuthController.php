@@ -157,28 +157,29 @@ class AuthController extends Controller
    * @return \Illuminate\Http\Response
    */
   public function handleProviderCallback($provider)
+
   {
+    try {
       if($provider == 'google'){
         $user = Socialite::driver($provider)->stateless()->user();
       }else{
         $user = Socialite::driver($provider)->user();
       }
 
-
-    /**
-     * If a user has registered before using social auth, return the user
-     * else, create a new user object.
-     * @param  $user Socialite user object
-     * @param $provider Social auth provider
-     * @return  User
-    */
+      /**
+       * If a user has registered before using social auth, return the user
+       * else, create a new user object.
+       * @param  $user Socialite user object
+       * @param $provider Social auth provider
+       * @return  User
+      */
       $findUser= User::where('email',$user->getEmail())->first();
 
       if($findUser){
         
         Auth::login($findUser);
         return redirect()->intended('/auth/dashboard');
-  
+
       }else{ //if the user not exist => we need to make new user
 
         //add new user to database
@@ -196,8 +197,12 @@ class AuthController extends Controller
           Auth::login($newUser);
           return redirect()->intended('/auth/dashboard');
         }
-
       }
+    } catch (\Exception $ex) {
+      DB::rollback();
+      return redirect()->view('auth.login')->with('error', 'Something went wrong, please try again later');
+
+    }
 
   }
    
