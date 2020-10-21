@@ -100,6 +100,12 @@ Route::group( [
     // Route name: auth.logout
     Route::get('/logout', [AuthController::class, 'logout'])->name('.logout');
 
+
+    //login with socialite
+    Route::get('/login/{service}', [AuthController::class, 'redirectToProvider'])->where('service','twitter|facebook|linkedin|google|github');
+
+    Route::get('/login/callback/{service}', [AuthController::class, 'handleProviderCallback'])->where('service','twitter|facebook|linkedin|google|github');
+
 });
  /*=================================================================================*/
 

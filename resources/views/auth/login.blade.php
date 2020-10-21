@@ -65,9 +65,12 @@
                             <button class="btn btn-icon-only btn-pill btn-outline-light text-facebook mr-2" type="button" aria-label="facebook button" title="facebook button">
                                 <span aria-hidden="true" class="fab fa-facebook-f"></span>
                             </button>
-                            <button class="btn btn-icon-only btn-pill btn-outline-light text-twitter mr-2" type="button" aria-label="twitter button" title="twitter button">
-                                <span aria-hidden="true" class="fab fa-twitter"></span>
-                            </button>
+                            <a class="btn btn-icon-only btn-pill btn-outline-light text-facebook mr-2" href="{{url('auth/login/linkedin')}}" aria-label="linkedin button" title="google button">
+                                <span aria-hidden="true" class="fab fa-linkedin" style="position: relative;top: 8px;"></span>
+                            </a>
+                            <a class="btn btn-icon-only btn-pill btn-outline-light text-google mr-2" href="{{url('auth/login/google')}}" aria-label="google button" title="google button">
+                                <span aria-hidden="true" class="fab fa-google" style="position: relative;top: 8px;"></span>
+                            </a>
                             <button class="btn btn-icon-only btn-pill btn-outline-light text-facebook" type="button" aria-label="github button" title="github button">
                                 <span aria-hidden="true" class="fab fa-github"></span>
                             </button>
