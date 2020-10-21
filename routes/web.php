@@ -102,9 +102,9 @@ Route::group( [
 
 
     //login with socialite
-    Route::get('/login/{service}', [AuthController::class, 'redirectToProvider'])->where('service','twitter|facebook|linkedin|google|github');
+    Route::get('/login/{provider}', [AuthController::class, 'redirectToProvider'])->where('provider','twitter|facebook|linkedin|google|github');
 
-    Route::get('/login/callback/{service}', [AuthController::class, 'handleProviderCallback'])->where('service','twitter|facebook|linkedin|google|github');
+    Route::get('/login/callback/{provider}', [AuthController::class, 'handleProviderCallback'])->where('provider','twitter|facebook|linkedin|google|github');
 
 });
  /*=================================================================================*/

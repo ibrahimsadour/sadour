@@ -145,49 +145,61 @@ class AuthController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function redirectToProvider($service)
+  public function redirectToProvider($provider)
   {
-      return Socialite::driver($service)->redirect();
+      return Socialite::driver($provider)->redirect();
   }
+
 
   /**
    * Obtain the user information from Google.
    *
    * @return \Illuminate\Http\Response
    */
-  public function handleProviderCallback($service)
+  public function handleProviderCallback($provider)
   {
-      // if($service == 'twitter'){
-
-      //   $user = Socialite::driver($service)->user();
-
-      // }else{
-        return $user = Socialite::driver($service)->stateless()->user();
-
-      // }
-      // $findUser= User::where('email',$user->getEmail())->first();
-
-      // if($findUser) {
-
-      //   Auth::login($findUser);
-
-      // }else{
-
-      //   $newUser = new User;
-      //   $newUser ->email = $user->getEmail();;
-      //   $newUser ->name = $user->name;;
-      //   $newUser ->password = Hash::make('12345');
-      //   $newUser ->save;
-      //   Auth::login($newUser);
+      if($provider == 'google'){
+        $user = Socialite::driver($provider)->stateless()->user();
+      }else{
+        $user = Socialite::driver($provider)->user();
+      }
 
 
-      // }
+    /**
+     * If a user has registered before using social auth, return the user
+     * else, create a new user object.
+     * @param  $user Socialite user object
+     * @param $provider Social auth provider
+     * @return  User
+    */
+      $findUser= User::where('email',$user->getEmail())->first();
 
-      // return $user->token;
-      // return $user->name;
-      // return $user->getEmail();
+      if($findUser){
+        
+        Auth::login($findUser);
+        return redirect()->intended('/auth/dashboard');
+  
+      }else{ //if the user not exist => we need to make new user
+
+        //add new user to database
+        $newUser = new User([
+          'email' => $user->getEmail(),
+          'name' => $user->getName(),
+          'provider'=>$provider,
+          'provider_id' => $user->id,
+          'lang' =>get_default_lang(),
+          'password' => Hash::make('12345') //or bcrypt();
+        ]);
+
+        if($newUser->save()){ //check if the crated or not
+          // login the user
+          Auth::login($newUser);
+          return redirect()->intended('/auth/dashboard');
+        }
+
+      }
+
   }
-
-    
+   
 }
 ?>

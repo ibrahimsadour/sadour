@@ -62,18 +62,18 @@
                             <span class="font-weight-normal">or login with</span>
                         </div>
                         <div class="btn-wrapper my-4 text-center">
-                            <button class="btn btn-icon-only btn-pill btn-outline-light text-facebook mr-2" type="button" aria-label="facebook button" title="facebook button">
-                                <span aria-hidden="true" class="fab fa-facebook-f"></span>
-                            </button>
+                            <a class="btn btn-icon-only btn-pill btn-outline-light text-facebook mr-2" href="{{url('auth/login/facebook')}}" aria-label="facebook button" title="facebook button">
+                                <span aria-hidden="true" class="fab fa-facebook-f" style="position: relative;top: 8px;"></span>
+                            </a>
                             <a class="btn btn-icon-only btn-pill btn-outline-light text-facebook mr-2" href="{{url('auth/login/linkedin')}}" aria-label="linkedin button" title="google button">
                                 <span aria-hidden="true" class="fab fa-linkedin" style="position: relative;top: 8px;"></span>
                             </a>
                             <a class="btn btn-icon-only btn-pill btn-outline-light text-google mr-2" href="{{url('auth/login/google')}}" aria-label="google button" title="google button">
                                 <span aria-hidden="true" class="fab fa-google" style="position: relative;top: 8px;"></span>
                             </a>
-                            <button class="btn btn-icon-only btn-pill btn-outline-light text-facebook" type="button" aria-label="github button" title="github button">
-                                <span aria-hidden="true" class="fab fa-github"></span>
-                            </button>
+                            <a class="btn btn-icon-only btn-pill btn-outline-light text-github" href="{{url('auth/login/github')}}"   aria-label="github button" title="github button">
+                                <span aria-hidden="true" class="fab fa-github" style="position: relative;top: 8px;"></span>
+                            </a>
                         </div>
                         <div class="d-flex justify-content-center align-items-center mt-4">
                             <span class="font-weight-normal">

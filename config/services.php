@@ -38,7 +38,13 @@ return [
     'facebook' => [
         'client_id' => env('FB_CLIENT_ID'),
         'client_secret' => env('FB_CLIENT_SECRET'),
-        'redirect' => 'http://localhost:8000/auth/login/callback/facebook',
+        'redirect' => 'https://sadour.nl/auth/login/callback/facebook',
     ],
+    'linkedin' => [
+        'client_id' => '77gvql509ro51i',
+        'client_secret' => 'Qnw1gUR0j3YsvsQu',
+        'redirect' => 'https://sadour.nl/auth/login/callback/linkedin',
+    ],
+    
 
 ];
