@@ -30,9 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://localhost:8000/auth/login/callback/google',
+        'client_id' => '928571224000-up51omoik6ngp6lrefnrlrpsahlav9b8.apps.googleusercontent.com',
+        'client_secret' => 'blTRwmepYn_VgtFbKb5I3z50',
+        'redirect' => 'https://sadour.nl/auth/login/callback/google',
     ],
 
     'facebook' => [
