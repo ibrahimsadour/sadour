@@ -56,6 +56,11 @@
                                     @endif
                                 </div>
                             </div>
+                            @if($message = Session::get('success'))
+                                <div class="alert alert-danger">
+                                <p class="aanapssen">{{$message}}</p>
+                                </div>
+                            @endif
                             <button type="submit" class="btn btn-block btn-primary">Sign in</button>
                         </form>
                         <div class="mt-3 mb-4 text-center">

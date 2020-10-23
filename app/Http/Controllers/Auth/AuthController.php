@@ -159,7 +159,7 @@ class AuthController extends Controller
   public function handleProviderCallback($provider)
 
   {
-    try {
+    // try {
       if($provider == 'google'){
         $user = Socialite::driver($provider)->stateless()->user();
       }else{
@@ -198,11 +198,11 @@ class AuthController extends Controller
           return redirect()->intended('/auth/dashboard');
         }
       }
-    } catch (\Exception $ex) {
-      DB::rollback();
-      return view('auth.login')->with('error', 'Something went wrong, please try again later');
+    // } catch (\Exception $ex) {
+    //   DB::rollback();
+    //   return view('auth.login')->with('error', 'Something went wrong, please try again later');
 
-    }
+    // }
 
   }
    
