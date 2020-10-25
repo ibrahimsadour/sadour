@@ -161,9 +161,15 @@ class AuthController extends Controller
   {
     // try {
       if($provider == 'google'){
+
         $user = Socialite::driver($provider)->stateless()->user();
+        $userEmail  = $user->email;
+        $userName = explode("@", $userEmail);
+        $name=$userName[0];
+
       }else{
         $user = Socialite::driver($provider)->user();
+        $name = $user->getName();
       }
 
       /**
@@ -173,7 +179,7 @@ class AuthController extends Controller
        * @param $provider Social auth provider
        * @return  User
       */
-      $findUser= User::where('email',$user->getEmail())->first();
+      $findUser= User::where('provider_id',$user->id)->first();
 
       if($findUser){
         
@@ -185,7 +191,7 @@ class AuthController extends Controller
         //add new user to database
         $newUser = new User([
           'email' => $user->getEmail(),
-          'name' => $user->getName(),
+          'name' => $name,
           'provider'=>$provider,
           'provider_id' => $user->id,
           'lang' =>get_default_lang(),

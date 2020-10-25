@@ -1,3 +1,11 @@
+<style>
+
+    .card-stats{
+        width: 280px;
+        height: 225px;
+    }
+
+</style>
 <!-- Dashboard -->
 <div class="header bg-primary pb-6" style="border-radius: 0.5rem;" >
     <div class="container-fluid">
