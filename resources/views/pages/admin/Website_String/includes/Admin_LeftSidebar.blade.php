@@ -26,24 +26,24 @@
         <li class="{{ Request::is('auth/dashboard/languages') ? 'nav-item active' : '' }}">
           <a href="{{route('admin.languages')}}" class="nav-link">
               <span class="sidebar-icon"><span class="fas fa-globe"></span></span>
-              <span>Site languages</span>
+              <span>@lang('admin.site languages')</span>
           </a>
         </li>
         <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-pages">
             <span>
               <span class="sidebar-icon"><span class="far fa-file-alt"></span></span> 
-              Website String
+              @lang('admin.website string')
             </span>
             <span class="link-arrow"><span class="fas fa-chevron-right"></span></span> 
           </span>
           <div class="multi-level collapse " role="list" id="submenu-pages" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="{{ Request::is('auth/dashboard/admin') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user">  Admin information </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/ervaring') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.experience.index')}}"><span class="far fa-file-alt">  Experience </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/opleiding') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  Education </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/services') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.services.index')}}"><span class="	fa fa-american-sign-language-interpreting"> Services</span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/hobbys') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.hobbys.index')}}"><span class="fa fa-cubes"> Hobbies</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/admin') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}"><span class="fas fa-user"> @lang('admin.admin information')</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/ervaring') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.experience.index')}}"><span class="far fa-file-alt">  @lang('admin.experience') </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/opleiding') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}"><span class="fas fa-graduation-cap">  @lang('admin.education') </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/services') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.services.index')}}"><span class="	fa fa-american-sign-language-interpreting"> @lang('admin.services')</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/hobbys') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('admin.hobbys.index')}}"><span class="fa fa-cubes"> @lang('admin.Hobbies')</span></a></li>
                   <li class="{{ Request::is('auth/dashboard/sociaal_contact') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/sociaal_contact')}}"><span class="fa fa-globe "> Social contact</span></a></li>
               </ul>
           </div>
@@ -59,15 +59,15 @@
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-Settings">
             <span>
               <span class="sidebar-icon"><span class="fa fa-users"></span></span> 
-              User Management
+              @lang('admin.User Management')
             </span>
             <span class="link-arrow"><span class="fas fa-chevron-right"></span></span> 
           </span>
           <div class="multi-level collapse" role="list" id="submenu-Settings" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="{{ Request::is('auth/dashboard/users') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.users')}}"><span class="fa fa-users">  All Users </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/roles') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.roles')}}"><span class="fa fa-briefcase">     Roles </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/permission') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.permission')}}"><span class="fa fa-cog">   Permissions </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/users') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.users')}}"><span class="fa fa-users"> @lang('admin.All Users') </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/roles') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.roles')}}"><span class="fa fa-briefcase"> @lang('admin.Roles') </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/permission') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{route('auth.dashboard.permission')}}"><span class="fa fa-cog">   @lang('admin.Permissions') </span></a></li>
               </ul>
           </div>
         </li>
@@ -75,13 +75,13 @@
         <li class="{{ Request::is('auth/dashboard/profile') ? 'nav-item active' : '' }}">
           <a href="{{url('/auth/dashboard/profile')}}" class="nav-link">
               <span class="sidebar-icon"><span class="far fa-user-circle"></span></span>
-              <span>My Profile</span>
+              <span>@lang('admin.My Profile')</span>
           </a>
         </li>
         <li class="{{ Request::is('auth/dashboard/calendar') ? 'nav-item active' : '' }}">
           <a href="{{URL('/auth/dashboard/calendar')}}" class="nav-link">
               <span class="sidebar-icon"><span class="fas fa-calendar-alt"></span></span>
-              <span>Calendar</span>
+              <span>@lang('admin.Calendar')</span>
           </a>
         </li>
  
@@ -89,14 +89,14 @@
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#submenu-Projects">
             <span>
               <span class="sidebar-icon"><span class="fab fa-r-project"></span></span> 
-              Projects
+              @lang('admin.projects')
             </span>
             <span class="link-arrow"><span class="fas fa-chevron-right"></span></span> 
           </span>
           <div class="multi-level collapse " role="list" id="submenu-Projects" aria-expanded="false">
               <ul class="flex-column nav">
-                  <li class="{{ Request::is('auth/dashboard/projects') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/projects')}}"><span class="fa fa-users">  All Projects </span></a></li>
-                  <li class="{{ Request::is('auth/dashboard/category') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/category')}}"><span class="fa fa-briefcase">  Category </span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/projects') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/projects')}}"><span class="fa fa-users">  @lang('admin.All Projects')</span></a></li>
+                  <li class="{{ Request::is('auth/dashboard/category') ? 'nav-item active' : '' }}"><a class="nav-link" href="{{url('/auth/dashboard/category')}}"><span class="fa fa-briefcase">  @lang('admin.Category') </span></a></li>
               </ul>
           </div>
         </li>
@@ -164,7 +164,7 @@
         <li class="nav-item">
           <a href="{{url('categorys')}}" target="_blank" class="nav-link d-flex align-items-center">
             <span class="sidebar-icon"><span class="fas fa-book"></span></span>
-            <span>Quick Start</span>
+            <span>@lang('admin.Quick Start')</span>
           </a>
         </li>
         <!-- <li class="nav-item">

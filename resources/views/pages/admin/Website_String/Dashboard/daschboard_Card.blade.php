@@ -20,8 +20,8 @@
                 </nav>
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                <a href="{{URL('/auth/dashboard/calendar/allevent')}}" class="btn btn-sm btn-neutral">All Event <span class="fas fa-calendar-alt"> </span> </a>
-                <a href="{{URL('/auth/dashboard/calendar')}}" class="btn btn-sm btn-neutral">Calendar <span class="fas fa-calendar-plus"></span></a>
+                <a href="{{URL('/auth/dashboard/calendar/allevent')}}" class="btn btn-sm btn-neutral">@lang('admin.All Event')<span class="fas fa-calendar-alt"> </span> </a>
+                <a href="{{URL('/auth/dashboard/calendar')}}" class="btn btn-sm btn-neutral">@lang('admin.Calendar') <span class="fas fa-calendar-plus"></span></a>
                 </div>
             </div>
             <!-- Card stats -->
@@ -33,7 +33,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}">    Admin information  </h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/admin')}}">@lang('admin.admin information') </h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -44,7 +44,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\User::all()->count() }}</span>
-                                <span class="text-nowrap">Number of user in the sites</span>
+                                <span class="text-nowrap">@lang('admin.Number of user in the sites')</span>
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}">    Experience  </h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/ervaring')}}">    @lang('admin.experience')  </h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -67,7 +67,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Ervaring::all()->count() }}</span>
-                                <span class="text-nowrap">Number of Experience</span>
+                                <span class="text-nowrap">@lang('admin.Number of Experience')</span>
                             </p>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}">    Education  </h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/opleiding')}}">    @lang('admin.education')  </h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -89,7 +89,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Opleiding::all()->count() }}</span>
-                                <span class="text-nowrap"> Number of Training</span>
+                                <span class="text-nowrap"> @lang('admin.Number of Training')</span>
                             </p>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"> What I do</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/watikdoe')}}"> @lang('admin.services')</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -111,7 +111,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{ \App\Models\Services::all()->count() }} </span>
-                                <span class="text-nowrap">Number of services</span>
+                                <span class="text-nowrap">@lang('admin.Number of services')</span>
                             </p>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Hobbys::all()->count() }}</span>
-                                <span class="text-nowrap">Number of hobbies</span>
+                                <span class="text-nowrap">@lang('admin.Number of hobbies')</span>
                             </p>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Contact::all()->count() }}</span>
-                                <span class="text-nowrap">Number of messages </span>
+                                <span class="text-nowrap">@lang('admin.Number of messages') </span>
                             </p>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"> User Management</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/setting')}}"> @lang('admin.User Management')</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -177,7 +177,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">Customize Roles / New User</span>
+                                <span class="text-success mr-2">@lang('admin.Customize Roles / New User')</span>
                             </p>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/profile')}}">My Profile</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/profile')}}">@lang('admin.My Profile')</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -199,7 +199,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">Here you can modify your profile</span>
+                                <span class="text-success mr-2">@lang('admin.Here you can modify your profile')</span>
 
                             </p>
                         </div>
@@ -215,7 +215,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/projects')}}"> Projects</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/projects')}}"> @lang('admin.projects')</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -225,7 +225,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{ \App\Models\Projects::all()->count() }}</span>
-                                <span class="text-nowrap">Number of projects</span>
+                                <span class="text-nowrap">@lang('admin.Number of projects')</span>
                             </p>
                         </div>
                     </div>
@@ -247,7 +247,7 @@
                             </div>
                             <p class="mt-3 mb-0 text-sm">
                                 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{ \App\Models\Sociaal_Contact::all()->count() }}</span>
-                                <span class="text-nowrap">Number of platform </span>
+                                <span class="text-nowrap">@lang('admin.Number of platform')</span>
                             </p>
                         </div>
                     </div>
@@ -259,7 +259,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/calendar')}}">Calendar</h5></a>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a class="nav-link" href="{{url('/auth/dashboard/calendar')}}">@lang('admin.Calendar')</h5></a>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -268,7 +268,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">add new event</span>
+                                <span class="text-success mr-2">@lang('admin.add new event')</span>
                             </p>
                         </div>
                     </div>
@@ -290,7 +290,7 @@
                                 </div>
                             </div>
                             <p class="mt-3 mb-0 text-sm">
-                                <span class="text-success mr-2">Comming soon</span>
+                                <span class="text-success mr-2">@lang('admin.Comming soon')</span>
 
                             </p>
                         </div>
