@@ -1,7 +1,6 @@
 <style>
 
     .card-stats{
-        width: 280px;
         height: 225px;
     }
 
