@@ -256,7 +256,7 @@
                                                     @method('post')
                                                        <div class="d-flex" style="">
                                                                 <span class="icon icon-md"><span class="fas fa-paperclip mr-3"></span></span>
-                                                                <input type="file"  name="avatar" >
+                                                                <input type="file"  name="avatar" required >
                                                                     <div class="d-md-block text-left">
                                                                         <div class="font-weight-normal text-dark mb-1">Choose Image</div>
                                                                         <div class="text-gray small">JPG, GIF or PNG. Max size of 800K</div>
